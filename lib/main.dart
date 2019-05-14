@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:sale_form_demo/data/form_images.dart';
+import 'package:sale_form_demo/data/form_texts.dart';
+import 'package:sale_form_demo/utils/app_color.dart';
 
 void main() => runApp(MyApp());
 
@@ -25,14 +28,36 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container()
+      body: Container(
+        constraints: new BoxConstraints.expand(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+        ),
+        decoration: BoxDecoration(
+          image: new DecorationImage(
+            image: new AssetImage("images/Background.png"),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Row(
+              children: <Widget>[
 
-      ,
+                Image.asset(logoUrl, width: 100,),
+                Text('Company ', style: TextStyle(color: colorBlue, fontSize: 30, fontWeight: FontWeight.w500),),
+                Text('Name ', style: TextStyle(color: colorGreen, fontSize: 30, fontWeight: FontWeight.w500),),
+              ],
+            ),
+            Text(intro, style: TextStyle(color: colorBlue, fontWeight: FontWeight.w700),),
+          ],
+        ),
+      ),
     );
   }
 }
