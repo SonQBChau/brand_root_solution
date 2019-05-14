@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sale_form_demo/screens/MyHomePage.dart';
+import 'package:sale_form_demo/screens/customer_info_page.dart';
+import 'package:sale_form_demo/screens/my_home_page.dart';
 
 
 void main() => runApp(MyApp());
@@ -13,7 +14,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+//      home: MyHomePage(),
+    home: CustomerInfoPage(),
     );
   }
 }

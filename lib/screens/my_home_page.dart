@@ -54,12 +54,12 @@ class CompanyName extends StatelessWidget {
       child: Row(
         children: <Widget>[
           Text(
-            'Company ',
+            company,
             style: TextStyle(
                 color: colorBlue, fontSize: 35, fontWeight: FontWeight.w500),
           ),
           Text(
-            'Name ',
+            'NAME ',
             style: TextStyle(
                 color: colorGreen, fontSize: 35, fontWeight: FontWeight.w500),
           ),
