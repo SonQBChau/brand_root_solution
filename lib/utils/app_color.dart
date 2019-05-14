@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 final Color colorGreen = HexColor('#8DC441');
 final Color colorBlue = HexColor('#004963');
+final Color colorBlue80 = HexColor('#CC004963');
 final Color colorOrange = HexColor('#F5941E');
 final Color colorGrey = HexColor('#A19C96');
 

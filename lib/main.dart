@@ -54,7 +54,7 @@ class MyHomePage extends StatelessWidget {
                 Text('Name ', style: TextStyle(color: colorGreen, fontSize: 30, fontWeight: FontWeight.w500),),
               ],
             ),
-            Text(intro, style: TextStyle(color: colorBlue, fontWeight: FontWeight.w700),),
+            Text(intro, style: TextStyle(color: colorBlue80, fontWeight: FontWeight.w700),),
           ],
         ),
       ),
