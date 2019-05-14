@@ -43,20 +43,63 @@ class MyHomePage extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Row(
-              children: <Widget>[
-
-                Image.asset(logoUrl, width: 100,),
-                Text('Company ', style: TextStyle(color: colorBlue, fontSize: 30, fontWeight: FontWeight.w500),),
-                Text('Name ', style: TextStyle(color: colorGreen, fontSize: 30, fontWeight: FontWeight.w500),),
-              ],
-            ),
-            Text(intro, style: TextStyle(color: colorBlue80, fontWeight: FontWeight.w700),),
-          ],
+        child: Center(
+          child: Stack(
+            children: <Widget>[
+              CompanyLogo(),
+              CompanyName(),
+              IntroText(),
+            ],
+          ),
         ),
+      ),
+    );
+  }
+}
+
+class CompanyLogo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(left: 20),
+        child: Image.asset(
+      logoUrl,
+      width: 100,
+    ));
+  }
+}
+
+class CompanyName extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 80,top:40),
+      child: Row(
+        children: <Widget>[
+          Text(
+            'Company ',
+            style: TextStyle(
+                color: colorBlue, fontSize: 30, fontWeight: FontWeight.w500),
+          ),
+          Text(
+            'Name ',
+            style: TextStyle(
+                color: colorGreen, fontSize: 30, fontWeight: FontWeight.w500),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class IntroText extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 100,right: 40, top:100),
+      child: Text(
+        intro,
+        style: TextStyle(color: colorBlue80, fontWeight: FontWeight.w700),
       ),
     );
   }
