@@ -6,7 +6,6 @@ class CustomerInfoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: Container(
         decoration: BoxDecoration(color: colorGrey10),
         child: ListView(
@@ -29,7 +28,7 @@ class CustomerInfoPage extends StatelessWidget {
     formWidget.add(RepresentativeHeadderWidget());
     formWidget.add(EmailRepresentativeWidget());
     formWidget.add(LaunchWidget());
-    formWidget.add(SizedBox(height:30));
+    formWidget.add(SizedBox(height: 30));
 
     return formWidget;
   }
@@ -45,11 +44,7 @@ class CustomerHeaderWidget extends StatelessWidget {
       child: Text(
         'CUSTOMER INFORMATION',
         style: TextStyle(
-            color: colorBlue,
-            fontWeight: FontWeight.bold,
-            fontSize: 12),
-
-
+            color: colorBlue, fontWeight: FontWeight.bold, fontSize: 12),
       ),
     );
   }
@@ -270,7 +265,7 @@ class IndustryWidget extends StatelessWidget {
             height: 10,
           ),
           Container(
-            padding: EdgeInsets.only(left: 10,top: 6,right: 6,bottom: 6),
+            padding: EdgeInsets.only(left: 10, top: 6, right: 6, bottom: 6),
             decoration: BoxDecoration(
               color: Colors.white,
               boxShadow: [
@@ -347,7 +342,7 @@ class PositionWidget extends StatelessWidget {
             height: 10,
           ),
           Container(
-            padding: EdgeInsets.only(left: 10,top: 6,right: 6,bottom: 6),
+            padding: EdgeInsets.only(left: 10, top: 6, right: 6, bottom: 6),
             decoration: BoxDecoration(
               color: Colors.white,
               boxShadow: [
@@ -392,7 +387,6 @@ class PositionWidget extends StatelessWidget {
   }
 }
 
-
 class ReasonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -423,7 +417,7 @@ class ReasonWidget extends StatelessWidget {
             child: TextFormField(
               decoration: InputDecoration(
                 contentPadding:
-                EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                    EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: colorGrey20),
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
@@ -432,7 +426,8 @@ class ReasonWidget extends StatelessWidget {
                   borderSide: BorderSide(color: Colors.blue),
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
                 ),
-                hintText: 'Contacted through website, interested in better understanding asset managerment investments',
+                hintText:
+                    'Contacted through website, interested in better understanding asset managerment investments',
                 hintStyle: TextStyle(
                     color: colorGrey,
                     fontWeight: FontWeight.w600,
@@ -443,7 +438,9 @@ class ReasonWidget extends StatelessWidget {
               maxLines: 3,
             ),
           ),
-          SizedBox(height: 20,),
+          SizedBox(
+            height: 20,
+          ),
         ],
       ),
     );
@@ -458,18 +455,13 @@ class RepresentativeHeadderWidget extends StatelessWidget {
       height: 40,
       color: colorGrey20,
       child: Text(
-          '$company REPRESENTATIVE',
-          style: TextStyle(
-            color: colorBlue,
-              fontWeight: FontWeight.bold,
-              fontSize: 12),
-
-
+        '$company REPRESENTATIVE',
+        style: TextStyle(
+            color: colorBlue, fontWeight: FontWeight.bold, fontSize: 12),
       ),
     );
   }
 }
-
 
 class EmailRepresentativeWidget extends StatelessWidget {
   @override
@@ -501,7 +493,7 @@ class EmailRepresentativeWidget extends StatelessWidget {
             child: TextFormField(
               decoration: InputDecoration(
                 contentPadding:
-                EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                    EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: colorGrey20),
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
@@ -533,13 +525,28 @@ class LaunchWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left:20,right:40, top: 10),
-      child: RaisedButton(
+      padding: EdgeInsets.only(left: 20, right: 40, top: 20),
+      child: Container(
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: colorGrey,
+              blurRadius: 3.0, // has the effect of softening the shadow
+              spreadRadius: 1.0, // has the effect of extending the shadow
+            )
+          ],
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: FlatButton(
           child: Text('LAUNCH'),
+          materialTapTargetSize: MaterialTapTargetSize
+              .shrinkWrap, // remove unwanted extra top and bottom padding
           textColor: Colors.white,
           color: colorBlue,
-          shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(10)),
-          onPressed: (){},
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          onPressed: () {},
+        ),
       ),
     );
   }
