@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:sale_form_demo/data/form_texts.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 
 class CustomerInfoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'CUSTOMER INFORMATION',
-          style: TextStyle(color: colorBlue, fontSize: 18),
-        ),
-        backgroundColor: colorGrey20,
-      ),
+
       body: Container(
         decoration: BoxDecoration(color: colorGrey10),
         child: ListView(
@@ -24,14 +19,38 @@ class CustomerInfoPage extends StatelessWidget {
   List<Widget> _buildFormWidgets() {
     List<Widget> formWidget = new List();
 
+    formWidget.add(CustomerHeaderWidget());
     formWidget.add(ClientNameWidget());
     formWidget.add(CompanyNameWidget());
     formWidget.add(EmailWidget());
     formWidget.add(IndustryWidget());
     formWidget.add(PositionWidget());
     formWidget.add(ReasonWidget());
+    formWidget.add(RepresentativeHeadderWidget());
+    formWidget.add(EmailRepresentativeWidget());
+    formWidget.add(SizedBox(height:30));
 
     return formWidget;
+  }
+}
+
+class CustomerHeaderWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(left: 20, top: 12),
+      height: 40,
+      color: colorGrey20,
+      child: Text(
+        'CUSTOMER INFORMATION',
+        style: TextStyle(
+            color: colorBlue,
+            fontWeight: FontWeight.bold,
+            fontSize: 14),
+
+
+      ),
+    );
   }
 }
 
@@ -412,7 +431,7 @@ class ReasonWidget extends StatelessWidget {
                   borderSide: BorderSide(color: Colors.blue),
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
                 ),
-                hintText: 'Contaced through website, interested in better understanding asset managerment investments',
+                hintText: 'Contacted through website, interested in better understanding asset managerment investments',
                 hintStyle: TextStyle(
                     color: colorGrey,
                     fontWeight: FontWeight.w600,
@@ -423,11 +442,85 @@ class ReasonWidget extends StatelessWidget {
               maxLines: 3,
             ),
           ),
+          SizedBox(height: 20,),
+        ],
+      ),
+    );
+  }
+}
+
+class RepresentativeHeadderWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(left: 20, top: 12),
+      height: 40,
+      color: colorGrey20,
+      child: Text(
+          '$company REPRESENTATIVE',
+          style: TextStyle(
+            color: colorBlue,
+              fontWeight: FontWeight.bold,
+              fontSize: 14),
+
+
+      ),
+    );
+  }
+}
+
+
+class EmailRepresentativeWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 20, right: 40, top: 20, bottom: 0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            'EMAIL',
+            style: TextStyle(
+                color: colorGrey, fontWeight: FontWeight.bold, fontSize: 16),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Container(
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: colorGrey20,
+                  blurRadius: 2.0, // has the effect of softening the shadow
+                  spreadRadius: 1.0, // has the effect of extending the shadow
+                )
+              ],
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: TextFormField(
+              decoration: InputDecoration(
+                contentPadding:
+                EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: colorGrey20),
+                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue),
+                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                ),
+                hintText: 'solutionengineer@$company.com'.toLowerCase(),
+                hintStyle: TextStyle(
+                    color: colorGrey,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 14),
+                fillColor: Colors.white,
+                filled: true,
+              ),
+            ),
+          ),
           SizedBox(
             height: 5,
-          ),
-          Divider(
-            height: 30,
           ),
         ],
       ),
