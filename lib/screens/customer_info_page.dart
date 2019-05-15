@@ -82,8 +82,12 @@ class ClientNameWidget extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 5,),
-          Divider(height: 30,),
+          SizedBox(
+            height: 5,
+          ),
+          Divider(
+            height: 30,
+          ),
         ],
       ),
     );
@@ -139,8 +143,12 @@ class CompanyNameWidget extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 5,),
-          Divider(height: 30,),
+          SizedBox(
+            height: 5,
+          ),
+          Divider(
+            height: 30,
+          ),
         ],
       ),
     );
@@ -177,7 +185,7 @@ class EmailWidget extends StatelessWidget {
             child: TextFormField(
               decoration: InputDecoration(
                 contentPadding:
-                EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                    EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: colorGrey20),
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
@@ -196,8 +204,12 @@ class EmailWidget extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 5,),
-          Divider(height: 30,),
+          SizedBox(
+            height: 5,
+          ),
+          Divider(
+            height: 30,
+          ),
         ],
       ),
     );
@@ -205,7 +217,6 @@ class EmailWidget extends StatelessWidget {
 }
 
 class IndustryWidget extends StatelessWidget {
-
   List<DropdownMenuItem<int>> industryList = [
     DropdownMenuItem(
       child: new Text('Refining'),
@@ -219,9 +230,7 @@ class IndustryWidget extends StatelessWidget {
       child: new Text('Oiling'),
       value: 0,
     ),
-
   ];
-
 
   @override
   Widget build(BuildContext context) {
@@ -239,25 +248,45 @@ class IndustryWidget extends StatelessWidget {
             height: 10,
           ),
           Container(
+            padding: EdgeInsets.only(left: 10,top: 6,right: 6,bottom: 6),
             decoration: BoxDecoration(
+              color: Colors.white,
               boxShadow: [
                 BoxShadow(
                   color: colorGrey20,
                   blurRadius: 2.0, // has the effect of softening the shadow
-                  spreadRadius: 1.0, // has the effect of extending the shadow
+                  spreadRadius: 2.0, // has the effect of extending the shadow
                 )
               ],
               borderRadius: BorderRadius.circular(10),
             ),
-            child: DropdownButton(
-                hint: new Text('Select Industry'),
-                items: industryList,
-                onChanged: (value){
-                  print(value);
-                }),
+            child: DropdownButtonHideUnderline(
+              child: DropdownButton(
+                  hint: Text(
+                    'Select Industry',
+                    style: TextStyle(
+                        color: colorGrey,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 14),
+                  ),
+                  items: industryList,
+                  isDense: true,
+                  isExpanded: true,
+                  style: TextStyle(
+                      color: colorGrey,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14),
+                  onChanged: (value) {
+                    print(value);
+                  }),
+            ),
           ),
-          SizedBox(height: 5,),
-          Divider(height: 30,),
+          SizedBox(
+            height: 5,
+          ),
+          Divider(
+            height: 30,
+          ),
         ],
       ),
     );
