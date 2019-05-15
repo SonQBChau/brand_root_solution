@@ -28,6 +28,7 @@ class CustomerInfoPage extends StatelessWidget {
     formWidget.add(ReasonWidget());
     formWidget.add(RepresentativeHeadderWidget());
     formWidget.add(EmailRepresentativeWidget());
+    formWidget.add(LaunchWidget());
     formWidget.add(SizedBox(height:30));
 
     return formWidget;
@@ -38,7 +39,7 @@ class CustomerHeaderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 20, top: 12),
+      padding: EdgeInsets.only(left: 20, top: 13),
       height: 40,
       color: colorGrey20,
       child: Text(
@@ -46,7 +47,7 @@ class CustomerHeaderWidget extends StatelessWidget {
         style: TextStyle(
             color: colorBlue,
             fontWeight: FontWeight.bold,
-            fontSize: 14),
+            fontSize: 12),
 
 
       ),
@@ -453,7 +454,7 @@ class RepresentativeHeadderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 20, top: 12),
+      padding: EdgeInsets.only(left: 20, top: 13),
       height: 40,
       color: colorGrey20,
       child: Text(
@@ -461,7 +462,7 @@ class RepresentativeHeadderWidget extends StatelessWidget {
           style: TextStyle(
             color: colorBlue,
               fontWeight: FontWeight.bold,
-              fontSize: 14),
+              fontSize: 12),
 
 
       ),
@@ -523,6 +524,22 @@ class EmailRepresentativeWidget extends StatelessWidget {
             height: 5,
           ),
         ],
+      ),
+    );
+  }
+}
+
+class LaunchWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(left:20,right:40, top: 10),
+      child: RaisedButton(
+          child: Text('LAUNCH'),
+          textColor: Colors.white,
+          color: colorBlue,
+          shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(10)),
+          onPressed: (){},
       ),
     );
   }
