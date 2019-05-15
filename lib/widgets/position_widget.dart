@@ -37,13 +37,7 @@ class PositionWidget extends StatelessWidget {
             padding: EdgeInsets.only(left: 10, top: 6, right: 6, bottom: 6),
             decoration: BoxDecoration(
               color: Colors.white,
-              boxShadow: [
-                BoxShadow(
-                  color: colorGrey20,
-                  blurRadius: 2.0, // has the effect of softening the shadow
-                  spreadRadius: 2.0, // has the effect of extending the shadow
-                )
-              ],
+              border: Border.all(color: colorGrey20, width: 0.5),
               borderRadius: BorderRadius.circular(10),
             ),
             child: DropdownButtonHideUnderline(
