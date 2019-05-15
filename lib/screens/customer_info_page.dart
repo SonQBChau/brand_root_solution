@@ -2,14 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:sale_form_demo/data/form_texts.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 
-class CustomerInfoPage extends StatelessWidget {
+class CustomerInfoPage extends StatefulWidget {
+  @override
+  _CustomerInfoPageState createState() => _CustomerInfoPageState();
+}
+
+class _CustomerInfoPageState extends State<CustomerInfoPage> {
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(color: colorGrey10),
-        child: ListView(
-          children: _buildFormWidgets(),
+        child: Form(
+          key: _formKey,
+          child: ListView(
+            children: _buildFormWidgets(),
+          ),
         ),
       ),
     );
@@ -530,8 +540,8 @@ class LaunchWidget extends StatelessWidget {
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-              color: colorGrey,
-              blurRadius: 3.0, // has the effect of softening the shadow
+              color: Colors.blueGrey,
+              blurRadius: 2.0, // has the effect of softening the shadow
               spreadRadius: 1.0, // has the effect of extending the shadow
             )
           ],
@@ -545,9 +555,12 @@ class LaunchWidget extends StatelessWidget {
           color: colorBlue,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          onPressed: () {},
+          onPressed: onPressedSubmit,
         ),
       ),
     );
+  }
+
+  void onPressedSubmit() {
   }
 }
