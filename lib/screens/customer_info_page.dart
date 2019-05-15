@@ -6,7 +6,10 @@ class CustomerInfoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('CUSTOMER INFORMATION', style: TextStyle(color: colorBlue, fontSize: 18),),
+        title: Text(
+          'CUSTOMER INFORMATION',
+          style: TextStyle(color: colorBlue, fontSize: 18),
+        ),
         backgroundColor: colorGrey20,
       ),
       body: Container(
@@ -24,7 +27,6 @@ class CustomerInfoPage extends StatelessWidget {
     formWidget.add(ClientName());
     formWidget.add(CompanyName());
 
-
     return formWidget;
   }
 }
@@ -33,11 +35,18 @@ class ClientName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 20, right: 40, top: 20, bottom: 20),
+      padding: const EdgeInsets.only(left: 20, right: 40, top: 20, bottom: 0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text('NAME', style: TextStyle(color: colorGrey, fontWeight: FontWeight.bold),),
+          Text(
+            'NAME',
+            style: TextStyle(
+                color: colorGrey, fontWeight: FontWeight.bold, fontSize: 16),
+          ),
+          SizedBox(
+            height: 10,
+          ),
           Container(
             decoration: BoxDecoration(
               boxShadow: [
@@ -51,22 +60,28 @@ class ClientName extends StatelessWidget {
             ),
             child: TextFormField(
               decoration: InputDecoration(
-                enabledBorder:  OutlineInputBorder(
-                  borderSide:  BorderSide(color: colorGrey20),
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: colorGrey20),
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
                 ),
-                focusedBorder:  OutlineInputBorder(
-                  borderSide:  BorderSide(color: Colors.blue),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue),
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                ) ,
-
-                  hintText: 'Client Name',
+                ),
+                hintText: 'Client Name',
+                hintStyle: TextStyle(
+                    color: colorGrey,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 14),
                 fillColor: Colors.white,
                 filled: true,
-
               ),
             ),
           ),
+          SizedBox(height: 5,),
+          Divider(height: 30,),
         ],
       ),
     );
@@ -77,26 +92,53 @@ class CompanyName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 20, right: 40, top: 20, bottom: 20),
+      padding: const EdgeInsets.only(left: 20, right: 40, top: 0, bottom: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text('COMPANY', style: TextStyle(color: colorGrey, fontWeight: FontWeight.bold),),
-          TextFormField(
-            decoration: InputDecoration(
-              border: OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: Colors.grey,
-                  width: 0.5,
+          Text(
+            'COMPANY',
+            style: TextStyle(
+                color: colorGrey, fontWeight: FontWeight.bold, fontSize: 16),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Container(
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: colorGrey20,
+                  blurRadius: 2.0, // has the effect of softening the shadow
+                  spreadRadius: 1.0, // has the effect of extending the shadow
+                )
+              ],
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: TextFormField(
+              decoration: InputDecoration(
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: colorGrey20),
+                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
                 ),
-                borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                gapPadding: 4,
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue),
+                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                ),
+                hintText: 'Company Name',
+                hintStyle: TextStyle(
+                    color: colorGrey,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 14),
+                fillColor: Colors.white,
+                filled: true,
               ),
-              hintText: 'Company Name',
-              fillColor: Colors.white,
-              filled: true,
             ),
           ),
+          SizedBox(height: 5,),
+          Divider(height: 30,),
         ],
       ),
     );
