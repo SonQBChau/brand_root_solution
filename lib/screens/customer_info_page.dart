@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:sale_form_demo/data/form_texts.dart';
+import 'package:sale_form_demo/services/intro_form.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 
-class CustomerInfoPage extends StatefulWidget {
-  @override
-  _CustomerInfoPageState createState() => _CustomerInfoPageState();
-}
+class CustomerInfoPage extends StatelessWidget {
 
-class _CustomerInfoPageState extends State<CustomerInfoPage> {
-  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
+    final introForm = Provider.of<IntroForm>(context);
+
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(color: colorGrey10),
         child: Form(
-          key: _formKey,
+          key: introForm.formKey,
           child: ListView(
             children: _buildFormWidgets(),
           ),
@@ -63,6 +62,7 @@ class CustomerHeaderWidget extends StatelessWidget {
 class ClientNameWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final introForm = Provider.of<IntroForm>(context);
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 40, top: 20, bottom: 0),
       child: Column(
@@ -107,6 +107,15 @@ class ClientNameWidget extends StatelessWidget {
                 fillColor: Colors.white,
                 filled: true,
               ),
+              validator: (value) {
+                if (value.isEmpty) {
+                  return 'Please enter a name';
+                }
+              },
+              onSaved: (value) {
+
+                introForm.name = value;
+              },
             ),
           ),
           SizedBox(
@@ -534,6 +543,8 @@ class EmailRepresentativeWidget extends StatelessWidget {
 class LaunchWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final introForm = Provider.of<IntroForm>(context);
+
     return Container(
       padding: EdgeInsets.only(left: 20, right: 40, top: 20),
       child: Container(
@@ -555,12 +566,16 @@ class LaunchWidget extends StatelessWidget {
           color: colorBlue,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          onPressed: onPressedSubmit,
+//          onPressed: onPressedSubmit(context),
+          onPressed: (){
+            introForm.formKey.currentState.save();
+
+            print("Customer Name: " + introForm.name);
+
+          },
         ),
       ),
     );
   }
 
-  void onPressedSubmit() {
-  }
 }
