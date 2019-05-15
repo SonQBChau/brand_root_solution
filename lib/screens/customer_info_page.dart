@@ -29,6 +29,7 @@ class CustomerInfoPage extends StatelessWidget {
     formWidget.add(EmailWidget());
     formWidget.add(IndustryWidget());
     formWidget.add(PositionWidget());
+    formWidget.add(ReasonWidget());
 
     return formWidget;
   }
@@ -357,6 +358,69 @@ class PositionWidget extends StatelessWidget {
                   onChanged: (value) {
                     print(value);
                   }),
+            ),
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Divider(
+            height: 30,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
+class ReasonWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 20, right: 40, top: 0, bottom: 0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            'REASON FOR CONTACT',
+            style: TextStyle(
+                color: colorGrey, fontWeight: FontWeight.bold, fontSize: 16),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Container(
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: colorGrey20,
+                  blurRadius: 2.0, // has the effect of softening the shadow
+                  spreadRadius: 1.0, // has the effect of extending the shadow
+                )
+              ],
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: TextFormField(
+              decoration: InputDecoration(
+                contentPadding:
+                EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: colorGrey20),
+                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue),
+                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                ),
+                hintText: 'Contaced through website, interested in better understanding asset managerment investments',
+                hintStyle: TextStyle(
+                    color: colorGrey,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 14),
+                fillColor: Colors.white,
+                filled: true,
+              ),
+              maxLines: 3,
             ),
           ),
           SizedBox(
