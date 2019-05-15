@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sale_form_demo/services/intro_form.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
-import 'package:sale_form_demo/widgets/client_name_widget.dart';
 import 'package:sale_form_demo/widgets/client_header_widget.dart';
+import 'package:sale_form_demo/widgets/client_name_widget.dart';
 import 'package:sale_form_demo/widgets/company_name_widget.dart';
 import 'package:sale_form_demo/widgets/email_representative_widget.dart';
 import 'package:sale_form_demo/widgets/email_widget.dart';
@@ -14,8 +14,6 @@ import 'package:sale_form_demo/widgets/reason_widget.dart';
 import 'package:sale_form_demo/widgets/representative_header_widget.dart';
 
 class CustomerInfoPage extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
     final introForm = Provider.of<IntroForm>(context);
@@ -51,22 +49,3 @@ class CustomerInfoPage extends StatelessWidget {
     return formWidget;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

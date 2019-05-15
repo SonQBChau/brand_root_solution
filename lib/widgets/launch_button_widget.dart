@@ -29,11 +29,12 @@ class LaunchButtonWidget extends StatelessWidget {
           color: colorBlue,
           shape:
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-//          onPressed: onPressedSubmit(context),
           onPressed: (){
-            introForm.formKey.currentState.save();
+            if (introForm.formKey.currentState.validate()) {
+              introForm.formKey.currentState.save();
 
-            print("Customer Name: " + introForm.name);
+              print("Customer Name: " + introForm.name);
+            }
 
           },
         ),
