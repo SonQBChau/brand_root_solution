@@ -43,19 +43,22 @@ class ClientNameWidget extends StatelessWidget {
               ),
               hintText: 'Client Name',
               hintStyle: TextStyle(
-                  color: colorGrey,
+                  color: colorGrey20,
                   fontWeight: FontWeight.w600,
                   fontSize: 14),
               fillColor: Colors.white,
               filled: true,
             ),
+            textCapitalization: TextCapitalization.words,
+            style: TextStyle(
+                color: colorGrey, fontWeight: FontWeight.w600, fontSize: 14),
             validator: (value) {
               if (value.isEmpty) {
                 return 'Please enter a name';
               }
             }, // validator
             onSaved: (value) {
-              introForm.name = value;
+              introForm.setName(value);
             }, // onSaved function
           ),
           SizedBox(

@@ -22,7 +22,7 @@ class CustomerInfoPage extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(color: colorGrey10),
         child: Form(
-          key: introForm.formKey,
+          key: introForm.getFormKey(),
           child: ListView(
             children: _buildFormWidgets(),
           ),
