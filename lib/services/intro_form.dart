@@ -5,6 +5,7 @@ class IntroForm with ChangeNotifier {
   String _name;
   String _company;
   String _email;
+  String _reason;
   String _representativeEmail;
   int _industry;
   bool _industryError = false;
@@ -31,6 +32,12 @@ class IntroForm with ChangeNotifier {
   getEmail() => _email;
   setEmail(String str){
     _email = str;
+    notifyListeners();
+  }
+
+  getReason() => _reason;
+  setReason(String str){
+    _reason = str;
     notifyListeners();
   }
 
