@@ -16,27 +16,34 @@ class LaunchButtonWidget extends StatelessWidget {
             .shrinkWrap, // remove unwanted extra top and bottom padding
         textColor: Colors.white,
         color: colorBlue,
-        shape:
-        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        onPressed: (){
-
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        onPressed: () {
+          bool isValid = true;
           //manually check dropdownbutton value
-          if (introForm.getIndustry() == null){
+          if (introForm.getIndustry() == null) {
             introForm.setIndustryError(true);
+            isValid = false;
           }
-          if (introForm.getPosition() == null){
+          if (introForm.getPosition() == null) {
             introForm.setPositionError(true);
+            isValid = false;
           }
 
-          if (introForm.getFormKey().currentState.validate()) {
+          if (introForm.getFormKey().currentState.validate() && isValid) {
             introForm.getFormKey().currentState.save();
 
             print("Customer Name: " + introForm.getName());
+          } else {
+            final snackBar = SnackBar(
+              content: Text(
+                'Please fix the error(s)!',
+                style: TextStyle(fontWeight: FontWeight.w700, color: colorGrey20),
+              ),
+            );
+            Scaffold.of(context).showSnackBar(snackBar);
           }
-
         },
       ),
     );
   }
-
 }
