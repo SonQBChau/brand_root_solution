@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
 //      home: MyHomePage(),
 //    home: CustomerInfoPage(),
       home: ChangeNotifierProvider<IntroForm>(
-        builder: (_) => IntroForm(''),
+        builder: (_) => IntroForm(),
         child: CustomerInfoPage(),
       ),
     );

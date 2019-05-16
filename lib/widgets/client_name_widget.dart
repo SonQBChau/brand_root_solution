@@ -7,6 +7,7 @@ class ClientNameWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final introForm = Provider.of<IntroForm>(context);
+
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 40, top: 20, bottom: 0),
       child: Column(
