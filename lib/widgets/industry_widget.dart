@@ -48,7 +48,7 @@ class IndustryWidget extends StatelessWidget {
                   hint: Text(
                     'Select Industry',
                     style: TextStyle(
-                        color: colorGrey,
+                        color: colorGrey20,
                         fontWeight: FontWeight.w600,
                         fontSize: 14),
                   ),
@@ -86,7 +86,7 @@ class IndustryWidget extends StatelessWidget {
           children: <Widget>[
             SizedBox(width: 10,),
             Text(
-              'Please select an industry',
+              'Please select industry',
               style:
               TextStyle(color: Colors.redAccent.shade700, fontSize: 12.0),
             ),

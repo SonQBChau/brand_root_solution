@@ -8,6 +8,9 @@ class IntroForm with ChangeNotifier {
   String _representativeEmail;
   int _industry;
   bool _industryError = false;
+  int _position;
+  bool _positionError = false;
+
 
   IntroForm();
 
@@ -46,6 +49,18 @@ class IntroForm with ChangeNotifier {
   getIndustryError() => _industryError;
   setIndustryError(bool status) {
     _industryError = status;
+    notifyListeners();
+  }
+
+  getPosition() => _position;
+  setPosition(int choice){
+    _position = choice;
+    notifyListeners();
+  }
+
+  getPositionError() => _positionError;
+  setPositionError(bool status) {
+    _positionError = status;
     notifyListeners();
   }
 

@@ -24,6 +24,9 @@ class LaunchButtonWidget extends StatelessWidget {
           if (introForm.getIndustry() == null){
             introForm.setIndustryError(true);
           }
+          if (introForm.getPosition() == null){
+            introForm.setPositionError(true);
+          }
 
           if (introForm.getFormKey().currentState.validate()) {
             introForm.getFormKey().currentState.save();

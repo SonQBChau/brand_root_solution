@@ -34,6 +34,14 @@ class EmailWidget extends StatelessWidget {
                 borderSide: BorderSide(color: Colors.blue),
                 borderRadius: BorderRadius.all(Radius.circular(10.0)),
               ),
+              errorBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: colorGrey20),
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+              ),
+              focusedErrorBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.red,),
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+              ),
               hintText: 'client@email.com',
               hintStyle: TextStyle(
                   color: colorGrey20,
