@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:sale_form_demo/services/intro_form.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
+import 'package:sale_form_demo/utils/validate_email.dart';
 
 class EmailWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final introForm = Provider.of<IntroForm>(context);
+
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 40, top: 0, bottom: 0),
       child: Column(
@@ -31,12 +36,19 @@ class EmailWidget extends StatelessWidget {
               ),
               hintText: 'client@email.com',
               hintStyle: TextStyle(
-                  color: colorGrey,
+                  color: colorGrey20,
                   fontWeight: FontWeight.w600,
                   fontSize: 14),
               fillColor: Colors.white,
               filled: true,
             ),
+            style: TextStyle(
+                color: colorGrey, fontWeight: FontWeight.w600, fontSize: 14),
+            keyboardType: TextInputType.emailAddress,
+            validator: validateEmail, // validator
+            onSaved: (value) {
+              introForm.setRepresentativeEmail(value);
+            }, // onSaved function
           ),
           SizedBox(
             height: 5,

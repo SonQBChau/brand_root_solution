@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:sale_form_demo/data/form_texts.dart';
 import 'package:sale_form_demo/services/intro_form.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
+import 'package:sale_form_demo/utils/validate_email.dart';
 
 class EmailRepresentativeWidget extends StatelessWidget {
   @override
@@ -52,6 +53,7 @@ class EmailRepresentativeWidget extends StatelessWidget {
             ),
             style: TextStyle(
                 color: colorGrey, fontWeight: FontWeight.w600, fontSize: 14),
+            keyboardType: TextInputType.emailAddress,
             validator: validateEmail, // validator
             onSaved: (value) {
               introForm.setRepresentativeEmail(value);
@@ -65,17 +67,4 @@ class EmailRepresentativeWidget extends StatelessWidget {
     );
   }
 
-  String validateEmail(String value) {
-    if (value.isEmpty) {
-      return 'Please enter representative email';
-    }
-
-    Pattern pattern =
-        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
-    RegExp regex = new RegExp(pattern);
-    if (!regex.hasMatch(value))
-      return 'Enter Valid Email';
-    else
-      return null;
-  }
 }
