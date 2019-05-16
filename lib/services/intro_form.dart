@@ -4,6 +4,7 @@ class IntroForm with ChangeNotifier {
   final _formKey = GlobalKey<FormState>();
   String _name;
   String _company;
+  String _representativeEmail;
   int _industry;
   bool _industryError = false;
 
@@ -20,6 +21,12 @@ class IntroForm with ChangeNotifier {
   getCompany() => _company;
   setCompany(String str){
     _company = str;
+    notifyListeners();
+  }
+
+  getRepresentativeEmail() => _representativeEmail;
+  setRepresentativeEmail(String str){
+    _representativeEmail = str;
     notifyListeners();
   }
 

@@ -43,7 +43,7 @@ class CompanyNameWidget extends StatelessWidget {
               ),
               hintText: 'Company Name',
               hintStyle: TextStyle(
-                  color: colorGrey, fontWeight: FontWeight.w600, fontSize: 14),
+                  color: colorGrey20, fontWeight: FontWeight.w600, fontSize: 14),
               fillColor: Colors.white,
               filled: true,
             ),
@@ -52,7 +52,7 @@ class CompanyNameWidget extends StatelessWidget {
                 color: colorGrey, fontWeight: FontWeight.w600, fontSize: 14),
             validator: (value) {
               if (value.isEmpty) {
-                return 'Please enter a comapny';
+                return 'Please enter comapny';
               }
             }, // validator
             onSaved: (value) {

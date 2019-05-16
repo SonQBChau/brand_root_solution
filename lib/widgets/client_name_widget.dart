@@ -54,7 +54,7 @@ class ClientNameWidget extends StatelessWidget {
                 color: colorGrey, fontWeight: FontWeight.w600, fontSize: 14),
             validator: (value) {
               if (value.isEmpty) {
-                return 'Please enter a name';
+                return 'Please enter name';
               }
             }, // validator
             onSaved: (value) {
