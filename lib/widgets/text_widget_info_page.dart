@@ -12,12 +12,11 @@ class TextWidgetInfoPage extends StatelessWidget {
     @required  this.hintTxt,
     this.textCapitalization = TextCapitalization.words,
     this.textInputType = TextInputType.text,
-    @required  this.onValidate,
+    this.onValidate,
     @required  this.onSubmit,
   }):
         assert(titleTxt != null),
         assert(hintTxt != null),
-        assert(onValidate != null),
         assert(onSubmit != null);
 
   @override

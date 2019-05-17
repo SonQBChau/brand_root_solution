@@ -63,7 +63,6 @@ class CustomerInfoPage extends StatelessWidget {
       hintTxt: 'solutionengineer@$company.com'.toLowerCase(),
       textCapitalization: TextCapitalization.none,
       textInputType: TextInputType.emailAddress,
-      onValidate: validateEmail,
       onSubmit: (value) =>  introForm.setRepresentativeEmail(value),
     ));
     formWidget.add(LaunchButtonWidget());

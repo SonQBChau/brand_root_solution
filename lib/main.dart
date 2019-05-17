@@ -19,7 +19,15 @@ class MyApp extends StatelessWidget {
 //    home: CustomerInfoPage(),
       home: ChangeNotifierProvider<IntroForm>(
         builder: (_) => IntroForm(),
-        child: CustomerInfoPage(),
+//        child: CustomerInfoPage(),
+          child: PageView(
+            scrollDirection: Axis.vertical,
+            children: <Widget>[
+              MyHomePage(),
+              CustomerInfoPage(),
+
+            ],
+          )
       ),
     );
   }
