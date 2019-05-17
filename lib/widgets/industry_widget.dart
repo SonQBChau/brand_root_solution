@@ -72,7 +72,7 @@ class IndustryWidget extends StatelessWidget {
           ),
           buildErrorMessage(introForm),
           SizedBox(
-            height: 30,
+            height: 15,
           ),
         ],
       ),
