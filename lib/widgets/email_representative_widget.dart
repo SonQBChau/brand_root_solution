@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:sale_form_demo/data/form_texts.dart';
 import 'package:sale_form_demo/services/intro_form.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
-import 'package:sale_form_demo/utils/validate_email.dart';
+import 'package:sale_form_demo/utils/validator.dart';
 
 class EmailRepresentativeWidget extends StatelessWidget {
   @override

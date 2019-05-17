@@ -12,3 +12,12 @@ String validateEmail(String value) {
   else
     return null;
 }
+
+
+String validateEmpty(String value, errorTxt){
+  if (value.isEmpty) {
+    return errorTxt;
+  }
+  else
+    return null;
+}

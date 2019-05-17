@@ -4,14 +4,13 @@ import 'package:sale_form_demo/services/intro_form.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/client_header_widget.dart';
 import 'package:sale_form_demo/widgets/text_widget_info_page.dart';
-import 'package:sale_form_demo/widgets/company_name_widget.dart';
 import 'package:sale_form_demo/widgets/email_representative_widget.dart';
-import 'package:sale_form_demo/widgets/email_widget.dart';
 import 'package:sale_form_demo/widgets/industry_widget.dart';
 import 'package:sale_form_demo/widgets/launch_button_widget.dart';
 import 'package:sale_form_demo/widgets/position_widget.dart';
 import 'package:sale_form_demo/widgets/reason_widget.dart';
 import 'package:sale_form_demo/widgets/representative_header_widget.dart';
+import 'package:sale_form_demo/utils/validator.dart';
 
 class CustomerInfoPage extends StatelessWidget {
   @override
@@ -38,16 +37,22 @@ class CustomerInfoPage extends StatelessWidget {
     formWidget.add(TextWidgetInfoPage(
       titleTxt: 'NAME',
       hintTxt: 'CLIENT NAME',
-      errorTxt: 'Please enter name',
+      onValidate: (value) => validateEmpty(value, 'Please enter name'),
       onSubmit: (value) =>  introForm.setName(value),
     ));
     formWidget.add(TextWidgetInfoPage(
       titleTxt: 'COMPANY',
       hintTxt: 'COMPANY NAME',
-      errorTxt: 'Please enter company',
+      onValidate: (value) => validateEmpty(value, 'Please enter company'),
       onSubmit: (value) =>  introForm.setCompany(value),
     ));
-    formWidget.add(EmailWidget());
+    formWidget.add(TextWidgetInfoPage(
+      titleTxt: 'EMAIL',
+      hintTxt: 'client@email.com',
+      onValidate: validateEmail,
+      onSubmit: (value) =>  introForm.setEmail(value),
+    ));
+//    formWidget.add(EmailWidget());
     formWidget.add(IndustryWidget());
     formWidget.add(PositionWidget());
     formWidget.add(ReasonWidget());

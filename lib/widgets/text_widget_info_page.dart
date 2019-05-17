@@ -4,16 +4,16 @@ import 'package:sale_form_demo/utils/app_color.dart';
 class TextWidgetInfoPage extends StatelessWidget {
   final String titleTxt;
   final String hintTxt;
-  final String errorTxt;
+  final Function onValidate;
   final Function onSubmit;
   TextWidgetInfoPage({@required  this.titleTxt,
     @required  this.hintTxt,
-    @required  this.errorTxt,
+    @required  this.onValidate,
     @required  this.onSubmit,
   }):
         assert(titleTxt != null),
         assert(hintTxt != null),
-        assert(errorTxt != null),
+        assert(onValidate != null),
         assert(onSubmit != null);
 
   @override
@@ -64,11 +64,8 @@ class TextWidgetInfoPage extends StatelessWidget {
             textCapitalization: TextCapitalization.words,
             style: TextStyle(
                 color: colorGrey, fontWeight: FontWeight.w600, fontSize: 13),
-            validator: (value) {
-              if (value.isEmpty) {
-                return errorTxt;
-              }
-            }, // validator
+
+            validator: onValidate, //validator
             onSaved: (value) {
               onSubmit(value);
             }, // onSaved function
