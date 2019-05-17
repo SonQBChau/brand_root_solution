@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sale_form_demo/data/form_texts.dart';
 import 'package:sale_form_demo/services/intro_form.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/client_header_widget.dart';
@@ -50,15 +51,14 @@ class CustomerInfoPage extends StatelessWidget {
       onValidate: validateEmail,
       onSubmit: (value) =>  introForm.setEmail(value),
     ));
-//    formWidget.add(EmailWidget());
+
     formWidget.add(IndustryWidget());
     formWidget.add(PositionWidget());
-//    formWidget.add(ReasonWidget());
+
     formWidget.add(RepresentativeHeadderWidget());
-//    formWidget.add(EmailRepresentativeWidget());
     formWidget.add(TextWidgetInfoPage(
       titleTxt: 'EMAIL',
-      hintTxt: 'solutionengineer@email.com',
+      hintTxt: 'solutionengineer@$company.com'.toLowerCase(),
       onValidate: validateEmail,
       onSubmit: (value) =>  introForm.setRepresentativeEmail(value),
     ));

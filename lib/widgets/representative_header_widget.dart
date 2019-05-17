@@ -6,7 +6,7 @@ class RepresentativeHeadderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top:60, bottom: 20),
+      padding: EdgeInsets.only(top:0, bottom: 20),
       child: Center(
         child: Text(
           '$company REPRESENTATIVE',
