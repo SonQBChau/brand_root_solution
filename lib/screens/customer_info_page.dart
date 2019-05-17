@@ -4,7 +4,6 @@ import 'package:sale_form_demo/services/intro_form.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/client_header_widget.dart';
 import 'package:sale_form_demo/widgets/text_widget_info_page.dart';
-import 'package:sale_form_demo/widgets/email_representative_widget.dart';
 import 'package:sale_form_demo/widgets/industry_widget.dart';
 import 'package:sale_form_demo/widgets/launch_button_widget.dart';
 import 'package:sale_form_demo/widgets/position_widget.dart';
@@ -55,9 +54,15 @@ class CustomerInfoPage extends StatelessWidget {
 //    formWidget.add(EmailWidget());
     formWidget.add(IndustryWidget());
     formWidget.add(PositionWidget());
-    formWidget.add(ReasonWidget());
+//    formWidget.add(ReasonWidget());
     formWidget.add(RepresentativeHeadderWidget());
-    formWidget.add(EmailRepresentativeWidget());
+//    formWidget.add(EmailRepresentativeWidget());
+    formWidget.add(TextWidgetInfoPage(
+      titleTxt: 'EMAIL',
+      hintTxt: 'solutionengineer@email.com',
+      onValidate: validateEmail,
+      onSubmit: (value) =>  introForm.setRepresentativeEmail(value),
+    ));
     formWidget.add(LaunchButtonWidget());
     formWidget.add(SizedBox(height: 30));
 

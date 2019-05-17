@@ -26,7 +26,7 @@ class TextWidgetInfoPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
-            padding: EdgeInsets.only(bottom: 5, left: 15),
+            padding: EdgeInsets.only(bottom: 6, left: 15),
             child: Text(
               titleTxt,
               style: TextStyle(
@@ -71,11 +71,9 @@ class TextWidgetInfoPage extends StatelessWidget {
             }, // onSaved function
           ),
           SizedBox(
-            height: 5,
+            height: 20,
           ),
-          Divider(
-            height: 30,
-          ),
+
         ],
       ),
     );
