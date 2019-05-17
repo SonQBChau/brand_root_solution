@@ -41,7 +41,6 @@ class PositionWidget extends StatelessWidget {
             padding: EdgeInsets.only(top: 13, bottom: 13, left: 15, right: 15),
             decoration: BoxDecoration(
               color: Colors.white,
-              border: Border.all(color: colorGrey20, width: 0.5),
               borderRadius: BorderRadius.circular(23),
             ),
             child: DropdownButtonHideUnderline(
@@ -53,6 +52,7 @@ class PositionWidget extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                         fontSize: 13),
                   ),
+                  icon: Icon(Icons.keyboard_arrow_down, color: colorGrey,),
                   isDense: true,
                   isExpanded: true,
                   style: TextStyle(
