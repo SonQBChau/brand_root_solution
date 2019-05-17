@@ -5,13 +5,13 @@ class ClientHeaderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 20, top: 13),
-      height: 40,
-      color: colorGrey20,
-      child: Text(
-        'CUSTOMER INFORMATION',
-        style: TextStyle(
-            color: colorBlue, fontWeight: FontWeight.bold, fontSize: 12),
+      padding: EdgeInsets.only(top:60, bottom: 10),
+      child: Center(
+        child: Text(
+          'CUSTOMER INFORMATION',
+          style: TextStyle(
+              color: colorBlue, fontWeight: FontWeight.bold, fontSize: 18),
+        ),
       ),
     );
   }
