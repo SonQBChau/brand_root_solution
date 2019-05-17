@@ -8,7 +8,7 @@ class CompanyNameWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final introForm = Provider.of<IntroForm>(context);
 
-    return Padding(
+    return Container(
       padding: const EdgeInsets.only(left: 20, right: 40, top: 0, bottom: 0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

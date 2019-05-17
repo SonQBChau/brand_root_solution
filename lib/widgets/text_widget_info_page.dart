@@ -1,64 +1,76 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:sale_form_demo/services/intro_form.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 
-class ClientNameWidget extends StatelessWidget {
+class TextWidgetInfoPage extends StatelessWidget {
+  final String titleTxt;
+  final String hintTxt;
+  final String errorTxt;
+  final Function onSubmit;
+  TextWidgetInfoPage({@required  this.titleTxt,
+    @required  this.hintTxt,
+    @required  this.errorTxt,
+    @required  this.onSubmit,
+  }):
+        assert(titleTxt != null),
+        assert(hintTxt != null),
+        assert(errorTxt != null),
+        assert(onSubmit != null);
+
   @override
   Widget build(BuildContext context) {
-    final introForm = Provider.of<IntroForm>(context);
 
-    return Padding(
-      padding: const EdgeInsets.only(left: 20, right: 40, top: 20, bottom: 0),
+
+    return Container(
+      padding: const EdgeInsets.only(left: 30, right: 30, top: 0, bottom: 0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(
-            'NAME',
-            style: TextStyle(
-                color: colorGrey, fontWeight: FontWeight.bold, fontSize: 16),
-          ),
-          SizedBox(
-            height: 10,
+          Container(
+            padding: EdgeInsets.only(bottom: 5, left: 15),
+            child: Text(
+              titleTxt,
+              style: TextStyle(
+                  color: colorBlue, fontWeight: FontWeight.bold, fontSize: 13),
+            ),
           ),
           TextFormField(
             decoration: InputDecoration(
               contentPadding:
-                  EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                  EdgeInsets.symmetric(vertical: 15, horizontal: 15),
               enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: colorGrey20),
-                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                borderSide: BorderSide.none,
+                borderRadius: BorderRadius.all(Radius.circular(20.0)),
               ),
               focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.blue),
-                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                borderRadius: BorderRadius.all(Radius.circular(20.0)),
               ),
               errorBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: colorGrey20),
-                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                borderRadius: BorderRadius.all(Radius.circular(20.0)),
               ),
               focusedErrorBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.red,),
-                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                borderRadius: BorderRadius.all(Radius.circular(20.0)),
               ),
-              hintText: 'Client Name',
+              hintText: hintTxt,
               hintStyle: TextStyle(
                   color: colorGrey20,
                   fontWeight: FontWeight.w600,
-                  fontSize: 14),
+                  fontSize: 13),
               fillColor: Colors.white,
               filled: true,
             ),
             textCapitalization: TextCapitalization.words,
             style: TextStyle(
-                color: colorGrey, fontWeight: FontWeight.w600, fontSize: 14),
+                color: colorGrey, fontWeight: FontWeight.w600, fontSize: 13),
             validator: (value) {
               if (value.isEmpty) {
-                return 'Please enter name';
+                return errorTxt;
               }
             }, // validator
             onSaved: (value) {
-              introForm.setName(value);
+              onSubmit(value);
             }, // onSaved function
           ),
           SizedBox(

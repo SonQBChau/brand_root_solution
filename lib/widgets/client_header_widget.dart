@@ -5,7 +5,7 @@ class ClientHeaderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top:60, bottom: 10),
+      padding: EdgeInsets.only(top:60, bottom: 20),
       child: Center(
         child: Text(
           'CUSTOMER INFORMATION',
