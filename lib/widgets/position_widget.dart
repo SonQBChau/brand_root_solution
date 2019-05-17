@@ -83,7 +83,7 @@ class PositionWidget extends StatelessWidget {
   buildErrorMessage(IntroForm introForm) {
     if (introForm.getPositionError()){
       return Container(
-        padding: EdgeInsets.only(top:5,bottom: 5),
+        padding: EdgeInsets.only(top:5,bottom: 5, left: 5),
         child: Row(
           children: <Widget>[
             SizedBox(width: 10,),
