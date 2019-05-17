@@ -9,7 +9,7 @@ class LaunchButtonWidget extends StatelessWidget {
     final introForm = Provider.of<IntroForm>(context);
 
     return Container(
-      padding: EdgeInsets.only(left: 100, right: 100, top: 20),
+      padding: EdgeInsets.only(left: 100, right: 100, top: 20, bottom: 40),
       child: RaisedButton(
         child: Container(
           padding: EdgeInsets.symmetric(vertical: 12),
