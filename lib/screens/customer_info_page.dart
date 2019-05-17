@@ -7,7 +7,6 @@ import 'package:sale_form_demo/widgets/text_widget_info_page.dart';
 import 'package:sale_form_demo/widgets/industry_widget.dart';
 import 'package:sale_form_demo/widgets/launch_button_widget.dart';
 import 'package:sale_form_demo/widgets/position_widget.dart';
-import 'package:sale_form_demo/widgets/reason_widget.dart';
 import 'package:sale_form_demo/widgets/representative_header_widget.dart';
 import 'package:sale_form_demo/utils/validator.dart';
 
