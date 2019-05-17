@@ -48,6 +48,8 @@ class CustomerInfoPage extends StatelessWidget {
     formWidget.add(TextWidgetInfoPage(
       titleTxt: 'EMAIL',
       hintTxt: 'client@email.com',
+      textCapitalization: TextCapitalization.none,
+      textInputType: TextInputType.emailAddress,
       onValidate: validateEmail,
       onSubmit: (value) =>  introForm.setEmail(value),
     ));
@@ -59,6 +61,8 @@ class CustomerInfoPage extends StatelessWidget {
     formWidget.add(TextWidgetInfoPage(
       titleTxt: 'EMAIL',
       hintTxt: 'solutionengineer@$company.com'.toLowerCase(),
+      textCapitalization: TextCapitalization.none,
+      textInputType: TextInputType.emailAddress,
       onValidate: validateEmail,
       onSubmit: (value) =>  introForm.setRepresentativeEmail(value),
     ));

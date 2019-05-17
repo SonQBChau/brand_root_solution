@@ -73,6 +73,7 @@ class PositionWidget extends StatelessWidget {
           buildErrorMessage(introForm),
           Divider(
             height: 60,
+
           ),
         ],
       ),

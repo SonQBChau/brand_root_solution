@@ -4,10 +4,14 @@ import 'package:sale_form_demo/utils/app_color.dart';
 class TextWidgetInfoPage extends StatelessWidget {
   final String titleTxt;
   final String hintTxt;
+  TextCapitalization textCapitalization;
+  TextInputType textInputType;
   final Function onValidate;
   final Function onSubmit;
   TextWidgetInfoPage({@required  this.titleTxt,
     @required  this.hintTxt,
+    this.textCapitalization = TextCapitalization.words,
+    this.textInputType = TextInputType.text,
     @required  this.onValidate,
     @required  this.onSubmit,
   }):
@@ -61,7 +65,8 @@ class TextWidgetInfoPage extends StatelessWidget {
               fillColor: Colors.white,
               filled: true,
             ),
-            textCapitalization: TextCapitalization.words,
+          textCapitalization: textCapitalization,
+            keyboardType: textInputType,
             style: TextStyle(
                 color: colorGrey, fontWeight: FontWeight.w600, fontSize: 13),
 
