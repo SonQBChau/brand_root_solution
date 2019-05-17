@@ -9,14 +9,19 @@ class LaunchButtonWidget extends StatelessWidget {
     final introForm = Provider.of<IntroForm>(context);
 
     return Container(
-      padding: EdgeInsets.only(left: 20, right: 40, top: 20),
-      child: FlatButton(
-        child: Text('LAUNCH'),
-        materialTapTargetSize: MaterialTapTargetSize
-            .shrinkWrap, // remove unwanted extra top and bottom padding
+      padding: EdgeInsets.only(left: 100, right: 100, top: 20),
+      child: RaisedButton(
+        child: Container(
+          padding: EdgeInsets.symmetric(vertical: 12),
+          child: Text(
+            'LAUNCH',
+            style: TextStyle(fontSize: 18),
+          ),
+        ),
+        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap, // remove unwanted extra top and bottom padding
         textColor: Colors.white,
         color: colorBlue,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         onPressed: () {
           bool isValid = true;
           //manually check dropdownbutton value
