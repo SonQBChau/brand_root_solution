@@ -43,7 +43,7 @@ class MenuPage extends StatelessWidget {
                               bottomLeft: const Radius.circular(15.0), bottomRight: const Radius.circular(15.0)),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.grey,
+                              color: Colors.black54,
                               offset: new Offset(0.0, 4.0),
                               blurRadius: 10.0,
                             )
@@ -68,7 +68,7 @@ class MenuPage extends StatelessWidget {
                               bottomLeft: const Radius.circular(15.0), bottomRight: const Radius.circular(15.0)),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.grey,
+                              color: Colors.black54,
                               offset: new Offset(0.0, 4.0),
                               blurRadius: 10.0,
                             )
@@ -93,7 +93,7 @@ class MenuPage extends StatelessWidget {
                               bottomLeft: const Radius.circular(15.0), bottomRight: const Radius.circular(15.0)),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.grey,
+                              color: Colors.black54,
                               offset: new Offset(0.0, 4.0),
                               blurRadius: 10.0,
                             )
@@ -118,7 +118,7 @@ class MenuPage extends StatelessWidget {
                               bottomLeft: const Radius.circular(15.0), bottomRight: const Radius.circular(15.0)),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.grey,
+                              color: Colors.black54,
                               offset: new Offset(0.0, 4.0),
                               blurRadius: 10.0,
                             )
@@ -146,95 +146,6 @@ class MenuPage extends StatelessWidget {
         ),
       ),
     );
-//    return Scaffold(
-//      body: SafeArea(
-//        child: Stack(
-//
-//          children: <Widget>[
-//
-//            Container(
-//              height: height,
-//              decoration: new BoxDecoration(
-//                color: colorGrey,
-//                borderRadius: new BorderRadius.only(
-//                    bottomLeft:  const  Radius.circular(15.0),
-//                    bottomRight: const  Radius.circular(15.0)),
-//                boxShadow: [
-//                  BoxShadow(
-//                    color: Colors.red,
-//                    offset: new Offset(0.0, 20.0),
-//                    blurRadius: 20.0,
-////                         spreadRadius: 10.0
-//                  )
-//                ],
-//              ),
-//
-//              child: Center(child: Text('SUSTAIN', style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),)),
-//            ),
-//            Container(
-//              height: 3*height/4,
-//              decoration: new BoxDecoration(
-//                color: colorOrange,
-//                borderRadius: new BorderRadius.only(
-//                    bottomLeft:  const  Radius.circular(15.0),
-//                    bottomRight: const  Radius.circular(15.0)),
-//                boxShadow: [
-//                  BoxShadow(
-//                    color: Colors.red,
-//                    offset: new Offset(0.0, 20.0),
-//                    blurRadius: 20.0,
-////                         spreadRadius: 10.0
-//                  )
-//                ],
-//              ),
-//
-//              child: Center(child: Text('SUSTAIN', style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),)),
-//            ),
-//            Container(
-//              height: 2*height/4,
-//              decoration: new BoxDecoration(
-//                color: colorGreen,
-//                borderRadius: new BorderRadius.only(
-//                    bottomLeft:  const  Radius.circular(15.0),
-//                    bottomRight: const  Radius.circular(15.0)),
-//                boxShadow: [
-//                  BoxShadow(
-//                    color: Colors.red,
-//                    offset: new Offset(0.0, 20.0),
-//                    blurRadius: 20.0,
-////                         spreadRadius: 10.0
-//                  )
-//                ],
-//              ),
-//
-//              child: Center(child: Text('STATEGIES', style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),)),
-//            ),
-//            Container(
-//              height: height/4,
-//              decoration: new BoxDecoration(
-//                color: colorBlue,
-//                borderRadius: new BorderRadius.only(
-//                    bottomLeft:  const  Radius.circular(15.0),
-//                    bottomRight: const  Radius.circular(15.0)),
-//                boxShadow: [
-//                  BoxShadow(
-//                    color: Colors.red,
-//                    offset: new Offset(0.0, 20.0),
-//                    blurRadius: 20.0,
-////                         spreadRadius: 10.0
-//                  )
-//                ],
-//              ),
-//
-//              child: Center(child: Text('EVALUATE', style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),)),
-//            ),
-//            Container(
-//              child: Text('ALL CATEGORIES'),
-//            ),
-//
-//          ],
-//        ),
-//      ),
-//    );
+
   }
 }
