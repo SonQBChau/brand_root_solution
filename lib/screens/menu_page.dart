@@ -126,7 +126,7 @@ class MenuPage extends StatelessWidget {
                         ),
 
                         child: Text(
-                          'STRATEGIES',
+                          'EVALUATE',
                           style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),
                         ),
                       ),

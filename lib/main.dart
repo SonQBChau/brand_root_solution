@@ -3,6 +3,7 @@ import 'package:sale_form_demo/screens/customer_info_page.dart';
 import 'package:sale_form_demo/screens/menu_page.dart';
 import 'package:sale_form_demo/screens/my_home_page.dart';
 import 'package:provider/provider.dart';
+import 'package:sale_form_demo/screens/strategies_page.dart';
 import 'package:sale_form_demo/services/intro_form.dart';
 
 void main() => runApp(MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MenuPage(),
+      home: StrategiesPage(),
 
 //      home: ChangeNotifierProvider<IntroForm>(
 //        builder: (_) => IntroForm(),
