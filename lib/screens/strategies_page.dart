@@ -47,10 +47,10 @@ class StrategiesPage extends StatelessWidget {
                 ),
               ),
               Expanded(
-                child: ListView(
-                  padding: EdgeInsets.symmetric(vertical: 50),
-                  scrollDirection: Axis.horizontal,
+                child: PageView(
+                  controller: PageController(viewportFraction: 0.8),
                   children: <Widget>[
+                    buildContainer(),
                     buildContainer(),
                     buildContainer(),
                     buildContainer(),
@@ -67,9 +67,8 @@ class StrategiesPage extends StatelessWidget {
   Container buildContainer() {
     return Container(
                   width: 250,
-//                  height: 150,
                   padding: EdgeInsets.symmetric(vertical: 40, horizontal: 30),
-                  margin: EdgeInsets.symmetric(horizontal: 20),
+                  margin: EdgeInsets.symmetric(horizontal: 20, vertical: 50),
                   decoration: new BoxDecoration(
                     color: colorGreen10,
                     borderRadius: new BorderRadius.circular(15),
@@ -105,3 +104,5 @@ class StrategiesPage extends StatelessWidget {
                 );
   }
 }
+
+
