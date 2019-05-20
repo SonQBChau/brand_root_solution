@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:sale_form_demo/data/form_images.dart';
 import 'package:sale_form_demo/data/form_texts.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
+import 'package:animator/animator.dart';
+
 
 class MyHomePage extends StatelessWidget {
   @override
@@ -20,14 +22,25 @@ class MyHomePage extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        child: Center(
-          child: Stack(
-            children: <Widget>[
-              CompanyLogo(),
-              CompanyName(),
-              IntroText(),
-            ],
-          ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[
+            Expanded(
+              child: Center(
+                child: Stack(
+                  children: <Widget>[
+                    CompanyLogo(),
+                    CompanyName(),
+                    IntroText(),
+
+                  ],
+                ),
+              ),
+            ),
+            SlideUpAnimator(MediaQuery.of(context).size.height),
+          ],
         ),
       ),
     );
@@ -77,6 +90,35 @@ class IntroText extends StatelessWidget {
       child: Text(
         intro,
         style: TextStyle(color: colorBlue80, fontWeight: FontWeight.w700),
+      ),
+    );
+  }
+}
+
+
+class SlideUpAnimator extends StatelessWidget {
+    SlideUpAnimator(this.height);
+    final double height;
+
+  @override
+  Widget build(BuildContext context) {
+
+    return Container(
+//      color: Colors.red,
+      child:  Animator(
+        tweenMap: {
+          "opacity": Tween<double>(begin: 0, end: 1),
+          "translation": Tween<Offset>(begin: Offset.zero, end: Offset(0, -1))
+        },
+        cycles: 0,
+        duration: Duration(seconds: 1),
+        builderMap: (Map<String, Animation> anim) => FadeTransition(
+          opacity: anim["opacity"],
+          child: FractionalTranslation(
+            translation: anim["translation"].value,
+            child: Icon(Icons.keyboard_arrow_up,size: 50, color: colorBlue,),
+          ),
+        ),
       ),
     );
   }
