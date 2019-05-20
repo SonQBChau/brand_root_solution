@@ -46,14 +46,32 @@ class StrategiesPage extends StatelessWidget {
                   style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 70),
-                child: Container(
+              Expanded(
+                child: ListView(
+                  padding: EdgeInsets.symmetric(vertical: 50),
+                  scrollDirection: Axis.horizontal,
+                  children: <Widget>[
+                    buildContainer(),
+                    buildContainer(),
+                    buildContainer(),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Container buildContainer() {
+    return Container(
                   width: 250,
-                  height: 350,
+//                  height: 150,
                   padding: EdgeInsets.symmetric(vertical: 40, horizontal: 30),
+                  margin: EdgeInsets.symmetric(horizontal: 20),
                   decoration: new BoxDecoration(
-                    color: Colors.greenAccent[100],
+                    color: colorGreen10,
                     borderRadius: new BorderRadius.circular(15),
                     boxShadow: [
                       BoxShadow(
@@ -73,22 +91,17 @@ class StrategiesPage extends StatelessWidget {
                         fontWeight: FontWeight.w700,
                       ),
                       ),
+                      SizedBox(height: 20,),
                       Text('Managing the risk based, proactive approach and generating the equipment plans/ strengths'
                           ' that aim to prevent loss of containment events for all plant equipments.',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 16,
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w500,
                       ),
                       )
                     ],
                   ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
+                );
   }
 }

@@ -14,6 +14,7 @@ final Color colorGrey = HexColor('#A19C96');
 final Color colorGrey10 = HexColor('#eeeeec');
 final Color colorGrey20 = HexColor('#dedddb');
 final Color colorRed20 = HexColor('#80ff0000');
+final Color colorGreen10 = HexColor('#d1e7b3');
 
 
 
