@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sale_form_demo/screens/mi_strategy_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 
 class StrategiesPage extends StatelessWidget {
@@ -49,11 +50,11 @@ class StrategiesPage extends StatelessWidget {
                 child: PageView(
                   controller: PageController(viewportFraction: 0.8),
                   children: <Widget>[
-                    buildContainer('MI STRATEGY MANAGEMENT'),
-                    buildContainer('PM STRATEGY MANAGEMENT'),
-                    buildContainer('SPARE PARTS STRATEGY MANAGEMENT'),
-                    buildContainer('SAFETY SYSTEM MANAGEMENT'),
-                    buildContainer('PROCESS CONTROL STRATEGY'),
+                    buildContainer(context,'MI STRATEGY MANAGEMENT'),
+                    buildContainer(context,'PM STRATEGY MANAGEMENT'),
+                    buildContainer(context,'SPARE PARTS STRATEGY MANAGEMENT'),
+                    buildContainer(context,'SAFETY SYSTEM MANAGEMENT'),
+                    buildContainer(context,'PROCESS CONTROL STRATEGY'),
                   ],
                 ),
               ),
@@ -72,10 +73,13 @@ class StrategiesPage extends StatelessWidget {
     );
   }
 
-  Widget buildContainer(String title) {
+  Widget buildContainer(BuildContext context, String title) {
     return GestureDetector(
       onTap: () {
-        print('Card Tap!');
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => MiStrategyPage()),
+        );
       },
       child: Container(
         width: 250,
