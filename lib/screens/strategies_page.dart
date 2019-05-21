@@ -8,7 +8,6 @@ class StrategiesPage extends StatelessWidget {
     final double width = MediaQuery.of(context).size.width;
     final double cardContainerHeight = height - 60;
     final double cardHeight = cardContainerHeight / 4;
-    final double cardPosition = cardHeight - 20;
 
     return Scaffold(
       body: SafeArea(
@@ -58,6 +57,10 @@ class StrategiesPage extends StatelessWidget {
                   ],
                 ),
               ),
+              Container(
+                child: _buildDotIndicator(),
+              ),
+
             ],
           ),
         ),
@@ -71,44 +74,71 @@ class StrategiesPage extends StatelessWidget {
         print('Card Tap!');
       },
       child: Container(
-                    width: 250,
-                    padding: EdgeInsets.symmetric(vertical: 40, horizontal: 30),
-                    margin: EdgeInsets.symmetric(horizontal: 20, vertical: 50),
-                    decoration: new BoxDecoration(
-                      color: colorGreen10,
-                      borderRadius: new BorderRadius.circular(15),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black54,
-                          offset: new Offset(0.0, 4.0),
-                          blurRadius: 10.0,
-                        )
-                      ],
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: <Widget>[
-                        Text(title,
-                        style: TextStyle(
-                          color: colorGreen,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w700,
-                        ),
-                        ),
-                        SizedBox(height: 20,),
-                        Text('Managing the risk based, proactive approach and generating the equipment plans/ strengths'
-                            ' that aim to prevent loss of containment events for all plant equipments.',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                        ),
-                        )
-                      ],
-                    ),
-                  ),
+        width: 250,
+        padding: EdgeInsets.symmetric(vertical: 40, horizontal: 30),
+        margin: EdgeInsets.symmetric(horizontal: 20, vertical: 50),
+        decoration: new BoxDecoration(
+          color: colorGreen10,
+          borderRadius: new BorderRadius.circular(15),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black54,
+              offset: new Offset(0.0, 4.0),
+              blurRadius: 10.0,
+            )
+          ],
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[
+            Text(
+              title,
+              style: TextStyle(
+                color: colorGreen,
+                fontSize: 20,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              'Managing the risk based, proactive approach and generating the equipment plans/ strengths'
+              ' that aim to prevent loss of containment events for all plant equipments.',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  _buildDotIndicator() {
+    return Column(
+      children: <Widget>[
+        Container(
+          padding: EdgeInsets.only(bottom: 30, left: 70, right: 70),
+          child: SizedBox(
+            height: 2.0,
+            child: Center(
+              child: Container(
+                margin: EdgeInsetsDirectional.only(start: 1.0, end: 1.0),
+                height: 2.0,
+                color: colorGreen,
+              ),
+            ),
+          ),
+        ),
+        Container(
+          height: 20,
+          width: 20,
+          decoration: new BoxDecoration(shape: BoxShape.circle, color: colorGreen),
+        ),
+      ],
     );
   }
 }
-
-
