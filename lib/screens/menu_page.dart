@@ -6,11 +6,6 @@ import 'package:sale_form_demo/widgets/menu_card_widget.dart';
 class MenuPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final double height = MediaQuery.of(context).size.height;
-    final double width = MediaQuery.of(context).size.width;
-    final double cardContainerHeight = height - 60;
-    final double cardHeight = cardContainerHeight /4;
-    final double cardPosition = cardHeight -20;
 
     return Scaffold(
       body: SafeArea(
