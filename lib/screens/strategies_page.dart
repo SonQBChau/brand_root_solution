@@ -62,7 +62,7 @@ class StrategiesPage extends StatelessWidget {
                   ],
                 ),
               ),
-              DotIndicatorWidget(),
+              DotIndicatorWidget(dotCount: 5,),
             ],
           ),
         ),

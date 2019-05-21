@@ -2,12 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 
 class DotIndicatorWidget extends StatelessWidget {
+  int activePosition;
+  final int dotCount;
+
+  DotIndicatorWidget(
+      {this.activePosition = 1, this.dotCount}):
+        assert(dotCount != null);
+
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(bottom: 20),
       height: 30,
-      width: 230,
+      width: 260,
       child: _buildDotIndicator(),
     );
   }
@@ -20,7 +27,7 @@ class DotIndicatorWidget extends StatelessWidget {
           left: 5,
           child: SizedBox(
             height: 2.0,
-            width: 200,
+            width: 260,
             child: Container(
               height: 2.0,
               color: colorGreen,
