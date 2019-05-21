@@ -6,7 +6,7 @@ class ContentHeaderWidget extends StatelessWidget {
   final Color color;
 
   ContentHeaderWidget(
-      {@required this.title, this.color):
+      {@required this.title, this.color}):
         assert(title != null),
         assert(color != null);
 
