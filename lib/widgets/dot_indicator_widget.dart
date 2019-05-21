@@ -4,9 +4,15 @@ import 'package:sale_form_demo/utils/app_color.dart';
 class DotIndicatorWidget extends StatelessWidget {
   int activePosition;
   final int dotCount;
+  final Color color;
+  final Color activeDotColor;
 
   DotIndicatorWidget(
-      {this.activePosition = 0, this.dotCount}):
+      {this.activePosition = 0,
+        this.dotCount,
+        this.color,
+        this.activeDotColor,
+      }):
         assert(dotCount != null);
 
   @override
@@ -33,7 +39,7 @@ class DotIndicatorWidget extends StatelessWidget {
         width: width,
         child: Container(
           height: 2.0,
-          color: colorGreen,
+          color: color,
         ),
       ),
     );
@@ -44,7 +50,7 @@ class DotIndicatorWidget extends StatelessWidget {
       child: Container(
         height: activeDotSize,
         width: activeDotSize,
-        decoration: new BoxDecoration(shape: BoxShape.circle, color: Colors.green[200]),
+        decoration: new BoxDecoration(shape: BoxShape.circle, color: activeDotColor),
       ),
     );
 
@@ -58,7 +64,7 @@ class DotIndicatorWidget extends StatelessWidget {
           child: Container(
             height: dotSize,
             width: dotSize,
-            decoration: new BoxDecoration(shape: BoxShape.circle, color: colorGreen),
+            decoration: new BoxDecoration(shape: BoxShape.circle, color: color),
           ),
         );
 

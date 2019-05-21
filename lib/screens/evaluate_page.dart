@@ -5,12 +5,12 @@ import 'package:sale_form_demo/widgets/content_card_widget.dart';
 import 'package:sale_form_demo/widgets/content_header_widget.dart';
 import 'package:sale_form_demo/widgets/dot_indicator_widget.dart';
 
-class StrategiesPage extends StatefulWidget {
+class EvaluatePage extends StatefulWidget {
   @override
-  _StrategiesPageState createState() => _StrategiesPageState();
+  _EvaluatePageState createState() => _EvaluatePageState();
 }
 
-class _StrategiesPageState extends State<StrategiesPage> {
+class _EvaluatePageState extends State<EvaluatePage> {
   int _activePosition = 0;
 
   @override
@@ -31,8 +31,8 @@ class _StrategiesPageState extends State<StrategiesPage> {
           child: Column(
             children: <Widget>[
               ContentHeaderWidget(
-                title: 'STRATEGIES',
-                color: colorGreen,
+                title: 'EVALUATE',
+                color: colorBlue,
               ),
               Expanded(
                 child: PageView(
@@ -45,32 +45,32 @@ class _StrategiesPageState extends State<StrategiesPage> {
                   children: <Widget>[
                     ContentCardWidget(
                       title: 'MI STRATEGY MANAGEMENT',
-                      colorBackground: colorGreen10,
-                      colorTitle: colorGreen,
+                      colorBackground: Colors.blue[100],
+                      colorTitle: colorBlue,
                       navigateTo: MiStrategyPage(),
                     ),
                     ContentCardWidget(
                       title: 'PM STRATEGY MANAGEMENT',
-                      colorBackground: colorGreen10,
-                      colorTitle: colorGreen,
+                      colorBackground: Colors.blue[100],
+                      colorTitle: colorBlue,
                       navigateTo: MiStrategyPage(),
                     ),
                     ContentCardWidget(
                       title: 'SPARE PARTS STRATEGY MANAGEMENT',
-                      colorBackground: colorGreen10,
-                      colorTitle: colorGreen,
+                      colorBackground: Colors.blue[100],
+                      colorTitle: colorBlue,
                       navigateTo: MiStrategyPage(),
                     ),
                     ContentCardWidget(
                       title: 'SAFETY SYSTEM MANAGEMENT',
-                      colorBackground: colorGreen10,
-                      colorTitle: colorGreen,
+                      colorBackground: Colors.blue[100],
+                      colorTitle: colorBlue,
                       navigateTo: MiStrategyPage(),
                     ),
                     ContentCardWidget(
                       title: 'PROCESS CONTROL STRATEGY',
-                      colorBackground: colorGreen10,
-                      colorTitle: colorGreen,
+                      colorBackground: Colors.blue[100],
+                      colorTitle: colorBlue,
                       navigateTo: MiStrategyPage(),
                     ),
                   ],
@@ -79,8 +79,8 @@ class _StrategiesPageState extends State<StrategiesPage> {
               DotIndicatorWidget(
                 dotCount: 5,
                 activePosition: _activePosition,
-                color: colorGreen,
-                activeDotColor: Colors.green[200],
+                color: colorBlue,
+                activeDotColor: Colors.blue[200],
               ),
             ],
           ),

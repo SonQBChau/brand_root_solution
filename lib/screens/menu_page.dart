@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:sale_form_demo/screens/evaluate_page.dart';
+import 'package:sale_form_demo/screens/life_cycle_page.dart';
 import 'package:sale_form_demo/screens/strategies_page.dart';
+import 'package:sale_form_demo/screens/sustain_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/menu_card_widget.dart';
 
@@ -27,10 +30,10 @@ class MenuPage extends StatelessWidget {
               Expanded(
                 child: Stack(
                   children: <Widget>[
-                    MenuCardWidget(color: colorGrey, title: 'LIFE-CYCLE', positionMultiplier: 3, navigateTo: StrategiesPage(),),
-                    MenuCardWidget(color: colorOrange, title: 'SUSTAIN', positionMultiplier: 2, navigateTo: StrategiesPage(),),
+                    MenuCardWidget(color: colorGrey, title: 'LIFE-CYCLE', positionMultiplier: 3, navigateTo: LifeCyclePage(),),
+                    MenuCardWidget(color: colorOrange, title: 'SUSTAIN', positionMultiplier: 2, navigateTo: SustainPage(),),
                     MenuCardWidget(color: colorGreen, title: 'STRATEGIES', positionMultiplier: 1, navigateTo: StrategiesPage(),),
-                    MenuCardWidget(color: colorBlue, title: 'EVALUATE', positionMultiplier: 0, navigateTo: StrategiesPage(),),
+                    MenuCardWidget(color: colorBlue, title: 'EVALUATE', positionMultiplier: 0, navigateTo: EvaluatePage(),),
                   ],
                 ),
               ),
