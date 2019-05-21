@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sale_form_demo/screens/menu_page.dart';
 import 'package:sale_form_demo/services/intro_form.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 
@@ -46,6 +47,13 @@ class LaunchButtonWidget extends StatelessWidget {
               ),
             );
             Scaffold.of(context).showSnackBar(snackBar);
+
+
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => MenuPage()),
+            );
+
           }
         },
       ),

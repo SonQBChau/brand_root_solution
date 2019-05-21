@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sale_form_demo/screens/strategies_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 
 class MenuPage extends StatelessWidget {
@@ -33,26 +34,34 @@ class MenuPage extends StatelessWidget {
 
                     Positioned(
                       top:cardPosition*3,
-                      child: Container(
-                        width: width,
-                        height: cardHeight,
-                        alignment: Alignment.center,
-                        decoration: new BoxDecoration(
-                          color: colorGrey,
-                          borderRadius: new BorderRadius.only(
-                              bottomLeft: const Radius.circular(15.0), bottomRight: const Radius.circular(15.0)),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black54,
-                              offset: new Offset(0.0, 4.0),
-                              blurRadius: 10.0,
-                            )
-                          ],
-                        ),
+                      child: GestureDetector(
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => StrategiesPage()),
+                          );
+                        },
+                        child: Container(
+                          width: width,
+                          height: cardHeight,
+                          alignment: Alignment.center,
+                          decoration: new BoxDecoration(
+                            color: colorGrey,
+                            borderRadius: new BorderRadius.only(
+                                bottomLeft: const Radius.circular(15.0), bottomRight: const Radius.circular(15.0)),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black54,
+                                offset: new Offset(0.0, 4.0),
+                                blurRadius: 10.0,
+                              )
+                            ],
+                          ),
 
-                        child: Text(
-                          'LIFE-CYCLE',
-                          style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),
+                          child: Text(
+                            'LIFE-CYCLE',
+                            style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),
+                          ),
                         ),
                       ),
                     ),

@@ -18,19 +18,19 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: StrategiesPage(),
 
-//      home: ChangeNotifierProvider<IntroForm>(
-//        builder: (_) => IntroForm(),
-//          child: PageView(
-//            scrollDirection: Axis.vertical,
-//            children: <Widget>[
-//              MyHomePage(),
-//              CustomerInfoPage(),
-//
-//            ],
-//          )
-//      ),
+
+      home: ChangeNotifierProvider<IntroForm>(
+        builder: (_) => IntroForm(),
+          child: PageView(
+            scrollDirection: Axis.vertical,
+            children: <Widget>[
+              MyHomePage(),
+              CustomerInfoPage(),
+
+            ],
+          )
+      ),
 
 
     );

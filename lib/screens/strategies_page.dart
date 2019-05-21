@@ -25,25 +25,45 @@ class StrategiesPage extends StatelessWidget {
           ),
           child: Column(
             children: <Widget>[
-              Container(
-                width: width,
-                height: cardHeight,
-                alignment: Alignment.center,
-                decoration: new BoxDecoration(
-                  color: colorGreen,
-                  borderRadius: new BorderRadius.only(
-                      bottomLeft: const Radius.circular(15.0), bottomRight: const Radius.circular(15.0)),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black54,
-                      offset: new Offset(0.0, 4.0),
-                      blurRadius: 10.0,
-                    )
-                  ],
-                ),
-                child: Text(
-                  'STRATEGIES',
-                  style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),
+              GestureDetector(
+                onTap: (){
+                  Navigator.pop(context);
+                },
+                child: Container(
+                  width: width,
+                  height: cardHeight,
+                  alignment: Alignment.center,
+                  decoration: new BoxDecoration(
+                    color: colorGreen,
+                    borderRadius: new BorderRadius.only(
+                        bottomLeft: const Radius.circular(15.0), bottomRight: const Radius.circular(15.0)),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black54,
+                        offset: new Offset(0.0, 4.0),
+                        blurRadius: 10.0,
+                      )
+                    ],
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      Text(
+                        'STRATEGIES',
+                        style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),
+                      ),
+                      SizedBox(height: 25,),
+                      SizedBox(
+                        height: 1.5,
+                        width: 50,
+                        child: Container(
+                          height: 1.5,
+                          color: colorGrey20,
+                        ),
+                      ),
+                      SizedBox(height: 25,),
+                    ],
+                  ),
                 ),
               ),
               Expanded(
@@ -87,7 +107,7 @@ class StrategiesPage extends StatelessWidget {
         margin: EdgeInsets.symmetric(horizontal: 20, vertical: 50),
         decoration: new BoxDecoration(
           color: colorGreen10,
-          borderRadius: new BorderRadius.circular(15),
+          borderRadius: new BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
               color: Colors.black54,
