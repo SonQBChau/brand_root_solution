@@ -58,6 +58,10 @@ class StrategiesPage extends StatelessWidget {
                 ),
               ),
               Container(
+                margin: EdgeInsets.only(bottom: 20),
+                height: 30,
+                width: 230,
+//                color: Colors.yellow,
                 child: _buildDotIndicator(),
               ),
 
@@ -118,26 +122,75 @@ class StrategiesPage extends StatelessWidget {
   }
 
   _buildDotIndicator() {
-    return Column(
+    return Stack(
       children: <Widget>[
-        Container(
-          padding: EdgeInsets.only(bottom: 30, left: 70, right: 70),
+        Positioned(
+          top:15,
+          left: 5,
           child: SizedBox(
             height: 2.0,
-            child: Center(
-              child: Container(
-                margin: EdgeInsetsDirectional.only(start: 1.0, end: 1.0),
-                height: 2.0,
-                color: colorGreen,
-              ),
+            width: 200,
+            child: Container(
+              height: 2.0,
+              color: colorGreen,
             ),
           ),
         ),
-        Container(
-          height: 20,
-          width: 20,
-          decoration: new BoxDecoration(shape: BoxShape.circle, color: colorGreen),
+        Positioned(
+          top:0,
+          left: (0),
+          child: Container(
+            height: 30,
+            width: 30,
+            decoration: new BoxDecoration(shape: BoxShape.circle, color: Colors.green[200]),
+          ),
         ),
+        Positioned(
+          top:5,
+          left: 5,
+          child: Container(
+            height: 20,
+            width: 20,
+            decoration: new BoxDecoration(shape: BoxShape.circle, color: colorGreen),
+          ),
+        ),
+        Positioned(
+          top:5,
+          left: 55,
+          child: Container(
+            height: 20,
+            width: 20,
+            decoration: new BoxDecoration(shape: BoxShape.circle, color: colorGreen),
+          ),
+        ),
+        Positioned(
+          top:5,
+          left: 105,
+          child: Container(
+            height: 20,
+            width: 20,
+            decoration: new BoxDecoration(shape: BoxShape.circle, color: colorGreen),
+          ),
+        ),
+        Positioned(
+          top:5,
+          left: 155,
+          child: Container(
+            height: 20,
+            width: 20,
+            decoration: new BoxDecoration(shape: BoxShape.circle, color: colorGreen),
+          ),
+        ),
+        Positioned(
+          top:5,
+          left: 205,
+          child: Container(
+            height: 20,
+            width: 20,
+            decoration: new BoxDecoration(shape: BoxShape.circle, color: colorGreen),
+          ),
+        ),
+
       ],
     );
   }
