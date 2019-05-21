@@ -14,13 +14,13 @@ class MenuPage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          constraints: new BoxConstraints.expand(
+          constraints: BoxConstraints.expand(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
           ),
           decoration: BoxDecoration(
-            image: new DecorationImage(
-              image: new AssetImage("images/Background.png"),
+            image:  DecorationImage(
+              image:  AssetImage("images/Background.png"),
               fit: BoxFit.cover,
             ),
           ),
@@ -65,6 +65,7 @@ class MenuPage extends StatelessWidget {
                         ),
                       ),
                     ),
+
                     Positioned(
                       top:cardPosition*2,
                       child: Container(
