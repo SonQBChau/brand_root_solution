@@ -39,20 +39,21 @@ class LaunchButtonWidget extends StatelessWidget {
             introForm.getFormKey().currentState.save();
 
             print("Customer Name: " + introForm.getName());
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => MenuPage()),
+            );
           } else {
             final snackBar = SnackBar(
               content: Text(
-                'Please fix the error(s)!',
+                'Please enter the required field(s)!',
                 style: TextStyle(fontWeight: FontWeight.w700, color: colorGrey20),
               ),
             );
             Scaffold.of(context).showSnackBar(snackBar);
 
 
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => MenuPage()),
-            );
+
 
           }
         },

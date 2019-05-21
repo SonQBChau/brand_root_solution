@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/utils/size_config.dart';
+import 'package:sale_form_demo/utils/slide_up_route.dart';
 
 
 class MenuCardWidget extends StatelessWidget {
@@ -37,7 +38,8 @@ class MenuCardWidget extends StatelessWidget {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => navigateTo),
+//            MaterialPageRoute(builder: (context) => navigateTo),
+              SlideUpRoute(page:navigateTo),
           );
         },
         child: Container(
