@@ -29,7 +29,7 @@ class MiStrategyPage extends StatelessWidget {
                     child: InkWell(
                         borderRadius: BorderRadius.circular(30),
                         onTap: (){
-
+                          Navigator.pop(context);
                         },
                         child: Icon(
                       Icons.arrow_back,
