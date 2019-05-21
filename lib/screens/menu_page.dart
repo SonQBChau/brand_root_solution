@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/screens/strategies_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
+import 'package:sale_form_demo/widgets/menu_card_widget.dart';
 
 class MenuPage extends StatelessWidget {
   @override
@@ -31,116 +32,10 @@ class MenuPage extends StatelessWidget {
               Expanded(
                 child: Stack(
                   children: <Widget>[
-
-                    Positioned(
-                      top:cardPosition*3,
-                      child: GestureDetector(
-                        onTap: (){
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => StrategiesPage()),
-                          );
-                        },
-                        child: Container(
-                          width: width,
-                          height: cardHeight,
-                          alignment: Alignment.center,
-                          decoration: new BoxDecoration(
-                            color: colorGrey,
-                            borderRadius: new BorderRadius.only(
-                                bottomLeft: const Radius.circular(15.0), bottomRight: const Radius.circular(15.0)),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black54,
-                                offset: new Offset(0.0, 4.0),
-                                blurRadius: 10.0,
-                              )
-                            ],
-                          ),
-
-                          child: Text(
-                            'LIFE-CYCLE',
-                            style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),
-                          ),
-                        ),
-                      ),
-                    ),
-
-                    Positioned(
-                      top:cardPosition*2,
-                      child: Container(
-                        width: width,
-                        height: cardHeight,
-                        alignment: Alignment.center,
-                        decoration: new BoxDecoration(
-                          color: colorOrange,
-                          borderRadius: new BorderRadius.only(
-                              bottomLeft: const Radius.circular(15.0), bottomRight: const Radius.circular(15.0)),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black54,
-                              offset: new Offset(0.0, 4.0),
-                              blurRadius: 10.0,
-                            )
-                          ],
-                        ),
-
-                        child: Text(
-                          'SUSTAIN',
-                          style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      top:cardPosition,
-                      child: Container(
-                        width: width,
-                        height: cardHeight,
-                        alignment: Alignment.center,
-                        decoration: new BoxDecoration(
-                          color: colorGreen,
-                          borderRadius: new BorderRadius.only(
-                              bottomLeft: const Radius.circular(15.0), bottomRight: const Radius.circular(15.0)),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black54,
-                              offset: new Offset(0.0, 4.0),
-                              blurRadius: 10.0,
-                            )
-                          ],
-                        ),
-
-                        child: Text(
-                          'STRATEGIES',
-                          style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      top:0,
-                      child: Container(
-                        width: width,
-                        height: cardHeight,
-                        alignment: Alignment.center,
-                        decoration: new BoxDecoration(
-                          color: colorBlue,
-                          borderRadius: new BorderRadius.only(
-                              bottomLeft: const Radius.circular(15.0), bottomRight: const Radius.circular(15.0)),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black54,
-                              offset: new Offset(0.0, 4.0),
-                              blurRadius: 10.0,
-                            )
-                          ],
-                        ),
-
-                        child: Text(
-                          'EVALUATE',
-                          style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),
-                        ),
-                      ),
-                    ),
+                    MenuCardWidget(color: colorGrey, title: 'LIFE-CYCLE', positionMultiplier: 3, navigateTo: StrategiesPage(),),
+                    MenuCardWidget(color: colorOrange, title: 'SUSTAIN', positionMultiplier: 2, navigateTo: StrategiesPage(),),
+                    MenuCardWidget(color: colorGreen, title: 'STRATEGIES', positionMultiplier: 1, navigateTo: StrategiesPage(),),
+                    MenuCardWidget(color: colorBlue, title: 'EVALUATE', positionMultiplier: 0, navigateTo: StrategiesPage(),),
                   ],
                 ),
               ),
