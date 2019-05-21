@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/screens/customer_info_page.dart';
 import 'package:sale_form_demo/screens/menu_page.dart';
+import 'package:sale_form_demo/screens/mi_strategy_page.dart';
 import 'package:sale_form_demo/screens/my_home_page.dart';
 import 'package:provider/provider.dart';
 import 'package:sale_form_demo/screens/strategies_page.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: StrategiesPage(),
+      home: MiStrategyPage(),
 
 //      home: ChangeNotifierProvider<IntroForm>(
 //        builder: (_) => IntroForm(),
