@@ -50,10 +50,11 @@ class StrategiesPage extends StatelessWidget {
                 child: PageView(
                   controller: PageController(viewportFraction: 0.8),
                   children: <Widget>[
-                    buildContainer(),
-                    buildContainer(),
-                    buildContainer(),
-                    buildContainer(),
+                    buildContainer('MI STRATEGY MANAGEMENT'),
+                    buildContainer('PM STRATEGY MANAGEMENT'),
+                    buildContainer('SPARE PARTS STRATEGY MANAGEMENT'),
+                    buildContainer('SAFETY SYSTEM MANAGEMENT'),
+                    buildContainer('PROCESS CONTROL STRATEGY'),
                   ],
                 ),
               ),
@@ -64,44 +65,49 @@ class StrategiesPage extends StatelessWidget {
     );
   }
 
-  Container buildContainer() {
-    return Container(
-                  width: 250,
-                  padding: EdgeInsets.symmetric(vertical: 40, horizontal: 30),
-                  margin: EdgeInsets.symmetric(horizontal: 20, vertical: 50),
-                  decoration: new BoxDecoration(
-                    color: colorGreen10,
-                    borderRadius: new BorderRadius.circular(15),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black54,
-                        offset: new Offset(0.0, 4.0),
-                        blurRadius: 10.0,
-                      )
-                    ],
+  Widget buildContainer(String title) {
+    return GestureDetector(
+      onTap: () {
+        print('Card Tap!');
+      },
+      child: Container(
+                    width: 250,
+                    padding: EdgeInsets.symmetric(vertical: 40, horizontal: 30),
+                    margin: EdgeInsets.symmetric(horizontal: 20, vertical: 50),
+                    decoration: new BoxDecoration(
+                      color: colorGreen10,
+                      borderRadius: new BorderRadius.circular(15),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black54,
+                          offset: new Offset(0.0, 4.0),
+                          blurRadius: 10.0,
+                        )
+                      ],
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        Text(title,
+                        style: TextStyle(
+                          color: colorGreen,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700,
+                        ),
+                        ),
+                        SizedBox(height: 20,),
+                        Text('Managing the risk based, proactive approach and generating the equipment plans/ strengths'
+                            ' that aim to prevent loss of containment events for all plant equipments.',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        )
+                      ],
+                    ),
                   ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: <Widget>[
-                      Text('MI STRATEGY MANAGEMENT',
-                      style: TextStyle(
-                        color: colorGreen,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700,
-                      ),
-                      ),
-                      SizedBox(height: 20,),
-                      Text('Managing the risk based, proactive approach and generating the equipment plans/ strengths'
-                          ' that aim to prevent loss of containment events for all plant equipments.',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                      ),
-                      )
-                    ],
-                  ),
-                );
+    );
   }
 }
 
