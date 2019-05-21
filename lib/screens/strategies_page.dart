@@ -5,10 +5,16 @@ import 'package:sale_form_demo/widgets/content_card_widget.dart';
 import 'package:sale_form_demo/widgets/content_header_widget.dart';
 import 'package:sale_form_demo/widgets/dot_indicator_widget.dart';
 
-class StrategiesPage extends StatelessWidget {
+class StrategiesPage extends StatefulWidget {
+  @override
+  _StrategiesPageState createState() => _StrategiesPageState();
+}
+
+class _StrategiesPageState extends State<StrategiesPage> {
+  int _activePosition = 0;
+
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -24,10 +30,18 @@ class StrategiesPage extends StatelessWidget {
           ),
           child: Column(
             children: <Widget>[
-              ContentHeaderWidget(title: 'STRATEGIES', color: colorGreen,),
+              ContentHeaderWidget(
+                title: 'STRATEGIES',
+                color: colorGreen,
+              ),
               Expanded(
                 child: PageView(
                   controller: PageController(viewportFraction: 0.8),
+                  onPageChanged: (index) {
+                    setState(() {
+                      _activePosition = index;
+                    });
+                  },
                   children: <Widget>[
                     ContentCardWidget(
                       title: 'MI STRATEGY MANAGEMENT',
@@ -62,14 +76,14 @@ class StrategiesPage extends StatelessWidget {
                   ],
                 ),
               ),
-              DotIndicatorWidget(dotCount: 5,),
+              DotIndicatorWidget(
+                dotCount: 5,
+                activePosition: _activePosition,
+              ),
             ],
           ),
         ),
       ),
     );
   }
-
-
-
 }

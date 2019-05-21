@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class IntroForm with ChangeNotifier {
+class IntroFormProvider with ChangeNotifier {
   final _formKey = GlobalKey<FormState>();
   String _name;
   String _company;
@@ -13,7 +13,7 @@ class IntroForm with ChangeNotifier {
   bool _positionError = false;
 
 
-  IntroForm();
+  IntroFormProvider();
 
   getFormKey() => _formKey;
 

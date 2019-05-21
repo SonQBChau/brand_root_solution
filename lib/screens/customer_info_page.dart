@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sale_form_demo/data/form_texts.dart';
-import 'package:sale_form_demo/services/intro_form.dart';
+import 'package:sale_form_demo/services/intro_form_provider.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/client_header_widget.dart';
 import 'package:sale_form_demo/widgets/text_widget_info_page.dart';
@@ -14,7 +14,7 @@ import 'package:sale_form_demo/utils/validator.dart';
 class CustomerInfoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final introForm = Provider.of<IntroForm>(context);
+    final introForm = Provider.of<IntroFormProvider>(context);
 
     return Scaffold(
       body: Container(
@@ -29,7 +29,7 @@ class CustomerInfoPage extends StatelessWidget {
     );
   }
 
-  List<Widget> _buildFormWidgets(IntroForm introForm) {
+  List<Widget> _buildFormWidgets(IntroFormProvider introForm) {
     List<Widget> formWidget = new List();
 
     formWidget.add(ClientHeaderWidget());

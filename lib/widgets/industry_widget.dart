@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sale_form_demo/services/intro_form.dart';
+import 'package:sale_form_demo/services/intro_form_provider.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 
 class IndustryWidget extends StatelessWidget {
@@ -21,7 +21,7 @@ class IndustryWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final introForm = Provider.of<IntroForm>(context);
+    final introForm = Provider.of<IntroFormProvider>(context);
 
     return Container(
       padding: const EdgeInsets.only(left: 30, right: 30, top: 0, bottom: 0),
@@ -79,7 +79,7 @@ class IndustryWidget extends StatelessWidget {
     );
   }
 
-  buildErrorMessage(IntroForm introForm) {
+  buildErrorMessage(IntroFormProvider introForm) {
     if (introForm.getIndustryError()){
       return Container(
         padding: EdgeInsets.only(top:5,bottom: 5, left: 5),
