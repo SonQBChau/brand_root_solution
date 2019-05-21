@@ -18,7 +18,16 @@ class CustomerInfoPage extends StatelessWidget {
 
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(color: colorGrey10),
+        constraints: BoxConstraints.expand(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+        ),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("images/Background.png"),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: Form(
           key: introForm.getFormKey(),
           child: ListView(

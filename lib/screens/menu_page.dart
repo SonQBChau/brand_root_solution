@@ -4,22 +4,26 @@ import 'package:sale_form_demo/screens/life_cycle_page.dart';
 import 'package:sale_form_demo/screens/strategies_page.dart';
 import 'package:sale_form_demo/screens/sustain_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
+import 'package:sale_form_demo/utils/size_config.dart';
 import 'package:sale_form_demo/widgets/menu_card_widget.dart';
 
 class MenuPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
+    final double screeHeight = SizeConfig.safeAreaScreenHeight;
+    final double screenWidth = SizeConfig.safeAreaScreenWidth;
 
     return Scaffold(
       body: SafeArea(
         child: Container(
           constraints: BoxConstraints.expand(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
+            width: screenWidth,
+            height: screeHeight,
           ),
           decoration: BoxDecoration(
-            image:  DecorationImage(
-              image:  AssetImage("images/Background.png"),
+            image: DecorationImage(
+              image: AssetImage("images/Background.png"),
               fit: BoxFit.cover,
             ),
           ),
@@ -30,10 +34,38 @@ class MenuPage extends StatelessWidget {
               Expanded(
                 child: Stack(
                   children: <Widget>[
-                    MenuCardWidget(color: colorGrey, title: 'LIFE-CYCLE', positionMultiplier: 3, navigateTo: LifeCyclePage(),),
-                    MenuCardWidget(color: colorOrange, title: 'SUSTAIN', positionMultiplier: 2, navigateTo: SustainPage(),),
-                    MenuCardWidget(color: colorGreen, title: 'STRATEGIES', positionMultiplier: 1, navigateTo: StrategiesPage(),),
-                    MenuCardWidget(color: colorBlue, title: 'EVALUATE', positionMultiplier: 0, navigateTo: EvaluatePage(),),
+                    MenuCardWidget(
+                      height: screeHeight,
+                      width: screenWidth,
+                      color: colorGrey,
+                      title: 'LIFE-CYCLE',
+                      positionMultiplier: 3,
+                      navigateTo: LifeCyclePage(),
+                    ),
+                    MenuCardWidget(
+                      height: screeHeight,
+                      width: screenWidth,
+                      color: colorOrange,
+                      title: 'SUSTAIN',
+                      positionMultiplier: 2,
+                      navigateTo: SustainPage(),
+                    ),
+                    MenuCardWidget(
+                      height: screeHeight,
+                      width: screenWidth,
+                      color: colorGreen,
+                      title: 'STRATEGIES',
+                      positionMultiplier: 1,
+                      navigateTo: StrategiesPage(),
+                    ),
+                    MenuCardWidget(
+                      height: screeHeight,
+                      width: screenWidth,
+                      color: colorBlue,
+                      title: 'EVALUATE',
+                      positionMultiplier: 0,
+                      navigateTo: EvaluatePage(),
+                    ),
                   ],
                 ),
               ),
@@ -49,6 +81,5 @@ class MenuPage extends StatelessWidget {
         ),
       ),
     );
-
   }
 }

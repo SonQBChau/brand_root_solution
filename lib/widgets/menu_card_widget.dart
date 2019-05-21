@@ -1,26 +1,35 @@
 import 'package:flutter/material.dart';
-import 'package:sale_form_demo/utils/app_color.dart';
+import 'package:sale_form_demo/utils/size_config.dart';
+
 
 class MenuCardWidget extends StatelessWidget {
   final int positionMultiplier;
   final Widget navigateTo;
   final Color color;
   final String title;
+  final double height;
+  final double width;
 
   MenuCardWidget(
-      {@required this.color, @required this.title, @required this.positionMultiplier, @required this.navigateTo}):
+      {@required this.height,
+        @required this.width,
+        @required this.color,
+        @required this.title,
+        @required this.positionMultiplier,
+        @required this.navigateTo}):
         assert(color != null),
+        assert(height != null),
+        assert(width != null),
         assert(title != null),
         assert(positionMultiplier != null),
         assert(navigateTo != null);
 
   @override
   Widget build(BuildContext context) {
-    final double height = MediaQuery.of(context).size.height;
-    final double width = MediaQuery.of(context).size.width;
     final double cardContainerHeight = height - 60;
     final double cardHeight = cardContainerHeight / 4;
     final double cardPosition = cardHeight - 20;
+
 
     return Positioned(
       top: cardPosition * positionMultiplier,
