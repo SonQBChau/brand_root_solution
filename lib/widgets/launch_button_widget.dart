@@ -39,10 +39,10 @@ class LaunchButtonWidget extends StatelessWidget {
             introForm.getFormKey().currentState.save();
 
             print("Customer Name: " + introForm.getName());
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => MenuPage()),
-            );
+//            Navigator.push(
+//              context,
+//              MaterialPageRoute(builder: (context) => MenuPage()),
+//            );
           } else {
             final snackBar = SnackBar(
               content: Text(
@@ -52,6 +52,11 @@ class LaunchButtonWidget extends StatelessWidget {
             );
             Scaffold.of(context).showSnackBar(snackBar);
 
+
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => MenuPage()),
+            );
 
 
 

@@ -30,9 +30,12 @@ class _StrategiesPageState extends State<StrategiesPage> {
           ),
           child: Column(
             children: <Widget>[
-              ContentHeaderWidget(
-                title: 'STRATEGIES',
-                color: colorGreen,
+              Hero(
+                tag: "hero1",
+                child: ContentHeaderWidget(
+                  title: 'STRATEGIES',
+                  color: colorGreen,
+                ),
               ),
               Expanded(
                 child: PageView(

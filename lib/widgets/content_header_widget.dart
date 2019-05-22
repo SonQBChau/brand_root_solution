@@ -41,9 +41,12 @@ class ContentHeaderWidget extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
-            Text(
-              title,
-              style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),
+            Material(
+              color: Colors.transparent,
+              child: Text(
+                title,
+                style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),
+              ),
             ),
             SizedBox(
               height: 25,
