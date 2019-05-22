@@ -41,8 +41,8 @@ class MenuCardWidget extends StatelessWidget {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => navigateTo),
-//              SlideUpRoute(page:navigateTo),
+//            MaterialPageRoute(builder: (context) => navigateTo),
+              SlideUpRoute(page:navigateTo),
           );
         },
         child: Hero(

@@ -41,7 +41,7 @@ class MenuPage extends StatelessWidget {
                       title: 'LIFE-CYCLE',
                       positionMultiplier: 3,
                       navigateTo: LifeCyclePage(),
-                      heroTag: 'hero3',
+                      heroTag: 'lifeCycle',
                     ),
                     MenuCardWidget(
                       height: screeHeight,
@@ -50,7 +50,7 @@ class MenuPage extends StatelessWidget {
                       title: 'SUSTAIN',
                       positionMultiplier: 2,
                       navigateTo: SustainPage(),
-                      heroTag: 'hero2',
+                      heroTag: 'sustain',
                     ),
                     MenuCardWidget(
                       height: screeHeight,
@@ -59,7 +59,7 @@ class MenuPage extends StatelessWidget {
                       title: 'STRATEGIES',
                       positionMultiplier: 1,
                       navigateTo: StrategiesPage(),
-                      heroTag: 'hero1',
+                      heroTag: 'strategies',
                     ),
                     MenuCardWidget(
                       height: screeHeight,
@@ -68,7 +68,7 @@ class MenuPage extends StatelessWidget {
                       title: 'EVALUATE',
                       positionMultiplier: 0,
                       navigateTo: EvaluatePage(),
-                      heroTag: 'hero0',
+                      heroTag: 'evaluate',
                     ),
                   ],
                 ),

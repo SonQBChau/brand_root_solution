@@ -33,6 +33,7 @@ class _EvaluatePageState extends State<EvaluatePage> {
               ContentHeaderWidget(
                 title: 'EVALUATE',
                 color: colorBlue,
+                heroTag: 'evaluate',
               ),
               Expanded(
                 child: PageView(

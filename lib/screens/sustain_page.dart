@@ -33,6 +33,7 @@ class _SustainPageState extends State<SustainPage> {
               ContentHeaderWidget(
                 title: 'SUSTAIN',
                 color: colorOrange,
+                heroTag: 'sustain',
               ),
               Expanded(
                 child: PageView(

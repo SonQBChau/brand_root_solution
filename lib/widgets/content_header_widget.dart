@@ -4,9 +4,10 @@ import 'package:sale_form_demo/utils/app_color.dart';
 class ContentHeaderWidget extends StatelessWidget {
   final String title;
   final Color color;
+  final String heroTag;
 
   ContentHeaderWidget(
-      {Key key,@required this.title, this.color}):
+      {Key key,@required this.title, this.color, this.heroTag}):
         assert(title != null),
         assert(color != null),
         super(key: key);
@@ -22,47 +23,50 @@ class ContentHeaderWidget extends StatelessWidget {
       onTap: () {
         Navigator.pop(context);
       },
-      child: Container(
-        width: width,
-        height: cardHeight,
-        alignment: Alignment.center,
-        decoration: new BoxDecoration(
-          color: color,
-          borderRadius: new BorderRadius.only(
-              bottomLeft: const Radius.circular(15.0), bottomRight: const Radius.circular(15.0)),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black54,
-              offset: new Offset(0.0, 4.0),
-              blurRadius: 10.0,
-            )
-          ],
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
-            Material(
-              color: Colors.transparent,
-              child: Text(
-                title,
-                style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),
+      child: Hero(
+        tag: heroTag,
+        child: Container(
+          width: width,
+          height: cardHeight,
+          alignment: Alignment.center,
+          decoration: new BoxDecoration(
+            color: color,
+            borderRadius: new BorderRadius.only(
+                bottomLeft: const Radius.circular(15.0), bottomRight: const Radius.circular(15.0)),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black54,
+                offset: new Offset(0.0, 4.0),
+                blurRadius: 10.0,
+              )
+            ],
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              Material(
+                color: Colors.transparent,
+                child: Text(
+                  title,
+                  style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),
+                ),
               ),
-            ),
-            SizedBox(
-              height: 25,
-            ),
-            SizedBox(
-              height: 1.5,
-              width: 50,
-              child: Container(
+              SizedBox(
+                height: 25,
+              ),
+              SizedBox(
                 height: 1.5,
-                color: colorGrey20,
+                width: 50,
+                child: Container(
+                  height: 1.5,
+                  color: colorGrey20,
+                ),
               ),
-            ),
-            SizedBox(
-              height: 25,
-            ),
-          ],
+              SizedBox(
+                height: 25,
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -33,6 +33,7 @@ class _LifeCyclePageState extends State<LifeCyclePage> {
               ContentHeaderWidget(
                 title: 'LIFE-CYCLE',
                 color: colorGrey,
+                heroTag: 'lifeCycle',
               ),
               Expanded(
                 child: PageView(
