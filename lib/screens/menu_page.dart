@@ -1,18 +1,11 @@
-import 'package:animator/animator.dart';
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/screens/evaluate_page.dart';
 import 'package:sale_form_demo/screens/life_cycle_page.dart';
 import 'package:sale_form_demo/screens/strategies_page.dart';
 import 'package:sale_form_demo/screens/sustain_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
-import 'package:sale_form_demo/utils/easing_animation_widget.dart';
-import 'package:sale_form_demo/utils/easy_animated_size.dart';
 import 'package:sale_form_demo/utils/size_config.dart';
 import 'package:sale_form_demo/widgets/menu_card_widget.dart';
-
-// Hero Animation
-//https://medium.com/@diegoveloper/flutter-shared-element-transitions-hero-heroes-f1a083cb123a
-
 
 class MenuPage extends StatelessWidget {
   @override
@@ -77,10 +70,6 @@ class MenuPage extends StatelessWidget {
                       navigateTo: EvaluatePage(),
                       heroTag: 'evaluate',
                     ),
-
-
-
-
                   ],
                 ),
               ),
