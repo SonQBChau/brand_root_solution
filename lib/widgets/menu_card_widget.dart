@@ -11,6 +11,8 @@ class MenuCardWidget extends StatelessWidget {
   final double height;
   final double width;
   final String heroTag;
+  final Function() notifyParent;
+  final bool shouldSlideUp;
 
   MenuCardWidget(
       {@required this.height,
@@ -19,6 +21,8 @@ class MenuCardWidget extends StatelessWidget {
         @required this.title,
         @required this.heroTag,
         @required this.positionMultiplier,
+        @required this.notifyParent,
+        @required this.shouldSlideUp,
         @required this.navigateTo})
       : assert(color != null),
         assert(height != null),
@@ -33,21 +37,26 @@ class MenuCardWidget extends StatelessWidget {
     final double cardContainerHeight = height - 60;
     final double cardHeight = cardContainerHeight / 4;
     final double cardPosition = cardHeight - 20;
+    double offsetPosition = 0;
+    if (shouldSlideUp){
+      offsetPosition = -1 * positionMultiplier.toDouble();
+    }
 
     return Positioned(
       top: cardPosition * positionMultiplier,
       child: GestureDetector(
         onTap: () {
-//          Navigator.push(
-//            context,
-//              SlideUpRoute(page:navigateTo),
-//          );
+          Navigator.push(
+            context,
+              SlideUpRoute(page:navigateTo),
+          );
+        notifyParent();
 
         },
         child: Hero(
           tag: heroTag,
           child: Animator(
-            tween: Tween<Offset>(begin: Offset.zero, end: Offset(0, 0)),
+            tween: Tween<Offset>(begin: Offset.zero, end: Offset(0, offsetPosition)),
             duration: Duration(seconds: 1),
             builder: (anim) => FractionalTranslation(
               translation: anim.value,

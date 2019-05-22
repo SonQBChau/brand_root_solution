@@ -16,7 +16,7 @@ class ContentHeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final introForm = Provider.of<IntroFormProvider>(context);
+
 
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
@@ -27,7 +27,7 @@ class ContentHeaderWidget extends StatelessWidget {
       onTap: () {
         //navigate back to the menu card and animated the menu card slide down
         Navigator.pop(context);
-        introForm.setShouldAnimated(false);
+
       },
       child: Hero(
         tag: heroTag,

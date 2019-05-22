@@ -7,7 +7,19 @@ import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/utils/size_config.dart';
 import 'package:sale_form_demo/widgets/menu_card_widget.dart';
 
-class MenuPage extends StatelessWidget {
+class MenuPage extends StatefulWidget {
+  @override
+  _MenuPageState createState() => _MenuPageState();
+}
+
+class _MenuPageState extends State<MenuPage> {
+  bool _shouldSlideUp = false;
+  slideUp() {
+    setState(() {
+      _shouldSlideUp = true;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -42,6 +54,8 @@ class MenuPage extends StatelessWidget {
                       positionMultiplier: 3,
                       navigateTo: LifeCyclePage(),
                       heroTag: 'lifeCycle',
+                      notifyParent: slideUp,
+                      shouldSlideUp: _shouldSlideUp,
                     ),
                     MenuCardWidget(
                       height: screeHeight,
@@ -51,6 +65,8 @@ class MenuPage extends StatelessWidget {
                       positionMultiplier: 2,
                       navigateTo: SustainPage(),
                       heroTag: 'sustain',
+                      notifyParent: slideUp,
+                      shouldSlideUp: _shouldSlideUp,
                     ),
                     MenuCardWidget(
                       height: screeHeight,
@@ -60,6 +76,8 @@ class MenuPage extends StatelessWidget {
                       positionMultiplier: 1,
                       navigateTo: StrategiesPage(),
                       heroTag: 'strategies',
+                      notifyParent: slideUp,
+                      shouldSlideUp: _shouldSlideUp,
                     ),
                     MenuCardWidget(
                       height: screeHeight,
@@ -69,6 +87,8 @@ class MenuPage extends StatelessWidget {
                       positionMultiplier: 0,
                       navigateTo: EvaluatePage(),
                       heroTag: 'evaluate',
+                      notifyParent: slideUp,
+                      shouldSlideUp: _shouldSlideUp,
                     ),
                   ],
                 ),
