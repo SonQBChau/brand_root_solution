@@ -6,9 +6,10 @@ class ContentHeaderWidget extends StatelessWidget {
   final Color color;
 
   ContentHeaderWidget(
-      {@required this.title, this.color}):
+      {Key key,@required this.title, this.color}):
         assert(title != null),
-        assert(color != null);
+        assert(color != null),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
