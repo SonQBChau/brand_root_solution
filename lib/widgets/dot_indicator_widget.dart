@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 
 class DotIndicatorWidget extends StatelessWidget {
-  int activePosition;
+  final int activePosition;
   final int dotCount;
   final Color color;
   final Color activeDotColor;

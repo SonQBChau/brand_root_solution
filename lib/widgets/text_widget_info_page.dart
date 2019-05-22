@@ -4,8 +4,8 @@ import 'package:sale_form_demo/utils/app_color.dart';
 class TextWidgetInfoPage extends StatelessWidget {
   final String titleTxt;
   final String hintTxt;
-  TextCapitalization textCapitalization;
-  TextInputType textInputType;
+  final TextCapitalization textCapitalization;
+  final TextInputType textInputType;
   final Function onValidate;
   final Function onSubmit;
   TextWidgetInfoPage({@required  this.titleTxt,

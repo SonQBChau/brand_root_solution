@@ -5,7 +5,7 @@ import 'package:sale_form_demo/services/intro_form_provider.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 
 class PositionWidget extends StatelessWidget {
-  List<DropdownMenuItem<int>> industryList = [
+  final List<DropdownMenuItem<int>> industryList = [
     DropdownMenuItem(
       child: new Text('Executive'),
       value: 0,
