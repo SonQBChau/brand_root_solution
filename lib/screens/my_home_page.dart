@@ -39,7 +39,7 @@ class MyHomePage extends StatelessWidget {
                 ),
               ),
             ),
-            SlideUpAnimator(MediaQuery.of(context).size.height),
+            SlideUpAnimator(),
           ],
         ),
       ),
@@ -97,14 +97,11 @@ class IntroText extends StatelessWidget {
 
 
 class SlideUpAnimator extends StatelessWidget {
-    SlideUpAnimator(this.height);
-    final double height;
 
   @override
   Widget build(BuildContext context) {
 
     return Container(
-//      color: Colors.red,
       child:  Animator(
         tweenMap: {
           "opacity": Tween<double>(begin: 0, end: 1),
