@@ -1,9 +1,11 @@
 import 'package:animator/animator.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:sale_form_demo/services/intro_form_provider.dart';
 import 'package:sale_form_demo/utils/size_config.dart';
 import 'package:sale_form_demo/utils/slide_up_route.dart';
 
-class MenuCardWidget extends StatelessWidget {
+class MenuCardWidget extends StatefulWidget {
   final int positionMultiplier;
   final Widget navigateTo;
   final Color color;
@@ -29,34 +31,52 @@ class MenuCardWidget extends StatelessWidget {
         assert(navigateTo != null);
 
   @override
+  _MenuCardWidgetState createState() => _MenuCardWidgetState();
+}
+
+class _MenuCardWidgetState extends State<MenuCardWidget> {
+
+
+
+  @override
   Widget build(BuildContext context) {
-    final double cardContainerHeight = height - 60;
+    final introForm = Provider.of<IntroFormProvider>(context);
+
+    final double cardContainerHeight = widget.height - 60;
     final double cardHeight = cardContainerHeight / 4;
     final double cardPosition = cardHeight - 20;
 
+    double offsetPosition = 0;
+    if (introForm.getShouldAnimated()){
+      offsetPosition = -1 * widget.positionMultiplier.toDouble();
+    }
+
     return Positioned(
-      top: cardPosition * positionMultiplier,
+      top: cardPosition * widget.positionMultiplier,
       child: GestureDetector(
         onTap: () {
-//          Navigator.push(
-//            context,
-//              SlideUpRoute(page:navigateTo),
-//          );
+          Navigator.push(
+            context,
+              SlideUpRoute(page: widget.navigateTo),
+          );
+          introForm.setShouldAnimated(true);
+        setState(() {
+        });
 
         },
         child: Hero(
-          tag: heroTag,
+          tag: widget.heroTag,
           child: Animator(
-            tween: Tween<Offset>(begin: Offset.zero, end: Offset(0, 0)),
-            duration: Duration(seconds: 1),
+            tween: Tween<Offset>(begin: Offset.zero, end: Offset(0, offsetPosition)),
+            duration: Duration(milliseconds: 400),
             builder: (anim) => FractionalTranslation(
                   translation: anim.value,
                   child: Container(
-                    width: width,
+                    width: widget.width,
                     height: cardHeight,
                     alignment: Alignment.center,
                     decoration: new BoxDecoration(
-                      color: color,
+                      color: widget.color,
                       borderRadius: new BorderRadius.only(
                           bottomLeft: const Radius.circular(15.0), bottomRight: const Radius.circular(15.0)),
                       boxShadow: [
@@ -70,7 +90,7 @@ class MenuCardWidget extends StatelessWidget {
                     child: Material(
                       color: Colors.transparent,
                       child: Text(
-                        title,
+                        widget.title,
                         style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),
                       ),
                     ),

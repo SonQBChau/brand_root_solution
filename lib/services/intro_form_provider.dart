@@ -11,6 +11,7 @@ class IntroFormProvider with ChangeNotifier {
   bool _industryError = false;
   int _position;
   bool _positionError = false;
+  bool _shouldAnimated = false;
 
 
   IntroFormProvider();
@@ -70,6 +71,13 @@ class IntroFormProvider with ChangeNotifier {
     _positionError = status;
     notifyListeners();
   }
+
+  getShouldAnimated() => _shouldAnimated;
+  setShouldAnimated(bool status) {
+    _shouldAnimated = status;
+    notifyListeners();
+  }
+
 
 
 }

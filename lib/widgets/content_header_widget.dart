@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:sale_form_demo/services/intro_form_provider.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 
 class ContentHeaderWidget extends StatelessWidget {
@@ -14,6 +16,8 @@ class ContentHeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final introForm = Provider.of<IntroFormProvider>(context);
+
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
     final double cardContainerHeight = height - 60;
@@ -21,7 +25,9 @@ class ContentHeaderWidget extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
+        //navigate back to the menu card and animated the menu card slide down
         Navigator.pop(context);
+        introForm.setShouldAnimated(false);
       },
       child: Hero(
         tag: heroTag,
