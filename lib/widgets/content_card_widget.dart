@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:sale_form_demo/services/menu_slide_provider.dart';
 
 class ContentCardWidget extends StatelessWidget {
   final String title;
@@ -16,12 +18,14 @@ class ContentCardWidget extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
+    final menuProvider = Provider.of<MenuSlideProvider>(context);
     return GestureDetector(
       onTap: () {
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => navigateTo),
         );
+        menuProvider.setSlideStatus(false);
       },
       child: Container(
         width: 250,

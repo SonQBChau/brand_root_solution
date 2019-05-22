@@ -1,5 +1,7 @@
 import 'package:animator/animator.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:sale_form_demo/services/menu_slide_provider.dart';
 import 'package:sale_form_demo/utils/size_config.dart';
 import 'package:sale_form_demo/utils/slide_up_route.dart';
 
@@ -11,8 +13,7 @@ class MenuCardWidget extends StatelessWidget {
   final double height;
   final double width;
   final String heroTag;
-  final Function() notifyParent;
-  final bool shouldSlideUp;
+
 
   MenuCardWidget(
       {@required this.height,
@@ -21,8 +22,6 @@ class MenuCardWidget extends StatelessWidget {
         @required this.title,
         @required this.heroTag,
         @required this.positionMultiplier,
-        @required this.notifyParent,
-        @required this.shouldSlideUp,
         @required this.navigateTo})
       : assert(color != null),
         assert(height != null),
@@ -34,13 +33,17 @@ class MenuCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final menuProvider = Provider.of<MenuSlideProvider>(context);
+
     final double cardContainerHeight = height - 60;
     final double cardHeight = cardContainerHeight / 4;
     final double cardPosition = cardHeight - 20;
+
     double offsetPosition = 0;
-    if (shouldSlideUp){
+    if (menuProvider.getSlideStatus()){
       offsetPosition = -1 * positionMultiplier.toDouble();
     }
+
 
     return Positioned(
       top: cardPosition * positionMultiplier,
@@ -50,7 +53,9 @@ class MenuCardWidget extends StatelessWidget {
             context,
               SlideUpRoute(page:navigateTo),
           );
-        notifyParent();
+          menuProvider.setSlideStatus(true);
+
+
 
         },
         child: Hero(
