@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:sale_form_demo/utils/size_config.dart';
 
 
 class HeaderCardWidget extends StatelessWidget {
   final int positionMultiplier;
   final Color color;
   final String title;
-  final double height;
-  final double width;
   final double animationValue;
   final Function notifyParent;
 
@@ -14,8 +13,7 @@ class HeaderCardWidget extends StatelessWidget {
 
 
   HeaderCardWidget(
-      {@required this.height,
-        @required this.width,
+      {
         @required this.animationValue,
         @required this.color,
         @required this.title,
@@ -23,18 +21,18 @@ class HeaderCardWidget extends StatelessWidget {
         @required this.positionMultiplier,
       })
       : assert(color != null),
-        assert(height != null),
-        assert(width != null),
         assert(title != null),
         assert(positionMultiplier != null)
   ;
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
+    final double screeHeight = SizeConfig.safeAreaScreenHeight;
+    final double screenWidth = SizeConfig.safeAreaScreenWidth;
 
-    final double cardContainerHeight = height - 60;
-    final double cardHeight = cardContainerHeight / 4;
-    final double cardPosition = cardHeight - 20;
+    double cardHeight =  screeHeight / 4 ;
+    final double cardPosition = screeHeight / 4 - 10;
 
 
 
@@ -47,7 +45,7 @@ class HeaderCardWidget extends StatelessWidget {
 
         },
         child: Container(
-          width: width,
+          width: screenWidth,
           height: cardHeight,
           alignment: Alignment.center,
           decoration: new BoxDecoration(

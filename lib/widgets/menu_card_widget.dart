@@ -31,11 +31,12 @@ class MenuCardWidget extends StatelessWidget {
     final double screenWidth = SizeConfig.safeAreaScreenWidth;
 
 
-    double cardHeight =  screeHeight / 4;
-    final double cardPosition = cardHeight -20;
-    if (isLastCard){
-      cardHeight = cardHeight + 40;
+    double cardHeight =  screeHeight / 4 ;
+    final double cardPosition = screeHeight / 4 - 10;
+    if (isLastCard) {
+      cardHeight = cardHeight + 10;
     }
+
 
 
     return Positioned(

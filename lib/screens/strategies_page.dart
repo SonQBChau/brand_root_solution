@@ -112,8 +112,6 @@ class _StrategiesPageState extends State<StrategiesPage>  with SingleTickerProvi
 
 
                     HeaderCardWidget(
-                      height: screeHeight,
-                      width: screenWidth,
                       color: colorGrey,
                       title: 'LIFE-CYCLE',
                       positionMultiplier: 3,
@@ -121,8 +119,6 @@ class _StrategiesPageState extends State<StrategiesPage>  with SingleTickerProvi
                       notifyParent: reverseController,
                     ),
                     HeaderCardWidget(
-                      height: screeHeight,
-                      width: screenWidth,
                       color: colorOrange,
                       title: 'SUSTAIN',
                       positionMultiplier: 2,
@@ -130,8 +126,6 @@ class _StrategiesPageState extends State<StrategiesPage>  with SingleTickerProvi
                       notifyParent: reverseController,
                     ),
                     HeaderCardWidget(
-                      height: screeHeight,
-                      width: screenWidth,
                       color: colorGreen,
                       title: 'STRATEGIES',
                       positionMultiplier: 1,
@@ -139,8 +133,6 @@ class _StrategiesPageState extends State<StrategiesPage>  with SingleTickerProvi
                       notifyParent: reverseController,
                     ),
                     HeaderCardWidget(
-                      height: screeHeight,
-                      width: screenWidth,
                       color: colorBlue,
                       title: 'EVALUATE',
                       positionMultiplier: 0,
