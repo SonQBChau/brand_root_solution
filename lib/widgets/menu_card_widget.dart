@@ -12,7 +12,7 @@ class MenuCardWidget extends StatelessWidget {
   final String title;
   final double height;
   final double width;
-  final String heroTag;
+
 
 
   MenuCardWidget(
@@ -20,14 +20,12 @@ class MenuCardWidget extends StatelessWidget {
         @required this.width,
         @required this.color,
         @required this.title,
-        @required this.heroTag,
         @required this.positionMultiplier,
         @required this.navigateTo})
       : assert(color != null),
         assert(height != null),
         assert(width != null),
         assert(title != null),
-        assert(heroTag != null),
         assert(positionMultiplier != null),
         assert(navigateTo != null);
 
@@ -76,35 +74,32 @@ class MenuCardWidget extends StatelessWidget {
         onTap: () {
           _navigateAndAnimate(context);
         },
-        child: Hero(
-          tag: heroTag,
-          child: Animator( // slide up animation
-            tween: Tween<Offset>(begin: Offset.zero, end: Offset(0, offsetPosition)),
-            duration: Duration(milliseconds: 300),
-            builder: (anim) => FractionalTranslation(
-              translation: anim.value,
-              child: Container(
-                width: width,
-                height: cardHeight,
-                alignment: Alignment.center,
-                decoration: new BoxDecoration(
-                  color: color,
-                  borderRadius: new BorderRadius.only(
-                      bottomLeft: const Radius.circular(15.0), bottomRight: const Radius.circular(15.0)),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black54,
-                      offset: new Offset(0.0, 4.0),
-                      blurRadius: 10.0,
-                    )
-                  ],
-                ),
-                child: Material(
-                  color: Colors.transparent,
-                  child: Text(
-                    title,
-                    style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),
-                  ),
+        child: Animator( // slide up animation
+          tween: Tween<Offset>(begin: Offset.zero, end: Offset(0, offsetPosition)),
+          duration: Duration(milliseconds: 300),
+          builder: (anim) => FractionalTranslation(
+            translation: anim.value,
+            child: Container(
+              width: width,
+              height: cardHeight,
+              alignment: Alignment.center,
+              decoration: new BoxDecoration(
+                color: color,
+                borderRadius: new BorderRadius.only(
+                    bottomLeft: const Radius.circular(15.0), bottomRight: const Radius.circular(15.0)),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black54,
+                    offset: new Offset(0.0, 4.0),
+                    blurRadius: 10.0,
+                  )
+                ],
+              ),
+              child: Material(
+                color: Colors.transparent,
+                child: Text(
+                  title,
+                  style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),
                 ),
               ),
             ),
