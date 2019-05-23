@@ -12,12 +12,14 @@ class HeaderCardWidget extends StatelessWidget {
 
 
 
+
   HeaderCardWidget(
       {
         @required this.animationValue,
         @required this.color,
         @required this.title,
         this.notifyParent,
+
         @required this.positionMultiplier,
       })
       : assert(color != null),

@@ -45,8 +45,6 @@ class _StrategiesPageState extends State<StrategiesPage>  with SingleTickerProvi
 
   @override
   Widget build(BuildContext context) {
-    final double screeHeight = MediaQuery.of(context).size.height;
-    final double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
       body: SafeArea(
@@ -111,6 +109,8 @@ class _StrategiesPageState extends State<StrategiesPage>  with SingleTickerProvi
 
 
 
+
+
                     HeaderCardWidget(
                       color: colorGrey,
                       title: 'LIFE-CYCLE',
@@ -125,19 +125,21 @@ class _StrategiesPageState extends State<StrategiesPage>  with SingleTickerProvi
                       animationValue: animation.value,
                       notifyParent: reverseController,
                     ),
-                    HeaderCardWidget(
-                      color: colorGreen,
-                      title: 'STRATEGIES',
-                      positionMultiplier: 1,
-                      animationValue: animation.value,
-                      notifyParent: reverseController,
-                    ),
+
                     HeaderCardWidget(
                       color: colorBlue,
                       title: 'EVALUATE',
                       positionMultiplier: 0,
                       animationValue: animation.value,
                       notifyParent: reverseController,
+                    ),
+                    HeaderCardWidget(
+                      color: colorGreen,
+                      title: 'STRATEGIES',
+                      positionMultiplier: 1,
+                      animationValue: animation.value,
+                      notifyParent: reverseController,
+
                     ),
 
                   ],
