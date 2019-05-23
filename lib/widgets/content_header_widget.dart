@@ -8,16 +8,17 @@ class ContentHeaderWidget extends StatelessWidget {
   final String title;
   final Color color;
   final String heroTag;
+  final int position;
 
   ContentHeaderWidget(
-      {Key key,@required this.title, this.color, this.heroTag}):
+      {Key key,@required this.title, this.color, this.heroTag, this.position}):
         assert(title != null),
         assert(color != null),
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
+    final menuProvider = Provider.of<MenuSlideProvider>(context);
 
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
@@ -28,6 +29,7 @@ class ContentHeaderWidget extends StatelessWidget {
       onTap: () {
         //navigate back to the menu card and animated the menu card slide down
         Navigator.pop(context, true);
+        menuProvider.setActiveMenu(position);
 
 
       },

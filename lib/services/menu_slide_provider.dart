@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class MenuSlideProvider with ChangeNotifier {
 
   bool _slideStatus = false;
+  int _activeMenu = 2;
 
 
   MenuSlideProvider();
@@ -14,4 +15,12 @@ class MenuSlideProvider with ChangeNotifier {
     _slideStatus = choice;
     notifyListeners();
   }
+
+  getActiveMenu() => _activeMenu;
+
+  setActiveMenu(int num) {
+    _activeMenu = num;
+    notifyListeners();
+  }
+
 }

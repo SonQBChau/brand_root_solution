@@ -38,7 +38,7 @@ class LaunchButtonWidget extends StatelessWidget {
           if (introForm.getFormKey().currentState.validate() && isValid) {
             introForm.getFormKey().currentState.save();
 
-            print("Customer Name: " + introForm.getName());
+//            print("Customer Name: " + introForm.getName());
 //            Navigator.push(
 //              context,
 //              MaterialPageRoute(builder: (context) => MenuPage()),

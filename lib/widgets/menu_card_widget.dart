@@ -39,14 +39,18 @@ class MenuCardWidget extends StatelessWidget {
     final double cardHeight = cardContainerHeight / 4;
     final double cardPosition = cardHeight - 20;
 
-    double offsetPosition = 0;
-    if (menuProvider.getSlideStatus()){
-      offsetPosition = -1 * positionMultiplier.toDouble();
-    }
-
-
-    void justWait({@required int numberOfMiliseconds}) async {
-      await Future.delayed(Duration(milliseconds: numberOfMiliseconds));
+    double beginOffsetPosition = 0;
+    double endOffsetPosition = 0;
+    if (menuProvider.getSlideStatus()){ //if true, set offset postion to start animation
+      beginOffsetPosition = 0;
+      endOffsetPosition = -1 * positionMultiplier.toDouble();
+    } else{ // if not, reverse animation
+      beginOffsetPosition = -1 * positionMultiplier.toDouble();
+      endOffsetPosition = 0;
+      if (menuProvider.getActiveMenu() == positionMultiplier){// don't move the active menu because of hero animation
+        beginOffsetPosition = 0;
+        endOffsetPosition = 0;
+      }
     }
 
     // A method that launches the SelectionScreen and awaits the result from
@@ -55,7 +59,6 @@ class MenuCardWidget extends StatelessWidget {
       // Navigator.push returns a Future that will complete after we call
       // Navigator.pop on the Selection Screen!
       menuProvider.setSlideStatus(true);
-//      await justWait(numberOfMiliseconds: 200);
 
       final result = await Navigator.push(
         context,
@@ -79,8 +82,8 @@ class MenuCardWidget extends StatelessWidget {
         child: Hero(
           tag: heroTag,
           child: Animator( // slide up animation
-            tween: Tween<Offset>(begin: Offset.zero, end: Offset(0, offsetPosition)),
-            duration: Duration(milliseconds: 300),
+            tween: Tween<Offset>(begin: Offset(0, beginOffsetPosition), end: Offset(0, endOffsetPosition)),
+            duration: Duration(milliseconds: 200),
             builder: (anim) => FractionalTranslation(
               translation: anim.value,
               child: Container(

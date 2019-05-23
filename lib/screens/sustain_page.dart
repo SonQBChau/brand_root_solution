@@ -34,6 +34,7 @@ class _SustainPageState extends State<SustainPage> {
                 title: 'SUSTAIN',
                 color: colorOrange,
                 heroTag: 'sustain',
+                position: 2,
               ),
               Expanded(
                 child: PageView(
