@@ -1,6 +1,7 @@
 import 'package:animator/animator.dart';
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/utils/no_animation_page_route.dart';
+import 'package:sale_form_demo/utils/size_config.dart';
 import 'package:sale_form_demo/utils/slide_up_route.dart';
 
 class MenuCardWidget extends StatelessWidget {
@@ -8,29 +9,34 @@ class MenuCardWidget extends StatelessWidget {
   final Widget navigateTo;
   final Color color;
   final String title;
-  final double height;
-  final double width;
+  final bool isLastCard;
 
 
   MenuCardWidget(
-      {@required this.height,
-      @required this.width,
+      {
       @required this.color,
       @required this.title,
       @required this.positionMultiplier,
+        this.isLastCard = false,
       @required this.navigateTo})
       : assert(color != null),
-        assert(height != null),
-        assert(width != null),
         assert(title != null),
         assert(positionMultiplier != null),
         assert(navigateTo != null);
 
   @override
   Widget build(BuildContext context) {
-    final double cardContainerHeight = height - 60;
-    final double cardHeight = cardContainerHeight / 4;
-    final double cardPosition = cardHeight - 20;
+    SizeConfig().init(context);
+    final double screeHeight = SizeConfig.safeAreaScreenHeight;
+    final double screenWidth = SizeConfig.safeAreaScreenWidth;
+
+
+    double cardHeight =  screeHeight / 4;
+    final double cardPosition = cardHeight -20;
+    if (isLastCard){
+      cardHeight = cardHeight + 40;
+    }
+
 
     return Positioned(
       top: cardPosition * positionMultiplier,
@@ -42,7 +48,7 @@ class MenuCardWidget extends StatelessWidget {
           );
         },
         child: Container(
-          width: width,
+          width: screenWidth,
           height: cardHeight,
           alignment: Alignment.center,
           decoration: new BoxDecoration(
