@@ -1,45 +1,50 @@
-import 'package:animator/animator.dart';
 import 'package:flutter/material.dart';
-import 'package:sale_form_demo/utils/no_animation_page_route.dart';
-import 'package:sale_form_demo/utils/slide_up_route.dart';
 
-class MenuCardWidget extends StatelessWidget {
+
+class HeaderCardWidget extends StatelessWidget {
   final int positionMultiplier;
-  final Widget navigateTo;
   final Color color;
   final String title;
   final double height;
   final double width;
+  final double animationValue;
+  final Function notifyParent;
 
 
-  MenuCardWidget(
+
+
+  HeaderCardWidget(
       {@required this.height,
-      @required this.width,
-      @required this.color,
-      @required this.title,
-      @required this.positionMultiplier,
-      @required this.navigateTo})
+        @required this.width,
+        @required this.animationValue,
+        @required this.color,
+        @required this.title,
+        this.notifyParent,
+        @required this.positionMultiplier,
+      })
       : assert(color != null),
         assert(height != null),
         assert(width != null),
         assert(title != null),
-        assert(positionMultiplier != null),
-        assert(navigateTo != null);
+        assert(positionMultiplier != null)
+  ;
 
   @override
   Widget build(BuildContext context) {
+
     final double cardContainerHeight = height - 60;
     final double cardHeight = cardContainerHeight / 4;
     final double cardPosition = cardHeight - 20;
 
+
+
     return Positioned(
-      top: cardPosition * positionMultiplier,
+      top: cardPosition * positionMultiplier * animationValue,
       child: GestureDetector(
         onTap: () {
-          Navigator.push(
-            context,
-            NoAnimationMaterialPageRoute(builder: (context) => navigateTo),
-          );
+
+          notifyParent();
+
         },
         child: Container(
           width: width,

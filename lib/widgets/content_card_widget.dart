@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:sale_form_demo/services/menu_slide_provider.dart';
 
 class ContentCardWidget extends StatelessWidget {
   final String title;
@@ -28,7 +26,7 @@ class ContentCardWidget extends StatelessWidget {
       child: Container(
         width: 250,
         padding: EdgeInsets.symmetric(vertical: 40, horizontal: 30),
-        margin: EdgeInsets.symmetric(horizontal: 20, vertical: 50),
+        margin: EdgeInsets.only(top:200, bottom: 50, left:20, right:20),
         decoration: new BoxDecoration(
           color: colorBackground,
           borderRadius: new BorderRadius.circular(20),
