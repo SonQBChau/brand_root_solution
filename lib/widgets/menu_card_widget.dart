@@ -15,6 +15,7 @@ class MenuCardWidget extends StatelessWidget {
   final String heroTag;
 
 
+
   MenuCardWidget(
       {@required this.height,
         @required this.width,
@@ -27,7 +28,6 @@ class MenuCardWidget extends StatelessWidget {
         assert(height != null),
         assert(width != null),
         assert(title != null),
-        assert(heroTag != null),
         assert(positionMultiplier != null),
         assert(navigateTo != null);
 
@@ -109,6 +109,7 @@ class MenuCardWidget extends StatelessWidget {
                     title,
                     style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),
                   ),
+
                 ),
               ),
             ),
