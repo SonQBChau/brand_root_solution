@@ -45,24 +45,42 @@ class MenuCardWidget extends StatelessWidget {
     }
 
 
+    void justWait({@required int numberOfMiliseconds}) async {
+      await Future.delayed(Duration(milliseconds: numberOfMiliseconds));
+    }
+
+    // A method that launches the SelectionScreen and awaits the result from
+    // Navigator.pop!
+    _navigateAndAnimate(BuildContext context) async {
+      // Navigator.push returns a Future that will complete after we call
+      // Navigator.pop on the Selection Screen!
+      menuProvider.setSlideStatus(true);
+//      await justWait(numberOfMiliseconds: 200);
+
+      final result = await Navigator.push(
+        context,
+        SlideUpRoute(page:navigateTo),
+      );
+
+      // After the Selection Screen returns a result, animate back
+      if(result){
+        menuProvider.setSlideStatus(false);
+      }
+
+    }
+
+
     return Positioned(
       top: cardPosition * positionMultiplier,
       child: GestureDetector(
         onTap: () {
-          Navigator.push(
-            context,
-              SlideUpRoute(page:navigateTo),
-          );
-          menuProvider.setSlideStatus(true);
-
-
-
+          _navigateAndAnimate(context);
         },
         child: Hero(
           tag: heroTag,
-          child: Animator(
+          child: Animator( // slide up animation
             tween: Tween<Offset>(begin: Offset.zero, end: Offset(0, offsetPosition)),
-            duration: Duration(seconds: 1),
+            duration: Duration(milliseconds: 300),
             builder: (anim) => FractionalTranslation(
               translation: anim.value,
               child: Container(

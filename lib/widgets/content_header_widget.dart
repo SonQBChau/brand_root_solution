@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sale_form_demo/services/intro_form_provider.dart';
+import 'package:sale_form_demo/services/menu_slide_provider.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 
 class ContentHeaderWidget extends StatelessWidget {
@@ -26,7 +27,8 @@ class ContentHeaderWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         //navigate back to the menu card and animated the menu card slide down
-        Navigator.pop(context);
+        Navigator.pop(context, true);
+
 
       },
       child: Hero(

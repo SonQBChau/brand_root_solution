@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:sale_form_demo/services/menu_slide_provider.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 
 class MiStrategyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: Container(
         constraints: BoxConstraints.expand(

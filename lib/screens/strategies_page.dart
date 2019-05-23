@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:sale_form_demo/screens/mi_strategy_page.dart';
+import 'package:sale_form_demo/services/menu_slide_provider.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/content_card_widget.dart';
 import 'package:sale_form_demo/widgets/content_header_widget.dart';

@@ -18,14 +18,12 @@ class ContentCardWidget extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    final menuProvider = Provider.of<MenuSlideProvider>(context);
     return GestureDetector(
       onTap: () {
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => navigateTo),
         );
-        menuProvider.setSlideStatus(false);
       },
       child: Container(
         width: 250,

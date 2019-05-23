@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class SlideUpRoute extends PageRouteBuilder {
   final Widget page;
   SlideUpRoute({this.page})
