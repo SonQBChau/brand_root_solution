@@ -59,6 +59,7 @@ class MenuCardWidget extends StatelessWidget {
       // Navigator.push returns a Future that will complete after we call
       // Navigator.pop on the Selection Screen!
       menuProvider.setSlideStatus(true);
+      menuProvider.setActiveMenu(positionMultiplier);
 
       final result = await Navigator.push(
         context,
