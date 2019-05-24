@@ -9,7 +9,7 @@ class HeaderCardWidget extends StatelessWidget {
   final double animationValue;
   final Function notifyParent;
   final bool keepOpacity;
-  final bool isLastCard;
+  final bool isLastCard; // add extra height
 
 
 
