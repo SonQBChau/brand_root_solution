@@ -34,7 +34,7 @@ class _LifeCyclePageState extends State<LifeCyclePage> with SingleTickerProvider
 
   reverseController() async {
     controller.reverse();
-    await justWait(duration: Duration(milliseconds: 500));
+    await justWait(duration: Duration(milliseconds: 450));
     onTop = false;
     animation.addStatusListener((AnimationStatus status) {
       if (status == AnimationStatus.dismissed)// wait until finish animation to pop

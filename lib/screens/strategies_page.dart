@@ -35,7 +35,7 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
 
   reverseController() async {
     controller.reverse();
-    await justWait(duration: Duration(milliseconds: 500));
+    await justWait(duration: Duration(milliseconds: 450));
     onTop = false;
     animation.addStatusListener((AnimationStatus status) {
       if (status == AnimationStatus.dismissed)// wait until finish animation to pop
