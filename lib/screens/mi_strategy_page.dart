@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
+import 'package:sale_form_demo/utils/size_config.dart';
 
 class MiStrategyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
+    final double screeHeight = SizeConfig.safeAreaScreenHeight;
+    final double screenWidth = SizeConfig.safeAreaScreenWidth;
 
     return Scaffold(
       body: Container(
@@ -20,7 +24,7 @@ class MiStrategyPage extends StatelessWidget {
         child: Stack(
           children: <Widget>[
             Container(
-              padding: EdgeInsets.only(top: 40, left: 30),
+              padding: EdgeInsets.only(top: 40, left: 30, right: 30),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
@@ -54,10 +58,92 @@ class MiStrategyPage extends StatelessWidget {
 
 
 
+                ],
+              ),
+            ),
+
+            Positioned(
+              top: 200,
+              width: screenWidth,
+              height: screeHeight-200 + 20,
+              child: Column(
+//                mainAxisSize: MainAxisSize.max,
+//                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Expanded(
+                        child: Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: new BorderRadius.only(
+                                topLeft: const Radius.circular(5.0), topRight: const Radius.circular(5.0)),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black54,
+//                          offset: new Offset(5.0, 0.0),
+                                blurRadius: 2.0,
+                              )
+                            ],
+                          ),
+                          child: Text('High Impact',style: TextStyle(
+                            color: colorGreen,
+                          ),),
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                          decoration: BoxDecoration(
+                            color: colorGreen,
+                            borderRadius: new BorderRadius.only(
+                                topLeft: const Radius.circular(5.0), topRight: const Radius.circular(5.0)),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black54,
+//                          offset: new Offset(0.0, -4.0),
+                                blurRadius: 2.0,
+                              )
+                            ],
+                          ),
+                          child: Text('Medium Impact', style: TextStyle(color: Colors.white),),
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                          decoration: BoxDecoration(
+                            color: colorGreen,
+                            borderRadius: new BorderRadius.only(
+                                topLeft: const Radius.circular(5.0), topRight: const Radius.circular(5.0)),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black54,
+//                          offset: new Offset(0.0, -4.0),
+                                blurRadius: 2.0,
+                              )
+                            ],
+                          ),
+                          child: Text('Low Impact', style: TextStyle(color: Colors.white),),
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  Expanded(
+                    child: Container(
+                      color: Colors.white,
+
+                    ),
+                  ),
 
                 ],
               ),
             ),
+
+
           ],
         ),
       ),
