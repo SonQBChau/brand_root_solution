@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/screens/mi_strategy_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
+import 'package:sale_form_demo/utils/just_wait.dart';
 import 'package:sale_form_demo/utils/size_config.dart';
 import 'package:sale_form_demo/widgets/content_card_widget.dart';
 import 'package:sale_form_demo/widgets/dot_indicator_widget.dart';
@@ -30,13 +31,15 @@ class _SustainPageState extends State<SustainPage> with SingleTickerProviderStat
     controller.forward();
   }
 
-  reverseController() {
+  reverseController() async {
     controller.reverse();
-    animation.addStatusListener((AnimationStatus status) {
-      if (status == AnimationStatus.dismissed)// wait until finish animation to pop
-        Navigator.pop(context);
-
-    });
+//    animation.addStatusListener((AnimationStatus status) {
+//      if (status == AnimationStatus.dismissed)// wait until finish animation to pop
+//        Navigator.pop(context);
+//
+//    });
+    await justWait(duration: Duration(milliseconds: 300));
+    Navigator.pop(context);
   }
 
   @override
