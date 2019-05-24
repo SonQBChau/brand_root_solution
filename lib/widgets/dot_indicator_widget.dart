@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sale_form_demo/utils/app_color.dart';
 
 class DotIndicatorWidget extends StatelessWidget {
   final int activePosition;

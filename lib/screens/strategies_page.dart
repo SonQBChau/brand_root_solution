@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/screens/mi_strategy_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
+import 'package:sale_form_demo/utils/size_config.dart';
 import 'package:sale_form_demo/widgets/content_card_widget.dart';
-import 'package:sale_form_demo/widgets/content_header_widget.dart';
 import 'package:sale_form_demo/widgets/dot_indicator_widget.dart';
 import 'package:sale_form_demo/widgets/header_card_widget.dart';
 
@@ -11,7 +11,7 @@ class StrategiesPage extends StatefulWidget {
   _StrategiesPageState createState() => _StrategiesPageState();
 }
 
-class _StrategiesPageState extends State<StrategiesPage>  with SingleTickerProviderStateMixin {
+class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProviderStateMixin {
   int _activePosition = 0;
 
   Animation<double> animation;
@@ -30,11 +30,13 @@ class _StrategiesPageState extends State<StrategiesPage>  with SingleTickerProvi
     controller.forward();
   }
 
-
-
-  reverseController(){
+  reverseController() {
     controller.reverse();
-    Navigator.pop(context);
+    animation.addStatusListener((AnimationStatus status) {
+      if (status == AnimationStatus.dismissed)// wait until finish animation to pop
+        Navigator.pop(context);
+
+    });
   }
 
   @override
@@ -45,13 +47,16 @@ class _StrategiesPageState extends State<StrategiesPage>  with SingleTickerProvi
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
+    final double screeHeight = SizeConfig.safeAreaScreenHeight;
+    final double screenWidth = SizeConfig.safeAreaScreenWidth;
 
     return Scaffold(
       body: SafeArea(
         child: Container(
           constraints: BoxConstraints.expand(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
+            width: screenWidth,
+            height: screeHeight,
           ),
           decoration: BoxDecoration(
             image: DecorationImage(
@@ -66,7 +71,6 @@ class _StrategiesPageState extends State<StrategiesPage>  with SingleTickerProvi
               Expanded(
                 child: Stack(
                   children: <Widget>[
-
                     PageView(
                       controller: PageController(viewportFraction: 0.8),
                       onPageChanged: (index) {
@@ -116,52 +120,51 @@ class _StrategiesPageState extends State<StrategiesPage>  with SingleTickerProvi
                         activeDotColor: Colors.green[200],
                       ),
                     ),
-
-
-
-
-
-                    HeaderCardWidget(
-                      color: colorGrey,
-                      title: 'LIFE-CYCLE',
-                      positionMultiplier: 3,
-                      animationValue: animation.value,
-                      notifyParent: reverseController,
-                    ),
-                    HeaderCardWidget(
-                      color: colorOrange,
-                      title: 'SUSTAIN',
-                      positionMultiplier: 2,
-                      animationValue: animation.value,
-                      notifyParent: reverseController,
-                    ),
-
-                    HeaderCardWidget(
-                      color: colorBlue,
-                      title: 'EVALUATE',
-                      positionMultiplier: 0,
-                      animationValue: animation.value,
-                      notifyParent: reverseController,
-                    ),
-                    HeaderCardWidget(
-                      color: colorGreen,
-                      title: 'STRATEGIES',
-                      positionMultiplier: 1,
-                      animationValue: animation.value,
-                      notifyParent: reverseController,
-                      keepOpacity: true,
-
-                    ),
-
+                    ...buildHeaderCardWidgetList(),
                   ],
                 ),
               ),
             ],
           ),
-
-
         ),
       ),
     );
+  }
+
+  // build a list of menu card, the header card need to be place at the bottom last
+  List<HeaderCardWidget> buildHeaderCardWidgetList() {
+    List<HeaderCardWidget> headerList = [];
+    headerList.add(HeaderCardWidget(
+      color: colorGrey,
+      title: 'LIFE-CYCLE',
+      positionMultiplier: 3,
+      animationValue: animation.value,
+      notifyParent: reverseController,
+      isLastCard: true,
+    ));
+    headerList.add(HeaderCardWidget(
+      color: colorOrange,
+      title: 'SUSTAIN',
+      positionMultiplier: 2,
+      animationValue: animation.value,
+      notifyParent: reverseController,
+    ));
+    headerList.add(HeaderCardWidget(
+      color: colorBlue,
+      title: 'EVALUATE',
+      positionMultiplier: 0,
+      animationValue: animation.value,
+      notifyParent: reverseController,
+    ));
+    headerList.add(HeaderCardWidget(
+      color: colorGreen,
+      title: 'STRATEGIES',
+      positionMultiplier: 1,
+      animationValue: animation.value,
+      notifyParent: reverseController,
+      keepOpacity: true,
+    ));
+
+    return headerList;
   }
 }

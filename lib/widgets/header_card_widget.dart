@@ -9,7 +9,7 @@ class HeaderCardWidget extends StatelessWidget {
   final double animationValue;
   final Function notifyParent;
   final bool keepOpacity;
-
+  final bool isLastCard;
 
 
 
@@ -19,6 +19,7 @@ class HeaderCardWidget extends StatelessWidget {
         @required this.animationValue,
         @required this.color,
         @required this.title,
+        this.isLastCard = false,
         this.keepOpacity = false,
         this.notifyParent,
 
@@ -37,6 +38,9 @@ class HeaderCardWidget extends StatelessWidget {
 
     double cardHeight =  screeHeight / 4 ;
     final double cardPosition = screeHeight / 4 - 10;
+    if (isLastCard) {
+      cardHeight = cardHeight + 10;
+    }
     final opacityValue = keepOpacity ? 1 : animationValue;
 
     return Positioned(
