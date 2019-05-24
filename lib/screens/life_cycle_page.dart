@@ -17,6 +17,7 @@ class _LifeCyclePageState extends State<LifeCyclePage> with SingleTickerProvider
 
   Animation<double> animation;
   AnimationController controller;
+  bool onTop = true;
 
   @override
   void initState() {
@@ -33,6 +34,8 @@ class _LifeCyclePageState extends State<LifeCyclePage> with SingleTickerProvider
 
   reverseController() async {
     controller.reverse();
+    await justWait(duration: Duration(milliseconds: 500));
+    onTop = false;
     animation.addStatusListener((AnimationStatus status) {
       if (status == AnimationStatus.dismissed)// wait until finish animation to pop
         Navigator.pop(context);
@@ -149,47 +152,91 @@ class _LifeCyclePageState extends State<LifeCyclePage> with SingleTickerProvider
   // build a list of menu card, the header card need to be place at the bottom last
   List<HeaderCardWidget> buildHeaderCardWidgetList(screenWidth, screeHeight) {
     List<HeaderCardWidget> headerList = [];
+    if (onTop) {
+      headerList = [HeaderCardWidget(
+        screenWidth: screenWidth,
+        screeHeight: screeHeight,
+        color: colorOrange,
+        title: 'SUSTAIN',
+        positionMultiplier: 2,
+        animationValue: animation.value,
+        notifyParent: reverseController,
 
-    headerList.add(HeaderCardWidget(
-      screenWidth: screenWidth,
-      screeHeight: screeHeight,
-      color: colorOrange,
-      title: 'SUSTAIN',
-      positionMultiplier: 2,
-      animationValue: animation.value,
-      notifyParent: reverseController,
+      ),
+      HeaderCardWidget(
+        screenWidth: screenWidth,
+        screeHeight: screeHeight,
+        color: colorGreen,
+        title: 'STRATEGIES',
+        positionMultiplier: 1,
+        animationValue: animation.value,
+        notifyParent: reverseController,
 
-    ));
-    headerList.add(HeaderCardWidget(
-      screenWidth: screenWidth,
-      screeHeight: screeHeight,
-      color: colorGreen,
-      title: 'STRATEGIES',
-      positionMultiplier: 1,
-      animationValue: animation.value,
-      notifyParent: reverseController,
-
-    ));
-    headerList.add(HeaderCardWidget(
-      screenWidth: screenWidth,
-      screeHeight: screeHeight,
-      color: colorBlue,
-      title: 'EVALUATE',
-      positionMultiplier: 0,
-      animationValue: animation.value,
-      notifyParent: reverseController,
-    ));
-    headerList.add(HeaderCardWidget(
-      screenWidth: screenWidth,
-      screeHeight: screeHeight,
-      color: colorGrey,
-      title: 'LIFE-CYCLE',
-      positionMultiplier: 3,
-      animationValue: animation.value,
-      notifyParent: reverseController,
-      keepOpacity: true,
-      isLastCard: true,
-    ));
+      ),
+      HeaderCardWidget(
+        screenWidth: screenWidth,
+        screeHeight: screeHeight,
+        color: colorBlue,
+        title: 'EVALUATE',
+        positionMultiplier: 0,
+        animationValue: animation.value,
+        notifyParent: reverseController,
+      ),
+      HeaderCardWidget(
+        screenWidth: screenWidth,
+        screeHeight: screeHeight,
+        color: colorGrey,
+        title: 'LIFE-CYCLE',
+        positionMultiplier: 3,
+        animationValue: animation.value,
+        notifyParent: reverseController,
+        keepOpacity: true,
+        isLastCard: true,
+      ),
+    ];
+    }
+    else {
+      headerList = [
+        HeaderCardWidget(
+          screenWidth: screenWidth,
+          screeHeight: screeHeight,
+          color: colorGrey,
+          title: 'LIFE-CYCLE',
+          positionMultiplier: 3,
+          animationValue: animation.value,
+          notifyParent: reverseController,
+          isLastCard: true,
+        ),
+        HeaderCardWidget(
+          screenWidth: screenWidth,
+          screeHeight: screeHeight,
+          color: colorOrange,
+          title: 'SUSTAIN',
+          positionMultiplier: 2,
+          animationValue: animation.value,
+          notifyParent: reverseController,
+          keepOpacity: true,
+        ),
+        HeaderCardWidget(
+          screenWidth: screenWidth,
+          screeHeight: screeHeight,
+          color: colorGreen,
+          title: 'STRATEGIES',
+          positionMultiplier: 1,
+          animationValue: animation.value,
+          notifyParent: reverseController,
+        ),
+        HeaderCardWidget(
+          screenWidth: screenWidth,
+          screeHeight: screeHeight,
+          color: colorBlue,
+          title: 'EVALUATE',
+          positionMultiplier: 0,
+          animationValue: animation.value,
+          notifyParent: reverseController,
+        ),
+      ];
+    }
 
 
 
