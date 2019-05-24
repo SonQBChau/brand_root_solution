@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/screens/mi_strategy_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
+import 'package:sale_form_demo/utils/just_wait.dart';
 import 'package:sale_form_demo/utils/size_config.dart';
 import 'package:sale_form_demo/widgets/content_card_widget.dart';
 import 'package:sale_form_demo/widgets/dot_indicator_widget.dart';
@@ -30,13 +31,15 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
     controller.forward();
   }
 
-  reverseController() {
+  reverseController() async {
     controller.reverse();
     animation.addStatusListener((AnimationStatus status) {
       if (status == AnimationStatus.dismissed)// wait until finish animation to pop
         Navigator.pop(context);
 
     });
+//    await justWait(duration: Duration(milliseconds: 300));
+//    Navigator.pop(context);
   }
 
   @override
@@ -50,6 +53,8 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
     SizeConfig().init(context);
     final double screeHeight = SizeConfig.safeAreaScreenHeight;
     final double screenWidth = SizeConfig.safeAreaScreenWidth;
+    final double topHeight = screeHeight / 4 + 5 + 60;
+    final double bottomHeight = 80;
 
     return Scaffold(
       body: SafeArea(
@@ -71,6 +76,7 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
               Expanded(
                 child: Stack(
                   children: <Widget>[
+
                     PageView(
                       controller: PageController(viewportFraction: 0.8),
                       onPageChanged: (index) {
@@ -80,30 +86,40 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
                       },
                       children: <Widget>[
                         ContentCardWidget(
+                          top: topHeight,
+                          bottom: bottomHeight,
                           title: 'MI STRATEGY MANAGEMENT',
                           colorBackground: colorGreen10,
                           colorTitle: Colors.green,
                           navigateTo: MiStrategyPage(),
                         ),
                         ContentCardWidget(
+                          top: topHeight,
+                          bottom: bottomHeight,
                           title: 'PM STRATEGY MANAGEMENT',
                           colorBackground: colorGreen10,
                           colorTitle: Colors.green,
                           navigateTo: MiStrategyPage(),
                         ),
                         ContentCardWidget(
+                          top: topHeight,
+                          bottom: bottomHeight,
                           title: 'SPARE PARTS STRATEGY MANAGEMENT',
                           colorBackground: colorGreen10,
                           colorTitle: Colors.green,
                           navigateTo: MiStrategyPage(),
                         ),
                         ContentCardWidget(
+                          top: topHeight,
+                          bottom: bottomHeight,
                           title: 'SAFETY SYSTEM MANAGEMENT',
                           colorBackground: colorGreen10,
                           colorTitle: Colors.green,
                           navigateTo: MiStrategyPage(),
                         ),
                         ContentCardWidget(
+                          top: topHeight,
+                          bottom: bottomHeight,
                           title: 'PROCESS CONTROL STRATEGY',
                           colorBackground: colorGreen10,
                           colorTitle: Colors.green,
@@ -120,7 +136,7 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
                         activeDotColor: Colors.green[200],
                       ),
                     ),
-                    ...buildHeaderCardWidgetList(),
+                    ...buildHeaderCardWidgetList(screenWidth, screeHeight),
                   ],
                 ),
               ),
@@ -132,9 +148,11 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
   }
 
   // build a list of menu card, the header card need to be place at the bottom last
-  List<HeaderCardWidget> buildHeaderCardWidgetList() {
+  List<HeaderCardWidget> buildHeaderCardWidgetList(screenWidth, screeHeight) {
     List<HeaderCardWidget> headerList = [];
     headerList.add(HeaderCardWidget(
+      screenWidth: screenWidth,
+      screeHeight: screeHeight,
       color: colorGrey,
       title: 'LIFE-CYCLE',
       positionMultiplier: 3,
@@ -143,6 +161,8 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
       isLastCard: true,
     ));
     headerList.add(HeaderCardWidget(
+      screenWidth: screenWidth,
+      screeHeight: screeHeight,
       color: colorOrange,
       title: 'SUSTAIN',
       positionMultiplier: 2,
@@ -150,6 +170,8 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
       notifyParent: reverseController,
     ));
     headerList.add(HeaderCardWidget(
+      screenWidth: screenWidth,
+      screeHeight: screeHeight,
       color: colorBlue,
       title: 'EVALUATE',
       positionMultiplier: 0,
@@ -157,6 +179,8 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
       notifyParent: reverseController,
     ));
     headerList.add(HeaderCardWidget(
+      screenWidth: screenWidth,
+      screeHeight: screeHeight,
       color: colorGreen,
       title: 'STRATEGIES',
       positionMultiplier: 1,

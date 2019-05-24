@@ -36,6 +36,8 @@ class MenuPage extends StatelessWidget {
                 child: Stack(
                   children: <Widget>[
                     MenuCardWidget(
+                      screenWidth: screenWidth,
+                      screeHeight: screeHeight,
                       color: colorGrey,
                       title: 'LIFE-CYCLE',
                       positionMultiplier: 3,
@@ -44,6 +46,8 @@ class MenuPage extends StatelessWidget {
 
                     ),
                     MenuCardWidget(
+                      screenWidth: screenWidth,
+                      screeHeight: screeHeight,
                       color: colorOrange,
                       title: 'SUSTAIN',
                       positionMultiplier: 2,
@@ -52,6 +56,8 @@ class MenuPage extends StatelessWidget {
 
                     ),
                     MenuCardWidget(
+                      screenWidth: screenWidth,
+                      screeHeight: screeHeight,
                       color: colorGreen,
                       title: 'STRATEGIES',
                       positionMultiplier: 1,
@@ -60,6 +66,8 @@ class MenuPage extends StatelessWidget {
 
                     ),
                     MenuCardWidget(
+                      screenWidth: screenWidth,
+                      screeHeight: screeHeight,
                       color: colorBlue,
                       title: 'EVALUATE',
                       positionMultiplier: 0,

@@ -5,9 +5,11 @@ class ContentCardWidget extends StatelessWidget {
   final Widget navigateTo;
   final Color colorBackground;
   final Color colorTitle;
+  final double top;
+  final double bottom;
 
   ContentCardWidget(
-      {@required this.title, this.navigateTo, this.colorBackground, this.colorTitle}):
+      {@required this.title, this.navigateTo, this.colorBackground, this.colorTitle, this.top, this.bottom}):
         assert(title != null),
         assert(colorBackground != null),
         assert(colorTitle != null),
@@ -26,7 +28,7 @@ class ContentCardWidget extends StatelessWidget {
       child: Container(
         width: 250,
         padding: EdgeInsets.symmetric(vertical: 40, horizontal: 30),
-        margin: EdgeInsets.only(top:220, bottom: 80, left:20, right:20),
+        margin: EdgeInsets.only(top:top, bottom: bottom, left:20, right:20),
         decoration: new BoxDecoration(
           color: colorBackground,
           borderRadius: new BorderRadius.circular(20),

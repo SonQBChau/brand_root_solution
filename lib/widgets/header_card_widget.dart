@@ -10,6 +10,8 @@ class HeaderCardWidget extends StatelessWidget {
   final Function notifyParent;
   final bool keepOpacity;
   final bool isLastCard; // add extra height
+  final double screeHeight; // this is needed since we cannot get the safearea inside the widget
+  final double screenWidth;
 
 
 
@@ -19,6 +21,8 @@ class HeaderCardWidget extends StatelessWidget {
         @required this.animationValue,
         @required this.color,
         @required this.title,
+        @required this.screenWidth,
+        @required this.screeHeight,
         this.isLastCard = false,
         this.keepOpacity = false,
         this.notifyParent,
@@ -32,15 +36,13 @@ class HeaderCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
-    final double screeHeight = SizeConfig.safeAreaScreenHeight;
-    final double screenWidth = SizeConfig.safeAreaScreenWidth;
 
-    double cardHeight =  screeHeight / 4 ;
-    final double cardPosition = screeHeight / 4 - 10;
+    double cardHeight = screeHeight / 4 + 5;
+    final double cardPosition = cardHeight - 10;
     if (isLastCard) {
       cardHeight = cardHeight + 10;
     }
+
     final opacityValue = keepOpacity ? 1 : animationValue;
 
     return Positioned(

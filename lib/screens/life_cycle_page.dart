@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/screens/mi_strategy_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
+import 'package:sale_form_demo/utils/just_wait.dart';
 import 'package:sale_form_demo/utils/size_config.dart';
 import 'package:sale_form_demo/widgets/content_card_widget.dart';
 import 'package:sale_form_demo/widgets/dot_indicator_widget.dart';
@@ -30,13 +31,15 @@ class _LifeCyclePageState extends State<LifeCyclePage> with SingleTickerProvider
     controller.forward();
   }
 
-  reverseController() {
+  reverseController() async {
     controller.reverse();
     animation.addStatusListener((AnimationStatus status) {
       if (status == AnimationStatus.dismissed)// wait until finish animation to pop
         Navigator.pop(context);
 
     });
+//    await justWait(duration: Duration(milliseconds: 300));
+//    Navigator.pop(context);
   }
 
   @override
@@ -50,6 +53,8 @@ class _LifeCyclePageState extends State<LifeCyclePage> with SingleTickerProvider
     SizeConfig().init(context);
     final double screeHeight = SizeConfig.safeAreaScreenHeight;
     final double screenWidth = SizeConfig.safeAreaScreenWidth;
+    final double topHeight = screeHeight / 4 + 5 + 60;
+    final double bottomHeight = 80;
 
     return Scaffold(
       body: SafeArea(
@@ -80,30 +85,40 @@ class _LifeCyclePageState extends State<LifeCyclePage> with SingleTickerProvider
                       },
                       children: <Widget>[
                         ContentCardWidget(
+                          top: topHeight,
+                          bottom: bottomHeight,
                           title: 'MI STRATEGY MANAGEMENT',
                           colorBackground: Colors.grey[300],
                           colorTitle: colorGrey,
                           navigateTo: MiStrategyPage(),
                         ),
                         ContentCardWidget(
+                          top: topHeight,
+                          bottom: bottomHeight,
                           title: 'PM STRATEGY MANAGEMENT',
                           colorBackground: Colors.grey[300],
                           colorTitle: colorGrey,
                           navigateTo: MiStrategyPage(),
                         ),
                         ContentCardWidget(
+                          top: topHeight,
+                          bottom: bottomHeight,
                           title: 'SPARE PARTS STRATEGY MANAGEMENT',
                           colorBackground: Colors.grey[300],
                           colorTitle: colorGrey,
                           navigateTo: MiStrategyPage(),
                         ),
                         ContentCardWidget(
+                          top: topHeight,
+                          bottom: bottomHeight,
                           title: 'SAFETY SYSTEM MANAGEMENT',
                           colorBackground: Colors.grey[300],
                           colorTitle: colorGrey,
                           navigateTo: MiStrategyPage(),
                         ),
                         ContentCardWidget(
+                          top: topHeight,
+                          bottom: bottomHeight,
                           title: 'PROCESS CONTROL STRATEGY',
                           colorBackground: Colors.grey[300],
                           colorTitle: colorGrey,
@@ -120,7 +135,7 @@ class _LifeCyclePageState extends State<LifeCyclePage> with SingleTickerProvider
                         activeDotColor: Colors.grey[400],
                       ),
                     ),
-                    ...buildHeaderCardWidgetList(),
+                    ...buildHeaderCardWidgetList(screenWidth, screeHeight),
                   ],
                 ),
               ),
@@ -132,10 +147,12 @@ class _LifeCyclePageState extends State<LifeCyclePage> with SingleTickerProvider
   }
 
   // build a list of menu card, the header card need to be place at the bottom last
-  List<HeaderCardWidget> buildHeaderCardWidgetList() {
+  List<HeaderCardWidget> buildHeaderCardWidgetList(screenWidth, screeHeight) {
     List<HeaderCardWidget> headerList = [];
 
     headerList.add(HeaderCardWidget(
+      screenWidth: screenWidth,
+      screeHeight: screeHeight,
       color: colorOrange,
       title: 'SUSTAIN',
       positionMultiplier: 2,
@@ -144,6 +161,8 @@ class _LifeCyclePageState extends State<LifeCyclePage> with SingleTickerProvider
 
     ));
     headerList.add(HeaderCardWidget(
+      screenWidth: screenWidth,
+      screeHeight: screeHeight,
       color: colorGreen,
       title: 'STRATEGIES',
       positionMultiplier: 1,
@@ -152,6 +171,8 @@ class _LifeCyclePageState extends State<LifeCyclePage> with SingleTickerProvider
 
     ));
     headerList.add(HeaderCardWidget(
+      screenWidth: screenWidth,
+      screeHeight: screeHeight,
       color: colorBlue,
       title: 'EVALUATE',
       positionMultiplier: 0,
@@ -159,6 +180,8 @@ class _LifeCyclePageState extends State<LifeCyclePage> with SingleTickerProvider
       notifyParent: reverseController,
     ));
     headerList.add(HeaderCardWidget(
+      screenWidth: screenWidth,
+      screeHeight: screeHeight,
       color: colorGrey,
       title: 'LIFE-CYCLE',
       positionMultiplier: 3,

@@ -50,6 +50,8 @@ class _EvaluatePageState extends State<EvaluatePage> with SingleTickerProviderSt
     SizeConfig().init(context);
     final double screeHeight = SizeConfig.safeAreaScreenHeight;
     final double screenWidth = SizeConfig.safeAreaScreenWidth;
+    final double topHeight = screeHeight / 4 + 5 + 60;
+    final double bottomHeight = 80;
 
     return Scaffold(
       body: SafeArea(
@@ -80,30 +82,40 @@ class _EvaluatePageState extends State<EvaluatePage> with SingleTickerProviderSt
                       },
                       children: <Widget>[
                         ContentCardWidget(
+                          top: topHeight,
+                          bottom: bottomHeight,
                           title: 'MI STRATEGY MANAGEMENT',
                           colorBackground: Colors.blue[100],
                           colorTitle: colorBlue,
                           navigateTo: MiStrategyPage(),
                         ),
                         ContentCardWidget(
+                          top: topHeight,
+                          bottom: bottomHeight,
                           title: 'PM STRATEGY MANAGEMENT',
                           colorBackground: Colors.blue[100],
                           colorTitle: colorBlue,
                           navigateTo: MiStrategyPage(),
                         ),
                         ContentCardWidget(
+                          top: topHeight,
+                          bottom: bottomHeight,
                           title: 'SPARE PARTS STRATEGY MANAGEMENT',
                           colorBackground: Colors.blue[100],
                           colorTitle: colorBlue,
                           navigateTo: MiStrategyPage(),
                         ),
                         ContentCardWidget(
+                          top: topHeight,
+                          bottom: bottomHeight,
                           title: 'SAFETY SYSTEM MANAGEMENT',
                           colorBackground: Colors.blue[100],
                           colorTitle: colorBlue,
                           navigateTo: MiStrategyPage(),
                         ),
                         ContentCardWidget(
+                          top: topHeight,
+                          bottom: bottomHeight,
                           title: 'PROCESS CONTROL STRATEGY',
                           colorBackground: Colors.blue[100],
                           colorTitle: colorBlue,
@@ -120,7 +132,7 @@ class _EvaluatePageState extends State<EvaluatePage> with SingleTickerProviderSt
                         activeDotColor: Colors.blue[200],
                       ),
                     ),
-                    ...buildHeaderCardWidgetList(),
+                    ...buildHeaderCardWidgetList(screenWidth, screeHeight),
                   ],
                 ),
               ),
@@ -132,9 +144,11 @@ class _EvaluatePageState extends State<EvaluatePage> with SingleTickerProviderSt
   }
 
   // build a list of menu card, the header card need to be place at the bottom last
-  List<HeaderCardWidget> buildHeaderCardWidgetList() {
+  List<HeaderCardWidget> buildHeaderCardWidgetList(screenWidth, screeHeight) {
     List<HeaderCardWidget> headerList = [];
     headerList.add(HeaderCardWidget(
+      screenWidth: screenWidth,
+      screeHeight: screeHeight,
       color: colorGrey,
       title: 'LIFE-CYCLE',
       positionMultiplier: 3,
@@ -143,6 +157,8 @@ class _EvaluatePageState extends State<EvaluatePage> with SingleTickerProviderSt
       isLastCard: true,
     ));
     headerList.add(HeaderCardWidget(
+      screenWidth: screenWidth,
+      screeHeight: screeHeight,
       color: colorOrange,
       title: 'SUSTAIN',
       positionMultiplier: 2,
@@ -151,6 +167,8 @@ class _EvaluatePageState extends State<EvaluatePage> with SingleTickerProviderSt
 
     ));
     headerList.add(HeaderCardWidget(
+      screenWidth: screenWidth,
+      screeHeight: screeHeight,
       color: colorGreen,
       title: 'STRATEGIES',
       positionMultiplier: 1,
@@ -160,6 +178,8 @@ class _EvaluatePageState extends State<EvaluatePage> with SingleTickerProviderSt
     ));
 
     headerList.add(HeaderCardWidget(
+      screenWidth: screenWidth,
+      screeHeight: screeHeight,
       color: colorBlue,
       title: 'EVALUATE',
       positionMultiplier: 0,

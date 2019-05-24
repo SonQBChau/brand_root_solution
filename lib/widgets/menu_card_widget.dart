@@ -10,14 +10,16 @@ class MenuCardWidget extends StatelessWidget {
   final Color color;
   final String title;
   final bool isLastCard;
-
+  final double screeHeight; // this is needed since we cannot get the safearea inside the widget
+  final double screenWidth;
 
   MenuCardWidget(
-      {
-      @required this.color,
+      {@required this.color,
       @required this.title,
+      @required this.screenWidth,
+      @required this.screeHeight,
       @required this.positionMultiplier,
-        this.isLastCard = false,
+      this.isLastCard = false,
       @required this.navigateTo})
       : assert(color != null),
         assert(title != null),
@@ -26,18 +28,12 @@ class MenuCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
-    final double screeHeight = SizeConfig.safeAreaScreenHeight;
-    final double screenWidth = SizeConfig.safeAreaScreenWidth;
 
-
-    double cardHeight =  screeHeight / 4 ;
-    final double cardPosition = screeHeight / 4 - 10;
+    double cardHeight = screeHeight / 4 + 5;
+    final double cardPosition = cardHeight - 10;
     if (isLastCard) {
       cardHeight = cardHeight + 10;
     }
-
-
 
     return Positioned(
       top: cardPosition * positionMultiplier,
