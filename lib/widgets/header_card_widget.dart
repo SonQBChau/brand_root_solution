@@ -8,6 +8,7 @@ class HeaderCardWidget extends StatelessWidget {
   final String title;
   final double animationValue;
   final Function notifyParent;
+  final bool keepOpacity;
 
 
 
@@ -18,6 +19,7 @@ class HeaderCardWidget extends StatelessWidget {
         @required this.animationValue,
         @required this.color,
         @required this.title,
+        this.keepOpacity = false,
         this.notifyParent,
 
         @required this.positionMultiplier,
@@ -35,8 +37,7 @@ class HeaderCardWidget extends StatelessWidget {
 
     double cardHeight =  screeHeight / 4 ;
     final double cardPosition = screeHeight / 4 - 10;
-
-
+    final opacityValue = keepOpacity ? 1 : animationValue;
 
     return Positioned(
       top: cardPosition * positionMultiplier * animationValue,
@@ -46,27 +47,30 @@ class HeaderCardWidget extends StatelessWidget {
           notifyParent();
 
         },
-        child: Container(
-          width: screenWidth,
-          height: cardHeight,
-          alignment: Alignment.center,
-          decoration: new BoxDecoration(
-            color: color,
-            borderRadius: new BorderRadius.only(
-                bottomLeft: const Radius.circular(15.0), bottomRight: const Radius.circular(15.0)),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black54,
-                offset: new Offset(0.0, 4.0),
-                blurRadius: 10.0,
-              )
-            ],
-          ),
-          child: Material(
-            color: Colors.transparent,
-            child: Text(
-              title,
-              style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),
+        child: Opacity(
+          opacity: opacityValue == 0 ? 0 : 1,
+          child: Container(
+            width: screenWidth,
+            height: cardHeight,
+            alignment: Alignment.center,
+            decoration: new BoxDecoration(
+              color: color,
+              borderRadius: new BorderRadius.only(
+                  bottomLeft: const Radius.circular(15.0), bottomRight: const Radius.circular(15.0)),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black54,
+                  offset: new Offset(0.0, 4.0),
+                  blurRadius: 10.0,
+                )
+              ],
+            ),
+            child: Material(
+              color: Colors.transparent,
+              child: Text(
+                title,
+                style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),
+              ),
             ),
           ),
         ),

@@ -71,40 +71,50 @@ class _StrategiesPageState extends State<StrategiesPage>  with SingleTickerProvi
                       controller: PageController(viewportFraction: 0.8),
                       onPageChanged: (index) {
                         setState(() {
+                          _activePosition = index;
                         });
                       },
                       children: <Widget>[
                         ContentCardWidget(
                           title: 'MI STRATEGY MANAGEMENT',
-                          colorBackground: Colors.green[100],
+                          colorBackground: colorGreen10,
                           colorTitle: Colors.green,
                           navigateTo: MiStrategyPage(),
                         ),
                         ContentCardWidget(
                           title: 'PM STRATEGY MANAGEMENT',
-                          colorBackground: Colors.green[100],
+                          colorBackground: colorGreen10,
                           colorTitle: Colors.green,
                           navigateTo: MiStrategyPage(),
                         ),
                         ContentCardWidget(
                           title: 'SPARE PARTS STRATEGY MANAGEMENT',
-                          colorBackground: Colors.green[100],
+                          colorBackground: colorGreen10,
                           colorTitle: Colors.green,
                           navigateTo: MiStrategyPage(),
                         ),
                         ContentCardWidget(
                           title: 'SAFETY SYSTEM MANAGEMENT',
-                          colorBackground: Colors.green[100],
+                          colorBackground: colorGreen10,
                           colorTitle: Colors.green,
                           navigateTo: MiStrategyPage(),
                         ),
                         ContentCardWidget(
                           title: 'PROCESS CONTROL STRATEGY',
-                          colorBackground: Colors.green[100],
+                          colorBackground: colorGreen10,
                           colorTitle: Colors.green,
                           navigateTo: MiStrategyPage(),
                         ),
                       ],
+                    ),
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: DotIndicatorWidget(
+                        dotCount: 5,
+                        activePosition: _activePosition,
+                        color: colorGreen,
+                        activeDotColor: Colors.green[200],
+                      ),
                     ),
 
 
@@ -139,6 +149,7 @@ class _StrategiesPageState extends State<StrategiesPage>  with SingleTickerProvi
                       positionMultiplier: 1,
                       animationValue: animation.value,
                       notifyParent: reverseController,
+                      keepOpacity: true,
 
                     ),
 
