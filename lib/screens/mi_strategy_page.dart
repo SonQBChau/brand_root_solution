@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/utils/size_config.dart';
+import 'package:sale_form_demo/widgets/tab_header.dart';
 
 class MiStrategyPage extends StatefulWidget {
   @override
@@ -11,6 +12,14 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
 
   final _formKey = GlobalKey<FormState>();
   bool _value1 = false;
+  String _activeHeader = 'High Impact';
+
+
+  void switchTabHeader(String label){
+    setState(() {
+      _activeHeader = label;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +53,6 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Material(
-
                     color: Colors.transparent,
                     child: InkWell(
                         borderRadius: BorderRadius.circular(30),
@@ -84,76 +92,10 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Expanded(
-                        child: GestureDetector(
-                          onTap: () {
-                            print('High Impact');
-                          },
-                          child: Container(
-                            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: new BorderRadius.only(
-                                  topLeft: const Radius.circular(5.0), topRight: const Radius.circular(5.0)),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black54,
-                                  blurRadius: 2.0,
-                                )
-                              ],
-                            ),
-                            child: Text('High Impact', style: TextStyle(
-                              color: colorGreen,
-                            ),),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        child: GestureDetector(
-                          onTap: () {
-                            print('Medium Impact');
-                          },
-                          child: Container(
-                            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                            decoration: BoxDecoration(
-                              color: colorGreen,
-                              borderRadius: new BorderRadius.only(
-                                  topLeft: const Radius.circular(5.0), topRight: const Radius.circular(5.0)),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black54,
-//                          offset: new Offset(0.0, -4.0),
-                                  blurRadius: 2.0,
-                                )
-                              ],
-                            ),
-                            child: Text('Medium Impact', style: TextStyle(color: Colors.white),),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        child: GestureDetector(
-                          onTap: () {
-                            print('Low Impact');
-                          },
-                          child: Container(
-                            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                            decoration: BoxDecoration(
-                              color: colorGreen,
-                              borderRadius: new BorderRadius.only(
-                                  topLeft: const Radius.circular(5.0), topRight: const Radius.circular(5.0)),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black54,
-//                          offset: new Offset(0.0, -4.0),
-                                  blurRadius: 2.0,
-                                )
-                              ],
-                            ),
-                            child: Text('Low Impact', style: TextStyle(color: Colors.white),),
-                          ),
-                        ),
-                      ),
+                      TabHeader(label: 'High Impact', activeHeader: _activeHeader, notifyParent: switchTabHeader),
+                      TabHeader(label: 'Medium Impact', activeHeader: _activeHeader, notifyParent: switchTabHeader),
+                      TabHeader(label: 'Low Impact', activeHeader: _activeHeader,notifyParent: switchTabHeader),
+
                     ],
                   ),
 
@@ -200,3 +142,8 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
     );
   }
 }
+
+
+
+
+
