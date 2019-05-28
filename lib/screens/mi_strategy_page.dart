@@ -12,6 +12,8 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
 
   final _formKey = GlobalKey<FormState>();
   bool _value1 = false;
+  bool _value2 = false;
+  bool _value3 = false;
   String _activeHeader = 'High Impact';
 
 
@@ -120,9 +122,25 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
   }
 
   List<Widget> _buildFormWidgets() {
-    List<Widget> formWidget = new List();
+    List<Widget> formWidget;
+    List<Widget> formWidget1 = new List();
+    List<Widget> formWidget2 = new List();
+    List<Widget> formWidget3 = new List();
 
-    formWidget.add(checkbox1());
+    formWidget1.add(checkbox1());
+    formWidget2.add(checkbox2());
+    formWidget3.add(checkbox3());
+
+    // present the list of questionares based on active tab
+    if (_activeHeader == 'High Impact'){
+      formWidget = formWidget1;
+    }
+    else if (_activeHeader == 'Medium Impact'){
+      formWidget = formWidget2;
+    }
+    else if (_activeHeader == 'Low Impact'){
+      formWidget = formWidget3;
+    }
 
     return formWidget;
   }
@@ -137,6 +155,34 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
       },
       title: new Text(
         'Maintenance & Reliability Practices Assessment',
+      ),
+      controlAffinity: ListTileControlAffinity.leading,
+    );
+  }
+  Widget checkbox2() {
+    return CheckboxListTile(
+      value: _value2,
+      onChanged: (value) {
+        setState(() {
+          _value2 = value;
+        });
+      },
+      title: new Text(
+        'MI Program Management',
+      ),
+      controlAffinity: ListTileControlAffinity.leading,
+    );
+  }
+  Widget checkbox3() {
+    return CheckboxListTile(
+      value: _value3,
+      onChanged: (value) {
+        setState(() {
+          _value3 = value;
+        });
+      },
+      title: new Text(
+        'Program Improvement Detailed Creation',
       ),
       controlAffinity: ListTileControlAffinity.leading,
     );
