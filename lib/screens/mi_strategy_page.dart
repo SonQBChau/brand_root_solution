@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/utils/size_config.dart';
 
-class MiStrategyPage extends StatelessWidget {
+class MiStrategyPage extends StatefulWidget {
+  @override
+  _MiStrategyPageState createState() => _MiStrategyPageState();
+}
+
+class _MiStrategyPageState extends State<MiStrategyPage> {
+
+  final _formKey = GlobalKey<FormState>();
+  bool _value1 = false;
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -138,7 +146,7 @@ class MiStrategyPage extends StatelessWidget {
                     child: Container(
                       color: Colors.white,
                       child: Form(
-//                          key: _formKey,
+                          key: _formKey,
                         child: ListView(
                           children: _buildFormWidgets(),
                         ),
@@ -161,24 +169,23 @@ class MiStrategyPage extends StatelessWidget {
   List<Widget> _buildFormWidgets() {
     List<Widget> formWidget = new List();
 
-//    formWidget.add(checkbox1());
+    formWidget.add(checkbox1());
 
     return formWidget;
   }
 
-//  Widget checkbox1() {
-//    return CheckboxListTile(
-//      value: _value1,
-//      onChanged: (value) {
-//        setState(() {
-//          _value1 = value;
-//        });
-//      },
-//      title:  Text(
-//        'Maintenance & Reliability Oractices Assessment',
-//      ),
-//      controlAffinity: ListTileControlAffinity.leading,
-//    );
-//  }
-
+  Widget checkbox1() {
+    return CheckboxListTile(
+      value: _value1,
+      onChanged: (value) {
+        setState(() {
+          _value1 = value;
+        });
+      },
+      title: new Text(
+        'Maintenance & Reliability Practices Assessment',
+      ),
+      controlAffinity: ListTileControlAffinity.leading,
+    );
+  }
 }
