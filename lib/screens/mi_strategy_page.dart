@@ -13,8 +13,14 @@ class MiStrategyPage extends StatelessWidget {
     return Scaffold(
       body: Container(
         constraints: BoxConstraints.expand(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
+          width: MediaQuery
+              .of(context)
+              .size
+              .width,
+          height: MediaQuery
+              .of(context)
+              .size
+              .height,
         ),
         decoration: BoxDecoration(
           image: new DecorationImage(
@@ -34,14 +40,14 @@ class MiStrategyPage extends StatelessWidget {
                     color: Colors.transparent,
                     child: InkWell(
                         borderRadius: BorderRadius.circular(30),
-                        onTap: (){
+                        onTap: () {
                           Navigator.pop(context);
                         },
                         child: Icon(
-                      Icons.arrow_back,
-                      color: Colors.white,
-                      size: 50,
-                    )),
+                          Icons.arrow_back,
+                          color: Colors.white,
+                          size: 50,
+                        )),
                   ),
 
                   SizedBox(
@@ -57,8 +63,6 @@ class MiStrategyPage extends StatelessWidget {
                   ),
 
 
-
-
                 ],
               ),
             ),
@@ -66,87 +70,84 @@ class MiStrategyPage extends StatelessWidget {
             Positioned(
               top: 200,
               width: screenWidth,
-              height: screeHeight-200 + 20,
-              child: ChangeNotifierProvider<MiStrategyManagementFormProvider>( //FORM PROVIDER
-                builder: (_) => MiStrategyManagementFormProvider(),
-                child: Column(
-                  children: <Widget>[
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Expanded(
-                          child: Container(
-                            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: new BorderRadius.only(
-                                  topLeft: const Radius.circular(5.0), topRight: const Radius.circular(5.0)),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black54,
-                                  blurRadius: 2.0,
-                                )
-                              ],
-                            ),
-                            child: Text('High Impact',style: TextStyle(
-                              color: colorGreen,
-                            ),),
+              height: screeHeight - 200 + 20,
+              child: Column(
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Expanded(
+                        child: Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: new BorderRadius.only(
+                                topLeft: const Radius.circular(5.0), topRight: const Radius.circular(5.0)),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black54,
+                                blurRadius: 2.0,
+                              )
+                            ],
                           ),
+                          child: Text('High Impact', style: TextStyle(
+                            color: colorGreen,
+                          ),),
                         ),
-                        Expanded(
-                          child: Container(
-                            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                            decoration: BoxDecoration(
-                              color: colorGreen,
-                              borderRadius: new BorderRadius.only(
-                                  topLeft: const Radius.circular(5.0), topRight: const Radius.circular(5.0)),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black54,
-//                          offset: new Offset(0.0, -4.0),
-                                  blurRadius: 2.0,
-                                )
-                              ],
-                            ),
-                            child: Text('Medium Impact', style: TextStyle(color: Colors.white),),
-                          ),
-                        ),
-                        Expanded(
-                          child: Container(
-                            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                            decoration: BoxDecoration(
-                              color: colorGreen,
-                              borderRadius: new BorderRadius.only(
-                                  topLeft: const Radius.circular(5.0), topRight: const Radius.circular(5.0)),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black54,
-//                          offset: new Offset(0.0, -4.0),
-                                  blurRadius: 2.0,
-                                )
-                              ],
-                            ),
-                            child: Text('Low Impact', style: TextStyle(color: Colors.white),),
-                          ),
-                        ),
-                      ],
-                    ),
-
-                    Expanded(
-                      child: Container(
-                        color: Colors.white,
-                        child: Form(
-//                          key: _formKey,
-                          child: ListView(
-                            children: _buildFormWidgets(),
-                          ),
-                        ),
-
                       ),
-                    ),
+                      Expanded(
+                        child: Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                          decoration: BoxDecoration(
+                            color: colorGreen,
+                            borderRadius: new BorderRadius.only(
+                                topLeft: const Radius.circular(5.0), topRight: const Radius.circular(5.0)),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black54,
+//                          offset: new Offset(0.0, -4.0),
+                                blurRadius: 2.0,
+                              )
+                            ],
+                          ),
+                          child: Text('Medium Impact', style: TextStyle(color: Colors.white),),
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                          decoration: BoxDecoration(
+                            color: colorGreen,
+                            borderRadius: new BorderRadius.only(
+                                topLeft: const Radius.circular(5.0), topRight: const Radius.circular(5.0)),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black54,
+//                          offset: new Offset(0.0, -4.0),
+                                blurRadius: 2.0,
+                              )
+                            ],
+                          ),
+                          child: Text('Low Impact', style: TextStyle(color: Colors.white),),
+                        ),
+                      ),
+                    ],
+                  ),
 
-                  ],
-                ),
+                  Expanded(
+                    child: Container(
+                      color: Colors.white,
+                      child: Form(
+//                          key: _formKey,
+                        child: ListView(
+                          children: _buildFormWidgets(),
+                        ),
+                      ),
+
+                    ),
+                  ),
+
+                ],
               ),
             ),
 
@@ -163,7 +164,7 @@ class MiStrategyPage extends StatelessWidget {
 //    formWidget.add(checkbox1());
 
     return formWidget;
-}
+  }
 
 //  Widget checkbox1() {
 //    return CheckboxListTile(
@@ -179,3 +180,5 @@ class MiStrategyPage extends StatelessWidget {
 //      controlAffinity: ListTileControlAffinity.leading,
 //    );
 //  }
+
+}
