@@ -8,12 +8,12 @@ Expanded widget that act like a tab header for detail card page
 
  */
 
-class TabHeader extends StatelessWidget {
+class TabHeaderWidget extends StatelessWidget {
   final String label;
   final String activeHeader;
   final Function notifyParent;
 
-  TabHeader({this.label, this.activeHeader, this.notifyParent});
+  TabHeaderWidget({this.label, this.activeHeader, this.notifyParent});
 
 
 
@@ -39,6 +39,7 @@ class TabHeader extends StatelessWidget {
         },
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          alignment: Alignment.center,
           decoration: BoxDecoration(
             color: backgroundColor,
             borderRadius: new BorderRadius.only(
