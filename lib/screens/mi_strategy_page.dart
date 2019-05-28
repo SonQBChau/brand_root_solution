@@ -78,65 +78,80 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
             Positioned(
               top: 200,
               width: screenWidth,
-              height: screeHeight - 200 + 20,
+              height: screeHeight - 200 + 20, // off top 200, plus 20 for spacing and safeare
               child: Column(
                 children: <Widget>[
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Expanded(
-                        child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: new BorderRadius.only(
-                                topLeft: const Radius.circular(5.0), topRight: const Radius.circular(5.0)),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black54,
-                                blurRadius: 2.0,
-                              )
-                            ],
+                        child: GestureDetector(
+                          onTap: () {
+                            print('High Impact');
+                          },
+                          child: Container(
+                            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: new BorderRadius.only(
+                                  topLeft: const Radius.circular(5.0), topRight: const Radius.circular(5.0)),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black54,
+                                  blurRadius: 2.0,
+                                )
+                              ],
+                            ),
+                            child: Text('High Impact', style: TextStyle(
+                              color: colorGreen,
+                            ),),
                           ),
-                          child: Text('High Impact', style: TextStyle(
-                            color: colorGreen,
-                          ),),
                         ),
                       ),
                       Expanded(
-                        child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                          decoration: BoxDecoration(
-                            color: colorGreen,
-                            borderRadius: new BorderRadius.only(
-                                topLeft: const Radius.circular(5.0), topRight: const Radius.circular(5.0)),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black54,
+                        child: GestureDetector(
+                          onTap: () {
+                            print('Medium Impact');
+                          },
+                          child: Container(
+                            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                            decoration: BoxDecoration(
+                              color: colorGreen,
+                              borderRadius: new BorderRadius.only(
+                                  topLeft: const Radius.circular(5.0), topRight: const Radius.circular(5.0)),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black54,
 //                          offset: new Offset(0.0, -4.0),
-                                blurRadius: 2.0,
-                              )
-                            ],
+                                  blurRadius: 2.0,
+                                )
+                              ],
+                            ),
+                            child: Text('Medium Impact', style: TextStyle(color: Colors.white),),
                           ),
-                          child: Text('Medium Impact', style: TextStyle(color: Colors.white),),
                         ),
                       ),
                       Expanded(
-                        child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                          decoration: BoxDecoration(
-                            color: colorGreen,
-                            borderRadius: new BorderRadius.only(
-                                topLeft: const Radius.circular(5.0), topRight: const Radius.circular(5.0)),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black54,
+                        child: GestureDetector(
+                          onTap: () {
+                            print('Low Impact');
+                          },
+                          child: Container(
+                            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                            decoration: BoxDecoration(
+                              color: colorGreen,
+                              borderRadius: new BorderRadius.only(
+                                  topLeft: const Radius.circular(5.0), topRight: const Radius.circular(5.0)),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black54,
 //                          offset: new Offset(0.0, -4.0),
-                                blurRadius: 2.0,
-                              )
-                            ],
+                                  blurRadius: 2.0,
+                                )
+                              ],
+                            ),
+                            child: Text('Low Impact', style: TextStyle(color: Colors.white),),
                           ),
-                          child: Text('Low Impact', style: TextStyle(color: Colors.white),),
                         ),
                       ),
                     ],
@@ -151,15 +166,11 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
                           children: _buildFormWidgets(),
                         ),
                       ),
-
                     ),
                   ),
-
                 ],
               ),
             ),
-
-
           ],
         ),
       ),
