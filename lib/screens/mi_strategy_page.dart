@@ -9,15 +9,13 @@ class MiStrategyPage extends StatefulWidget {
 }
 
 class _MiStrategyPageState extends State<MiStrategyPage> {
-
   final _formKey = GlobalKey<FormState>();
   bool _value1 = false;
   bool _value2 = false;
   bool _value3 = false;
   String _activeHeader = 'High Impact';
 
-
-  void switchTabHeader(String label){
+  void switchTabHeader(String label) {
     setState(() {
       _activeHeader = label;
     });
@@ -32,14 +30,8 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
     return Scaffold(
       body: Container(
         constraints: BoxConstraints.expand(
-          width: MediaQuery
-              .of(context)
-              .size
-              .width,
-          height: MediaQuery
-              .of(context)
-              .size
-              .height,
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
         ),
         decoration: BoxDecoration(
           image: new DecorationImage(
@@ -67,7 +59,6 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
                           size: 50,
                         )),
                   ),
-
                   SizedBox(
                     height: 10,
                   ),
@@ -79,12 +70,9 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
                       fontWeight: FontWeight.w900,
                     ),
                   ),
-
-
                 ],
               ),
             ),
-
             Positioned(
               top: 200,
               width: screenWidth,
@@ -96,16 +84,14 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
                     children: <Widget>[
                       TabHeader(label: 'High Impact', activeHeader: _activeHeader, notifyParent: switchTabHeader),
                       TabHeader(label: 'Medium Impact', activeHeader: _activeHeader, notifyParent: switchTabHeader),
-                      TabHeader(label: 'Low Impact', activeHeader: _activeHeader,notifyParent: switchTabHeader),
-
+                      TabHeader(label: 'Low Impact', activeHeader: _activeHeader, notifyParent: switchTabHeader),
                     ],
                   ),
-
                   Expanded(
                     child: Container(
                       color: Colors.white,
                       child: Form(
-                          key: _formKey,
+                        key: _formKey,
                         child: ListView(
                           children: _buildFormWidgets(),
                         ),
@@ -132,13 +118,11 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
     formWidget3.add(checkbox3());
 
     // present the list of questionares based on active tab
-    if (_activeHeader == 'High Impact'){
+    if (_activeHeader == 'High Impact') {
       formWidget = formWidget1;
-    }
-    else if (_activeHeader == 'Medium Impact'){
+    } else if (_activeHeader == 'Medium Impact') {
       formWidget = formWidget2;
-    }
-    else if (_activeHeader == 'Low Impact'){
+    } else if (_activeHeader == 'Low Impact') {
       formWidget = formWidget3;
     }
 
@@ -148,6 +132,7 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
   Widget checkbox1() {
     return CheckboxListTile(
       value: _value1,
+      activeColor: colorGreen,
       onChanged: (value) {
         setState(() {
           _value1 = value;
@@ -159,9 +144,11 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
       controlAffinity: ListTileControlAffinity.leading,
     );
   }
+
   Widget checkbox2() {
     return CheckboxListTile(
       value: _value2,
+      activeColor: colorGreen,
       onChanged: (value) {
         setState(() {
           _value2 = value;
@@ -173,9 +160,11 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
       controlAffinity: ListTileControlAffinity.leading,
     );
   }
+
   Widget checkbox3() {
     return CheckboxListTile(
       value: _value3,
+      activeColor: colorGreen,
       onChanged: (value) {
         setState(() {
           _value3 = value;
@@ -188,8 +177,3 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
     );
   }
 }
-
-
-
-
-
