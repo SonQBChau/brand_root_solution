@@ -18,7 +18,7 @@ class ContentCardWidget extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    print('rebuild content card widget');
+
     return GestureDetector(
       onTap: () {
         Navigator.push(

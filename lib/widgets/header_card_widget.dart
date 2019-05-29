@@ -36,6 +36,8 @@ class HeaderCardWidget extends AnimatedWidget {
   ;
 
 
+
+
   @override
   Widget build(BuildContext context) {
 
@@ -45,10 +47,6 @@ class HeaderCardWidget extends AnimatedWidget {
       cardHeight = cardHeight + 10;
     }
 
-
-
-
-
     return Positioned(
       top: cardPosition * positionMultiplier * animation.value,
       child: GestureDetector(
@@ -56,7 +54,6 @@ class HeaderCardWidget extends AnimatedWidget {
           notifyParent();
         },
         child: Opacity(
-
           opacity: keepOpacity ? 1 : (animation.value > 0.0 ? 1 : 0),
           child: Container(
             width: screenWidth,
@@ -74,12 +71,9 @@ class HeaderCardWidget extends AnimatedWidget {
                 )
               ],
             ),
-            child: Material(
-              color: Colors.transparent,
-              child: Text(
-                title,
-                style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),
-              ),
+            child: Text(
+              title,
+              style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),
             ),
           ),
         ),

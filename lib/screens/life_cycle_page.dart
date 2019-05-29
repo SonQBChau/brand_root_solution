@@ -23,17 +23,18 @@ class _LifeCyclePageState extends State<LifeCyclePage> with SingleTickerProvider
   void initState() {
     super.initState();
     controller = AnimationController(duration: const Duration(milliseconds: 500), vsync: this);
-    animation = Tween<double>(begin: 1, end: 0).animate(controller)
-      ..addListener(() {
-        setState(() {
-          // The state that has changed here is the animation object’s value.
-        });
-      });
+    animation = Tween<double>(begin: 1, end: 0).animate(controller);
+//      ..addListener(() {
+//        setState(() {
+//          // The state that has changed here is the animation object’s value.
+//        });
+//      });
     controller.forward();
   }
 
   // Needed for smooth transition before pop
   Future delayPop() async {
+    await Future.delayed(Duration(milliseconds: 200));
     onTop = false;
     Navigator.pop(context);
   }
@@ -41,12 +42,12 @@ class _LifeCyclePageState extends State<LifeCyclePage> with SingleTickerProvider
 
   reverseController()  {
     controller.reverse();
-
-    animation.addStatusListener((AnimationStatus status) {
-      if (status == AnimationStatus.dismissed)// wait until finish animation to pop
-        delayPop();
-
-    });
+    delayPop();
+//    animation.addStatusListener((AnimationStatus status) {
+//      if (status == AnimationStatus.dismissed)// wait until finish animation to pop
+//        delayPop();
+//
+//    });
 //    await justWait(duration: Duration(milliseconds: 300));
 //    Navigator.pop(context);
   }
@@ -145,7 +146,10 @@ class _LifeCyclePageState extends State<LifeCyclePage> with SingleTickerProvider
                       ),
                     ),
                     ...buildHeaderCardWidgetList(screenWidth, screeHeight),
+
+
                   ],
+
                 ),
               ),
             ],
@@ -159,13 +163,14 @@ class _LifeCyclePageState extends State<LifeCyclePage> with SingleTickerProvider
   List<HeaderCardWidget> buildHeaderCardWidgetList(screenWidth, screeHeight) {
     List<HeaderCardWidget> headerList = [];
     if (onTop) {
-      headerList = [HeaderCardWidget(
+      headerList = [
+        HeaderCardWidget(
         screenWidth: screenWidth,
         screeHeight: screeHeight,
         color: colorOrange,
         title: 'SUSTAIN',
         positionMultiplier: 2,
-        animationValue: animation.value,
+        animation: animation,
         notifyParent: reverseController,
 
       ),
@@ -175,7 +180,7 @@ class _LifeCyclePageState extends State<LifeCyclePage> with SingleTickerProvider
         color: colorGreen,
         title: 'STRATEGIES',
         positionMultiplier: 1,
-        animationValue: animation.value,
+        animation: animation,
         notifyParent: reverseController,
 
       ),
@@ -185,7 +190,7 @@ class _LifeCyclePageState extends State<LifeCyclePage> with SingleTickerProvider
         color: colorBlue,
         title: 'EVALUATE',
         positionMultiplier: 0,
-        animationValue: animation.value,
+        animation: animation,
         notifyParent: reverseController,
       ),
       HeaderCardWidget(
@@ -194,7 +199,7 @@ class _LifeCyclePageState extends State<LifeCyclePage> with SingleTickerProvider
         color: colorGrey,
         title: 'LIFE-CYCLE',
         positionMultiplier: 3,
-        animationValue: animation.value,
+        animation: animation,
         notifyParent: reverseController,
         keepOpacity: true,
         isLastCard: true,
@@ -209,7 +214,7 @@ class _LifeCyclePageState extends State<LifeCyclePage> with SingleTickerProvider
           color: colorGrey,
           title: 'LIFE-CYCLE',
           positionMultiplier: 3,
-          animationValue: animation.value,
+          animation: animation,
           notifyParent: reverseController,
           isLastCard: true,
         ),
@@ -219,7 +224,7 @@ class _LifeCyclePageState extends State<LifeCyclePage> with SingleTickerProvider
           color: colorOrange,
           title: 'SUSTAIN',
           positionMultiplier: 2,
-          animationValue: animation.value,
+          animation: animation,
           notifyParent: reverseController,
           keepOpacity: true,
         ),
@@ -229,7 +234,7 @@ class _LifeCyclePageState extends State<LifeCyclePage> with SingleTickerProvider
           color: colorGreen,
           title: 'STRATEGIES',
           positionMultiplier: 1,
-          animationValue: animation.value,
+          animation: animation,
           notifyParent: reverseController,
         ),
         HeaderCardWidget(
@@ -238,7 +243,7 @@ class _LifeCyclePageState extends State<LifeCyclePage> with SingleTickerProvider
           color: colorBlue,
           title: 'EVALUATE',
           positionMultiplier: 0,
-          animationValue: animation.value,
+          animation: animation,
           notifyParent: reverseController,
         ),
       ];

@@ -39,16 +39,18 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
 
   // Needed for smooth transition before pop
   Future delayPop() async{
+    await Future.delayed(Duration(milliseconds: 200));
     onTop = false;
     Navigator.pop(context);
   }
 
   reverseController() {
     controller.reverse();
-    animation.addStatusListener((AnimationStatus status) {
-      if (status == AnimationStatus.dismissed)// wait until finish animation to pop
-        delayPop();
-    });
+    delayPop();
+//    animation.addStatusListener((AnimationStatus status) {
+//      if (status == AnimationStatus.dismissed)// wait until finish animation to pop
+//        delayPop();
+//    });
   }
 
   @override
@@ -147,7 +149,6 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
                       ),
                     ),
                     ...buildHeaderCardWidgetList(screenWidth, screeHeight),
-
 
 
 

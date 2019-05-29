@@ -23,27 +23,29 @@ class _SustainPageState extends State<SustainPage> with SingleTickerProviderStat
   void initState() {
     super.initState();
     controller = AnimationController(duration: const Duration(milliseconds: 500), vsync: this);
-    animation = Tween<double>(begin: 1, end: 0).animate(controller)
-      ..addListener(() {
-        setState(() {
-          // The state that has changed here is the animation object’s value.
-        });
-      });
+    animation = Tween<double>(begin: 1, end: 0).animate(controller);
+//      ..addListener(() {
+//        setState(() {
+//          // The state that has changed here is the animation object’s value.
+//        });
+//      });
     controller.forward();
   }
 
   // Needed for smooth transition before pop
   Future delayPop() async {
+    await Future.delayed(Duration(milliseconds: 200));
     onTop = false;
     Navigator.pop(context);
   }
 
   reverseController() {
     controller.reverse();
-    animation.addStatusListener((AnimationStatus status) {
-      if (status == AnimationStatus.dismissed) // wait until finish animation to pop
-        delayPop();
-    });
+    delayPop();
+//    animation.addStatusListener((AnimationStatus status) {
+//      if (status == AnimationStatus.dismissed) // wait until finish animation to pop
+//        delayPop();
+//    });
   }
 
   @override
@@ -140,6 +142,7 @@ class _SustainPageState extends State<SustainPage> with SingleTickerProviderStat
                       ),
                     ),
                     ...buildHeaderCardWidgetList(screenWidth, screeHeight),
+
                   ],
                 ),
               ),
@@ -161,7 +164,7 @@ class _SustainPageState extends State<SustainPage> with SingleTickerProviderStat
           color: colorGrey,
           title: 'LIFE-CYCLE',
           positionMultiplier: 3,
-          animationValue: animation.value,
+          animation: animation,
           notifyParent: reverseController,
           isLastCard: true,
         ),
@@ -171,7 +174,7 @@ class _SustainPageState extends State<SustainPage> with SingleTickerProviderStat
           color: colorGreen,
           title: 'STRATEGIES',
           positionMultiplier: 1,
-          animationValue: animation.value,
+          animation: animation,
           notifyParent: reverseController,
         ),
         HeaderCardWidget(
@@ -180,7 +183,7 @@ class _SustainPageState extends State<SustainPage> with SingleTickerProviderStat
           color: colorBlue,
           title: 'EVALUATE',
           positionMultiplier: 0,
-          animationValue: animation.value,
+          animation: animation,
           notifyParent: reverseController,
         ),
         HeaderCardWidget(
@@ -189,7 +192,7 @@ class _SustainPageState extends State<SustainPage> with SingleTickerProviderStat
           color: colorOrange,
           title: 'SUSTAIN',
           positionMultiplier: 2,
-          animationValue: animation.value,
+          animation: animation,
           notifyParent: reverseController,
           keepOpacity: true,
         ),
@@ -202,7 +205,7 @@ class _SustainPageState extends State<SustainPage> with SingleTickerProviderStat
           color: colorGrey,
           title: 'LIFE-CYCLE',
           positionMultiplier: 3,
-          animationValue: animation.value,
+          animation: animation,
           notifyParent: reverseController,
           isLastCard: true,
         ),
@@ -212,7 +215,7 @@ class _SustainPageState extends State<SustainPage> with SingleTickerProviderStat
           color: colorOrange,
           title: 'SUSTAIN',
           positionMultiplier: 2,
-          animationValue: animation.value,
+          animation: animation,
           notifyParent: reverseController,
           keepOpacity: true,
         ),
@@ -222,7 +225,7 @@ class _SustainPageState extends State<SustainPage> with SingleTickerProviderStat
           color: colorGreen,
           title: 'STRATEGIES',
           positionMultiplier: 1,
-          animationValue: animation.value,
+          animation: animation,
           notifyParent: reverseController,
         ),
         HeaderCardWidget(
@@ -231,7 +234,7 @@ class _SustainPageState extends State<SustainPage> with SingleTickerProviderStat
           color: colorBlue,
           title: 'EVALUATE',
           positionMultiplier: 0,
-          animationValue: animation.value,
+          animation: animation,
           notifyParent: reverseController,
         ),
       ];
