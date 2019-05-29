@@ -8,6 +8,10 @@ import 'package:sale_form_demo/widgets/dot_indicator_widget.dart';
 import 'package:sale_form_demo/widgets/header_card_widget.dart';
 
 class StrategiesPage extends StatefulWidget {
+  const StrategiesPage({
+    Key key,
+  }) : super(key: key);
+
   @override
   _StrategiesPageState createState() => _StrategiesPageState();
 }
@@ -45,8 +49,6 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
       if (status == AnimationStatus.dismissed)// wait until finish animation to pop
         delayPop();
     });
-//    await justWait(duration: Duration(milliseconds: 300));
-//    Navigator.pop(context);
   }
 
   @override
@@ -62,6 +64,7 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
     final double screenWidth = SizeConfig.safeAreaScreenWidth;
     final double topHeight = screeHeight / 4 + 5 + 60;
     final double bottomHeight = 80;
+    print('rebuild strategies page');
 
     return Scaffold(
       body: SafeArea(
