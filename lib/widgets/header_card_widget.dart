@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:sale_form_demo/utils/size_config.dart';
 
 
-class HeaderCardWidget extends StatelessWidget {
+class HeaderCardWidget extends AnimatedWidget {
   final int positionMultiplier;
   final Color color;
   final String title;
-//  final double animationValue;
   final Animation animation;
-  final double animationValue;
   final Function notifyParent;
   final bool keepOpacity;
   final bool isLastCard; // add extra height
@@ -18,9 +16,8 @@ class HeaderCardWidget extends StatelessWidget {
 
 
 
-  HeaderCardWidget(
-      {
-        this.animationValue,
+  const HeaderCardWidget(
+      { Key key,
         this.animation,
         @required this.color,
         @required this.title,
@@ -34,8 +31,10 @@ class HeaderCardWidget extends StatelessWidget {
       })
       : assert(color != null),
         assert(title != null),
-        assert(positionMultiplier != null)
+        assert(positionMultiplier != null),
+        super(key: key, listenable: animation)
   ;
+
 
   @override
   Widget build(BuildContext context) {
@@ -50,14 +49,8 @@ class HeaderCardWidget extends StatelessWidget {
 
 
 
-    return AnimatedBuilder(
-        animation: animation,
-        builder: (_, child) {
-          return Positioned(
-            top: cardPosition * positionMultiplier * animation.value,
-            child: child,
-          );
-        },
+    return Positioned(
+      top: cardPosition * positionMultiplier * animation.value,
       child: GestureDetector(
         onTap: () {
           notifyParent();
@@ -91,9 +84,6 @@ class HeaderCardWidget extends StatelessWidget {
           ),
         ),
       ),
-
-
-
     );
   }
 }
