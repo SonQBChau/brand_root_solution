@@ -64,7 +64,7 @@ class HeaderCardWidget extends StatelessWidget {
         },
         child: Opacity(
 
-          opacity: keepOpacity ? 1 : animation.value == 0 ? 1 : 0,
+          opacity: keepOpacity ? 1 : (animation.value > 0.0 ? 1 : 0),
           child: Container(
             width: screenWidth,
             height: cardHeight,
