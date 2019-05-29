@@ -28,12 +28,12 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
   void initState() {
     super.initState();
     controller = AnimationController(duration: const Duration(milliseconds: 500), vsync: this);
-    animation = Tween<double>(begin: 1, end: 0).animate(controller)
-      ..addListener(() {
-        setState(() {
-          // The state that has changed here is the animation object’s value.
-        });
-      });
+    animation = Tween<double>(begin: 1, end: 0).animate(controller);
+//      ..addListener(() {
+//        setState(() {
+//          // The state that has changed here is the animation object’s value.
+//        });
+//      });
     controller.forward();
   }
 
@@ -147,6 +147,12 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
                       ),
                     ),
                     ...buildHeaderCardWidgetList(screenWidth, screeHeight),
+
+
+
+
+
+
                   ],
                 ),
               ),
@@ -162,6 +168,9 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
     List<HeaderCardWidget> headerList = [];
     if (onTop) {
       headerList = [
+
+
+
         HeaderCardWidget(
           screenWidth: screenWidth,
           screeHeight: screeHeight,
@@ -169,6 +178,7 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
           title: 'LIFE-CYCLE',
           positionMultiplier: 3,
           animationValue: animation.value,
+          animation: animation,
           notifyParent: reverseController,
           isLastCard: true,
         ),
@@ -179,6 +189,7 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
           title: 'SUSTAIN',
           positionMultiplier: 2,
           animationValue: animation.value,
+          animation: animation,
           notifyParent: reverseController,
         ),
         HeaderCardWidget(
@@ -188,6 +199,7 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
           title: 'EVALUATE',
           positionMultiplier: 0,
           animationValue: animation.value,
+          animation: animation,
           notifyParent: reverseController,
         ),
         HeaderCardWidget(
@@ -197,6 +209,7 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
           title: 'STRATEGIES',
           positionMultiplier: 1,
           animationValue: animation.value,
+          animation: animation,
           notifyParent: reverseController,
           keepOpacity: true,
         ),
@@ -211,6 +224,7 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
           title: 'LIFE-CYCLE',
           positionMultiplier: 3,
           animationValue: animation.value,
+          animation: animation,
           notifyParent: reverseController,
           isLastCard: true,
         ),
@@ -221,6 +235,7 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
           title: 'SUSTAIN',
           positionMultiplier: 2,
           animationValue: animation.value,
+          animation: animation,
           notifyParent: reverseController,
         ),
         HeaderCardWidget(
@@ -230,6 +245,7 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
           title: 'STRATEGIES',
           positionMultiplier: 1,
           animationValue: animation.value,
+          animation: animation,
           notifyParent: reverseController,
           keepOpacity: true,
         ),
@@ -240,6 +256,7 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
           title: 'EVALUATE',
           positionMultiplier: 0,
           animationValue: animation.value,
+          animation: animation,
           notifyParent: reverseController,
         ),
 

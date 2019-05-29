@@ -6,6 +6,8 @@ class HeaderCardWidget extends StatelessWidget {
   final int positionMultiplier;
   final Color color;
   final String title;
+//  final double animationValue;
+  final Animation animation;
   final double animationValue;
   final Function notifyParent;
   final bool keepOpacity;
@@ -18,7 +20,8 @@ class HeaderCardWidget extends StatelessWidget {
 
   HeaderCardWidget(
       {
-        @required this.animationValue,
+        this.animationValue,
+        this.animation,
         @required this.color,
         @required this.title,
         @required this.screenWidth,
@@ -43,18 +46,25 @@ class HeaderCardWidget extends StatelessWidget {
       cardHeight = cardHeight + 10;
     }
 
-    final opacityValue = keepOpacity ? 1 : animationValue;
 
-    return Positioned(
-      top: cardPosition * positionMultiplier * animationValue,
+
+
+
+    return AnimatedBuilder(
+        animation: animation,
+        builder: (_, child) {
+          return Positioned(
+            top: cardPosition * positionMultiplier * animation.value,
+            child: child,
+          );
+        },
       child: GestureDetector(
         onTap: () {
-
           notifyParent();
-
         },
         child: Opacity(
-          opacity: opacityValue == 0 ? 0 : 1,
+
+          opacity: keepOpacity ? 1 : animation.value == 0 ? 1 : 0,
           child: Container(
             width: screenWidth,
             height: cardHeight,
@@ -81,6 +91,9 @@ class HeaderCardWidget extends StatelessWidget {
           ),
         ),
       ),
+
+
+
     );
   }
 }
