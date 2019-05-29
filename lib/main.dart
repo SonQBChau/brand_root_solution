@@ -19,8 +19,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
 
-      home: MiStrategyPage(),
-
+//      home: MiStrategyPage(),
+home: MenuPage(),
 
 //      home: ChangeNotifierProvider<IntroFormProvider>(
 //        builder: (_) => IntroFormProvider(),

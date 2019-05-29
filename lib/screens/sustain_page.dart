@@ -32,16 +32,18 @@ class _SustainPageState extends State<SustainPage> with SingleTickerProviderStat
     controller.forward();
   }
 
-  reverseController() async {
-    controller.reverse();
-    await justWait(duration: Duration(milliseconds: 450));
+  // Needed for smooth transition before pop
+  Future delayPop() async {
     onTop = false;
+    Navigator.pop(context);
+  }
+
+  reverseController() {
+    controller.reverse();
     animation.addStatusListener((AnimationStatus status) {
       if (status == AnimationStatus.dismissed) // wait until finish animation to pop
-        Navigator.pop(context);
+        delayPop();
     });
-//    await justWait(duration: Duration(milliseconds: 300));
-//    Navigator.pop(context);
   }
 
   @override
