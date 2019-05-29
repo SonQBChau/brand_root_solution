@@ -152,7 +152,7 @@ class _EvaluatePageState extends State<EvaluatePage> with SingleTickerProviderSt
       color: colorGrey,
       title: 'LIFE-CYCLE',
       positionMultiplier: 3,
-      animation: animation,
+      controller: controller,
       notifyParent: reverseController,
       isLastCard: true,
     ));
@@ -162,7 +162,7 @@ class _EvaluatePageState extends State<EvaluatePage> with SingleTickerProviderSt
       color: colorOrange,
       title: 'SUSTAIN',
       positionMultiplier: 2,
-      animation: animation,
+      controller: controller,
       notifyParent: reverseController,
 
     ));
@@ -172,7 +172,7 @@ class _EvaluatePageState extends State<EvaluatePage> with SingleTickerProviderSt
       color: colorGreen,
       title: 'STRATEGIES',
       positionMultiplier: 1,
-      animation: animation,
+      controller: controller,
       notifyParent: reverseController,
 
     ));
@@ -183,7 +183,7 @@ class _EvaluatePageState extends State<EvaluatePage> with SingleTickerProviderSt
       color: colorBlue,
       title: 'EVALUATE',
       positionMultiplier: 0,
-      animation: animation,
+      controller: controller,
       notifyParent: reverseController,
       keepOpacity: true,
     ));

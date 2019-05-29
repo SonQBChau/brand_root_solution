@@ -28,12 +28,6 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
   void initState() {
     super.initState();
     controller = AnimationController(duration: const Duration(milliseconds: 500), vsync: this);
-    animation = Tween<double>(begin: 1, end: 0).animate(controller);
-//      ..addListener(() {
-//        setState(() {
-//          // The state that has changed here is the animation object’s value.
-//        });
-//      });
     controller.forward();
   }
 
@@ -47,10 +41,6 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
   reverseController() {
     controller.reverse();
     delayPop();
-//    animation.addStatusListener((AnimationStatus status) {
-//      if (status == AnimationStatus.dismissed)// wait until finish animation to pop
-//        delayPop();
-//    });
   }
 
   @override
@@ -178,7 +168,7 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
           color: colorGrey,
           title: 'LIFE-CYCLE',
           positionMultiplier: 3,
-          animation: animation,
+          controller: controller,
           notifyParent: reverseController,
           isLastCard: true,
         ),
@@ -188,7 +178,7 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
           color: colorOrange,
           title: 'SUSTAIN',
           positionMultiplier: 2,
-          animation: animation,
+          controller: controller,
           notifyParent: reverseController,
         ),
         HeaderCardWidget(
@@ -197,7 +187,7 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
           color: colorBlue,
           title: 'EVALUATE',
           positionMultiplier: 0,
-          animation: animation,
+          controller: controller,
           notifyParent: reverseController,
         ),
         HeaderCardWidget(
@@ -206,7 +196,7 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
           color: colorGreen,
           title: 'STRATEGIES',
           positionMultiplier: 1,
-          animation: animation,
+          controller: controller,
           notifyParent: reverseController,
           keepOpacity: true,
         ),
@@ -220,7 +210,7 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
           color: colorGrey,
           title: 'LIFE-CYCLE',
           positionMultiplier: 3,
-          animation: animation,
+          controller: controller,
           notifyParent: reverseController,
           isLastCard: true,
         ),
@@ -230,7 +220,7 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
           color: colorOrange,
           title: 'SUSTAIN',
           positionMultiplier: 2,
-          animation: animation,
+          controller: controller,
           notifyParent: reverseController,
         ),
         HeaderCardWidget(
@@ -239,7 +229,7 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
           color: colorGreen,
           title: 'STRATEGIES',
           positionMultiplier: 1,
-          animation: animation,
+          controller: controller,
           notifyParent: reverseController,
           keepOpacity: true,
         ),
@@ -249,7 +239,7 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
           color: colorBlue,
           title: 'EVALUATE',
           positionMultiplier: 0,
-          animation: animation,
+          controller: controller,
           notifyParent: reverseController,
         ),
 
