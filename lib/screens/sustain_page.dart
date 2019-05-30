@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/screens/mi_strategy_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
-import 'package:sale_form_demo/utils/just_wait.dart';
 import 'package:sale_form_demo/utils/size_config.dart';
 import 'package:sale_form_demo/widgets/content_card_widget.dart';
 import 'package:sale_form_demo/widgets/dot_indicator_widget.dart';

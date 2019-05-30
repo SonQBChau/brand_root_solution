@@ -125,7 +125,7 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
     List<Widget> formWidget2 = new List();
     List<Widget> formWidget3 = new List();
 
-
+    //form 1
     formWidget1.add(CheckboxWidget(
       label: questionCenter.questionBank[0].getLabel(),
       widgetValue: questionCenter.questionBank[0].getValue(),
@@ -174,6 +174,9 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
       index: 7,
       notifyParent: updateCheckboxValue,
     ));
+
+    //form 2
+
 
 
     // present the list of questionares based on active tab
