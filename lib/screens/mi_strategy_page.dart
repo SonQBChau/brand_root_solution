@@ -93,6 +93,7 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
                 children: <Widget>[
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.end,
                     children: <Widget>[
                       TabHeaderWidget(label: 'HIGH IMPACT', activeHeader: _activeHeader, notifyParent: switchTabHeader),
                       TabHeaderWidget(

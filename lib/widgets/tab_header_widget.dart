@@ -22,13 +22,16 @@ class TabHeaderWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     Color backgroundColor;
     Color textColor;
+    double height;
     if (activeHeader == label){
       backgroundColor = colorGrey5;
       textColor = colorGreen;
+      height = 15;
     }
     else {
       backgroundColor = colorGreen;
       textColor = Colors.white;
+      height = 10;
     }
 
     return Expanded(
@@ -38,12 +41,12 @@ class TabHeaderWidget extends StatelessWidget {
           notifyParent(label);
         },
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          padding: EdgeInsets.only(top: height, left: 10, right: 10),
           alignment: Alignment.center,
           decoration: BoxDecoration(
             color: backgroundColor,
             borderRadius: new BorderRadius.only(
-                topLeft: const Radius.circular(5.0), topRight: const Radius.circular(5.0)),
+                topLeft: const Radius.circular(8.0), topRight: const Radius.circular(8.0)),
             boxShadow: [
               BoxShadow(
                 color: Colors.black54,
@@ -51,10 +54,27 @@ class TabHeaderWidget extends StatelessWidget {
               )
             ],
           ),
-        child: FittedBox(fit:BoxFit.fitWidth,
-            child: Text(label, style: TextStyle(
-            color: textColor,
-          ),),
+        child: Column(
+          children: <Widget>[
+            FittedBox(fit:BoxFit.fitWidth,
+                child: Text(label, style: TextStyle(
+                color: textColor,
+              ),),
+            ),
+
+            SizedBox(height: 5,),
+            SizedBox(
+              height: 1.5,
+              child:  Center(
+                child:  Container(
+                  margin:  EdgeInsetsDirectional.only(start: 1.0, end: 1.0),
+                  height: 1.5,
+                  color: colorGreen,
+                ),
+              ),
+            )
+
+          ],
         ),
         ),
       ),
