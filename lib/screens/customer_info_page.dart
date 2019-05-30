@@ -3,10 +3,11 @@ import 'package:provider/provider.dart';
 import 'package:sale_form_demo/data/form_texts.dart';
 import 'package:sale_form_demo/services/intro_form_provider.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
+import 'package:sale_form_demo/widgets/launch_button_widget.dart';
 import 'package:sale_form_demo/widgets/client_header_widget.dart';
 import 'package:sale_form_demo/widgets/text_widget_info_page.dart';
 import 'package:sale_form_demo/widgets/industry_widget.dart';
-import 'package:sale_form_demo/widgets/launch_button_widget.dart';
+import 'package:sale_form_demo/widgets/d_launch_button_widget.dart';
 import 'package:sale_form_demo/widgets/position_widget.dart';
 import 'package:sale_form_demo/widgets/representative_header_widget.dart';
 import 'package:sale_form_demo/utils/validator.dart';
@@ -75,6 +76,7 @@ class CustomerInfoPage extends StatelessWidget {
       onSubmit: (value) =>  introForm.setRepresentativeEmail(value),
     ));
     formWidget.add(LaunchButtonWidget());
+//    formWidget.add(AnimatedButton());
     formWidget.add(SizedBox(height: 30));
 
     return formWidget;

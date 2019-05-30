@@ -27,7 +27,7 @@ class QuestionCenter {
     Question('Create Corrosion Modeling Diagrams (CMD) & Damage Mechanisms With Rates/Susceptibilities', false ),
     Question('Implement Integrity Operating Windows', false ),
     Question('Perform RBI On Tanks', false ),
-    Question('Keep Program Evergreened/ Continuouslu Improved', false ),
+    Question('Keep Program Evergreened/ Continuously Improved', false ),
 
     Question('Maintenance and Relaibility Benchmarking Assessment', false ),
     Question('Reliability Evolution Asessment', false ),
