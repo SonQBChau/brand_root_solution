@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/checkbox_widget.dart';
 
 List<Widget> buildFormWidgets(questionCenter, activeHeader, updateCheckboxValue) {
@@ -174,6 +175,41 @@ List<Widget> buildFormWidgets(questionCenter, activeHeader, updateCheckboxValue)
   } else if (activeHeader == 'LOW IMPACT') {
     formWidget = formWidget3;
   }
+
+
+  formWidget.add(SizedBox(height: 20,));
+
+  formWidget.add(
+      Container(
+        margin: EdgeInsets.symmetric(horizontal: 50),
+        child: RaisedButton(
+            onPressed: (){},
+      color: Colors.white,
+          textColor: colorGreen,
+          padding: EdgeInsets.symmetric(vertical: 15),
+
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
+            child: Text('BENCHMARK'),
+        ),
+      )
+  );
+  formWidget.add(SizedBox(height: 10,));
+  formWidget.add(
+      Container(
+        margin: EdgeInsets.symmetric(horizontal: 50),
+        child: RaisedButton(
+          onPressed: (){},
+          color: colorGreen,
+          textColor: Colors.white,
+          padding: EdgeInsets.symmetric(vertical: 15),
+
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
+          child: Text('REVIEW'),
+        ),
+      )
+  );
+  
+  formWidget.add(SizedBox(height: 50,));
 
   return formWidget;
 }

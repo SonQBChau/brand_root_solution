@@ -23,7 +23,7 @@ class TabHeaderWidget extends StatelessWidget {
     Color backgroundColor;
     Color textColor;
     if (activeHeader == label){
-      backgroundColor = Colors.white;
+      backgroundColor = colorGrey5;
       textColor = colorGreen;
     }
     else {

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:sale_form_demo/data/question_model.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/utils/size_config.dart';
-import 'package:sale_form_demo/widgets/checkbox_widget.dart';
 import 'package:sale_form_demo/widgets/question_list_widget.dart';
 import 'package:sale_form_demo/widgets/tab_header_widget.dart';
 
@@ -17,7 +16,7 @@ class MiStrategyPage extends StatefulWidget {
 class _MiStrategyPageState extends State<MiStrategyPage> {
   final _formKey = GlobalKey<FormState>();
 
-  String _activeHeader = 'High Impact';
+  String _activeHeader = 'HIGH IMPACT';
 
 
   void switchTabHeader(String label) {
@@ -103,7 +102,7 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
                   ),
                   Expanded(
                     child: Container(
-                      color: Colors.white,
+                      color: colorGrey5,
                       child: Form(
                         key: _formKey,
                         child: ListView(
