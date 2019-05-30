@@ -12,14 +12,16 @@ class CheckboxWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Color textColor = widgetValue ? colorGreen : colorGrey;
     return CheckboxListTile(
       value: widgetValue,
       activeColor: colorGreen,
       onChanged: (value) {
         notifyParent(index, value);
       },
-      title: new Text(
+      title: Text(
         label,
+        style: TextStyle(color: textColor),
       ),
       controlAffinity: ListTileControlAffinity.leading,
     );
