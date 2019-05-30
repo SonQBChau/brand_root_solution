@@ -51,9 +51,11 @@ class TabHeaderWidget extends StatelessWidget {
               )
             ],
           ),
-          child: Text(label, style: TextStyle(
+        child: FittedBox(fit:BoxFit.fitWidth,
+            child: Text(label, style: TextStyle(
             color: textColor,
           ),),
+        ),
         ),
       ),
     );

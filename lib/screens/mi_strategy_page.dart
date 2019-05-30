@@ -95,10 +95,10 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      TabHeaderWidget(label: 'High Impact', activeHeader: _activeHeader, notifyParent: switchTabHeader),
+                      TabHeaderWidget(label: 'HIGH IMPACT', activeHeader: _activeHeader, notifyParent: switchTabHeader),
                       TabHeaderWidget(
-                          label: 'Medium Impact', activeHeader: _activeHeader, notifyParent: switchTabHeader),
-                      TabHeaderWidget(label: 'Low Impact', activeHeader: _activeHeader, notifyParent: switchTabHeader),
+                          label: 'MEDIUM IMPACT', activeHeader: _activeHeader, notifyParent: switchTabHeader),
+                      TabHeaderWidget(label: 'LOW IMPACT', activeHeader: _activeHeader, notifyParent: switchTabHeader),
                     ],
                   ),
                   Expanded(

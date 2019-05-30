@@ -167,11 +167,11 @@ List<Widget> buildFormWidgets(questionCenter, activeHeader, updateCheckboxValue)
 
 
   // present the list of questionares based on active tab
-  if (activeHeader == 'High Impact') {
+  if (activeHeader == 'HIGH IMPACT') {
     formWidget = formWidget1;
-  } else if (activeHeader == 'Medium Impact') {
+  } else if (activeHeader == 'MEDIUM IMPACT') {
     formWidget = formWidget2;
-  } else if (activeHeader == 'Low Impact') {
+  } else if (activeHeader == 'LOW IMPACT') {
     formWidget = formWidget3;
   }
 
