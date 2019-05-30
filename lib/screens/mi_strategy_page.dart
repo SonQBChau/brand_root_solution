@@ -15,6 +15,7 @@ class MiStrategyPage extends StatefulWidget {
 
 class _MiStrategyPageState extends State<MiStrategyPage> {
   final _formKey = GlobalKey<FormState>();
+  ScrollController _scrollController = new ScrollController();
 
   String _activeHeader = 'HIGH IMPACT';
 
@@ -23,6 +24,7 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
     setState(() {
       _activeHeader = label;
     });
+    scrollToTop();
   }
 
   void updateCheckboxValue(int index, bool value) {
@@ -30,6 +32,14 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
       questionCenter.questionBank[index].setValue(value);
     });
 
+  }
+
+  void scrollToTop(){
+    _scrollController.animateTo(
+      0.0,
+      curve: Curves.easeOut,
+      duration: const Duration(milliseconds: 300),
+    );
   }
 
   @override
@@ -95,12 +105,12 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: <Widget>[
-                      TabHeaderWidget(label: 'HIGH IMPACT', activeHeader: _activeHeader, notifyParent: switchTabHeader),
+                      TabHeaderWidget(label: 'HIGH IMPACT', activeHeader: _activeHeader, notifyParent: switchTabHeader,),
                       SizedBox(width: 1,),
                       TabHeaderWidget(
-                          label: 'MEDIUM IMPACT', activeHeader: _activeHeader, notifyParent: switchTabHeader),
+                          label: 'MEDIUM IMPACT', activeHeader: _activeHeader, notifyParent: switchTabHeader, ),
                       SizedBox(width: 1,),
-                      TabHeaderWidget(label: 'LOW IMPACT', activeHeader: _activeHeader, notifyParent: switchTabHeader),
+                      TabHeaderWidget(label: 'LOW IMPACT', activeHeader: _activeHeader, notifyParent: switchTabHeader, ),
                     ],
                   ),
 
@@ -112,6 +122,7 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
                       child: Form(
                         key: _formKey,
                         child: ListView(
+                          controller: _scrollController,
                           children: buildFormWidgets(questionCenter, _activeHeader, updateCheckboxValue),
                         ),
                       ),
