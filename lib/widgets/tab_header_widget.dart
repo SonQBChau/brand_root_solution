@@ -22,16 +22,19 @@ class TabHeaderWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     Color backgroundColor;
     Color textColor;
+    double top;
     double height;
     if (activeHeader == label){
       backgroundColor = colorGrey5;
       textColor = colorGreen;
-      height = 15;
+      top = 15;
+      height = 2;
     }
     else {
       backgroundColor = colorGreen;
       textColor = Colors.white;
-      height = 10;
+      top = 10;
+      height = 0;
     }
 
     return Expanded(
@@ -41,7 +44,7 @@ class TabHeaderWidget extends StatelessWidget {
           notifyParent(label);
         },
         child: Container(
-          padding: EdgeInsets.only(top: height, left: 10, right: 10),
+          padding: EdgeInsets.only(top: top, left: 10, right: 10),
           alignment: Alignment.center,
           decoration: BoxDecoration(
             color: backgroundColor,
