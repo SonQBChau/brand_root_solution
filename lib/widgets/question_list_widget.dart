@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/data/question_model.dart';
+import 'package:sale_form_demo/screens/chart_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/checkbox_widget.dart';
 
@@ -180,44 +181,49 @@ List<Widget> buildFormWidgets(questionCenter, activeHeader, updateCheckboxValue)
 
   formWidget.add(SizedBox(height: 20,));
 
-  formWidget.add(
-      Container(
-        margin: EdgeInsets.symmetric(horizontal: 50),
-        child: RaisedButton(
-            onPressed: (){
-              for(Question question in questionCenter.questionBank){
-                if (question.getValue())
-                  {
-                    print(question.getLabel());
-                  }
-              }
-            },
-      color: Colors.white,
-          textColor: colorGreen,
-          padding: EdgeInsets.symmetric(vertical: 15),
-
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
-            child: Text('BENCHMARK'),
-        ),
-      )
-  );
-  formWidget.add(SizedBox(height: 10,));
-  formWidget.add(
-      Container(
-        margin: EdgeInsets.symmetric(horizontal: 50),
-        child: RaisedButton(
-          onPressed: (){},
-          color: colorGreen,
-          textColor: Colors.white,
-          padding: EdgeInsets.symmetric(vertical: 15),
-
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
-          child: Text('REVIEW'),
-        ),
-      )
-  );
-  
-  formWidget.add(SizedBox(height: 50,));
+//  formWidget.add(
+//      Container(
+//        margin: EdgeInsets.symmetric(horizontal: 50),
+//        child: RaisedButton(
+//            onPressed: (){
+//              for(Question question in questionCenter.questionBank){
+//                if (question.getValue())
+//                  {
+//                    print(question.getLabel());
+//                  }
+//              }
+//            },
+//      color: Colors.white,
+//          textColor: colorGreen,
+//          padding: EdgeInsets.symmetric(vertical: 15),
+//
+//            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
+//            child: Text('BENCHMARK'),
+//        ),
+//      )
+//  );
+//  formWidget.add(SizedBox(height: 10,));
+//  formWidget.add(
+//      Container(
+//        margin: EdgeInsets.symmetric(horizontal: 50),
+//        child: RaisedButton(
+//          onPressed: (){
+//            Navigator.push(
+//              context,
+//              MaterialPageRoute(builder: (context) => ChartPage()),
+//            );
+//          },
+//          color: colorGreen,
+//          textColor: Colors.white,
+//          padding: EdgeInsets.symmetric(vertical: 15),
+//
+//          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
+//          child: Text('REVIEW'),
+//        ),
+//      )
+//  );
+//
+//  formWidget.add(SizedBox(height: 50,));
 
   return formWidget;
 }

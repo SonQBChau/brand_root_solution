@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/data/question_model.dart';
+import 'package:sale_form_demo/screens/chart_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/utils/size_config.dart';
 import 'package:sale_form_demo/widgets/question_list_widget.dart';
 import 'package:sale_form_demo/widgets/tab_header_widget.dart';
-
 
 QuestionCenter questionCenter = QuestionCenter();
 
@@ -19,7 +19,6 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
 
   String _activeHeader = 'HIGH IMPACT';
 
-
   void switchTabHeader(String label) {
     setState(() {
       _activeHeader = label;
@@ -31,10 +30,9 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
     setState(() {
       questionCenter.questionBank[index].setValue(value);
     });
-
   }
 
-  void scrollToTop(){
+  void scrollToTop() {
     _scrollController.animateTo(
       0.0,
       curve: Curves.easeOut,
@@ -47,7 +45,6 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
     SizeConfig().init(context);
     final double screeHeight = SizeConfig.safeAreaScreenHeight;
     final double screenWidth = SizeConfig.safeAreaScreenWidth;
-
 
     return Scaffold(
       body: Container(
@@ -105,17 +102,29 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: <Widget>[
-                      TabHeaderWidget(label: 'HIGH IMPACT', activeHeader: _activeHeader, notifyParent: switchTabHeader,),
-                      SizedBox(width: 1,),
                       TabHeaderWidget(
-                          label: 'MEDIUM IMPACT', activeHeader: _activeHeader, notifyParent: switchTabHeader, ),
-                      SizedBox(width: 1,),
-                      TabHeaderWidget(label: 'LOW IMPACT', activeHeader: _activeHeader, notifyParent: switchTabHeader, ),
+                        label: 'HIGH IMPACT',
+                        activeHeader: _activeHeader,
+                        notifyParent: switchTabHeader,
+                      ),
+                      SizedBox(
+                        width: 1,
+                      ),
+                      TabHeaderWidget(
+                        label: 'MEDIUM IMPACT',
+                        activeHeader: _activeHeader,
+                        notifyParent: switchTabHeader,
+                      ),
+                      SizedBox(
+                        width: 1,
+                      ),
+                      TabHeaderWidget(
+                        label: 'LOW IMPACT',
+                        activeHeader: _activeHeader,
+                        notifyParent: switchTabHeader,
+                      ),
                     ],
                   ),
-
-
-
                   Expanded(
                     child: Container(
                       color: colorGrey5,
@@ -123,7 +132,50 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
                         key: _formKey,
                         child: ListView(
                           controller: _scrollController,
-                          children: buildFormWidgets(questionCenter, _activeHeader, updateCheckboxValue),
+                          children: [
+                            ...buildFormWidgets(questionCenter, _activeHeader, updateCheckboxValue),
+                            ...[
+                              Container(
+                                margin: EdgeInsets.symmetric(horizontal: 50),
+                                child: RaisedButton(
+                                  onPressed: () {
+                                    for (Question question in questionCenter.questionBank) {
+                                      if (question.getValue()) {
+                                        print(question.getLabel());
+                                      }
+                                    }
+                                  },
+                                  color: Colors.white,
+                                  textColor: colorGreen,
+                                  padding: EdgeInsets.symmetric(vertical: 15),
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
+                                  child: Text('BENCHMARK'),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Container(
+                                margin: EdgeInsets.symmetric(horizontal: 50),
+                                child: RaisedButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => ChartPage()),
+                                    );
+                                  },
+                                  color: colorGreen,
+                                  textColor: Colors.white,
+                                  padding: EdgeInsets.symmetric(vertical: 15),
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
+                                  child: Text('REVIEW'),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 50,
+                              ),
+                            ],
+                          ],
                         ),
                       ),
                     ),
@@ -136,5 +188,4 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
       ),
     );
   }
-
 }

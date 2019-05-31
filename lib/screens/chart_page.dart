@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sale_form_demo/screens/menu_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/charts/auto_label.dart';
 import 'package:sale_form_demo/widgets/charts/donut.dart';
@@ -23,7 +24,7 @@ class ChartPage extends StatelessWidget {
         child: ListView(
           children: <Widget>[
             SizedBox(
-              height: 100,
+              height: 50,
             ),
             Container(
               width: 300,
@@ -47,7 +48,6 @@ class ChartPage extends StatelessWidget {
             Container(
               width: 300,
               height: 300,
-
               child: SimpleBarChart.withSampleData(),
             ),
             SizedBox(
@@ -87,7 +87,26 @@ class ChartPage extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 100,
+              height: 20,
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 50),
+              child: RaisedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => MenuPage()),
+                  );
+                },
+                color: colorBlue,
+                textColor: Colors.white,
+                padding: EdgeInsets.symmetric(vertical: 15),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
+                child: Text('RETURN'),
+              ),
+            ),
+            SizedBox(
+              height: 50,
             ),
           ],
         ),
