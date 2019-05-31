@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sale_form_demo/screens/chart_page.dart';
 import 'package:sale_form_demo/screens/customer_info_page.dart';
 import 'package:sale_form_demo/screens/menu_page.dart';
 import 'package:sale_form_demo/screens/mi_strategy_page.dart';
@@ -20,20 +21,20 @@ class MyApp extends StatelessWidget {
       ),
 
 //      home: MiStrategyPage(),
-//home: MenuPage(),
+home: ChartPage(),
 
 
-      home: ChangeNotifierProvider<IntroFormProvider>(
-        builder: (_) => IntroFormProvider(),
-          child: PageView(
-            scrollDirection: Axis.vertical,
-            children: <Widget>[
-              MyHomePage(),
-              CustomerInfoPage(),
-
-            ],
-          )
-      ),
+//      home: ChangeNotifierProvider<IntroFormProvider>(
+//        builder: (_) => IntroFormProvider(),
+//          child: PageView(
+//            scrollDirection: Axis.vertical,
+//            children: <Widget>[
+//              MyHomePage(),
+//              CustomerInfoPage(),
+//
+//            ],
+//          )
+//      ),
 
 
     );
