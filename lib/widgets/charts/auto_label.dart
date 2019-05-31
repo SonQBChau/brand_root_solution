@@ -34,7 +34,7 @@ class DonutAutoLabelChart extends StatelessWidget {
     return new DonutAutoLabelChart(
       _createSampleData(),
       // Disable animations for image tests.
-      animate: false,
+      animate: true,
     );
   }
 

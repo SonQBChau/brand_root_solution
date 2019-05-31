@@ -14,7 +14,7 @@ class TimeSeriesSymbolAnnotationChart extends StatelessWidget {
     return new TimeSeriesSymbolAnnotationChart(
       _createSampleData(),
       // Disable animations for image tests.
-      animate: false,
+      animate: true,
     );
   }
 

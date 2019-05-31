@@ -13,7 +13,7 @@ class SimpleBarChart extends StatelessWidget {
     return new SimpleBarChart(
       _createSampleData(),
       // Disable animations for image tests.
-      animate: false,
+      animate: true,
     );
   }
 
