@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sale_form_demo/data/question_model.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/checkbox_widget.dart';
 
@@ -183,7 +184,14 @@ List<Widget> buildFormWidgets(questionCenter, activeHeader, updateCheckboxValue)
       Container(
         margin: EdgeInsets.symmetric(horizontal: 50),
         child: RaisedButton(
-            onPressed: (){},
+            onPressed: (){
+              for(Question question in questionCenter.questionBank){
+                if (question.getValue())
+                  {
+                    print(question.getLabel());
+                  }
+              }
+            },
       color: Colors.white,
           textColor: colorGreen,
           padding: EdgeInsets.symmetric(vertical: 15),
