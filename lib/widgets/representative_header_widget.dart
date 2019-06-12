@@ -9,7 +9,7 @@ class RepresentativeHeadderWidget extends StatelessWidget {
       padding: EdgeInsets.only(top:0, bottom: 20),
       child: Center(
         child: Text(
-          '$company REPRESENTATIVE',
+          'REPRESENTATIVE LOG IN',
           style: TextStyle(
               color: colorBlue, fontWeight: FontWeight.bold, fontSize: 18),
         ),
