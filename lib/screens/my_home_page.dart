@@ -5,7 +5,9 @@ import 'package:sale_form_demo/data/form_images.dart';
 import 'package:sale_form_demo/data/form_texts.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:animator/animator.dart';
+import 'dart:math' as math;
 
+import 'package:sale_form_demo/widgets/company_logo_cluster.dart';
 
 class MyHomePage extends StatelessWidget {
   @override
@@ -31,8 +33,12 @@ class MyHomePage extends StatelessWidget {
               child: Center(
                 child: Stack(
                   children: <Widget>[
-                    CompanyLogo(),
+//                    CompanyLogo(),
+
 //                    CompanyName(),
+
+                  CompanyLogoCluster(),
+
                     LogoTextAnimator(MediaQuery.of(context).size.height),
                     IntroText(),
 
@@ -59,6 +65,9 @@ class CompanyLogo extends StatelessWidget {
         ));
   }
 }
+
+
+
 
 class CompanyName extends StatelessWidget {
   @override
