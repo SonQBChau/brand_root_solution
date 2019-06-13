@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
-
+import 'package:animator/animator.dart';
 
 class CompanyLogoCluster extends StatelessWidget {
   @override
@@ -38,11 +38,19 @@ class GreenTriangle extends StatelessWidget {
       child: Container(
         child: Transform.rotate(
           angle: -math.pi/2,
-          child: Image.asset(
-            'images/triangle_green.png',
-            height: 36,
-            width: 36,
-          ),
+          child:  Animator(
+            tween: Tween<Offset>(begin: Offset(-10, -5), end: Offset(0, 0)),
+            duration: Duration(milliseconds: 1000),
+            cycles: 1,
+            builder: (anim) => FractionalTranslation(
+              translation: anim.value,
+              child: Image.asset(
+                'images/triangle_green.png',
+                height: 36,
+                width: 36,
+              ),
+            ),
+          )
         ),
       ),
     );
@@ -58,10 +66,18 @@ class BlueTriangle1 extends StatelessWidget {
       child: Container(
         child: Transform.rotate(
           angle: -math.pi/2,
-          child: Image.asset(
-            'images/triangle_blue.png',
-            height: 36,
-            width: 36,
+          child: Animator(
+            tween: Tween<Offset>(begin: Offset(-10, -5), end: Offset(0, 0)),
+            duration: Duration(milliseconds: 1000),
+            cycles: 1,
+            builder: (anim) => FractionalTranslation(
+              translation: anim.value,
+              child: Image.asset(
+                'images/triangle_blue.png',
+                height: 36,
+                width: 36,
+              ),
+            ),
           ),
         ),
       ),
@@ -79,10 +95,18 @@ class BlueTriangle2 extends StatelessWidget {
       child: Container(
         child: Transform.rotate(
           angle: -math.pi/2,
-          child: Image.asset(
-            'images/triangle_blue.png',
-            height: 36,
-            width: 36,
+          child: Animator(
+            tween: Tween<Offset>(begin: Offset(-10, -5), end: Offset(0, 0)),
+            duration: Duration(milliseconds: 1000),
+            cycles: 1,
+            builder: (anim) => FractionalTranslation(
+              translation: anim.value,
+              child: Image.asset(
+                'images/triangle_blue.png',
+                height: 36,
+                width: 36,
+              ),
+            ),
           ),
         ),
       ),
@@ -99,10 +123,18 @@ class BlueTriangle3 extends StatelessWidget {
       child: Container(
         child: Transform.rotate(
           angle: math.pi/2,
-          child: Image.asset(
-            'images/triangle_blue.png',
-            height: 36,
-            width: 36,
+          child: Animator(
+            tween: Tween<Offset>(begin: Offset(-10, -5), end: Offset(0, 0)),
+            duration: Duration(milliseconds: 1000),
+            cycles: 1,
+            builder: (anim) => FractionalTranslation(
+              translation: anim.value,
+              child: Image.asset(
+                'images/triangle_blue.png',
+                height: 36,
+                width: 36,
+              ),
+            ),
           ),
         ),
       ),
@@ -120,10 +152,18 @@ class BlueTriangle4 extends StatelessWidget {
       child: Container(
         child: Transform.rotate(
           angle: math.pi/2,
-          child: Image.asset(
-            'images/triangle_blue.png',
-            height: 36,
-            width: 36,
+          child: Animator(
+            tween: Tween<Offset>(begin: Offset(-10, -5), end: Offset(0, 0)),
+            duration: Duration(milliseconds: 1000),
+            cycles: 1,
+            builder: (anim) => FractionalTranslation(
+              translation: anim.value,
+              child: Image.asset(
+                'images/triangle_blue.png',
+                height: 36,
+                width: 36,
+              ),
+            ),
           ),
         ),
       ),
@@ -140,10 +180,18 @@ class BlueTriangle5 extends StatelessWidget {
       child: Container(
         child: Transform.rotate(
           angle: math.pi/2,
-          child: Image.asset(
-            'images/triangle_blue.png',
-            height: 36,
-            width: 36,
+          child: Animator(
+            tween: Tween<Offset>(begin: Offset(-10, -5), end: Offset(0, 0)),
+            duration: Duration(milliseconds: 1000),
+            cycles: 1,
+            builder: (anim) => FractionalTranslation(
+              translation: anim.value,
+              child: Image.asset(
+                'images/triangle_blue.png',
+                height: 36,
+                width: 36,
+              ),
+            ),
           ),
         ),
       ),
@@ -160,10 +208,18 @@ class BlueTriangle6 extends StatelessWidget {
       child: Container(
         child: Transform.rotate(
           angle: -math.pi/2,
-          child: Image.asset(
-            'images/triangle_blue.png',
-            height: 36,
-            width: 36,
+          child: Animator(
+            tween: Tween<Offset>(begin: Offset(-10, -5), end: Offset(0, 0)),
+            duration: Duration(milliseconds: 1000),
+            cycles: 1,
+            builder: (anim) => FractionalTranslation(
+              translation: anim.value,
+              child: Image.asset(
+                'images/triangle_blue.png',
+                height: 36,
+                width: 36,
+              ),
+            ),
           ),
         ),
       ),
@@ -180,10 +236,18 @@ class BlueTriangle7 extends StatelessWidget {
       child: Container(
         child: Transform.rotate(
           angle: -math.pi/2,
-          child: Image.asset(
-            'images/triangle_blue.png',
-            height: 36,
-            width: 36,
+          child: Animator(
+            tween: Tween<Offset>(begin: Offset(-10, -5), end: Offset(0, 0)),
+            duration: Duration(milliseconds: 1000),
+            cycles: 1,
+            builder: (anim) => FractionalTranslation(
+              translation: anim.value,
+              child: Image.asset(
+                'images/triangle_blue.png',
+                height: 36,
+                width: 36,
+              ),
+            ),
           ),
         ),
       ),
@@ -200,10 +264,18 @@ class BlueTriangle8 extends StatelessWidget {
       child: Container(
         child: Transform.rotate(
           angle: -math.pi/2,
-          child: Image.asset(
-            'images/triangle_blue.png',
-            height: 36,
-            width: 36,
+          child: Animator(
+            tween: Tween<Offset>(begin: Offset(-10, -5), end: Offset(0, 0)),
+            duration: Duration(milliseconds: 1000),
+            cycles: 1,
+            builder: (anim) => FractionalTranslation(
+              translation: anim.value,
+              child: Image.asset(
+                'images/triangle_blue.png',
+                height: 36,
+                width: 36,
+              ),
+            ),
           ),
         ),
       ),
@@ -220,10 +292,18 @@ class BlueTriangle9 extends StatelessWidget {
       child: Container(
         child: Transform.rotate(
           angle: -math.pi/2,
-          child: Image.asset(
-            'images/triangle_blue.png',
-            height: 36,
-            width: 36,
+          child: Animator(
+            tween: Tween<Offset>(begin: Offset(-10, -5), end: Offset(0, 0)),
+            duration: Duration(milliseconds: 1000),
+            cycles: 1,
+            builder: (anim) => FractionalTranslation(
+              translation: anim.value,
+              child: Image.asset(
+                'images/triangle_blue.png',
+                height: 36,
+                width: 36,
+              ),
+            ),
           ),
         ),
       ),
@@ -240,10 +320,18 @@ class BlueTriangle10 extends StatelessWidget {
       child: Container(
         child: Transform.rotate(
           angle: math.pi/2,
-          child: Image.asset(
-            'images/triangle_blue.png',
-            height: 36,
-            width: 36,
+          child: Animator(
+            tween: Tween<Offset>(begin: Offset(-10, -5), end: Offset(0, 0)),
+            duration: Duration(milliseconds: 1000),
+            cycles: 1,
+            builder: (anim) => FractionalTranslation(
+              translation: anim.value,
+              child: Image.asset(
+                'images/triangle_blue.png',
+                height: 36,
+                width: 36,
+              ),
+            ),
           ),
         ),
       ),
