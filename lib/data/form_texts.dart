@@ -1,6 +1,6 @@
 
 
-final String company = 'COMPANY';
+final String company = 'PINNACLE';
 
 final String intro =
     "Our vision is to make the world reliable, one customer at a time. "

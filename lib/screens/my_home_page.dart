@@ -32,7 +32,8 @@ class MyHomePage extends StatelessWidget {
                 child: Stack(
                   children: <Widget>[
                     CompanyLogo(),
-                    CompanyName(),
+//                    CompanyName(),
+                    LogoTextAnimator(MediaQuery.of(context).size.height),
                     IntroText(),
 
                   ],
@@ -72,7 +73,7 @@ class CompanyName extends StatelessWidget {
                 color: colorBlue, fontSize: 35, fontWeight: FontWeight.w500),
           ),
           Text(
-            'NAME ',
+            'ART',
             style: TextStyle(
                 color: colorGreen, fontSize: 35, fontWeight: FontWeight.w500),
           ),
@@ -117,6 +118,33 @@ class SlideUpAnimator extends StatelessWidget {
           child: FractionalTranslation(
             translation: anim["translation"].value,
             child: Icon(Icons.keyboard_arrow_up,size: 50, color: colorBlue,),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class LogoTextAnimator extends StatelessWidget {
+  LogoTextAnimator(this.height);
+  final double height;
+
+  @override
+  Widget build(BuildContext context) {
+
+    return Container(
+      child:  Animator(
+        tweenMap: {
+          "opacity": Tween<double>(begin: 0, end: 1),
+          "translation": Tween<Offset>(begin: Offset(-1, 0), end: Offset(0, 0))
+        },
+        cycles: 1,
+        duration: Duration(seconds: 1),
+        builderMap: (Map<String, Animation> anim) => FadeTransition(
+          opacity: anim["opacity"],
+          child: FractionalTranslation(
+            translation: anim["translation"].value,
+            child: CompanyName(),
           ),
         ),
       ),
