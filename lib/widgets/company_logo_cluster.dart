@@ -67,7 +67,7 @@ class BlueTriangle1 extends StatelessWidget {
         child: Transform.rotate(
           angle: -math.pi/2,
           child: Animator(
-            tween: Tween<Offset>(begin: Offset(-10, -5), end: Offset(0, 0)),
+            tween: Tween<Offset>(begin: Offset(-8, -1), end: Offset(0, 0)),
             duration: Duration(milliseconds: 1000),
             cycles: 1,
             builder: (anim) => FractionalTranslation(
@@ -96,7 +96,7 @@ class BlueTriangle2 extends StatelessWidget {
         child: Transform.rotate(
           angle: -math.pi/2,
           child: Animator(
-            tween: Tween<Offset>(begin: Offset(-10, -5), end: Offset(0, 0)),
+            tween: Tween<Offset>(begin: Offset(10, -2), end: Offset(0, 0)),
             duration: Duration(milliseconds: 1000),
             cycles: 1,
             builder: (anim) => FractionalTranslation(
@@ -124,7 +124,7 @@ class BlueTriangle3 extends StatelessWidget {
         child: Transform.rotate(
           angle: math.pi/2,
           child: Animator(
-            tween: Tween<Offset>(begin: Offset(-10, -5), end: Offset(0, 0)),
+            tween: Tween<Offset>(begin: Offset(10, 5), end: Offset(0, 0)),
             duration: Duration(milliseconds: 1000),
             cycles: 1,
             builder: (anim) => FractionalTranslation(
@@ -153,7 +153,7 @@ class BlueTriangle4 extends StatelessWidget {
         child: Transform.rotate(
           angle: math.pi/2,
           child: Animator(
-            tween: Tween<Offset>(begin: Offset(-10, -5), end: Offset(0, 0)),
+            tween: Tween<Offset>(begin: Offset(4, -10), end: Offset(0, 0)),
             duration: Duration(milliseconds: 1000),
             cycles: 1,
             builder: (anim) => FractionalTranslation(
@@ -181,7 +181,7 @@ class BlueTriangle5 extends StatelessWidget {
         child: Transform.rotate(
           angle: math.pi/2,
           child: Animator(
-            tween: Tween<Offset>(begin: Offset(-10, -5), end: Offset(0, 0)),
+            tween: Tween<Offset>(begin: Offset(7, -3), end: Offset(0, 0)),
             duration: Duration(milliseconds: 1000),
             cycles: 1,
             builder: (anim) => FractionalTranslation(
@@ -209,7 +209,7 @@ class BlueTriangle6 extends StatelessWidget {
         child: Transform.rotate(
           angle: -math.pi/2,
           child: Animator(
-            tween: Tween<Offset>(begin: Offset(-10, -5), end: Offset(0, 0)),
+            tween: Tween<Offset>(begin: Offset(3, -5), end: Offset(0, 0)),
             duration: Duration(milliseconds: 1000),
             cycles: 1,
             builder: (anim) => FractionalTranslation(
@@ -237,7 +237,7 @@ class BlueTriangle7 extends StatelessWidget {
         child: Transform.rotate(
           angle: -math.pi/2,
           child: Animator(
-            tween: Tween<Offset>(begin: Offset(-10, -5), end: Offset(0, 0)),
+            tween: Tween<Offset>(begin: Offset(2, -5), end: Offset(0, 0)),
             duration: Duration(milliseconds: 1000),
             cycles: 1,
             builder: (anim) => FractionalTranslation(
@@ -265,7 +265,7 @@ class BlueTriangle8 extends StatelessWidget {
         child: Transform.rotate(
           angle: -math.pi/2,
           child: Animator(
-            tween: Tween<Offset>(begin: Offset(-10, -5), end: Offset(0, 0)),
+            tween: Tween<Offset>(begin: Offset(4, 9), end: Offset(0, 0)),
             duration: Duration(milliseconds: 1000),
             cycles: 1,
             builder: (anim) => FractionalTranslation(
@@ -293,7 +293,7 @@ class BlueTriangle9 extends StatelessWidget {
         child: Transform.rotate(
           angle: -math.pi/2,
           child: Animator(
-            tween: Tween<Offset>(begin: Offset(-10, -5), end: Offset(0, 0)),
+            tween: Tween<Offset>(begin: Offset(2, 7), end: Offset(0, 0)),
             duration: Duration(milliseconds: 1000),
             cycles: 1,
             builder: (anim) => FractionalTranslation(
@@ -321,7 +321,7 @@ class BlueTriangle10 extends StatelessWidget {
         child: Transform.rotate(
           angle: math.pi/2,
           child: Animator(
-            tween: Tween<Offset>(begin: Offset(-10, -5), end: Offset(0, 0)),
+            tween: Tween<Offset>(begin: Offset(-6, 5), end: Offset(0, 0)),
             duration: Duration(milliseconds: 1000),
             cycles: 1,
             builder: (anim) => FractionalTranslation(
