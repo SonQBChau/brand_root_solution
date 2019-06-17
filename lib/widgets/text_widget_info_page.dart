@@ -2,20 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 
 class TextWidgetInfoPage extends StatelessWidget {
-  final String titleTxt;
   final String hintTxt;
   final TextCapitalization textCapitalization;
   final TextInputType textInputType;
   final Function onValidate;
   final Function onSubmit;
-  TextWidgetInfoPage({@required  this.titleTxt,
+  TextWidgetInfoPage({
     @required  this.hintTxt,
     this.textCapitalization = TextCapitalization.words,
     this.textInputType = TextInputType.text,
     this.onValidate,
     @required  this.onSubmit,
   }):
-        assert(titleTxt != null),
         assert(hintTxt != null),
         assert(onSubmit != null);
 
@@ -28,14 +26,6 @@ class TextWidgetInfoPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Container(
-            padding: EdgeInsets.only(bottom: 6, left: 15),
-            child: Text(
-              titleTxt,
-              style: TextStyle(
-                  color: colorBlue, fontWeight: FontWeight.bold, fontSize: 13),
-            ),
-          ),
           TextFormField(
             decoration: InputDecoration(
               contentPadding:
@@ -56,9 +46,9 @@ class TextWidgetInfoPage extends StatelessWidget {
                 borderSide: BorderSide(color: Colors.red,),
                 borderRadius: BorderRadius.all(Radius.circular(20.0)),
               ),
-              hintText: hintTxt,
-              hintStyle: TextStyle(
-                  color: colorGrey20,
+              labelText: hintTxt,
+              labelStyle: TextStyle(
+                  color: colorGreen,
                   fontWeight: FontWeight.w600,
                   fontSize: 13),
               fillColor: Colors.white,

@@ -5,8 +5,6 @@ import 'package:sale_form_demo/data/form_images.dart';
 import 'package:sale_form_demo/data/form_texts.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:animator/animator.dart';
-import 'dart:math' as math;
-
 import 'package:sale_form_demo/widgets/company_logo_cluster.dart';
 import 'package:sale_form_demo/widgets/logo_text_animator.dart';
 
@@ -34,12 +32,7 @@ class MyHomePage extends StatelessWidget {
               child: Center(
                 child: Stack(
                   children: <Widget>[
-//                    CompanyLogo(),
-
-//                    CompanyName(),
-
-                  CompanyLogoCluster(),
-
+                    CompanyLogoCluster(),
                     LogoTextAnimator(),
                     IntroText(),
 
@@ -115,7 +108,6 @@ class SlideUpAnimator extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Container(
-//      color: Colors.red,
       child:  Animator(
         tweenMap: {
           "opacity": Tween<double>(begin: 0, end: 1),
@@ -134,31 +126,3 @@ class SlideUpAnimator extends StatelessWidget {
     );
   }
 }
-
-//class LogoTextAnimator extends StatelessWidget {
-//  LogoTextAnimator(this.height);
-//  final double height;
-//
-//  @override
-//  Widget build(BuildContext context) {
-//
-//    return Container(
-//      child:  Animator(
-//        triggerOnInit: false,
-//        tweenMap: {
-//          "opacity": Tween<double>(begin: 0, end: 1),
-//          "translation": Tween<Offset>(begin: Offset(-1, 0), end: Offset(0, 0))
-//        },
-//        cycles: 1,
-//        duration: Duration(seconds: 1),
-//        builderMap: (Map<String, Animation> anim) => FadeTransition(
-//          opacity: anim["opacity"],
-//          child: FractionalTranslation(
-//            translation: anim["translation"].value,
-//            child: CompanyName(),
-//          ),
-//        ),
-//      ),
-//    );
-//  }
-//}

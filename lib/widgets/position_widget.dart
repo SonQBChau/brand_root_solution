@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sale_form_demo/services/intro_form_provider.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
+import 'package:sale_form_demo/widgets/custom_divider.dart';
 
 class PositionWidget extends StatelessWidget {
   final List<DropdownMenuItem<int>> industryList = [
@@ -68,12 +69,12 @@ class PositionWidget extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 5,
+            height: 30,
           ),
           buildErrorMessage(introForm),
-          Divider(
-            height: 60,
-
+          CustomDivider(),
+          SizedBox(
+            height: 30,
           ),
         ],
       ),
