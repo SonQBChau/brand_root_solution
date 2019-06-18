@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math' as math;
 
 class ContentCardWidget extends StatelessWidget {
   final String title;
@@ -9,16 +10,14 @@ class ContentCardWidget extends StatelessWidget {
   final double bottom;
 
   ContentCardWidget(
-      {@required this.title, this.navigateTo, this.colorBackground, this.colorTitle, this.top, this.bottom}):
-        assert(title != null),
+      {@required this.title, this.navigateTo, this.colorBackground, this.colorTitle, this.top, this.bottom})
+      : assert(title != null),
         assert(colorBackground != null),
         assert(colorTitle != null),
         assert(navigateTo != null);
 
-  
   @override
   Widget build(BuildContext context) {
-
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -29,7 +28,7 @@ class ContentCardWidget extends StatelessWidget {
       child: Container(
         width: 250,
         padding: EdgeInsets.symmetric(vertical: 40, horizontal: 30),
-        margin: EdgeInsets.only( top: 10, bottom: bottom, left:20, right:20),
+        margin: EdgeInsets.only(top: 10, bottom: bottom, left: 20, right: 20),
         decoration: new BoxDecoration(
           color: colorBackground,
           borderRadius: new BorderRadius.circular(20),
@@ -43,7 +42,17 @@ class ContentCardWidget extends StatelessWidget {
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            Transform.rotate(
+              angle: math.pi/2,
+              child: Image(
+                image: AssetImage("images/triangle_green.png"),
+                width: 20,
+                height: 20,
+              ),
+            ),
+            SizedBox(height: 10),
             Text(
               title,
               style: TextStyle(
@@ -52,15 +61,13 @@ class ContentCardWidget extends StatelessWidget {
                 fontWeight: FontWeight.w700,
               ),
             ),
-            SizedBox(
-              height: 20,
-            ),
+            SizedBox(height: 10),
             Text(
               'Managing the risk based, proactive approach and generating the equipment plans/ strengths'
-                  ' that aim to prevent loss of containment events for all plant equipments.',
+              ' that aim to prevent loss of containment events for all plant equipments.',
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 16,
+                fontSize: 14,
                 fontWeight: FontWeight.w500,
               ),
             )
