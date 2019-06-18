@@ -19,7 +19,6 @@ class StrategiesPage extends StatefulWidget {
 class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProviderStateMixin {
   int _activePosition = 0;
 
-
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -29,99 +28,85 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
     final double bottomHeight = 80;
 
     return Scaffold(
-      body: SafeArea(
-        child: Container(
-          constraints: BoxConstraints.expand(
-            width: screenWidth,
-            height: screeHeight,
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("images/Background.png"),
+            fit: BoxFit.cover,
           ),
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("images/Background.png"),
-              fit: BoxFit.cover,
-            ),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisSize: MainAxisSize.max,
-            children: <Widget>[
-              SizedBox(height: 50),
-              CompanyFullLogo(),
-              SizedBox(height: 30),
-
-              Expanded(
-                child: Stack(
-                  children: <Widget>[
-
-                    PageView(
-                      controller: PageController(viewportFraction: 0.8),
-                      onPageChanged: (index) {
-                        setState(() {
-                          _activePosition = index;
-                        });
-                      },
-                      children: <Widget>[
-                        ContentCardWidget(
-                          top: topHeight,
-                          bottom: bottomHeight,
-                          title: 'MI STRATEGY MANAGEMENT',
-                          colorBackground: colorGreen10,
-                          colorTitle: Colors.green,
-                          navigateTo: MiStrategyPage(),
-                        ),
-                        ContentCardWidget(
-                          top: topHeight,
-                          bottom: bottomHeight,
-                          title: 'PM STRATEGY MANAGEMENT',
-                          colorBackground: colorGreen10,
-                          colorTitle: Colors.green,
-                          navigateTo: MiStrategyPage(),
-                        ),
-                        ContentCardWidget(
-                          top: topHeight,
-                          bottom: bottomHeight,
-                          title: 'SPARE PARTS STRATEGY MANAGEMENT',
-                          colorBackground: colorGreen10,
-                          colorTitle: Colors.green,
-                          navigateTo: MiStrategyPage(),
-                        ),
-                        ContentCardWidget(
-                          top: topHeight,
-                          bottom: bottomHeight,
-                          title: 'SAFETY SYSTEM MANAGEMENT',
-                          colorBackground: colorGreen10,
-                          colorTitle: Colors.green,
-                          navigateTo: MiStrategyPage(),
-                        ),
-                        ContentCardWidget(
-                          top: topHeight,
-                          bottom: bottomHeight,
-                          title: 'PROCESS CONTROL STRATEGY',
-                          colorBackground: colorGreen10,
-                          colorTitle: Colors.green,
-                          navigateTo: MiStrategyPage(),
-                        ),
-                      ],
-                    ),
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: DotIndicatorWidget(
-                        dotCount: 5,
-                        activePosition: _activePosition,
-                        color: colorGreen,
-                        activeDotColor: Colors.green[200],
+        ),
+        child: Column(
+          children: <Widget>[
+            SizedBox(height: 50),
+            CompanyFullLogo(),
+            SizedBox(height: 30),
+            Expanded(
+              child: Stack(
+                children: <Widget>[
+                  PageView(
+                    controller: PageController(viewportFraction: 0.8),
+                    onPageChanged: (index) {
+                      setState(() {
+                        _activePosition = index;
+                      });
+                    },
+                    children: <Widget>[
+                      ContentCardWidget(
+                        top: topHeight,
+                        bottom: bottomHeight,
+                        title: 'MI STRATEGY MANAGEMENT',
+                        colorBackground: colorBlue,
+                        colorTitle: Colors.green,
+                        navigateTo: MiStrategyPage(),
                       ),
+                      ContentCardWidget(
+                        top: topHeight,
+                        bottom: bottomHeight,
+                        title: 'PM STRATEGY MANAGEMENT',
+                        colorBackground: colorBlue,
+                        colorTitle: Colors.green,
+                        navigateTo: MiStrategyPage(),
+                      ),
+                      ContentCardWidget(
+                        top: topHeight,
+                        bottom: bottomHeight,
+                        title: 'SPARE PARTS STRATEGY MANAGEMENT',
+                        colorBackground: colorBlue,
+                        colorTitle: Colors.green,
+                        navigateTo: MiStrategyPage(),
+                      ),
+                      ContentCardWidget(
+                        top: topHeight,
+                        bottom: bottomHeight,
+                        title: 'SAFETY SYSTEM MANAGEMENT',
+                        colorBackground: colorBlue,
+                        colorTitle: Colors.green,
+                        navigateTo: MiStrategyPage(),
+                      ),
+                      ContentCardWidget(
+                        top: topHeight,
+                        bottom: bottomHeight,
+                        title: 'PROCESS CONTROL STRATEGY',
+                        colorBackground: colorBlue,
+                        colorTitle: Colors.green,
+                        navigateTo: MiStrategyPage(),
+                      ),
+                    ],
+                  ),
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: DotIndicatorWidget(
+                      dotCount: 5,
+                      activePosition: _activePosition,
+                      color: colorBlue,
                     ),
-
-
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
   }
 }
-
