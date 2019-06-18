@@ -47,9 +47,8 @@ class TextWidgetInfoPage extends StatelessWidget {
                 borderRadius: BorderRadius.all(Radius.circular(20.0)),
               ),
 
-              labelText: hintTxt,
-              labelStyle: TextStyle(
-
+              hintText: hintTxt,
+              hintStyle: TextStyle(
                   color: colorGreen,
                   fontWeight: FontWeight.w600,
                   fontSize: 13),
