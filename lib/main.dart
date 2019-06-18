@@ -22,20 +22,20 @@ class MyApp extends StatelessWidget {
       ),
 
 //      home: MiStrategyPage(),
-//home: ChartPage(),
+home: MenuPage(),
 
 
-      home: ChangeNotifierProvider<IntroFormProvider>(
-        builder: (_) => IntroFormProvider(),
-          child: PageView(
-            scrollDirection: Axis.vertical,
-            children: <Widget>[
-              MyHomePage(),
-              CustomerInfoPage(),
-
-            ],
-          )
-      ),
+//      home: ChangeNotifierProvider<IntroFormProvider>(
+//        builder: (_) => IntroFormProvider(),
+//          child: PageView(
+//            scrollDirection: Axis.vertical,
+//            children: <Widget>[
+//              MyHomePage(),
+//              CustomerInfoPage(),
+//
+//            ],
+//          )
+//      ),
 
 
     );
