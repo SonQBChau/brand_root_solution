@@ -29,7 +29,7 @@ class ContentCardWidget extends StatelessWidget {
       child: Container(
         width: 250,
         padding: EdgeInsets.symmetric(vertical: 40, horizontal: 30),
-        margin: EdgeInsets.only(top:top, bottom: bottom, left:20, right:20),
+        margin: EdgeInsets.only( top: 10, bottom: bottom, left:20, right:20),
         decoration: new BoxDecoration(
           color: colorBackground,
           borderRadius: new BorderRadius.circular(20),

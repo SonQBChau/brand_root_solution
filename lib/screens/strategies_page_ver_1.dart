@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:sale_form_demo/screens/mi_strategy_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/utils/size_config.dart';
-import 'package:sale_form_demo/widgets/company_full_logo.dart';
 import 'package:sale_form_demo/widgets/content_card_widget.dart';
 import 'package:sale_form_demo/widgets/dot_indicator_widget.dart';
 import 'package:sale_form_demo/widgets/header_card_widget.dart';
@@ -19,6 +18,35 @@ class StrategiesPage extends StatefulWidget {
 class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProviderStateMixin {
   int _activePosition = 0;
 
+  Animation<double> animation;
+  AnimationController controller;
+
+  bool onTop = true;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = AnimationController(duration: const Duration(milliseconds: 500), vsync: this);
+    controller.forward();
+  }
+
+  // Needed for smooth transition before pop
+  Future delayPop() async{
+    await Future.delayed(Duration(milliseconds: 200));
+    onTop = false;
+    Navigator.pop(context);
+  }
+
+  reverseController() {
+    controller.reverse();
+    delayPop();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,10 +73,6 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
-              SizedBox(height: 50),
-              CompanyFullLogo(),
-              SizedBox(height: 30),
-
               Expanded(
                 child: Stack(
                   children: <Widget>[
@@ -112,6 +136,10 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
                         activeDotColor: Colors.green[200],
                       ),
                     ),
+                    ...buildHeaderCardWidgetList(screenWidth, screeHeight),
+
+
+
 
 
                   ],
@@ -123,5 +151,100 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
       ),
     );
   }
-}
 
+  // build a list of menu card, the header card need to be place at the bottom last
+  List<HeaderCardWidget> buildHeaderCardWidgetList(screenWidth, screeHeight) {
+    List<HeaderCardWidget> headerList = [];
+    if (onTop) {
+      headerList = [
+
+
+
+        HeaderCardWidget(
+          screenWidth: screenWidth,
+          screeHeight: screeHeight,
+          color: colorGrey,
+          title: 'LIFE-CYCLE',
+          positionMultiplier: 3,
+          controller: controller,
+          notifyParent: reverseController,
+          isLastCard: true,
+        ),
+        HeaderCardWidget(
+          screenWidth: screenWidth,
+          screeHeight: screeHeight,
+          color: colorOrange,
+          title: 'SUSTAIN',
+          positionMultiplier: 2,
+          controller: controller,
+          notifyParent: reverseController,
+        ),
+        HeaderCardWidget(
+          screenWidth: screenWidth,
+          screeHeight: screeHeight,
+          color: colorBlue,
+          title: 'EVALUATE',
+          positionMultiplier: 0,
+          controller: controller,
+          notifyParent: reverseController,
+        ),
+        HeaderCardWidget(
+          screenWidth: screenWidth,
+          screeHeight: screeHeight,
+          color: colorGreen,
+          title: 'STRATEGIES',
+          positionMultiplier: 1,
+          controller: controller,
+          notifyParent: reverseController,
+          keepOpacity: true,
+        ),
+      ];
+    }
+    else {
+      headerList = [
+        HeaderCardWidget(
+          screenWidth: screenWidth,
+          screeHeight: screeHeight,
+          color: colorGrey,
+          title: 'LIFE-CYCLE',
+          positionMultiplier: 3,
+          controller: controller,
+          notifyParent: reverseController,
+          isLastCard: true,
+        ),
+        HeaderCardWidget(
+          screenWidth: screenWidth,
+          screeHeight: screeHeight,
+          color: colorOrange,
+          title: 'SUSTAIN',
+          positionMultiplier: 2,
+          controller: controller,
+          notifyParent: reverseController,
+        ),
+        HeaderCardWidget(
+          screenWidth: screenWidth,
+          screeHeight: screeHeight,
+          color: colorGreen,
+          title: 'STRATEGIES',
+          positionMultiplier: 1,
+          controller: controller,
+          notifyParent: reverseController,
+          keepOpacity: true,
+        ),
+        HeaderCardWidget(
+          screenWidth: screenWidth,
+          screeHeight: screeHeight,
+          color: colorBlue,
+          title: 'EVALUATE',
+          positionMultiplier: 0,
+          controller: controller,
+          notifyParent: reverseController,
+        ),
+
+      ];
+
+    }
+
+    return headerList;
+  }
+}
