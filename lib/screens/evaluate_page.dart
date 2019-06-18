@@ -129,7 +129,6 @@ class _EvaluatePageState extends State<EvaluatePage> with SingleTickerProviderSt
                         dotCount: 5,
                         activePosition: _activePosition,
                         color: colorBlue,
-                        activeDotColor: Colors.blue[200],
                       ),
                     ),
                     ...buildHeaderCardWidgetList(screenWidth, screeHeight),

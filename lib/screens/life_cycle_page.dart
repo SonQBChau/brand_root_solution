@@ -128,7 +128,7 @@ class _LifeCyclePageState extends State<LifeCyclePage> with SingleTickerProvider
                         dotCount: 5,
                         activePosition: _activePosition,
                         color: colorGrey,
-                        activeDotColor: Colors.grey[400],
+//                        activeDotColor: Colors.grey[400],
                       ),
                     ),
                     ...buildHeaderCardWidgetList(screenWidth, screeHeight),

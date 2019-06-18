@@ -128,7 +128,7 @@ class _SustainPageState extends State<SustainPage> with SingleTickerProviderStat
                         dotCount: 5,
                         activePosition: _activePosition,
                         color: colorOrange,
-                        activeDotColor: Colors.orange[200],
+//                        activeDotColor: Colors.orange[200],
                       ),
                     ),
                     ...buildHeaderCardWidgetList(screenWidth, screeHeight),

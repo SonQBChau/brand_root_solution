@@ -133,7 +133,7 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
                         dotCount: 5,
                         activePosition: _activePosition,
                         color: colorGreen,
-                        activeDotColor: Colors.green[200],
+//                        activeDotColor: Colors.green[200],
                       ),
                     ),
                     ...buildHeaderCardWidgetList(screenWidth, screeHeight),

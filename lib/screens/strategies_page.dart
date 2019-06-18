@@ -37,7 +37,22 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
         ),
         child: Column(
           children: <Widget>[
-            SizedBox(height: 50),
+            SizedBox(height: 30),
+            Container(
+              width: double.infinity,
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: IconButton(
+                    icon: Icon(
+                        Icons.arrow_back,
+                        size: 30,
+                      color: Colors.white,
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    }),
+              ),
+            ),
             CompanyFullLogo(),
             SizedBox(height: 30),
             Expanded(
@@ -56,7 +71,7 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
                         bottom: bottomHeight,
                         title: 'MI STRATEGY MANAGEMENT',
                         colorBackground: colorBlue,
-                        colorTitle: Colors.green,
+                        colorTitle: colorGreen,
                         navigateTo: MiStrategyPage(),
                       ),
                       ContentCardWidget(
@@ -64,7 +79,7 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
                         bottom: bottomHeight,
                         title: 'PM STRATEGY MANAGEMENT',
                         colorBackground: colorBlue,
-                        colorTitle: Colors.green,
+                        colorTitle: colorGreen,
                         navigateTo: MiStrategyPage(),
                       ),
                       ContentCardWidget(
@@ -72,7 +87,7 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
                         bottom: bottomHeight,
                         title: 'SPARE PARTS STRATEGY MANAGEMENT',
                         colorBackground: colorBlue,
-                        colorTitle: Colors.green,
+                        colorTitle: colorGreen,
                         navigateTo: MiStrategyPage(),
                       ),
                       ContentCardWidget(
@@ -80,7 +95,7 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
                         bottom: bottomHeight,
                         title: 'SAFETY SYSTEM MANAGEMENT',
                         colorBackground: colorBlue,
-                        colorTitle: Colors.green,
+                        colorTitle: colorGreen,
                         navigateTo: MiStrategyPage(),
                       ),
                       ContentCardWidget(
@@ -88,7 +103,7 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
                         bottom: bottomHeight,
                         title: 'PROCESS CONTROL STRATEGY',
                         colorBackground: colorBlue,
-                        colorTitle: Colors.green,
+                        colorTitle: colorGreen,
                         navigateTo: MiStrategyPage(),
                       ),
                     ],
