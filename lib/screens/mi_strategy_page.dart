@@ -33,10 +33,28 @@ class MiStrategyPage extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 14,
-//                  fontWeight: FontWeight.w500,
+
                 ),
               ),
             ),
+
+      Center(
+        child: Card(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+          child: InkWell(
+            splashColor: Colors.blue.withAlpha(30),
+            onTap: () {
+              print('Card tapped.');
+            },
+            child: Container(
+              width: 300,
+              height: 100,
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+              child: Text('A card that can be tapped'),
+            ),
+          ),
+        ),
+      ),
 
 
           ],
