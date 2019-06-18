@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sale_form_demo/screens/mi_strategy_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/utils/size_config.dart';
+import 'package:sale_form_demo/widgets/back_button_widget.dart';
 import 'package:sale_form_demo/widgets/company_full_logo.dart';
 import 'package:sale_form_demo/widgets/content_card_widget.dart';
 import 'package:sale_form_demo/widgets/dot_indicator_widget.dart';
@@ -36,23 +37,10 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
           ),
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             SizedBox(height: 30),
-            Container(
-              width: double.infinity,
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: IconButton(
-                    icon: Icon(
-                        Icons.arrow_back,
-                        size: 30,
-                      color: Colors.white,
-                    ),
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    }),
-              ),
-            ),
+            BackButton(),
             CompanyFullLogo(),
             SizedBox(height: 30),
             Expanded(
