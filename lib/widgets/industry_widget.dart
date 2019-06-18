@@ -29,15 +29,6 @@ class IndustryWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
-            padding: EdgeInsets.only(bottom: 6, left: 15),
-            child: Text(
-              'INDUSTRY',
-              style: TextStyle(
-                  color: colorBlue, fontWeight: FontWeight.bold, fontSize: 13),
-            ),
-          ),
-
-          Container(
             padding: EdgeInsets.only(top: 13, bottom: 13, left: 15, right: 15),
             decoration: BoxDecoration(
               color: Colors.white,
@@ -46,9 +37,9 @@ class IndustryWidget extends StatelessWidget {
             child: DropdownButtonHideUnderline(
               child: DropdownButton(
                   hint: Text(
-                    'Select Industry',
+                    'INDUSTRY',
                     style: TextStyle(
-                        color: colorGrey20,
+                        color: colorGreen,
                         fontWeight: FontWeight.w600,
                         fontSize: 13),
                   ),
@@ -56,7 +47,7 @@ class IndustryWidget extends StatelessWidget {
                   isDense: true,
                   isExpanded: true,
                   style: TextStyle(
-                      color: colorGrey,
+                      color: colorGreen,
                       fontWeight: FontWeight.bold,
                       fontSize: 13),
                   items: industryList,

@@ -46,8 +46,10 @@ class TextWidgetInfoPage extends StatelessWidget {
                 borderSide: BorderSide(color: Colors.red,),
                 borderRadius: BorderRadius.all(Radius.circular(20.0)),
               ),
+
               labelText: hintTxt,
               labelStyle: TextStyle(
+
                   color: colorGreen,
                   fontWeight: FontWeight.w600,
                   fontSize: 13),
@@ -57,7 +59,7 @@ class TextWidgetInfoPage extends StatelessWidget {
           textCapitalization: textCapitalization,
             keyboardType: textInputType,
             style: TextStyle(
-                color: colorGrey, fontWeight: FontWeight.w600, fontSize: 13),
+                color: colorGreen, fontWeight: FontWeight.w600, fontSize: 13),
 
             validator: onValidate, //validator
             onSaved: (value) {

@@ -30,14 +30,7 @@ class PositionWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Container(
-            padding: EdgeInsets.only(bottom: 6, left: 15),
-            child: Text(
-              'POSITION',
-              style: TextStyle(
-                  color: colorBlue, fontWeight: FontWeight.bold, fontSize: 13),
-            ),
-          ),
+
           Container(
             padding: EdgeInsets.only(top: 13, bottom: 13, left: 15, right: 15),
             decoration: BoxDecoration(
@@ -47,9 +40,9 @@ class PositionWidget extends StatelessWidget {
             child: DropdownButtonHideUnderline(
               child: DropdownButton(
                   hint: Text(
-                    'Select Position',
+                    'POSITION',
                     style: TextStyle(
-                        color: colorGrey20,
+                        color: colorGreen,
                         fontWeight: FontWeight.w600,
                         fontSize: 13),
                   ),
@@ -57,7 +50,7 @@ class PositionWidget extends StatelessWidget {
                   isDense: true,
                   isExpanded: true,
                   style: TextStyle(
-                      color: colorGrey,
+                      color: colorGreen,
                       fontWeight: FontWeight.bold,
                       fontSize: 13),
                   items: industryList,
