@@ -7,6 +7,7 @@ import 'package:sale_form_demo/screens/my_home_page.dart';
 import 'package:provider/provider.dart';
 import 'package:sale_form_demo/screens/strategies_page.dart';
 import 'package:sale_form_demo/services/intro_form_provider.dart';
+import 'package:sale_form_demo/utils/app_color.dart';
 
 void main() => runApp(MyApp());
 

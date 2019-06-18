@@ -62,12 +62,12 @@ class PositionWidget extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 30,
+            height: 40,
           ),
           buildErrorMessage(introForm),
           CustomDivider(),
           SizedBox(
-            height: 30,
+            height: 40,
           ),
         ],
       ),

@@ -22,7 +22,7 @@ class TextWidgetInfoPage extends StatelessWidget {
 
 
     return Container(
-      padding: const EdgeInsets.only(left: 30, right: 30, top: 0, bottom: 0),
+      padding: const EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -35,7 +35,7 @@ class TextWidgetInfoPage extends StatelessWidget {
                 borderRadius: BorderRadius.all(Radius.circular(20.0)),
               ),
               focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.blue),
+                borderSide: BorderSide(color: colorBlue),
                 borderRadius: BorderRadius.all(Radius.circular(20.0)),
               ),
               errorBorder: OutlineInputBorder(
@@ -66,7 +66,7 @@ class TextWidgetInfoPage extends StatelessWidget {
             }, // onSaved function
           ),
           SizedBox(
-            height: 20,
+            height: 30,
           ),
 
         ],
