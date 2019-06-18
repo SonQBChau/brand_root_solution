@@ -42,7 +42,7 @@ class CompanyName extends StatelessWidget {
                 color: colorBlue, fontSize: 35, fontWeight: FontWeight.w500),
           ),
           Text(
-            'NAME ',
+            'ART',
             style: TextStyle(
                 color: colorGreen, fontSize: 35, fontWeight: FontWeight.w500),
           ),

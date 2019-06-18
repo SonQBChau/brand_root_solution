@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/company_full_logo.dart';
@@ -20,47 +18,89 @@ class MenuPage extends StatelessWidget {
           ),
         ),
         child: Column(
-            children: <Widget>[
-              SizedBox(height: 50,),
-              CompanyFullLogo(),
-              SizedBox(height: 50,),
-              
-              
-              
-              GestureDetector(
-                onTap: () {
-
-                },
-                child: Container(
-                  width: 300,
-                  alignment: Alignment.center,
-                  padding: EdgeInsets.symmetric(vertical: 40, horizontal: 30),
-                  decoration: new BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: new BorderRadius.circular(20),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black54,
-                        offset: new Offset(0.0, 4.0),
-                        blurRadius: 10.0,
-                      )
-                    ],
-                  ),
-                  child: Text('EVALUATE',
+          children: <Widget>[
+            SizedBox(height: 50),
+            CompanyFullLogo(),
+            SizedBox(height: 30),
+            Expanded(
+              child: MaterialButton(
+                height: 100.0,
+                minWidth: 300.0,
+                color: Colors.white,
+                textColor: colorBlue,
+                onPressed: () => {},
+                splashColor: colorGreen,
+                shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(20.0)),
+                child: Text(
+                  'EVALUATE',
                   style: TextStyle(
-                    color: colorBlue,
+                    fontWeight: FontWeight.w600,
                     fontSize: 22,
-                    fontWeight: FontWeight.w500,
-                  ),
                   ),
                 ),
               ),
-              
-
+            ),
+            SizedBox(height: 20),
+            Expanded(
+              child: MaterialButton(
+                height: 100.0,
+                minWidth: 300.0,
+                color: Colors.white,
+                textColor: colorBlue,
+                onPressed: () => {},
+                splashColor: colorGreen,
+                shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(20.0)),
+                child: Text(
+                  'STRATEGIES',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 22,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
+            Expanded(
+              child: MaterialButton(
+                height: 100.0,
+                minWidth: 300.0,
+                color: Colors.white,
+                textColor: colorBlue,
+                onPressed: () => {},
+                splashColor: colorGreen,
+                shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(20.0)),
+                child: Text(
+                  'SUSTAIN',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 22,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
+            Expanded(
+              child: MaterialButton(
+                height: 100.0,
+                minWidth: 300.0,
+                color: Colors.white,
+                textColor: colorBlue,
+                onPressed: () => {},
+                splashColor: colorGreen,
+                shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(20.0)),
+                child: Text(
+                  'LIFE-CYCLE',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 22,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 40),
           ],
         ),
       ),
     );
   }
 }
-
