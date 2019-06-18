@@ -7,6 +7,7 @@ class MenuPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final snackBar = SnackBar(
+      duration: const Duration(seconds: 1),
       content: Text(
         'Please select Strategies!',
         style: TextStyle(fontWeight: FontWeight.w700, color: colorGrey20),
