@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       ),
 
       home: MiStrategyPage(),
-//home: MenuPage(),
+//home: MyHomePage(),
 
 
 //      home: ChangeNotifierProvider<IntroFormProvider>(
