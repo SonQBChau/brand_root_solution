@@ -41,7 +41,7 @@ class MiStrategyPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                Center(
+                Expanded(
                   child: Card(
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                     child: InkWell(
@@ -53,32 +53,42 @@ class MiStrategyPage extends StatelessWidget {
                         width: screenWidth - 20,
                         height: 160,
                         padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                        color: colorBlue80,
-                        child: Text('A card that can be tapped'),
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage("images/FlowChart.png"),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+//                        child: Text('A card that can be tapped'),
                       ),
                     ),
                   ),
                 ),
-                Center(
-                  child: Card(
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-                    child: InkWell(
-                      splashColor: Colors.blue.withAlpha(30),
-                      onTap: () {
-                        print('Card tapped.');
-                      },
-                      child: Container(
-                        width: screenWidth - 20,
-                        height: 160,
-                        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                        color: colorBlue80,
-                        child: Text('A card that can be tapped'),
+                Card(
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                  child: InkWell(
+                    splashColor: Colors.blue.withAlpha(30),
+                    onTap: () {
+                      print('Card tapped.');
+                    },
+                    child: Container(
+                      width: screenWidth - 20,
+                      height: 160,
+                      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage("images/PinnacleWay.png"),
+                          fit: BoxFit.cover,
+                        ),
                       ),
+//                      child: Text('A card that can be tapped'),
                     ),
                   ),
                 ),
+                SizedBox(height: 80),
               ],
             ),
+
 
 
             MIStrategyBottomSheet(),

@@ -61,7 +61,7 @@ class BlueTriangle1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: -10,
+      top: -8,
       left: 89,
       child: Container(
         child: Transform.rotate(
@@ -90,7 +90,7 @@ class BlueTriangle2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: -6,
+      top: -4,
       left: 80,
       child: Container(
         child: Transform.rotate(

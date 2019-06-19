@@ -24,9 +24,6 @@ class MyHomePage extends StatelessWidget {
           ),
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
             Expanded(
               child: Center(
