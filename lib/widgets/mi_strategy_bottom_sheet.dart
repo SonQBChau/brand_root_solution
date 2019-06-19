@@ -18,7 +18,7 @@ class MIStrategyBottomSheet extends StatefulWidget {
 class _MIStrategyBottomSheetState extends State<MIStrategyBottomSheet> with SingleTickerProviderStateMixin {
   AnimationController _controller;
 
-  double get maxHeight => MediaQuery.of(context).size.height;
+  double get maxHeight => MediaQuery.of(context).size.height - 150;
   double get headerTopMargin => lerp(20, 20 + MediaQuery.of(context).padding.top); //<-- Add new property
   double get headerFontSize => lerp(14, 24);
   double get itemBorderRadius => lerp(8, 24); //<-- increase item border radius
@@ -101,7 +101,7 @@ class _MIStrategyBottomSheetState extends State<MIStrategyBottomSheet> with Sing
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 32),
               decoration: const BoxDecoration(
-                color: Color(0xFF162A49),
+                color: Colors.white,
                 borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
               ),
               child: Stack(
