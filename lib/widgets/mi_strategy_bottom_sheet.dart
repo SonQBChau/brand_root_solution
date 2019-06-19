@@ -19,20 +19,20 @@ class _MIStrategyBottomSheetState extends State<MIStrategyBottomSheet> with Sing
   AnimationController _controller;
 
   double get maxHeight => MediaQuery.of(context).size.height - 150;
-  double get headerTopMargin => lerp(20, 20 + MediaQuery.of(context).padding.top); //<-- Add new property
-  double get headerFontSize => lerp(14, 24);
-  double get itemBorderRadius => lerp(8, 24); //<-- increase item border radius
-  double get iconSize => lerp(iconStartSize, iconEndSize); //<-- increase icon size
-  double get iconLeftBorderRadius => itemBorderRadius; //<-- Left border radius stays the same
-  double get iconRightBorderRadius => lerp(8, 0); //<-- Right border radius lerps to 0 instead.
+//  double get headerTopMargin => lerp(20, 20 + MediaQuery.of(context).padding.top); //<-- Add new property
+//  double get headerFontSize => lerp(14, 24);
+//  double get itemBorderRadius => lerp(8, 24); //<-- increase item border radius
+//  double get iconSize => lerp(iconStartSize, iconEndSize); //<-- increase icon size
+//  double get iconLeftBorderRadius => itemBorderRadius; //<-- Left border radius stays the same
+//  double get iconRightBorderRadius => lerp(8, 0); //<-- Right border radius lerps to 0 instead.
 
-  double iconTopMargin(int index) =>
-      lerp(iconStartMarginTop,
-          iconEndMarginTop + index * (iconsVerticalSpacing + iconEndSize)) +
-          headerTopMargin; //<-- calculate top margin based on header margin, and size of all of icons above (from small to big)
-
-  double iconLeftMargin(int index) =>
-      lerp(index * (iconsHorizontalSpacing + iconStartSize), 0); //<-- calculate left margin (from big to small)
+//  double iconTopMargin(int index) =>
+//      lerp(iconStartMarginTop,
+//          iconEndMarginTop + index * (iconsVerticalSpacing + iconEndSize)) +
+//          headerTopMargin; //<-- calculate top margin based on header margin, and size of all of icons above (from small to big)
+//
+//  double iconLeftMargin(int index) =>
+//      lerp(index * (iconsHorizontalSpacing + iconStartSize), 0); //<-- calculate left margin (from big to small)
 
   @override
   void initState() {

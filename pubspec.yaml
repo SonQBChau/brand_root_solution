@@ -54,6 +54,9 @@ flutter:
     - images/logo.png
     - images/triangle_blue.png
     - images/triangle_green.png
+    - images/chart_1.png
+    - images/FlowChart.png
+    - images/PinnacleWay.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
