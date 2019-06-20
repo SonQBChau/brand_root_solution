@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
-import 'dart:math' as math;
 
 class FlowChartPage extends StatelessWidget {
   @override

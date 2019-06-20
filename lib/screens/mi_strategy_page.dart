@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/screens/flow_chart_page.dart';
+import 'package:sale_form_demo/screens/pinnacle_way_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/mi_strategy_bottom_sheet.dart';
 
@@ -53,7 +54,6 @@ class MiStrategyPage extends StatelessWidget {
                             builder: (BuildContext context) {
                               return  FlowChartPage();
                             },
-//                            fullscreenDialog: true
                         ));
                       },
                       child: Container(
@@ -79,7 +79,11 @@ class MiStrategyPage extends StatelessWidget {
                     child: InkWell(
                       splashColor: Colors.blue.withAlpha(30),
                       onTap: () {
-                        print('Card tapped.');
+                        Navigator.of(context).push(new MaterialPageRoute<Null>(
+                          builder: (BuildContext context) {
+                            return  PinnacleWayPage();
+                          },
+                        ));
                       },
                       child: Container(
                         width: screenWidth - 20,
