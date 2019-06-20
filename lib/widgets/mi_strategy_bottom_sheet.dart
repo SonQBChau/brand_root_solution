@@ -116,7 +116,7 @@ class _MIStrategyBottomSheetState extends State<MIStrategyBottomSheet> with Sing
                   ),
 
                   Container(
-                    height: lerp(1, maxHeight-50),
+                    height: lerp(1, maxHeight-50),//<-- update height value to scale with controller
                     child: ListView(
                       children: <Widget>[
                       Card(
