@@ -104,6 +104,23 @@ class ImplementPage extends StatelessWidget {
 
 
             SizedBox(height: 20),
+            RaisedButton(//<-- Button Benchmark
+              onPressed: () {},
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
+              color: Colors.white,
+              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+              child: FittedBox(
+                fit:BoxFit.fitWidth,
+                child: Text(
+                  'Create Assessment & Inspection Plans',
+                  style: TextStyle(
+                    color: colorGreen,
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 20,),
 
 
           ],
