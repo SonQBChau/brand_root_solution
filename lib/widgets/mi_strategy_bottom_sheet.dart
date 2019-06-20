@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
+import 'package:sale_form_demo/widgets/bottom_sheet_list.dart';
 
 const double minHeight = 70;
 const double iconStartSize = 44; //<-- add edge values
@@ -116,43 +117,9 @@ class _MIStrategyBottomSheetState extends State<MIStrategyBottomSheet> with Sing
                   SizedBox(height: 20),
                   Container(
                     height: lerp(1, maxHeight - 50), //<-- update height value to scale with controller
-                    child: ListView(
-                      children: <Widget>[
-                        Card(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                          elevation: 5,
-                          child: InkWell(
-                            splashColor: Colors.blue.withAlpha(30),
-                            onTap: () {
-                              print('Card tapped.');
-                            },
-                            child: Container(
-                              padding: EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 10),
-                              child: Row(
-                                children: <Widget>[
-                                  Expanded(
-                                    child: Text('Maintenance & Reliability \nPractice Assessment',
-                                        style: TextStyle(color: colorBlue)),
-                                  ),
-                                  Container(
-                                    height: 30.0,
-                                    width: 1.0,
-                                    color: colorGrey20,
-                                    margin: const EdgeInsets.only(left: 10.0, right: 10.0),
-                                  ),
-                                  IconButton(
-                                    icon: Icon(Icons.add, color: colorBlue,),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                    child: BottomSheetList(),
                   ),
+
                 ],
               ),
             ),
