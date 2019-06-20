@@ -120,7 +120,7 @@ class ImplementPage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20,),
+            SizedBox(height: 40,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -163,6 +163,7 @@ class ImplementPage extends StatelessWidget {
                 ),
               ],
             ),
+            SizedBox(height: 40,),
 
 
           ],
