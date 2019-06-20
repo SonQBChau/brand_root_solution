@@ -96,7 +96,7 @@ class _MIStrategyBottomSheetState extends State<MIStrategyBottomSheet> with Sing
                   ),
                   SizedBox(height: 20),
                   Container(
-                    height: lerp(1, maxHeight - 50), //<-- update height value to scale with controller
+                    height: lerp(0, maxHeight - 50), //<-- update height value to scale with controller
                     child: BottomSheetList(),
                   ),
                 ],
