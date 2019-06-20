@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/data/question_model.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
+import 'package:flutter/animation.dart';
 
 QuestionCenter questionCenter = QuestionCenter();
 
 class BottomSheetList extends StatelessWidget {
-
   _buildQuestionCard() {
     List<QuestionCard> cardList = [];
-    for (int i = 0; i < 8; i++){
+    for (int i = 0; i < 8; i++) {
       cardList.add(QuestionCard(question: questionCenter.questionBank[i]));
     }
     return cardList;
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -62,8 +62,6 @@ class BottomSheetList extends StatelessWidget {
       ],
     );
   }
-
-
 }
 
 class QuestionCard extends StatefulWidget {
@@ -78,15 +76,16 @@ class QuestionCard extends StatefulWidget {
 }
 
 class _QuestionCardState extends State<QuestionCard> {
+  Animation<double> animation;
+  AnimationController controller;
+
   @override
   Widget build(BuildContext context) {
-
     Color textColor = colorBlue;
     IconData icon = Icons.add;
-    if (widget.question.getValue()){
+    if (widget.question.getValue()) {
       textColor = colorGreen;
       icon = Icons.remove;
-
     }
     return Card(
       shape: RoundedRectangleBorder(
@@ -112,11 +111,10 @@ class _QuestionCardState extends State<QuestionCard> {
                 margin: const EdgeInsets.only(left: 10.0, right: 10.0),
               ),
               IconButton(
-                onPressed: (){
+                onPressed: () {
                   setState(() {
                     widget.question.setValue(!widget.question.getValue());
                   });
-
                 },
                 icon: Icon(
                   icon,

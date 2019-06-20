@@ -2,28 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:sale_form_demo/screens/flow_chart_page.dart';
 import 'package:sale_form_demo/screens/pinnacle_way_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
+import 'package:sale_form_demo/widgets/flow_chart_widget.dart';
 import 'package:sale_form_demo/widgets/mi_strategy_bottom_sheet.dart';
+import 'package:sale_form_demo/widgets/pinnacle_way_widget.dart';
 
 class MiStrategyPage extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: colorBlue,
         elevation: 0,
-        leading:  IconButton(
-          icon:  Icon(Icons.arrow_back, size: 40,),
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            size: 40,
+          ),
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
       body: Container(
-//        constraints: BoxConstraints.expand(
-//          width: screenWidth,
-//          height: screenHeight,
-//        ),
         color: colorBlue,
         child: Stack(
           children: <Widget>[
@@ -51,80 +50,22 @@ class MiStrategyPage extends StatelessWidget {
                     ),
                   ),
                 ),
-
-                Expanded(
-                  child: InkWell(
-                    splashColor: Colors.blue.withAlpha(30),
-                    onTap: () {
-                      Navigator.of(context).push(new MaterialPageRoute<Null>(
-                        builder: (BuildContext context) {
-                          return  PinnacleWayPage();
-                        },
-                      ));
-                    },
+                PinnacleWayWidget(),
+                SizedBox(
+                  height: 20.0,
+                  width: MediaQuery.of(context).size.width - 50,
+                  child: Center(
                     child: Container(
-                      width: screenWidth - 20,
-                      height: 160,
-                      margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage("images/PinnacleWay.png"),
-                          fit: BoxFit.contain,
-                        ),
-                      ),
-                      child: Text('The Pinnacle Way',
-                        style: TextStyle(color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600
-                        ),),
+                      margin: EdgeInsetsDirectional.only(start: 1.0, end: 1.0),
+                      height: 2.0,
+                      color: Colors.blue[200],
                     ),
                   ),
                 ),
-
-        SizedBox(
-          height: 20.0,
-          width: MediaQuery.of(context).size.width - 50,
-          child:  Center(
-            child:  Container(
-              margin:  EdgeInsetsDirectional.only(start: 1.0, end: 1.0),
-              height: 2.0,
-              color: Colors.blue[200],
-            ),
-          ),
-        ),
-
-                Expanded(
-                  child: InkWell(
-                    splashColor: Colors.blue.withAlpha(30),
-                    onTap: () {
-                      Navigator.of(context).push(new MaterialPageRoute<Null>(
-                          builder: (BuildContext context) {
-                            return  FlowChartPage();
-                          },
-                      ));
-                    },
-                    child: Container(
-                      width: screenWidth - 20,
-                      height: 160,
-                      margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage("images/FlowChart.png"),
-                          fit: BoxFit.contain,
-                        ),
-
-                      ),
-
-                    ),
-                  ),
-                ),
-
+                FlowChartWidget(),
                 SizedBox(height: 80),
               ],
             ),
-
-
-
             MIStrategyBottomSheet(),
           ],
         ),
