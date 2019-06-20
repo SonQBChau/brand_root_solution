@@ -50,15 +50,5 @@ class QuestionCenter {
 
   ];
 
-//  String getLabel(int index){
-//    return questionBank[index]._label;
-//  }
-//
-//  bool getValue (int index){
-//    return questionBank[index]._value;
-//  }
-//
-//  void setValue (int index, bool value){
-//    questionBank[index]._value = value;
-//  }
+
 }

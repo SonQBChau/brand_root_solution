@@ -1,19 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:sale_form_demo/data/question_model.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 
+QuestionCenter questionCenter = QuestionCenter();
+
 class BottomSheetList extends StatelessWidget {
+
+  _buildQuestionCard() {
+    List<QuestionCard> cardList = [];
+    for (int i = 0; i < 8; i++){
+      cardList.add(QuestionCard(question: questionCenter.questionBank[i]));
+    }
+    return cardList;
+  }
+  
   @override
   Widget build(BuildContext context) {
     return ListView(
       children: <Widget>[
-        TextCard(text: 'Maintenance & Reliability\nPractice Assessment'),
-        TextCard(text: 'Mi Program Management'),
-        TextCard(text: 'Program Improvement\nDetailed Creation'),
-        TextCard(text: 'Create RBI Assessment And\nInspection Plan'),
-        TextCard(text: 'Create Corrosion Modeling Diagrams (CMD) & Damage Mechanisms With Rates/Susceptibilities'),
-        TextCard(text: 'Implement Integrity Operating Windows'),
-        TextCard(text: 'Preform RBI On Tanks'),
-        TextCard(text: 'Keep Program Evergreened/ Continuously Improved'),
+        ..._buildQuestionCard(),
         SizedBox(height: 20),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -57,17 +62,21 @@ class BottomSheetList extends StatelessWidget {
       ],
     );
   }
+
+
 }
 
-class TextCard extends StatelessWidget {
-  final String text;
-  const TextCard({
+class QuestionCard extends StatelessWidget {
+  final Question question;
+  const QuestionCard({
     Key key,
-    this.text,
+    this.question,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
+    Color textColor = question.getValue() ? colorGreen : colorBlue;
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20.0),
@@ -83,7 +92,7 @@ class TextCard extends StatelessWidget {
           child: Row(
             children: <Widget>[
               Expanded(
-                child: Text(text, style: TextStyle(color: colorBlue)),
+                child: Text(question.getLabel(), style: TextStyle(color: textColor)),
               ),
               Container(
                 height: 30.0,
@@ -92,9 +101,14 @@ class TextCard extends StatelessWidget {
                 margin: const EdgeInsets.only(left: 10.0, right: 10.0),
               ),
               IconButton(
+                onPressed: (){
+                  print('add');
+                  question.setValue(!question.getValue());
+                  print(question.getValue());
+                },
                 icon: Icon(
                   Icons.add,
-                  color: colorBlue,
+                  color: textColor,
                 ),
               ),
             ],
