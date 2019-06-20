@@ -19,7 +19,7 @@ class MIStrategyBottomSheet extends StatefulWidget {
 class _MIStrategyBottomSheetState extends State<MIStrategyBottomSheet> with SingleTickerProviderStateMixin {
   AnimationController _controller;
 
-  double get maxHeight => MediaQuery.of(context).size.height - 150;
+  double get maxHeight => MediaQuery.of(context).size.height - 160;
 //  double get headerTopMargin => lerp(20, 20 + MediaQuery.of(context).padding.top); //<-- Add new property
 //  double get headerFontSize => lerp(14, 24);
 //  double get itemBorderRadius => lerp(8, 24); //<-- increase item border radius
@@ -95,10 +95,9 @@ class _MIStrategyBottomSheetState extends State<MIStrategyBottomSheet> with Sing
             onVerticalDragUpdate: _handleDragUpdate, //<-- Add verticalDragUpdate callback
             onVerticalDragEnd: _handleDragEnd, //<-- Add verticalDragEnd callback
             child: Container(
-
-              padding: const EdgeInsets.symmetric(horizontal: 32),
+              padding: const EdgeInsets.symmetric(horizontal: 12),
               decoration: const BoxDecoration(
-                color: Colors.white,
+                color: Color(0xFFf1f1f1),
                 borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
               ),
               child: Column(
@@ -114,93 +113,46 @@ class _MIStrategyBottomSheetState extends State<MIStrategyBottomSheet> with Sing
                       ),
                     ),
                   ),
-
+                  SizedBox(height: 20),
                   Container(
-                    height: lerp(1, maxHeight-50),//<-- update height value to scale with controller
+                    height: lerp(1, maxHeight - 50), //<-- update height value to scale with controller
                     child: ListView(
                       children: <Widget>[
-                      Card(
-                        child: InkWell(
-                          splashColor: Colors.blue.withAlpha(30),
-                          onTap: () {
-                            print('Card tapped.');
-                          },
-                          child: Container(
-                            width: 300,
-                            height: 100,
-                            child: Text('A card that can be tapped'),
+                        Card(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                          elevation: 5,
+                          child: InkWell(
+                            splashColor: Colors.blue.withAlpha(30),
+                            onTap: () {
+                              print('Card tapped.');
+                            },
+                            child: Container(
+                              padding: EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 10),
+                              child: Row(
+                                children: <Widget>[
+                                  Expanded(
+                                    child: Text('Maintenance & Reliability \nPractice Assessment',
+                                        style: TextStyle(color: colorBlue)),
+                                  ),
+                                  Container(
+                                    height: 30.0,
+                                    width: 1.0,
+                                    color: colorGrey20,
+                                    margin: const EdgeInsets.only(left: 10.0, right: 10.0),
+                                  ),
+                                  IconButton(
+                                    icon: Icon(Icons.add, color: colorBlue,),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
                         ),
-                      ),
-                      Card(
-                        child: InkWell(
-                          splashColor: Colors.blue.withAlpha(30),
-                          onTap: () {
-                            print('Card tapped.');
-                          },
-                          child: Container(
-                            width: 300,
-                            height: 100,
-                            child: Text('A card that can be tapped'),
-                          ),
-                        ),
-                      ),
-                      Card(
-                        child: InkWell(
-                          splashColor: Colors.blue.withAlpha(30),
-                          onTap: () {
-                            print('Card tapped.');
-                          },
-                          child: Container(
-                            width: 300,
-                            height: 100,
-                            child: Text('A card that can be tapped'),
-                          ),
-                        ),
-                      ),
-                      Card(
-                        child: InkWell(
-                          splashColor: Colors.blue.withAlpha(30),
-                          onTap: () {
-                            print('Card tapped.');
-                          },
-                          child: Container(
-                            width: 300,
-                            height: 100,
-                            child: Text('A card that can be tapped'),
-                          ),
-                        ),
-                      ),
-                      Card(
-                        child: InkWell(
-                          splashColor: Colors.blue.withAlpha(30),
-                          onTap: () {
-                            print('Card tapped.');
-                          },
-                          child: Container(
-                            width: 300,
-                            height: 100,
-                            child: Text('A card that can be tapped'),
-                          ),
-                        ),
-                      ),
-                      Card(
-                        child: InkWell(
-                          splashColor: Colors.blue.withAlpha(30),
-                          onTap: () {
-                            print('Card tapped.');
-                          },
-                          child: Container(
-                            width: 300,
-                            height: 100,
-                            child: Text('A card that can be tapped'),
-                          ),
-                        ),
-                      ),
                       ],
                     ),
                   ),
-
                 ],
               ),
             ),
