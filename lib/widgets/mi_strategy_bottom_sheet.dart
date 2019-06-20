@@ -1,14 +1,15 @@
 import 'dart:ui';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import 'package:sale_form_demo/utils/app_color.dart';
 
 const double minHeight = 70;
-const double iconStartSize = 44;  //<-- add edge values
-const double iconEndSize = 120;  //<-- add edge values
-const double iconStartMarginTop = 36;  //<-- add edge values
-const double iconEndMarginTop = 80;  //<-- add edge values
-const double iconsVerticalSpacing = 24;  //<-- add edge values
-const double iconsHorizontalSpacing = 16;  //<-- add edge values
+const double iconStartSize = 44; //<-- add edge values
+const double iconEndSize = 120; //<-- add edge values
+const double iconStartMarginTop = 36; //<-- add edge values
+const double iconEndMarginTop = 80; //<-- add edge values
+const double iconsVerticalSpacing = 24; //<-- add edge values
+const double iconsHorizontalSpacing = 16; //<-- add edge values
 
 class MIStrategyBottomSheet extends StatefulWidget {
   @override
@@ -77,10 +78,6 @@ class _MIStrategyBottomSheetState extends State<MIStrategyBottomSheet> with Sing
           velocity: _controller.value < 0.5 ? -2.0 : 2.0); //<-- or just continue to whichever edge is closer
   }
 
-
-
-
-
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
@@ -88,8 +85,7 @@ class _MIStrategyBottomSheetState extends State<MIStrategyBottomSheet> with Sing
       animation: _controller,
       builder: (context, child) {
         return Positioned(
-          height: lerp(minHeight, maxHeight),
-          //<-- update height value to scale with controller
+          height: lerp(minHeight, maxHeight), //<-- update height value to scale with controller
           left: 0,
           right: 0,
           bottom: 0,
@@ -99,13 +95,113 @@ class _MIStrategyBottomSheetState extends State<MIStrategyBottomSheet> with Sing
             onVerticalDragUpdate: _handleDragUpdate, //<-- Add verticalDragUpdate callback
             onVerticalDragEnd: _handleDragEnd, //<-- Add verticalDragEnd callback
             child: Container(
+
               padding: const EdgeInsets.symmetric(horizontal: 32),
               decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
               ),
-              child: Stack(
+              child: Column(
+                children: <Widget>[
+                  SizedBox(
+                    height: 30.0,
+                    width: 100,
+                    child: Center(
+                      child: Container(
+                        margin: EdgeInsetsDirectional.only(start: 1.0, end: 1.0),
+                        height: 3.0,
+                        color: colorBlue,
+                      ),
+                    ),
+                  ),
 
+                  Container(
+                    height: lerp(1, maxHeight-50),
+                    child: ListView(
+                      children: <Widget>[
+                      Card(
+                        child: InkWell(
+                          splashColor: Colors.blue.withAlpha(30),
+                          onTap: () {
+                            print('Card tapped.');
+                          },
+                          child: Container(
+                            width: 300,
+                            height: 100,
+                            child: Text('A card that can be tapped'),
+                          ),
+                        ),
+                      ),
+                      Card(
+                        child: InkWell(
+                          splashColor: Colors.blue.withAlpha(30),
+                          onTap: () {
+                            print('Card tapped.');
+                          },
+                          child: Container(
+                            width: 300,
+                            height: 100,
+                            child: Text('A card that can be tapped'),
+                          ),
+                        ),
+                      ),
+                      Card(
+                        child: InkWell(
+                          splashColor: Colors.blue.withAlpha(30),
+                          onTap: () {
+                            print('Card tapped.');
+                          },
+                          child: Container(
+                            width: 300,
+                            height: 100,
+                            child: Text('A card that can be tapped'),
+                          ),
+                        ),
+                      ),
+                      Card(
+                        child: InkWell(
+                          splashColor: Colors.blue.withAlpha(30),
+                          onTap: () {
+                            print('Card tapped.');
+                          },
+                          child: Container(
+                            width: 300,
+                            height: 100,
+                            child: Text('A card that can be tapped'),
+                          ),
+                        ),
+                      ),
+                      Card(
+                        child: InkWell(
+                          splashColor: Colors.blue.withAlpha(30),
+                          onTap: () {
+                            print('Card tapped.');
+                          },
+                          child: Container(
+                            width: 300,
+                            height: 100,
+                            child: Text('A card that can be tapped'),
+                          ),
+                        ),
+                      ),
+                      Card(
+                        child: InkWell(
+                          splashColor: Colors.blue.withAlpha(30),
+                          onTap: () {
+                            print('Card tapped.');
+                          },
+                          child: Container(
+                            width: 300,
+                            height: 100,
+                            child: Text('A card that can be tapped'),
+                          ),
+                        ),
+                      ),
+                      ],
+                    ),
+                  ),
+
+                ],
               ),
             ),
           ),
