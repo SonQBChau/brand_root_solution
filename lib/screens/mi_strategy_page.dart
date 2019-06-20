@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sale_form_demo/screens/flow_chart_page.dart';
-import 'package:sale_form_demo/screens/pinnacle_way_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/flow_chart_widget.dart';
 import 'package:sale_form_demo/widgets/mi_strategy_bottom_sheet.dart';
@@ -9,7 +7,7 @@ import 'package:sale_form_demo/widgets/pinnacle_way_widget.dart';
 class MiStrategyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: colorBlue,

@@ -5,12 +5,6 @@ import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/bottom_sheet_list.dart';
 
 const double minHeight = 70;
-const double iconStartSize = 44; //<-- add edge values
-const double iconEndSize = 120; //<-- add edge values
-const double iconStartMarginTop = 36; //<-- add edge values
-const double iconEndMarginTop = 80; //<-- add edge values
-const double iconsVerticalSpacing = 24; //<-- add edge values
-const double iconsHorizontalSpacing = 16; //<-- add edge values
 
 class MIStrategyBottomSheet extends StatefulWidget {
   @override
@@ -25,7 +19,8 @@ class _MIStrategyBottomSheetState extends State<MIStrategyBottomSheet> with Sing
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(//<-- initialize a controller
+    _controller = AnimationController(
+      //<-- initialize a controller
       vsync: this,
       duration: Duration(milliseconds: 600),
     );
@@ -86,7 +81,7 @@ class _MIStrategyBottomSheetState extends State<MIStrategyBottomSheet> with Sing
                 color: Color(0xFFf1f1f1),
                 borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
               ),
-              child: Column(
+              child: Column(//<-- bottom indicator
                 children: <Widget>[
                   SizedBox(
                     height: 30.0,
@@ -104,7 +99,6 @@ class _MIStrategyBottomSheetState extends State<MIStrategyBottomSheet> with Sing
                     height: lerp(1, maxHeight - 50), //<-- update height value to scale with controller
                     child: BottomSheetList(),
                   ),
-
                 ],
               ),
             ),
