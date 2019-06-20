@@ -66,7 +66,7 @@ class BottomSheetList extends StatelessWidget {
 
 }
 
-class QuestionCard extends StatelessWidget {
+class QuestionCard extends StatefulWidget {
   final Question question;
   const QuestionCard({
     Key key,
@@ -74,9 +74,20 @@ class QuestionCard extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  _QuestionCardState createState() => _QuestionCardState();
+}
+
+class _QuestionCardState extends State<QuestionCard> {
+  @override
   Widget build(BuildContext context) {
 
-    Color textColor = question.getValue() ? colorGreen : colorBlue;
+    Color textColor = colorBlue;
+    IconData icon = Icons.add;
+    if (widget.question.getValue()){
+      textColor = colorGreen;
+      icon = Icons.remove;
+
+    }
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20.0),
@@ -92,7 +103,7 @@ class QuestionCard extends StatelessWidget {
           child: Row(
             children: <Widget>[
               Expanded(
-                child: Text(question.getLabel(), style: TextStyle(color: textColor)),
+                child: Text(widget.question.getLabel(), style: TextStyle(color: textColor)),
               ),
               Container(
                 height: 30.0,
@@ -102,12 +113,13 @@ class QuestionCard extends StatelessWidget {
               ),
               IconButton(
                 onPressed: (){
-                  print('add');
-                  question.setValue(!question.getValue());
-                  print(question.getValue());
+                  setState(() {
+                    widget.question.setValue(!widget.question.getValue());
+                  });
+
                 },
                 icon: Icon(
-                  Icons.add,
+                  icon,
                   color: textColor,
                 ),
               ),

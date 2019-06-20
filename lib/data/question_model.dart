@@ -20,14 +20,14 @@ class Question{
 class QuestionCenter {
 
   List<Question> questionBank = [
-    Question('Maintenance & Reliability Practices Assessment', false ),
+    Question('Maintenance & Reliability\nPractices Assessment', false ),
     Question('MI Program Management', false ),
-    Question('Program Improvement Detailed Creation', false ),
-    Question('Create RBI Assessment & Inspection Plan', false ),
+    Question('Program Improvement\nDetailed Creation', false ),
+    Question('Create RBI Assessment &\nInspection Plan', false ),
     Question('Create Corrosion Modeling Diagrams (CMD) & Damage Mechanisms With Rates/Susceptibilities', false ),
     Question('Implement Integrity Operating Windows', false ),
     Question('Perform RBI On Tanks', false ),
-    Question('Keep Program Evergreened/ Continuously Improved', false ),
+    Question('Keep Program Evergreened/\nContinuously Improved', false ),
 
     Question('Maintenance and Relaibility Benchmarking Assessment', false ),
     Question('Reliability Evolution Asessment', false ),
