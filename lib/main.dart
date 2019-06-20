@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/screens/chart_page.dart';
 import 'package:sale_form_demo/screens/customer_info_page.dart';
-import 'package:sale_form_demo/screens/flow_chart_page.dart';
 import 'package:sale_form_demo/screens/menu_page.dart';
 import 'package:sale_form_demo/screens/mi_strategy_page.dart';
 import 'package:sale_form_demo/screens/my_home_page.dart';
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
 
-      home: FlowChartPage(),
+      home: MiStrategyPage(),
 //home: MyHomePage(),
 
 
