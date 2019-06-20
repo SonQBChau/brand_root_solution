@@ -13,15 +13,17 @@ class ImplementPage extends StatelessWidget {
         ),
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(vertical: 30, horizontal: 30),
+        padding: EdgeInsets.symmetric( horizontal: 30),
         color: colorGrey5,
         child: ListView(
+
           children: <Widget>[
+            SizedBox(height: 20),
             Text(
               'FUNDAMENTALS',
               style: TextStyle(
                 color: colorBlue,
-                fontSize: 24,
+                fontSize: 23,
               ),
             ),
             SizedBox(
@@ -63,8 +65,80 @@ class ImplementPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20,),
+            Text(
+              'PRACTICE AREAS INFLUENCED BY SOLUTION',
+              style: TextStyle(
+                color: colorBlue,
+                fontSize: 23,
+              ),
+            ),
+            SizedBox(
+              height: 10.0,
+              child:  Center(
+                child:  Container(
+                  margin:  EdgeInsetsDirectional.only(start: 1.0, end: 1.0),
+                  height: 1.5,
+                  color: colorBlue,
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
+            Text('Click to View Solutions',
+            style: TextStyle(
+              color: colorBlue,
+              fontSize: 14,
+              fontWeight: FontWeight.w700
+            ),
+            ),
+            SizedBox(height: 5,),
+            MiniCard(text:'Goals and Performance Expectations'),
+            MiniCard(text:'Proactive Maintenance (PM)'),
+            MiniCard(text:'Strategy Management'),
+            MiniCard(text:'Spare Parts Strategy Management'),
+            MiniCard(text:'Safety System Management'),
+            MiniCard(text:'Process Control Strategy'),
+            MiniCard(text:'Planning and Scheduling'),
+            MiniCard(text:'Materials (MRO) Management'),
+            MiniCard(text:'Tar Management Change Management'),
+            MiniCard(text:'Technology and Systems Management'),
+
+
+            SizedBox(height: 20),
+
 
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class MiniCard extends StatelessWidget {
+  final String text;
+  const MiniCard({
+    Key key,
+    this.text
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 0,
+      color: Colors.transparent,
+      margin: EdgeInsets.all(0),
+      child: InkWell(
+        splashColor: Colors.blue.withAlpha(30),
+        onTap: () {
+          print('Card tapped.');
+        },
+        child: Container(
+          padding: EdgeInsets.symmetric(vertical: 5),
+          child: Text(text,
+          style: TextStyle(
+            color: colorBlue,
+            fontSize: 16,
+          ),
+          ),
         ),
       ),
     );
