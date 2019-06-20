@@ -56,6 +56,7 @@ flutter:
     - images/triangle_green.png
     - images/chart_1.png
     - images/FlowChart.png
+    - images/FlowChart_2.png
     - images/PinnacleWay.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
