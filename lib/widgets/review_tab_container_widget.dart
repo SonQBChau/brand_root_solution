@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
+import 'package:sale_form_demo/widgets/review_tab_view_widget.dart';
 
 class ReviewTabContainerWidget extends StatefulWidget {
   ReviewTabContainerWidget({Key key}) : super(key: key);
@@ -14,10 +15,7 @@ class _ReviewTabContainerWidgetState extends State<ReviewTabContainerWidget> wit
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(
-      length: 4,
-      vsync: this,
-    );
+    _tabController = TabController(length: 4, vsync: this, initialIndex: 1);
   }
 
   @override
@@ -27,9 +25,7 @@ class _ReviewTabContainerWidgetState extends State<ReviewTabContainerWidget> wit
         padding: EdgeInsets.only(left: 20, right: 20),
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.only(
-              topLeft: const Radius.circular(30.0),
-              topRight: const Radius.circular(30.0)),
+          borderRadius: BorderRadius.only(topLeft: const Radius.circular(30.0), topRight: const Radius.circular(30.0)),
           boxShadow: [
             BoxShadow(
               color: Colors.grey,
@@ -54,46 +50,45 @@ class _ReviewTabContainerWidgetState extends State<ReviewTabContainerWidget> wit
             ),
             Container(
               //This is responsible for the background of the tabbar, does the magic
-              decoration: BoxDecoration(
-                  border: Border(bottom: BorderSide(color: colorBlue, width: 1))),
+              decoration: BoxDecoration(border: Border(bottom: BorderSide(color: colorBlue, width: 1))),
               child: TabBar(
                 labelPadding: EdgeInsets.all(0),
                 indicatorColor: colorGreen,
-                indicatorWeight: 4,
+                indicatorWeight: 3,
                 controller: _tabController,
                 tabs: <Widget>[
                   Tab(
                       child: Text(
-                        'EVALUATE',
-                        style: TextStyle(
-                          color: colorBlue,
-                          fontSize: 14,
-                        ),
-                      )),
+                    'EVALUATE',
+                    style: TextStyle(
+                      color: colorBlue,
+                      fontSize: 14,
+                    ),
+                  )),
                   Tab(
                       child: Text(
-                        'STRATEGIES',
-                        style: TextStyle(
-                          color: colorBlue,
-                          fontSize: 14,
-                        ),
-                      )),
+                    'STRATEGIES',
+                    style: TextStyle(
+                      color: colorBlue,
+                      fontSize: 14,
+                    ),
+                  )),
                   Tab(
                       child: Text(
-                        'SUSTAIN',
-                        style: TextStyle(
-                          color: colorBlue,
-                          fontSize: 14,
-                        ),
-                      )),
+                    'SUSTAIN',
+                    style: TextStyle(
+                      color: colorBlue,
+                      fontSize: 14,
+                    ),
+                  )),
                   Tab(
                       child: Text(
-                        'LIFE-CYCLE',
-                        style: TextStyle(
-                          color: colorBlue,
-                          fontSize: 14,
-                        ),
-                      )),
+                    'LIFE-CYCLE',
+                    style: TextStyle(
+                      color: colorBlue,
+                      fontSize: 14,
+                    ),
+                  )),
                 ],
               ),
             ),
@@ -104,9 +99,7 @@ class _ReviewTabContainerWidgetState extends State<ReviewTabContainerWidget> wit
                   Center(
                     child: Text('Evaluate'),
                   ),
-                  Center(
-                    child: Text('Strategies'),
-                  ),
+                  ReviewTabViewWidget(),
                   Center(
                     child: Text('Sustain'),
                   ),

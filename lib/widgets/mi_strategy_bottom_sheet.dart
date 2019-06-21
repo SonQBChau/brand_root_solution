@@ -1,6 +1,8 @@
 import 'dart:ui';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:sale_form_demo/data/question_model.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/bottom_sheet_list.dart';
 
@@ -98,6 +100,12 @@ class _MIStrategyBottomSheetState extends State<MIStrategyBottomSheet> with Sing
                   Container(
                     height: lerp(0, maxHeight - 50), //<-- update height value to scale with controller
                     child: BottomSheetList(),
+//                  child: Provider<QuestionCenter>.value(
+//                      value: QuestionCenter(),
+//                      child: MaterialApp(
+//                        home: BottomSheetList(),
+//                      )
+//                  ),
                   ),
                 ],
               ),
