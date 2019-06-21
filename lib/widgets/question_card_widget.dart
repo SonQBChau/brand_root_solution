@@ -48,7 +48,7 @@ class _QuestionCardState extends State<QuestionCard> {
           }
           else{
             Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
-              return ImplementPage();
+              return ImplementPage(question: widget.question);
             },
             fullscreenDialog: true,
             ));

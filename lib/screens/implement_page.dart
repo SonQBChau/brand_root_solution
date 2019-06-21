@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:sale_form_demo/data/question_model.dart';
 import 'package:sale_form_demo/screens/sample_delivery_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 
 class ImplementPage extends StatelessWidget {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
+  final Question question;
+
+  ImplementPage({@required this.question});
 
   @override
   Widget build(BuildContext context) {
@@ -171,6 +175,7 @@ class ImplementPage extends StatelessWidget {
                 Expanded(
                   child: RaisedButton(//<-- Button Review
                     onPressed: () {
+                      question.setValue(true);
                       Navigator.of(context).pop();
                     },
                     shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
