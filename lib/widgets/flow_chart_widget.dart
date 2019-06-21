@@ -8,7 +8,7 @@ class FlowChartWidget extends StatelessWidget {
       child: InkWell(
         splashColor: Colors.blue.withAlpha(30),
         onTap: () {
-          Navigator.of(context).push(new MaterialPageRoute<Null>(
+          Navigator.of(context).push( MaterialPageRoute<Null>(
             builder: (BuildContext context) {
               return FlowChartPage();
             },

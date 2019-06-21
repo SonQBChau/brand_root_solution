@@ -6,6 +6,7 @@ import 'package:sale_form_demo/screens/menu_page.dart';
 import 'package:sale_form_demo/screens/mi_strategy_page.dart';
 import 'package:sale_form_demo/screens/my_home_page.dart';
 import 'package:provider/provider.dart';
+import 'package:sale_form_demo/screens/sample_delivery_page.dart';
 import 'package:sale_form_demo/screens/strategies_page.dart';
 import 'package:sale_form_demo/services/intro_form_provider.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'GothicA1',
       ),
 
-      home: ImplementPage(),
+      home: SampleDeliveryPage(),
 //home: MyHomePage(),
 
 
