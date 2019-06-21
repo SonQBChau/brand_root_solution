@@ -15,7 +15,7 @@ class _ReviewTabContainerWidgetState extends State<ReviewTabContainerWidget> wit
   void initState() {
     super.initState();
     _tabController = TabController(
-      length: 2,
+      length: 4,
       vsync: this,
     );
   }
@@ -43,23 +43,49 @@ class _ReviewTabContainerWidgetState extends State<ReviewTabContainerWidget> wit
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Container(
-              padding: EdgeInsets.only(top:20, left: 20),
-              child: Text('SOLUTION CATEGORIES',
-              style: TextStyle(color: colorBlue, fontWeight: FontWeight.w700, fontSize: 12),
+              padding: EdgeInsets.only(top: 20, left: 20),
+              child: Text(
+                'SOLUTION CATEGORIES',
+                style: TextStyle(color: colorBlue, fontWeight: FontWeight.w700, fontSize: 12),
               ),
             ),
             TabBar(
+              labelPadding: EdgeInsets.all(0),
               labelColor: Colors.blue,
               controller: _tabController,
               tabs: <Widget>[
                 Tab(
-                  icon: const Icon(Icons.home),
-                  text: 'Address',
-                ),
+                    child: Text(
+                      'EVALUATE',
+                      style: TextStyle(
+                        color: colorBlue,
+                        fontSize: 14,
+                      ),
+                    )),
                 Tab(
-                  icon: const Icon(Icons.my_location),
-                  text: 'Location',
-                ),
+                    child: Text(
+                      'STRATEGIES',
+                      style: TextStyle(
+                        color: colorBlue,
+                        fontSize: 14,
+                      ),
+                    )),
+                Tab(
+                    child: Text(
+                      'SUSTAIN',
+                      style: TextStyle(
+                        color: colorBlue,
+                        fontSize: 14,
+                      ),
+                    )),
+                Tab(
+                    child: Text(
+                      'LIFE-CYCLE',
+                      style: TextStyle(
+                        color: colorBlue,
+                        fontSize: 14,
+                      ),
+                    )),
               ],
             ),
             Expanded(
@@ -68,6 +94,12 @@ class _ReviewTabContainerWidgetState extends State<ReviewTabContainerWidget> wit
                 children: <Widget>[
                   Center(
                     child: Text('Address'),
+                  ),
+                  Center(
+                    child: Text('Location'),
+                  ),
+                  Center(
+                    child: Text('Location'),
                   ),
                   Center(
                     child: Text('Location'),
