@@ -60,6 +60,21 @@ flutter:
     - images/PinnacleWay.png
     - images/PinnacleWay_2.png
 
+
+  fonts:
+    - family: GothicA1
+      fonts:
+        - asset: fonts/GothicA1-Black.ttf
+        - asset: fonts/GothicA1-Bold.ttf
+        - asset: fonts/GothicA1-ExtraBold.ttf
+        - asset: fonts/GothicA1-ExtraLight.ttf
+        - asset: fonts/GothicA1-Light.ttf
+        - asset: fonts/GothicA1-Medium.ttf
+        - asset: fonts/GothicA1-Regular.ttf
+        - asset: fonts/GothicA1-SemiBold.ttf
+        - asset: fonts/GothicA1-Thin.ttf
+
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
