@@ -52,44 +52,50 @@ class _ReviewTabContainerWidgetState extends State<ReviewTabContainerWidget> wit
                 style: TextStyle(color: colorBlue, fontWeight: FontWeight.w700, fontSize: 12),
               ),
             ),
-            TabBar(
-              labelPadding: EdgeInsets.all(0),
-              labelColor: Colors.blue,
-              controller: _tabController,
-              tabs: <Widget>[
-                Tab(
-                    child: Text(
-                      'EVALUATE',
-                      style: TextStyle(
-                        color: colorBlue,
-                        fontSize: 14,
-                      ),
-                    )),
-                Tab(
-                    child: Text(
-                      'STRATEGIES',
-                      style: TextStyle(
-                        color: colorBlue,
-                        fontSize: 14,
-                      ),
-                    )),
-                Tab(
-                    child: Text(
-                      'SUSTAIN',
-                      style: TextStyle(
-                        color: colorBlue,
-                        fontSize: 14,
-                      ),
-                    )),
-                Tab(
-                    child: Text(
-                      'LIFE-CYCLE',
-                      style: TextStyle(
-                        color: colorBlue,
-                        fontSize: 14,
-                      ),
-                    )),
-              ],
+            Container(
+              //This is responsible for the background of the tabbar, does the magic
+              decoration: BoxDecoration(
+                  border: Border(bottom: BorderSide(color: colorBlue, width: 1))),
+              child: TabBar(
+                labelPadding: EdgeInsets.all(0),
+                indicatorColor: colorGreen,
+                indicatorWeight: 4,
+                controller: _tabController,
+                tabs: <Widget>[
+                  Tab(
+                      child: Text(
+                        'EVALUATE',
+                        style: TextStyle(
+                          color: colorBlue,
+                          fontSize: 14,
+                        ),
+                      )),
+                  Tab(
+                      child: Text(
+                        'STRATEGIES',
+                        style: TextStyle(
+                          color: colorBlue,
+                          fontSize: 14,
+                        ),
+                      )),
+                  Tab(
+                      child: Text(
+                        'SUSTAIN',
+                        style: TextStyle(
+                          color: colorBlue,
+                          fontSize: 14,
+                        ),
+                      )),
+                  Tab(
+                      child: Text(
+                        'LIFE-CYCLE',
+                        style: TextStyle(
+                          color: colorBlue,
+                          fontSize: 14,
+                        ),
+                      )),
+                ],
+              ),
             ),
             Expanded(
               child: TabBarView(
