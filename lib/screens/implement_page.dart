@@ -38,8 +38,9 @@ class ImplementPage extends StatelessWidget {
             ),
             SizedBox(height: 15,),
             Container(
-              height: 200,
-              child: Placeholder(),
+              child: Image.asset('images/meter.png',
+              fit: BoxFit.cover,
+              ),
             ),
             SizedBox(height: 20,),
             Text('PinnacleART’s Integrity Operating Windows (IOWs) solution provides valuable operating guidance to your'
