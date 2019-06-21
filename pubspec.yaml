@@ -55,10 +55,14 @@ flutter:
     - images/triangle_blue.png
     - images/triangle_green.png
     - images/chart_1.png
+    - images/chart_2.png
+    - images/chart_3.png
     - images/FlowChart.png
     - images/FlowChart_2.png
     - images/PinnacleWay.png
     - images/PinnacleWay_2.png
+    - images/meter.png
+    - images/sample_deliverable.png
 
 
   fonts:
