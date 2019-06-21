@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:sale_form_demo/screens/sample_delivery_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 
 class ImplementPage extends StatelessWidget {
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         backgroundColor: colorGreen,
         elevation: 0,
@@ -56,7 +60,7 @@ class ImplementPage extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context){
-                      return ;
+                      return SampleDeliveryPage();
                     },
                 ));
               },
@@ -112,7 +116,16 @@ class ImplementPage extends StatelessWidget {
 
             SizedBox(height: 20),
             RaisedButton(//<-- Button Benchmark
-              onPressed: () {},
+              onPressed: () {
+                final snackBar = SnackBar(
+                  duration: Duration(milliseconds: 500),
+                  content: Text(
+                    'Not implemented yet!',
+                    style: TextStyle(fontWeight: FontWeight.w700, color: colorGrey20),
+                  ),
+                );
+                _scaffoldKey.currentState.showSnackBar(snackBar);
+              },
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
               color: Colors.white,
               padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
@@ -133,7 +146,9 @@ class ImplementPage extends StatelessWidget {
               children: <Widget>[
                 Expanded(
                   child: RaisedButton(//<-- Button Benchmark
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
                     shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
                     color: Colors.white,
                     padding: EdgeInsets.symmetric(vertical: 10, horizontal: 0),
@@ -152,7 +167,9 @@ class ImplementPage extends StatelessWidget {
                 SizedBox(width: 10),
                 Expanded(
                   child: RaisedButton(//<-- Button Review
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
                     shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
                     color: colorGreen,
                     padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
@@ -196,7 +213,14 @@ class MiniCard extends StatelessWidget {
       child: InkWell(
         splashColor: Colors.blue.withAlpha(30),
         onTap: () {
-          print('Card tapped.');
+          final snackBar = SnackBar(
+            duration: Duration(milliseconds: 500),
+            content: Text(
+              'Not implemented yet!',
+              style: TextStyle(fontWeight: FontWeight.w700, color: colorGrey20),
+            ),
+          );
+          Scaffold.of(context).showSnackBar(snackBar);
         },
         child: Container(
           padding: EdgeInsets.symmetric(vertical: 5),
