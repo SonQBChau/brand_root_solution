@@ -24,9 +24,12 @@ class _ReviewTabContainerWidgetState extends State<ReviewTabContainerWidget> wit
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
+        padding: EdgeInsets.only(left: 20, right: 20),
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.only(topLeft: const Radius.circular(40.0), topRight: const Radius.circular(40.0)),
+          borderRadius: BorderRadius.only(
+              topLeft: const Radius.circular(30.0),
+              topRight: const Radius.circular(30.0)),
           boxShadow: [
             BoxShadow(
               color: Colors.grey,
@@ -43,7 +46,7 @@ class _ReviewTabContainerWidgetState extends State<ReviewTabContainerWidget> wit
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Container(
-              padding: EdgeInsets.only(top: 20, left: 20),
+              padding: EdgeInsets.only(top: 30, left: 5),
               child: Text(
                 'SOLUTION CATEGORIES',
                 style: TextStyle(color: colorBlue, fontWeight: FontWeight.w700, fontSize: 12),
@@ -93,16 +96,16 @@ class _ReviewTabContainerWidgetState extends State<ReviewTabContainerWidget> wit
                 controller: _tabController,
                 children: <Widget>[
                   Center(
-                    child: Text('Address'),
+                    child: Text('Evaluate'),
                   ),
                   Center(
-                    child: Text('Location'),
+                    child: Text('Strategies'),
                   ),
                   Center(
-                    child: Text('Location'),
+                    child: Text('Sustain'),
                   ),
                   Center(
-                    child: Text('Location'),
+                    child: Text('Life-Cycle'),
                   ),
                 ],
               ),
