@@ -12,8 +12,11 @@ class ImplementPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: colorGreen,
         elevation: 0,
-        title: Text('Implement Integrity Operating Windows',
-        style: TextStyle(fontSize: 16),
+        title: FittedBox(
+          fit: BoxFit.fitWidth,
+          child: Text('Implement Integrity Operating Windows',
+          style: TextStyle(fontSize: 16),
+          ),
         ),
       ),
       body: Container(

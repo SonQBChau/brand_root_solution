@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/data/question_model.dart';
+import 'package:sale_form_demo/screens/implement_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 
 class QuestionCard extends StatefulWidget {
@@ -34,7 +35,24 @@ class _QuestionCardState extends State<QuestionCard> {
       child: InkWell(
         splashColor: Colors.blue.withAlpha(30),
         onTap: () {
-          print('Card tapped.');
+          final snackBar = SnackBar(
+            duration: Duration(milliseconds: 1000),
+            content: Text(
+              'Please select Implement Integrity Operating Windows',
+              style: TextStyle(fontWeight: FontWeight.w700, color: colorGrey20),
+            ),
+          );
+
+          if (widget.question.getLabel() != 'Implement Integrity Operating Windows') {
+            Scaffold.of(context).showSnackBar(snackBar);
+          }
+          else{
+            Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
+              return ImplementPage();
+            },
+            fullscreenDialog: true,
+            ));
+          }
         },
         child: Container(
           padding: EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 10),
