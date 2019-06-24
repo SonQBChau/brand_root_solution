@@ -19,11 +19,26 @@ class AboutPage extends StatelessWidget {
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
-      body: Column(
+      body: ListView(
         children: <Widget>[
           CompanyFullLogo(),
           SizedBox(height: 30),
-
+          Image.asset('images/globe.png', fit: BoxFit.cover),
+          Container(
+            padding: EdgeInsets.only(left: 30, top: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  'Improving Reliability\nAcross The Globe',
+                  style: TextStyle(color: colorBlue, fontSize: 20, fontWeight: FontWeight.w700),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 40,
+          ),
         ],
       ),
     );
