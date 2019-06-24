@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sale_form_demo/screens/result_page.dart';
 import 'package:sale_form_demo/screens/benchmark_page.dart';
 import 'package:sale_form_demo/screens/chart_page.dart';
 import 'package:sale_form_demo/screens/customer_info_page.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'GothicA1',
       ),
 
-      home: BenchmarkPage(),
+      home: ResultPage(),
 //home: MyHomePage(),
 
 
