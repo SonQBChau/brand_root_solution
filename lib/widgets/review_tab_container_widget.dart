@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:sale_form_demo/data/question_model.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/review_tab_view_widget.dart';
 
 class ReviewTabContainerWidget extends StatefulWidget {
-  ReviewTabContainerWidget({Key key}) : super(key: key);
+  final List<Question> selectedList;
+  ReviewTabContainerWidget({Key key, this.selectedList}) : super(key: key);
 
   @override
   _ReviewTabContainerWidgetState createState() => _ReviewTabContainerWidgetState();
@@ -99,7 +101,7 @@ class _ReviewTabContainerWidgetState extends State<ReviewTabContainerWidget> wit
                   Center(
                     child: Text('Evaluate'),
                   ),
-                  ReviewTabViewWidget(),
+                  ReviewTabViewWidget(selectedList: widget.selectedList),
                   Center(
                     child: Text('Sustain'),
                   ),

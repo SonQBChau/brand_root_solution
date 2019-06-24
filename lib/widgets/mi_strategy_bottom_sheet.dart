@@ -100,12 +100,6 @@ class _MIStrategyBottomSheetState extends State<MIStrategyBottomSheet> with Sing
                   Container(
                     height: lerp(0, maxHeight - 50), //<-- update height value to scale with controller
                     child: BottomSheetList(),
-//                  child: Provider<QuestionCenter>.value(
-//                      value: QuestionCenter(),
-//                      child: MaterialApp(
-//                        home: BottomSheetList(),
-//                      )
-//                  ),
                   ),
                 ],
               ),

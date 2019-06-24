@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:sale_form_demo/data/question_model.dart';
+import 'package:sale_form_demo/screens/review_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/question_card_widget.dart';
 
@@ -13,6 +15,8 @@ class BottomSheetList extends StatelessWidget {
     }
     return cardList;
   }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +46,11 @@ class BottomSheetList extends StatelessWidget {
             SizedBox(width: 10),
             Expanded(
               child: RaisedButton(//<-- Button Review
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
+                    return ReviewPage(questionCenter: questionCenter);
+                  }));
+                },
                 shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
                 color: colorGreen,
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
