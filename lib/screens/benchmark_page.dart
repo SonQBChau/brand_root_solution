@@ -37,7 +37,7 @@ class BenchmarkPage extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                  shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(30.0)),
                   color: Colors.white,
                   padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
                   child: Text(
@@ -57,7 +57,7 @@ class BenchmarkPage extends StatelessWidget {
                       return ResultPage();
                     }));
                   },
-                  shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                  shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(30.0)),
                   color: colorGreen,
                   padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
                   child: Text(

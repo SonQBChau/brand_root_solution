@@ -54,7 +54,7 @@ class ResultPage extends StatelessWidget {
             ),
           ),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.only(left: 20, right: 20, bottom: 30),
             child: Card(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20.0),
@@ -127,6 +127,49 @@ class ResultPage extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                         fontSize: 12,
                       ),
+                    ),
+                    SizedBox(height: 10,),
+                    Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: RaisedButton(//<-- Button Benchmark
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(30.0)),
+                            color: Colors.white,
+                            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+                            child: Text(
+                              'RETURN TO BENCHMARK',
+                              style: TextStyle(
+                                color: colorBlue,
+                                fontSize: 12,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: RaisedButton(//<-- Button Benchmark
+                            onPressed: () {
+
+                            },
+                            shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(30.0)),
+                            color: colorGreen,
+                            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+                            child: Text(
+                              'EMAIL PDF',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 12,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
