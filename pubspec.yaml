@@ -63,6 +63,7 @@ flutter:
     - images/PinnacleWay_2.png
     - images/meter.png
     - images/sample_deliverable.png
+    - images/globe.png
 
 
   fonts:
