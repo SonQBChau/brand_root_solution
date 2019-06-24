@@ -18,8 +18,53 @@ class ReviewTabViewWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: <Widget>[
-        SizedBox(height: 30,),
         ..._buildQuestionCard(), //<-- List of Cards
+        SizedBox(height: 20),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            SizedBox(width: 20),
+            Expanded(
+              child: RaisedButton(//<-- Button Benchmark
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                color: Colors.white,
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+                child: Text(
+                  'RETURN',
+                  style: TextStyle(
+                    color: colorBlue,
+                    fontSize: 12,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(width: 10),
+            Expanded(
+              child: RaisedButton(//<-- Button Review
+                onPressed: () {
+//                  Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
+//                    return ReviewPage(questionCenter: questionCenter);
+//                  }));
+                },
+                shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                color: colorGreen,
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+                child: Text(
+                  'BENCHMARK',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 12,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(width: 20),
+          ],
+        ),
+        SizedBox(height: 20),
       ],
     );
   }

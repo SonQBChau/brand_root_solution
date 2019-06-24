@@ -94,6 +94,7 @@ class _ReviewTabContainerWidgetState extends State<ReviewTabContainerWidget> wit
                 ],
               ),
             ),
+            SizedBox(height: 20),
             Expanded(
               child: TabBarView(
                 controller: _tabController,
@@ -110,7 +111,10 @@ class _ReviewTabContainerWidgetState extends State<ReviewTabContainerWidget> wit
                   ),
                 ],
               ),
-            )
+            ),
+
+
+
           ],
         ),
       ),
