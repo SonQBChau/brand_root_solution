@@ -7,6 +7,7 @@ class TextWidgetInfoPage extends StatelessWidget {
   final TextInputType textInputType;
   final Function onValidate;
   final Function onSubmit;
+
   TextWidgetInfoPage({
     @required  this.hintTxt,
     this.textCapitalization = TextCapitalization.words,
@@ -74,3 +75,5 @@ class TextWidgetInfoPage extends StatelessWidget {
     );
   }
 }
+
+

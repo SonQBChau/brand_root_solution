@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/data/question_model.dart';
+import 'package:sale_form_demo/screens/benchmark_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 
 class ReviewTabViewWidget extends StatelessWidget {
@@ -45,9 +46,9 @@ class ReviewTabViewWidget extends StatelessWidget {
             Expanded(
               child: RaisedButton(//<-- Button Review
                 onPressed: () {
-//                  Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
-//                    return ReviewPage(questionCenter: questionCenter);
-//                  }));
+                  Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
+                    return BenchmarkPage();
+                  }));
                 },
                 shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
                 color: colorGreen,
