@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sale_form_demo/screens/about_page.dart';
 import 'package:sale_form_demo/screens/strategies_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
+import 'package:sale_form_demo/utils/size_config.dart';
 import 'package:sale_form_demo/widgets/company_full_logo.dart';
 
 class MenuPage extends StatelessWidget {
@@ -14,12 +15,16 @@ class MenuPage extends StatelessWidget {
         style: TextStyle(fontWeight: FontWeight.w700, color: colorGrey20),
       ),
     );
+
+
     return Scaffold(
       body: Builder(builder: (context) {
+        SizeConfig().init(context);
+        double buttonWidth = SizeConfig.screenWidth - 100;
         return Container(
           constraints: BoxConstraints.expand(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
+            width: SizeConfig.screenWidth,
+            height: SizeConfig.screenHeight,
           ),
           decoration: BoxDecoration(
             image: DecorationImage(
@@ -35,12 +40,12 @@ class MenuPage extends StatelessWidget {
               Expanded(
                 child: MaterialButton(
                   height: 100.0,
-                  minWidth: 300.0,
+                  minWidth: buttonWidth,
                   color: Colors.white,
                   textColor: colorBlue,
                   onPressed: () => {Scaffold.of(context).showSnackBar(snackBar)},
                   splashColor: colorGreen,
-                  shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(20.0)),
+                  shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(20.0)),
                   child: Text(
                     'EVALUATE',
                     style: TextStyle(
@@ -54,14 +59,14 @@ class MenuPage extends StatelessWidget {
               Expanded(
                 child: MaterialButton(
                   height: 100.0,
-                  minWidth: 300.0,
+                  minWidth: buttonWidth,
                   color: Colors.white,
                   textColor: colorBlue,
                   onPressed: () => {
                         Navigator.push(context, MaterialPageRoute(builder: (context) => StrategiesPage()),)
                       },
                   splashColor: colorGreen,
-                  shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(20.0)),
+                  shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(20.0)),
                   child: Text(
                     'STRATEGIES',
                     style: TextStyle(
@@ -75,12 +80,12 @@ class MenuPage extends StatelessWidget {
               Expanded(
                 child: MaterialButton(
                   height: 100.0,
-                  minWidth: 300.0,
+                  minWidth: buttonWidth,
                   color: Colors.white,
                   textColor: colorBlue,
                   onPressed: () => {Scaffold.of(context).showSnackBar(snackBar)},
                   splashColor: colorGreen,
-                  shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(20.0)),
+                  shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(20.0)),
                   child: Text(
                     'SUSTAIN',
                     style: TextStyle(
@@ -94,12 +99,12 @@ class MenuPage extends StatelessWidget {
               Expanded(
                 child: MaterialButton(
                   height: 100.0,
-                  minWidth: 300.0,
+                  minWidth: buttonWidth,
                   color: Colors.white,
                   textColor: colorBlue,
                   onPressed: () => {Scaffold.of(context).showSnackBar(snackBar)},
                   splashColor: colorGreen,
-                  shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(20.0)),
+                  shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(20.0)),
                   child: Text(
                     'LIFE-CYCLE',
                     style: TextStyle(
@@ -111,7 +116,8 @@ class MenuPage extends StatelessWidget {
               ),
 
               Container(
-                padding: EdgeInsets.only(left: 35, right: 35, top: 20, bottom: 40),
+                padding: EdgeInsets.only(top: 20, bottom: 30),
+              width: buttonWidth,
                 child: Card(
                   color: colorBlue,
                   shape: RoundedRectangleBorder(
@@ -126,7 +132,7 @@ class MenuPage extends StatelessWidget {
                       }));
                     },
                     child: Container(
-                      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                      padding: EdgeInsets.symmetric( vertical: 20),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
