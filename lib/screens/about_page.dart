@@ -54,7 +54,6 @@ class AboutPage extends StatelessWidget {
               ],
             ),
           ),
-
           Container(
             padding: EdgeInsets.only(left: 15, right: 15),
             child: Card(
@@ -72,7 +71,7 @@ class AboutPage extends StatelessWidget {
                     children: <Widget>[
                       Expanded(
                         child: Text('UNITED STATES', style: TextStyle(color: colorGreen)),
-    ),
+                      ),
                       IconButton(
                         onPressed: () {},
                         icon: Icon(

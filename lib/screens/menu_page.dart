@@ -108,7 +108,31 @@ class MenuPage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 40),
+
+              Container(
+                padding: EdgeInsets.only(left: 35, right: 35, top: 20, bottom: 40),
+                child: Card(
+                  color: colorBlue,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25.0),
+                  ),
+                  elevation: 2,
+                  child: InkWell(
+                    splashColor: Colors.blue.withAlpha(30),
+                    onTap: () {},
+                    child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text('ABOUT US', style: TextStyle(color: Colors.white)),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
             ],
           ),
         );
