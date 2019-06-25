@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sale_form_demo/screens/about_page.dart';
 import 'package:sale_form_demo/screens/strategies_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/company_full_logo.dart';
@@ -119,7 +120,11 @@ class MenuPage extends StatelessWidget {
                   elevation: 2,
                   child: InkWell(
                     splashColor: Colors.blue.withAlpha(30),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
+                        return AboutPage();
+                      }));
+                    },
                     child: Container(
                       padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                       child: Row(
