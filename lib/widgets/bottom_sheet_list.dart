@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sale_form_demo/data/question_model.dart';
+import 'package:sale_form_demo/screens/benchmark_page.dart';
 import 'package:sale_form_demo/screens/review_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/question_card_widget.dart';
@@ -30,7 +31,11 @@ class BottomSheetList extends StatelessWidget {
             SizedBox(width: 20),
             Expanded(
               child: RaisedButton(//<-- Button Benchmark
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
+                    return BenchmarkPage();
+                  }));
+                },
                 shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
                 color: Colors.white,
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),

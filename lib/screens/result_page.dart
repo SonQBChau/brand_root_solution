@@ -21,7 +21,7 @@ class ResultPage extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-          CompanyFullLogo(),
+          Center(child: CompanyFullLogo()),
           SizedBox(height: 30),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 20),

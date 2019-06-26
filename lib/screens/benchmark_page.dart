@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/screens/result_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
@@ -24,7 +25,7 @@ class BenchmarkPage extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-          CompanyFullLogo(),
+          Center(child: CompanyFullLogo()),
           SizedBox(height: 30),
           ..._buildFormWidgets(_formKey),
           SizedBox(height: 30,),
@@ -53,7 +54,7 @@ class BenchmarkPage extends StatelessWidget {
               Expanded(
                 child: RaisedButton(//<-- Button Review
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
+                    Navigator.of(context).push(CupertinoPageRoute(builder: (BuildContext context){
                       return ResultPage();
                     }));
                   },
