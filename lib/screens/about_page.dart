@@ -85,6 +85,10 @@ class AboutPage extends StatelessWidget {
               ),
             ),
           ),
+          Container(
+            color: colorGrey5,
+
+          ),
           SizedBox(
             height: 40,
           ),

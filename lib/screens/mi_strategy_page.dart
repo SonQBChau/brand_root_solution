@@ -26,17 +26,19 @@ class MiStrategyPage extends StatelessWidget {
         child: Stack(
           children: <Widget>[
             Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Container(
-                  height: 80,
-                  padding: EdgeInsets.only(left: 30),
-                  child: Text(
-                    'MI Strategy\nManagement',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 30,
-                      fontWeight: FontWeight.w500,
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Container(
+                    height: 80,
+                    padding: EdgeInsets.only(left: 30),
+                    child: Text(
+                      'MI Strategy\nManagement',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 30,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
                 ),

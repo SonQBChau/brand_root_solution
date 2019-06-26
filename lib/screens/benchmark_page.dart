@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:sale_form_demo/screens/result_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/company_full_logo.dart';
+import 'package:flutter_masked_text/flutter_masked_text.dart';
 
 class BenchmarkPage extends StatelessWidget {
   @override
