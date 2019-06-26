@@ -41,9 +41,10 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
           children: <Widget>[
             SizedBox(height: 30),
             BackButton(),
-            CompanyFullLogo(),
-            SizedBox(height: 30),
+            Center(child: CompanyFullLogo()),
+            Spacer(),
             Expanded(
+              flex: 10,
               child: Stack(
                 children: <Widget>[
                   PageView(
@@ -107,6 +108,7 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
                 ],
               ),
             ),
+            Spacer(),
           ],
         ),
       ),

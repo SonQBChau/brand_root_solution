@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/screens/about_page.dart';
 import 'package:sale_form_demo/screens/strategies_page.dart';
@@ -63,7 +64,7 @@ class MenuPage extends StatelessWidget {
                   color: Colors.white,
                   textColor: colorBlue,
                   onPressed: () => {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => StrategiesPage()),)
+                        Navigator.push(context, CupertinoPageRoute(builder: (context) => StrategiesPage()),)
                       },
                   splashColor: colorGreen,
                   shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(20.0)),
@@ -127,12 +128,12 @@ class MenuPage extends StatelessWidget {
                   child: InkWell(
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
+                      Navigator.of(context).push(CupertinoPageRoute(builder: (BuildContext context){
                         return AboutPage();
                       }));
                     },
                     child: Container(
-                      padding: EdgeInsets.symmetric( vertical: 20),
+                      padding: EdgeInsets.symmetric( vertical: 10),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[

@@ -22,15 +22,9 @@ class CompanyLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    return Row(
-      children: <Widget>[
-        Expanded(child: SizedBox(width: 10)),
-        Image.asset(
-          logoUrl,
-          width: 100,
-        ),
-        Expanded(flex:12, child: SizedBox(width: 10)),
-      ],
+    return Image.asset(
+      logoUrl,
+      width: 100,
     );
   }
 }
@@ -40,21 +34,22 @@ class CompanyName extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Container(
-      padding: EdgeInsets.only( top: 40),
+      width: 300,
+      padding: EdgeInsets.only(left: 70, top: 40),
       child: Row(
         children: <Widget>[
-          Expanded(child: SizedBox(width: 10)),
+
           Text(
             company,
             style: TextStyle(
-                color: colorBlue, fontSize: 35, fontWeight: FontWeight.w500),
+                color: colorBlue, fontSize: 32, fontWeight: FontWeight.w700),
           ),
           Text(
             'ART',
             style: TextStyle(
-                color: colorGreen, fontSize: 35, fontWeight: FontWeight.w500),
+                color: colorGreen, fontSize: 32, fontWeight: FontWeight.w700),
           ),
-          Expanded(child: SizedBox(width: 10)),
+
         ],
       ),
     );

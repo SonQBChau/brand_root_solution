@@ -26,12 +26,11 @@ class ContentCardWidget extends StatelessWidget {
         );
       },
       child: Container(
-        width: 250,
         padding: EdgeInsets.symmetric(vertical: 40, horizontal: 30),
         margin: EdgeInsets.only(top: 10, bottom: bottom, left: 20, right: 20),
-        decoration: new BoxDecoration(
+        decoration:  BoxDecoration(
           color: colorBackground,
-          borderRadius: new BorderRadius.circular(20),
+          borderRadius:  BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
               color: Colors.black54,

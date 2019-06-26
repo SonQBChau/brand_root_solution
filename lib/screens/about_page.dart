@@ -21,7 +21,7 @@ class AboutPage extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-          CompanyFullLogo(),
+          Center(child: CompanyFullLogo()),
           SizedBox(height: 30),
           Image.asset('images/globe.png', fit: BoxFit.cover),
           Container(
