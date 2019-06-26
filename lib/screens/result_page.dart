@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sale_form_demo/screens/menu_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/company_full_logo.dart';
 
@@ -155,7 +156,9 @@ class ResultPage extends StatelessWidget {
                         Expanded(
                           child: RaisedButton(//<-- Button Benchmark
                             onPressed: () {
-
+                              Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
+                                return MenuPage();
+                              }));
                             },
                             shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(30.0)),
                             color: colorGreen,
