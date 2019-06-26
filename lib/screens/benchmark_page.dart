@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sale_form_demo/data/benchmark_model.dart';
 import 'package:sale_form_demo/screens/result_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/utils/validator.dart';
 import 'package:sale_form_demo/widgets/company_full_logo.dart';
 
+Benchmark benchmark = Benchmark();
 
 class BenchmarkPage extends StatefulWidget {
   @override
@@ -12,9 +14,11 @@ class BenchmarkPage extends StatefulWidget {
 }
 
 class _BenchmarkPageState extends State<BenchmarkPage> {
+
   @override
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
+
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -63,9 +67,9 @@ class _BenchmarkPageState extends State<BenchmarkPage> {
                 Expanded(
                   child: RaisedButton(//<-- Button Review
                     onPressed: () {
-//                      Navigator.of(context).push(CupertinoPageRoute(builder: (BuildContext context){
-//                        return ResultPage();
-//                      }));
+                      Navigator.of(context).push(CupertinoPageRoute(builder: (BuildContext context){
+                        return ResultPage(benchmark : benchmark);
+                      }));
                       _formKey.currentState.validate();
                       _formKey.currentState.save();
                     },
@@ -109,62 +113,63 @@ List<Widget> _buildFormWidgets() {
         'known as asset replacement value (ARV,'
         'replacement asset value (RAV), or estimated'
         'replacement value (ERV).',
-    initialValue: '\$1B',
-//    onValidate: (value) => validateEmpty(value, 'Please a value'),
-//    onSubmit: (value) =>  introForm.setName(value),
+    benchmarkValue: benchmark.getPlaceReplacementValue(),
+    onSubmit: (value) =>  benchmark.setPlaceReplacementValue(value),
   ));
 
   formWidget.add(BenchmarkCard(
     title: 'Scope Of Maintenance Costs',
     content: '',
-    initialValue: 'Routine + Turnaround maintenance Costs',
+    benchmarkValue: benchmark.getScopeMaintenanceCost(),
+    onSubmit: (value) =>  benchmark.setScopeMaintenanceCost(value),
   ));
   formWidget.add(BenchmarkCard(
     title: 'Annual Maintenance Cost',
     content: '',
-    initialValue: '\$20MM',
+    benchmarkValue: benchmark.getAnnualMaintenanceCost(),
+    onSubmit: (value) =>  benchmark.setAnnualMaintenanceCost(value),
   ));
-  formWidget.add(BenchmarkCard(
-    title: 'Select The Availability Units Of Measure',
-    content: '',
-    initialValue: 'Annual % Availability',
-  ));
-  formWidget.add(BenchmarkCard(
-    title: 'Program Improvement Detailed Creation',
-    content: 'Availability: The percentage of the time that an'
-        'asset is available for operation under normal'
-        'operating conditions. This includes the current'
-        'year non-turnaround downtime, plus annualized'
-        'turnaround down time.'
-        'Mechanical availability only accounts for'
-        'equipment related down time and Operational'
-        'Assets Utilization includes all down time except'
-        'for idle time (no demand).',
-    initialValue: 'Operational Asset Utilization',
-  ));
-  formWidget.add(BenchmarkCard(
-    title: 'Annual % Availability For Operational Asset Utilization',
-    content: '',
-    initialValue: '\$20MM',
-  ));
-  formWidget.add(BenchmarkCard(
-    title: 'Emergency Work Orders',
-    content: 'Availability: The percentage of the time that an'
-        'asset is available for operation under normal'
-        'operating conditions. This includes the current'
-        'year non-turnaround downtime, plus annualized'
-        'turnaround down time.'
-        'Mechanical availability only accounts for'
-        'equipment related down time and Operational'
-        'Assets Utilization includes all down time except'
-        'for idle time (no demand).',
-    initialValue: 'Emergency WOrk Orders % Total WOrk Orders',
-  ));
-  formWidget.add(BenchmarkCard(
-    title: 'Emergency Work',
-    content: '',
-    initialValue: '2%',
-  ));
+//  formWidget.add(BenchmarkCard(
+//    title: 'Select The Availability Units Of Measure',
+//    content: '',
+//    benchmarkValue: benchmark.availableUnitMeasure,
+//  ));
+//  formWidget.add(BenchmarkCard(
+//    title: 'Program Improvement Detailed Creation',
+//    content: 'Availability: The percentage of the time that an'
+//        'asset is available for operation under normal'
+//        'operating conditions. This includes the current'
+//        'year non-turnaround downtime, plus annualized'
+//        'turnaround down time.'
+//        'Mechanical availability only accounts for'
+//        'equipment related down time and Operational'
+//        'Assets Utilization includes all down time except'
+//        'for idle time (no demand).',
+//    benchmarkValue: benchmark.availableUnitMeasure,
+//  ));
+//  formWidget.add(BenchmarkCard(
+//    title: 'Annual % Availability For Operational Asset Utilization',
+//    content: '',
+//    benchmarkValue: benchmark.availableUnitMeasure,
+//  ));
+//  formWidget.add(BenchmarkCard(
+//    title: 'Emergency Work Orders',
+//    content: 'Availability: The percentage of the time that an'
+//        'asset is available for operation under normal'
+//        'operating conditions. This includes the current'
+//        'year non-turnaround downtime, plus annualized'
+//        'turnaround down time.'
+//        'Mechanical availability only accounts for'
+//        'equipment related down time and Operational'
+//        'Assets Utilization includes all down time except'
+//        'for idle time (no demand).',
+//    benchmarkValue: benchmark.emergencyWorkOrder,
+//  ));
+//  formWidget.add(BenchmarkCard(
+//    title: 'Emergency Work',
+//    content: '',
+//    benchmarkValue: benchmark.emergencyWork,
+//  ));
 
 
 
@@ -174,8 +179,9 @@ List<Widget> _buildFormWidgets() {
 class BenchmarkCard extends StatelessWidget {
   final String title;
   final String content;
-  final String initialValue;
-  BenchmarkCard({this.title, this.content, this.initialValue});
+  final String benchmarkValue;
+  final Function onSubmit;
+  BenchmarkCard({this.title, this.content, this.benchmarkValue, this.onSubmit});
 
   @override
   Widget build(BuildContext context) {
@@ -234,11 +240,11 @@ class BenchmarkCard extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(20.0)),
                   ),
                 ),
-                 initialValue: initialValue,
+                 initialValue: benchmarkValue,
                 style: TextStyle(color: colorGreen),
                 validator:(value) => validateEmpty(value, 'Please enter a value'), // call on form validate
                 onSaved: (value) {
-                  print(value);
+                  onSubmit(value);
                 }, // call on form save function
 
               )

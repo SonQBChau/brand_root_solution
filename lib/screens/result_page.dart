@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:sale_form_demo/data/benchmark_model.dart';
 import 'package:sale_form_demo/screens/menu_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/company_full_logo.dart';
 
 class ResultPage extends StatelessWidget {
+  final Benchmark benchmark;
+  ResultPage({this.benchmark});
+
   @override
   Widget build(BuildContext context) {
+    print(benchmark.placeReplacementValue);
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -79,31 +85,31 @@ class ResultPage extends StatelessWidget {
                     ),
                     ResultRow(
                       title: 'Plant Replacement Value',
-                      content: '\$1B',
+                      content: benchmark.placeReplacementValue,
                     ),
                     ResultRow(
                       title: 'Scope of Maintenance Costs',
-                      content: 'Routine + Turnaround\nMaintenance Costs',
+                      content: benchmark.scopeOfAvailability,
                     ),
                     ResultRow(
                       title: 'Annual maintenance Cost',
-                      content: '\$20MM',
+                      content: benchmark.annualMaintenanceCost,
                     ),
                     ResultRow(
                       title: 'Available units of Measure',
-                      content: 'Annual % Avalability',
+                      content: benchmark.availableUnitMeasure,
                     ),
                     ResultRow(
                       title: 'Scope of Availability Value',
-                      content: 'Operational Asset Utilization',
+                      content: benchmark.scopeOfAvailability,
                     ),
                     ResultRow(
                       title: 'Annual % Availability for Operational Asset Utilization',
-                      content: '96%',
+                      content: benchmark.operationAssetUtilization,
                     ),
                     ResultRow(
                       title: 'Emergency Work',
-                      content: '2%',
+                      content: benchmark.emergencyWork,
                     ),
                     Text(
                       'Maintenance/Plant Replacement Value | 5%',
