@@ -14,7 +14,7 @@ class Benchmark {
     this.annualMaintenanceCost  = '\$20MM',
     this.availableUnitMeasure = 'Annual % Avalability',
     this.scopeOfAvailability  = 'Operational Asset Utilization',
-    this.operationAssetUtilization  = '96%',
+    this.operationAssetUtilization  = '\$20MM',
     this.emergencyWorkOrder  = 'Emergency Work Orders % Total Work Orders',
     this.emergencyWork = '2%',
   });

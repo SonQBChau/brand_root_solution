@@ -129,47 +129,52 @@ List<Widget> _buildFormWidgets() {
     benchmarkValue: benchmark.getAnnualMaintenanceCost(),
     onSubmit: (value) =>  benchmark.setAnnualMaintenanceCost(value),
   ));
-//  formWidget.add(BenchmarkCard(
-//    title: 'Select The Availability Units Of Measure',
-//    content: '',
-//    benchmarkValue: benchmark.availableUnitMeasure,
-//  ));
-//  formWidget.add(BenchmarkCard(
-//    title: 'Program Improvement Detailed Creation',
-//    content: 'Availability: The percentage of the time that an'
-//        'asset is available for operation under normal'
-//        'operating conditions. This includes the current'
-//        'year non-turnaround downtime, plus annualized'
-//        'turnaround down time.'
-//        'Mechanical availability only accounts for'
-//        'equipment related down time and Operational'
-//        'Assets Utilization includes all down time except'
-//        'for idle time (no demand).',
-//    benchmarkValue: benchmark.availableUnitMeasure,
-//  ));
-//  formWidget.add(BenchmarkCard(
-//    title: 'Annual % Availability For Operational Asset Utilization',
-//    content: '',
-//    benchmarkValue: benchmark.availableUnitMeasure,
-//  ));
-//  formWidget.add(BenchmarkCard(
-//    title: 'Emergency Work Orders',
-//    content: 'Availability: The percentage of the time that an'
-//        'asset is available for operation under normal'
-//        'operating conditions. This includes the current'
-//        'year non-turnaround downtime, plus annualized'
-//        'turnaround down time.'
-//        'Mechanical availability only accounts for'
-//        'equipment related down time and Operational'
-//        'Assets Utilization includes all down time except'
-//        'for idle time (no demand).',
-//    benchmarkValue: benchmark.emergencyWorkOrder,
-//  ));
-//  formWidget.add(BenchmarkCard(
-//    title: 'Emergency Work',
-//    content: '',
-//    benchmarkValue: benchmark.emergencyWork,
-//  ));
+  formWidget.add(BenchmarkCard(
+    title: 'Select The Availability Units Of Measure',
+    content: '',
+    benchmarkValue: benchmark.getAvailableUnitMeasure(),
+    onSubmit: (value) =>  benchmark.setAvailableUnitMeasure(value),
+  ));
+  formWidget.add(BenchmarkCard(
+    title: 'Program Improvement Detailed Creation',
+    content: 'Availability: The percentage of the time that an'
+        'asset is available for operation under normal'
+        'operating conditions. This includes the current'
+        'year non-turnaround downtime, plus annualized'
+        'turnaround down time.'
+        'Mechanical availability only accounts for'
+        'equipment related down time and Operational'
+        'Assets Utilization includes all down time except'
+        'for idle time (no demand).',
+    benchmarkValue: benchmark.getScopeOfAvailability(),
+    onSubmit: (value) =>  benchmark.setScopeMaintenanceCost(value),
+  ));
+  formWidget.add(BenchmarkCard(
+    title: 'Annual % Availability For Operational Asset Utilization',
+    content: '',
+    benchmarkValue: benchmark.getOperationAssetUtilization(),
+    onSubmit: (value) =>  benchmark.setOperationAssetUtilization(value),
+  ));
+  formWidget.add(BenchmarkCard(
+    title: 'Emergency Work Orders',
+    content: 'Availability: The percentage of the time that an'
+        'asset is available for operation under normal'
+        'operating conditions. This includes the current'
+        'year non-turnaround downtime, plus annualized'
+        'turnaround down time.'
+        'Mechanical availability only accounts for'
+        'equipment related down time and Operational'
+        'Assets Utilization includes all down time except'
+        'for idle time (no demand).',
+    benchmarkValue: benchmark.getEmergencyWorkOrder(),
+    onSubmit: (value) =>  benchmark.setEmergencyWorkOrder(value),
+  ));
+  formWidget.add(BenchmarkCard(
+    title: 'Emergency Work',
+    content: '',
+    benchmarkValue: benchmark.getEmergencyWork(),
+    onSubmit: (value) =>  benchmark.setEmergencyWork(value)),
+  );
 
 
 
