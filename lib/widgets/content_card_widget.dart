@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
+import 'package:sale_form_demo/utils/app_color.dart';
+
 class ContentCardWidget extends StatelessWidget {
   final String title;
   final Widget navigateTo;
@@ -13,17 +15,27 @@ class ContentCardWidget extends StatelessWidget {
       {@required this.title, this.navigateTo, this.colorBackground, this.colorTitle, this.top, this.bottom})
       : assert(title != null),
         assert(colorBackground != null),
-        assert(colorTitle != null),
-        assert(navigateTo != null);
+        assert(colorTitle != null);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => navigateTo),
-        );
+        if(navigateTo != null) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => navigateTo),
+          );
+        }
+        else {
+          final snackBar = SnackBar(
+            content: Text(
+              'Please select MI Strategy Management',
+              style: TextStyle(fontWeight: FontWeight.w700, color: colorGrey20),
+            ),
+          );
+          Scaffold.of(context).showSnackBar(snackBar);
+        }
       },
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 40, horizontal: 30),
@@ -84,7 +96,7 @@ class ContentCardWidget extends StatelessWidget {
               ' that aim to prevent loss of containment events for all plant equipments.',
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 14,
+                fontSize: 13,
                 fontWeight: FontWeight.w500,
               ),
             )

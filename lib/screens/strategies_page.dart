@@ -40,7 +40,8 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             SizedBox(height: 30),
-            BackButton(),
+//            BackButton(),
+          BackButtonWidget(),
             Center(child: CompanyFullLogo()),
             Spacer(),
             Expanded(
@@ -69,7 +70,6 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
                         title: 'PM STRATEGY MANAGEMENT',
                         colorBackground: colorBlue,
                         colorTitle: colorGreen,
-                        navigateTo: MiStrategyPage(),
                       ),
                       ContentCardWidget(
                         top: topHeight,
@@ -77,7 +77,6 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
                         title: 'SPARE PARTS STRATEGY MANAGEMENT',
                         colorBackground: colorBlue,
                         colorTitle: colorGreen,
-                        navigateTo: MiStrategyPage(),
                       ),
                       ContentCardWidget(
                         top: topHeight,
@@ -85,7 +84,6 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
                         title: 'SAFETY SYSTEM MANAGEMENT',
                         colorBackground: colorBlue,
                         colorTitle: colorGreen,
-                        navigateTo: MiStrategyPage(),
                       ),
                       ContentCardWidget(
                         top: topHeight,
@@ -93,7 +91,6 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
                         title: 'PROCESS CONTROL STRATEGY',
                         colorBackground: colorBlue,
                         colorTitle: colorGreen,
-                        navigateTo: MiStrategyPage(),
                       ),
                     ],
                   ),
