@@ -36,60 +36,63 @@ class _BenchmarkPageState extends State<BenchmarkPage> {
       ),
       body: Form(
         key: _formKey,
-        child: ListView(
-          children: <Widget>[
-            Center(child: CompanyFullLogo()),
-            SizedBox(height: 30),
-            ..._buildFormWidgets(),
-            SizedBox(height: 30,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                SizedBox(width: 20),
-                Expanded(
-                  child: RaisedButton(//<-- Button Benchmark
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(30.0)),
-                    color: Colors.white,
-                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
-                    child: Text(
-                      'RETURN',
-                      style: TextStyle(
-                        color: colorBlue,
-                        fontSize: 12,
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              Center(child: CompanyFullLogo()),
+              SizedBox(height: 30),
+              ..._buildFormWidgets(),
+
+              SizedBox(height: 30,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  SizedBox(width: 20),
+                  Expanded(
+                    child: RaisedButton(//<-- Button Benchmark
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(30.0)),
+                      color: Colors.white,
+                      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+                      child: Text(
+                        'RETURN',
+                        style: TextStyle(
+                          color: colorBlue,
+                          fontSize: 12,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                SizedBox(width: 10),
-                Expanded(
-                  child: RaisedButton(//<-- Button Review
-                    onPressed: () {
-                      Navigator.of(context).push(CupertinoPageRoute(builder: (BuildContext context){
-                        return ResultPage(benchmark : benchmark);
-                      }));
-                      _formKey.currentState.validate();
-                      _formKey.currentState.save();
-                    },
-                    shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(30.0)),
-                    color: colorGreen,
-                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
-                    child: Text(
-                      'SEE RESULTS',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 12,
+                  SizedBox(width: 10),
+                  Expanded(
+                    child: RaisedButton(//<-- Button Review
+                      onPressed: () {
+                        Navigator.of(context).push(CupertinoPageRoute(builder: (BuildContext context){
+                          return ResultPage(benchmark : benchmark);
+                        }));
+                        _formKey.currentState.validate();
+                        _formKey.currentState.save();
+                      },
+                      shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(30.0)),
+                      color: colorGreen,
+                      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+                      child: Text(
+                        'SEE RESULTS',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 12,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                SizedBox(width: 20),
-              ],
-            ),
-            SizedBox(height: 30,),
-          ],
+                  SizedBox(width: 20),
+                ],
+              ),
+              SizedBox(height: 30,),
+            ],
+          ),
         ),
       ),
     );
@@ -147,7 +150,7 @@ List<Widget> _buildFormWidgets() {
         'Assets Utilization includes all down time except'
         'for idle time (no demand).',
     benchmarkValue: benchmark.getScopeOfAvailability(),
-    onSubmit: (value) =>  benchmark.setScopeMaintenanceCost(value),
+    onSubmit: (value) =>  benchmark.setScopeOfAvailability(value),
   ));
   formWidget.add(BenchmarkCard(
     title: 'Annual % Availability For Operational Asset Utilization',
