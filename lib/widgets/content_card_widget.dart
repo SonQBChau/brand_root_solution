@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
@@ -24,7 +25,7 @@ class ContentCardWidget extends StatelessWidget {
         if(navigateTo != null) {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => navigateTo),
+            CupertinoPageRoute(builder: (context) => navigateTo),
           );
         }
         else {

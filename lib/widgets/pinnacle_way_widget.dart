@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/screens/pinnacle_way_page.dart';
 
@@ -8,7 +9,7 @@ class PinnacleWayWidget extends StatelessWidget {
       child: InkWell(
         splashColor: Colors.blue.withAlpha(30),
         onTap: () {
-          Navigator.of(context).push(new MaterialPageRoute<Null>(
+          Navigator.of(context).push(new CupertinoPageRoute<Null>(
             builder: (BuildContext context) {
               return PinnacleWayPage();
             },

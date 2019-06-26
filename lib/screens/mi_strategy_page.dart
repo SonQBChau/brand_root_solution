@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
+import 'package:sale_form_demo/utils/size_config.dart';
 import 'package:sale_form_demo/widgets/flow_chart_widget.dart';
 import 'package:sale_form_demo/widgets/mi_strategy_bottom_sheet.dart';
 import 'package:sale_form_demo/widgets/pinnacle_way_widget.dart';
@@ -25,11 +26,13 @@ class MiStrategyPage extends StatelessWidget {
         child: Stack(
           children: <Widget>[
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Container(
+                  height: 80,
                   padding: EdgeInsets.only(left: 30),
                   child: Text(
-                    'MI Strategy Management',
+                    'MI Strategy\nManagement',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 30,
@@ -38,7 +41,7 @@ class MiStrategyPage extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.only(left: 30, top: 10, right: 20, bottom: 20),
+                  padding: EdgeInsets.only(left: 30, top: 12, right: 20, bottom: 20),
                   child: Text(
                     'Managing the risk based, proactive approach and generating the equipment plans/ strengths'
                     ' that aim to prevent loss of containment events for all plant equipments.',
