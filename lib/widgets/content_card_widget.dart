@@ -43,14 +43,32 @@ class ContentCardWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Transform.rotate(
-              angle: math.pi/2,
-              child: Image(
-                image: AssetImage("images/triangle_green.png"),
-                width: 20,
-                height: 20,
-              ),
+            Stack(
+              children: <Widget>[
+                Positioned(
+                  top: 5,
+                  child: Transform.rotate(
+                    angle: math.pi/2,
+                    child: Image(
+                      image: AssetImage("images/triangle_blue.png"),
+                      width: 20,
+                      height: 20,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                Transform.rotate(
+                  angle: math.pi/2,
+                  child: Image(
+                    image: AssetImage("images/triangle_blue.png"),
+                    width: 20,
+                    height: 20,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
             ),
+
             SizedBox(height: 10),
             Text(
               title,
