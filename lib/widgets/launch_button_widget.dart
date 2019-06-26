@@ -64,6 +64,7 @@ class _LaunchButtonWidgetState extends State<LaunchButtonWidget>
     }
     else {
       final snackBar = SnackBar(
+        duration: Duration(milliseconds: 500),
         content: Text(
           'Please enter the required field(s)!',
           style: TextStyle(fontWeight: FontWeight.w700, color: colorGrey20),
@@ -72,10 +73,10 @@ class _LaunchButtonWidgetState extends State<LaunchButtonWidget>
       Scaffold.of(context).showSnackBar(snackBar);
 
 
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => MenuPage()),
-      );
+//      Navigator.push(
+//        context,
+//        MaterialPageRoute(builder: (context) => MenuPage()),
+//      );
     }
   }
 

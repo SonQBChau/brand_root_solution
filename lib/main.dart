@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'GothicA1',
       ),
 
-      home: MenuPage(),
+      home: BenchmarkPage(),
 //home: MyHomePage(),
 
 

@@ -2,10 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/screens/result_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
+import 'package:sale_form_demo/utils/validator.dart';
 import 'package:sale_form_demo/widgets/company_full_logo.dart';
-import 'package:flutter_masked_text/flutter_masked_text.dart';
 
-class BenchmarkPage extends StatelessWidget {
+
+class BenchmarkPage extends StatefulWidget {
+  @override
+  _BenchmarkPageState createState() => _BenchmarkPageState();
+}
+
+class _BenchmarkPageState extends State<BenchmarkPage> {
   @override
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
@@ -24,64 +30,70 @@ class BenchmarkPage extends StatelessWidget {
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
-      body: ListView(
-        children: <Widget>[
-          Center(child: CompanyFullLogo()),
-          SizedBox(height: 30),
-          ..._buildFormWidgets(_formKey),
-          SizedBox(height: 30,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              SizedBox(width: 20),
-              Expanded(
-                child: RaisedButton(//<-- Button Benchmark
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(30.0)),
-                  color: Colors.white,
-                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
-                  child: Text(
-                    'RETURN',
-                    style: TextStyle(
-                      color: colorBlue,
-                      fontSize: 12,
+      body: Form(
+        key: _formKey,
+        child: ListView(
+          children: <Widget>[
+            Center(child: CompanyFullLogo()),
+            SizedBox(height: 30),
+            ..._buildFormWidgets(),
+            SizedBox(height: 30,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(width: 20),
+                Expanded(
+                  child: RaisedButton(//<-- Button Benchmark
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(30.0)),
+                    color: Colors.white,
+                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+                    child: Text(
+                      'RETURN',
+                      style: TextStyle(
+                        color: colorBlue,
+                        fontSize: 12,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              SizedBox(width: 10),
-              Expanded(
-                child: RaisedButton(//<-- Button Review
-                  onPressed: () {
-                    Navigator.of(context).push(CupertinoPageRoute(builder: (BuildContext context){
-                      return ResultPage();
-                    }));
-                  },
-                  shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(30.0)),
-                  color: colorGreen,
-                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
-                  child: Text(
-                    'SEE RESULTS',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 12,
+                SizedBox(width: 10),
+                Expanded(
+                  child: RaisedButton(//<-- Button Review
+                    onPressed: () {
+//                      Navigator.of(context).push(CupertinoPageRoute(builder: (BuildContext context){
+//                        return ResultPage();
+//                      }));
+                      _formKey.currentState.validate();
+                      _formKey.currentState.save();
+                    },
+                    shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(30.0)),
+                    color: colorGreen,
+                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+                    child: Text(
+                      'SEE RESULTS',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              SizedBox(width: 20),
-            ],
-          ),
-          SizedBox(height: 30,),
-        ],
+                SizedBox(width: 20),
+              ],
+            ),
+            SizedBox(height: 30,),
+          ],
+        ),
       ),
     );
   }
 }
 
-List<Widget> _buildFormWidgets(_formKey) {
+
+List<Widget> _buildFormWidgets() {
   List<Widget> formWidget = List();
 
   formWidget.add(BenchmarkCard(
@@ -97,19 +109,25 @@ List<Widget> _buildFormWidgets(_formKey) {
         'known as asset replacement value (ARV,'
         'replacement asset value (RAV), or estimated'
         'replacement value (ERV).',
+    initialValue: '\$1B',
+//    onValidate: (value) => validateEmpty(value, 'Please a value'),
+//    onSubmit: (value) =>  introForm.setName(value),
   ));
 
   formWidget.add(BenchmarkCard(
     title: 'Scope Of Maintenance Costs',
     content: '',
+    initialValue: 'Routine + Turnaround maintenance Costs',
   ));
   formWidget.add(BenchmarkCard(
     title: 'Annual Maintenance Cost',
     content: '',
+    initialValue: '\$20MM',
   ));
   formWidget.add(BenchmarkCard(
     title: 'Select The Availability Units Of Measure',
     content: '',
+    initialValue: 'Annual % Availability',
   ));
   formWidget.add(BenchmarkCard(
     title: 'Program Improvement Detailed Creation',
@@ -122,10 +140,12 @@ List<Widget> _buildFormWidgets(_formKey) {
         'equipment related down time and Operational'
         'Assets Utilization includes all down time except'
         'for idle time (no demand).',
+    initialValue: 'Operational Asset Utilization',
   ));
   formWidget.add(BenchmarkCard(
     title: 'Annual % Availability For Operational Asset Utilization',
     content: '',
+    initialValue: '\$20MM',
   ));
   formWidget.add(BenchmarkCard(
     title: 'Emergency Work Orders',
@@ -138,11 +158,15 @@ List<Widget> _buildFormWidgets(_formKey) {
         'equipment related down time and Operational'
         'Assets Utilization includes all down time except'
         'for idle time (no demand).',
+    initialValue: 'Emergency WOrk Orders % Total WOrk Orders',
   ));
   formWidget.add(BenchmarkCard(
     title: 'Emergency Work',
     content: '',
+    initialValue: '2%',
   ));
+
+
 
   return formWidget;
 }
@@ -150,7 +174,8 @@ List<Widget> _buildFormWidgets(_formKey) {
 class BenchmarkCard extends StatelessWidget {
   final String title;
   final String content;
-  BenchmarkCard({this.title, this.content});
+  final String initialValue;
+  BenchmarkCard({this.title, this.content, this.initialValue});
 
   @override
   Widget build(BuildContext context) {
@@ -208,10 +233,14 @@ class BenchmarkCard extends StatelessWidget {
                     ),
                     borderRadius: BorderRadius.all(Radius.circular(20.0)),
                   ),
-
-//                  hintText:'\$1B',
                 ),
+                 initialValue: initialValue,
                 style: TextStyle(color: colorGreen),
+                validator:(value) => validateEmpty(value, 'Please enter a value'), // call on form validate
+                onSaved: (value) {
+                  print(value);
+                }, // call on form save function
+
               )
             ],
           ),
