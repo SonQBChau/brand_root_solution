@@ -108,6 +108,10 @@ class ResultPage extends StatelessWidget {
                       content: benchmark.operationAssetUtilization,
                     ),
                     ResultRow(
+                      title: 'Emergency Work Orders',
+                      content: benchmark.emergencyWorkOrder,
+                    ),
+                    ResultRow(
                       title: 'Emergency Work',
                       content: benchmark.emergencyWork,
                     ),
