@@ -1,4 +1,4 @@
-package com.sonchau.sale_form_demo;
+package com.example.sale_form_demo;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;

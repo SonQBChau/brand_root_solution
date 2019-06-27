@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:sale_form_demo/data/benchmark_model.dart';
 import 'package:sale_form_demo/screens/menu_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/company_full_logo.dart';
+import 'package:esys_flutter_share/esys_flutter_share.dart';
 
 class ResultPage extends StatelessWidget {
   final Benchmark benchmark;
@@ -165,10 +167,18 @@ class ResultPage extends StatelessWidget {
                       children: <Widget>[
                         Expanded(
                           child: RaisedButton(//<-- Button Benchmark
-                            onPressed: () {
-                              Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
-                                return MenuPage();
-                              }));
+                            onPressed: () async {
+//                              Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
+//                                return MenuPage();
+//                              }));
+
+
+                              final ByteData bytes = await rootBundle.load('images/chart_1.png');
+                              await Share.file('PinnacleArt', 'pinnacleArt.png', bytes.buffer.asUint8List(), 'image/png', text: 'This is your result from PinnacleArt');
+
+
+
+
                             },
                             shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(30.0)),
                             color: colorGreen,
