@@ -64,13 +64,15 @@ class ResultPage extends StatelessWidget {
                       Expanded(
                         child: RaisedButton(//<-- Button Benchmark
                           onPressed: () {
-                            Navigator.of(context).pop();
+                                Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
+                                return MenuPage();
+                              }));
                           },
                           shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(30.0)),
                           color: Colors.white,
                           padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
                           child: Text(
-                            'RETURN TO BENCHMARK',
+                            'RETURN TO MENU',
                             style: TextStyle(
                               color: colorBlue,
                               fontSize: 12,
@@ -86,13 +88,6 @@ class ResultPage extends StatelessWidget {
                       Expanded(
                         child: RaisedButton(//<-- Button Benchmark
                           onPressed: () async {
-//                              Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
-//                                return MenuPage();
-//                              }));
-
-
-//                              final ByteData bytes = await rootBundle.load('images/chart_1.png');
-//                              await Share.file('PinnacleArt', 'pinnacleArt.png', bytes.buffer.asUint8List(), 'image/png', text: 'This is your result from PinnacleArt');
 
                             var renderObject = globalKey.currentContext.findRenderObject();
 
@@ -102,9 +97,10 @@ class ResultPage extends StatelessWidget {
                             ByteData byteData =
                             await captureImage.toByteData(format: ui.ImageByteFormat.png);
                             var pngBytes = byteData.buffer.asUint8List();
-//                                    var pdf = writeCounter(pngBytes);
-//                                  final ByteData bytes = await rootBundle.load('images/chart_1.png');
                             await Share.file('PinnacleArt', 'pinnacleArt.png', pngBytes, 'image/png', text: 'This is your result from PinnacleArt');
+
+                            
+                            
 
 
                           },
@@ -335,23 +331,4 @@ class OverRepaintBoundaryState extends State<OverRepaintBoundary> {
   Widget build(BuildContext context) {
     return widget.child;
   }
-}
-
-Future<String> get _localPath async {
-  final directory = await getApplicationDocumentsDirectory();
-
-  return directory.path;
-}
-
-Future<File> get _localFile async {
-  final path = await _localPath;
-  print(path);
-  return File('$path/screenshot.png');
-}
-
-Future<void> writeCounter(pdf) async {
-  final file = await _localFile;
-
-  // Write the file
-  return file.writeAsBytesSync(pdf);
 }
