@@ -14,21 +14,31 @@ import 'package:sale_form_demo/screens/strategies_page.dart';
 import 'package:sale_form_demo/services/intro_form_provider.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 
-void main() => runApp(MyApp());
+Future main() async {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'PinnacleArt',
+      debugShowCheckedModeBanner: true,
       theme: ThemeData(
         primarySwatch: Colors.blue,
         fontFamily: 'GothicA1',
       ),
+      initialRoute: '/',
+      routes:{
+        '/':(context) => MyHomePage(),
+        '/customer':(context) => CustomerInfoPage(),
+        '/menu':(context) => MenuPage(),
+
+      }
 
 //      home: BenchmarkPage(),
-home: MyHomePage(),
+//home: MyHomePage(),
 
 
 //      home: ChangeNotifierProvider<IntroFormProvider>(

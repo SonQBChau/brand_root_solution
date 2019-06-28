@@ -1,6 +1,9 @@
 import 'package:animator/animator.dart';
 import 'package:flutter/material.dart';
+import 'package:sale_form_demo/data/form_texts.dart';
 import 'package:sale_form_demo/screens/my_home_page.dart';
+import 'package:sale_form_demo/utils/app_color.dart';
+import 'package:sale_form_demo/widgets/company_name_widget.dart';
 
 class LogoTextAnimator extends StatefulWidget {
   @override
@@ -49,3 +52,4 @@ class _LogoTextAnimatorState extends State<LogoTextAnimator> with SingleTickerPr
     ));
   }
 }
+

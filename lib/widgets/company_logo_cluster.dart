@@ -8,8 +8,8 @@ class CompanyLogoCluster extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200,
-      width: 200,
+      height: 150,
+      width: 150,
       child: Stack(
         children: <Widget>[
           GreenTriangle(),
@@ -34,7 +34,7 @@ class GreenTriangle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       top:6,
-      left:58,
+      left:39,
       child: Container(
         child: Transform.rotate(
           angle: -math.pi/2,
@@ -62,7 +62,7 @@ class BlueTriangle1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       top: -8,
-      left: 89,
+      left: 70,
       child: Container(
         child: Transform.rotate(
           angle: -math.pi/2,
@@ -74,8 +74,8 @@ class BlueTriangle1 extends StatelessWidget {
               translation: anim.value,
               child: Image.asset(
                 'images/triangle_blue.png',
-                height: 36,
-                width: 36,
+                height: 34,
+                width: 34,
               ),
             ),
           ),
@@ -91,7 +91,7 @@ class BlueTriangle2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       top: -4,
-      left: 80,
+      left: 60,
       child: Container(
         child: Transform.rotate(
           angle: -math.pi/2,
@@ -103,8 +103,8 @@ class BlueTriangle2 extends StatelessWidget {
               translation: anim.value,
               child: Image.asset(
                 'images/triangle_blue.png',
-                height: 36,
-                width: 36,
+                height: 34,
+                width: 34,
               ),
             ),
           ),
@@ -119,7 +119,7 @@ class BlueTriangle3 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       top: 1,
-      left: 30,
+      left: 12,
       child: Container(
         child: Transform.rotate(
           angle: math.pi/2,
@@ -131,8 +131,8 @@ class BlueTriangle3 extends StatelessWidget {
               translation: anim.value,
               child: Image.asset(
                 'images/triangle_blue.png',
-                height: 36,
-                width: 36,
+                height: 34,
+                width: 34,
               ),
             ),
           ),
@@ -148,7 +148,7 @@ class BlueTriangle4 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       top: 10,
-      left: 30,
+      left: 12,
       child: Container(
         child: Transform.rotate(
           angle: math.pi/2,
@@ -160,8 +160,8 @@ class BlueTriangle4 extends StatelessWidget {
               translation: anim.value,
               child: Image.asset(
                 'images/triangle_blue.png',
-                height: 36,
-                width: 36,
+                height: 34,
+                width: 34,
               ),
             ),
           ),
@@ -176,7 +176,7 @@ class BlueTriangle5 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       top: 33,
-      left: 12,
+      left: -5,
       child: Container(
         child: Transform.rotate(
           angle: math.pi/2,
@@ -188,8 +188,8 @@ class BlueTriangle5 extends StatelessWidget {
               translation: anim.value,
               child: Image.asset(
                 'images/triangle_blue.png',
-                height: 36,
-                width: 36,
+                height: 34,
+                width: 34,
               ),
             ),
           ),
@@ -204,7 +204,7 @@ class BlueTriangle6 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       top: 29,
-      left: 41,
+      left: 21,
       child: Container(
         child: Transform.rotate(
           angle: -math.pi/2,
@@ -216,8 +216,8 @@ class BlueTriangle6 extends StatelessWidget {
               translation: anim.value,
               child: Image.asset(
                 'images/triangle_blue.png',
-                height: 36,
-                width: 36,
+                height: 34,
+                width: 34,
               ),
             ),
           ),
@@ -232,7 +232,7 @@ class BlueTriangle7 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       top: 37,
-      left: 41,
+      left: 21,
       child: Container(
         child: Transform.rotate(
           angle: -math.pi/2,
@@ -244,8 +244,8 @@ class BlueTriangle7 extends StatelessWidget {
               translation: anim.value,
               child: Image.asset(
                 'images/triangle_blue.png',
-                height: 36,
-                width: 36,
+                height: 34,
+                width: 34,
               ),
             ),
           ),
@@ -260,7 +260,7 @@ class BlueTriangle8 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       top: 63,
-      left: 44,
+      left: 24,
       child: Container(
         child: Transform.rotate(
           angle: -math.pi/2,
@@ -272,8 +272,8 @@ class BlueTriangle8 extends StatelessWidget {
               translation: anim.value,
               child: Image.asset(
                 'images/triangle_blue.png',
-                height: 36,
-                width: 36,
+                height: 34,
+                width: 34,
               ),
             ),
           ),
@@ -288,7 +288,7 @@ class BlueTriangle9 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       top: 59,
-      left: 53,
+      left: 33,
       child: Container(
         child: Transform.rotate(
           angle: -math.pi/2,
@@ -300,8 +300,8 @@ class BlueTriangle9 extends StatelessWidget {
               translation: anim.value,
               child: Image.asset(
                 'images/triangle_blue.png',
-                height: 36,
-                width: 36,
+                height: 34,
+                width: 34,
               ),
             ),
           ),
@@ -316,7 +316,7 @@ class BlueTriangle10 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       top: 95,
-      left: 63,
+      left: 43,
       child: Container(
         child: Transform.rotate(
           angle: math.pi/2,
@@ -328,8 +328,8 @@ class BlueTriangle10 extends StatelessWidget {
               translation: anim.value,
               child: Image.asset(
                 'images/triangle_blue.png',
-                height: 36,
-                width: 36,
+                height: 34,
+                width: 34,
               ),
             ),
           ),
