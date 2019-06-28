@@ -16,15 +16,21 @@ class PinnacleWayPage extends StatelessWidget {
             onPressed: () => Navigator.of(context).pop(),
           ),
         ),
-        body: PhotoView.customChild(
-          childSize: Size(SizeConfig.safeAreaScreenWidth, SizeConfig.safeAreaScreenHeight - 100),
+        body: Hero(
+          tag: "hero1",
+//          child: PhotoView.customChild(
+//            childSize: Size(SizeConfig.safeAreaScreenWidth, SizeConfig.safeAreaScreenHeight - 100),
+//            child: Image.asset(
+//              "images/PinnacleWay_2.png",
+//            ),
+//            backgroundDecoration: BoxDecoration(
+//              color: colorBlue,
+//            ),
+//            minScale: 1.0,
+//          ),
           child: Image.asset(
             "images/PinnacleWay_2.png",
           ),
-          backgroundDecoration: BoxDecoration(
-            color: colorBlue,
-          ),
-          minScale: 1.0,
         ));
   }
 }
