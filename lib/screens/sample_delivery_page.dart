@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:photo_view/photo_view.dart';
+import 'package:sale_form_demo/utils/size_config.dart';
 
 class SampleDeliveryPage extends StatelessWidget {
   @override
@@ -12,17 +14,15 @@ class SampleDeliveryPage extends StatelessWidget {
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
-      body: Container(
-        width: double.infinity,
-        padding: EdgeInsets.only( bottom: 20),
-        color: Colors.white,
-        child: Container(
-          child: Image.asset(
-            "images/sample_deliverable.png",
-            fit: BoxFit.contain,
-          ),
+      body: PhotoView.customChild(
+        childSize: Size(SizeConfig.safeAreaScreenWidth, SizeConfig.safeAreaScreenHeight - 100),
+        child: Image.asset(
+          "images/sample_deliverable.png",
         ),
-      ),
-    );
+        backgroundDecoration: BoxDecoration(
+          color: Colors.white,
+        ),
+        minScale: 1.0,
+      ));
   }
 }
