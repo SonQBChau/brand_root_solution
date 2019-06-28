@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sale_form_demo/screens/menu_page.dart';
+import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/launch_button_widget.dart';
 import 'package:sale_form_demo/widgets/client_header_widget.dart';
 import 'package:sale_form_demo/widgets/text_widget_info_page.dart';
@@ -49,13 +51,12 @@ class _CustomerInfoPageState extends State<CustomerInfoPage> {
     //all validate
     if (_formKey.currentState.validate() && !showPositionError && !showIndustryError ){
       _formKey.currentState.save();
-      print(globals.customerName);
-      print(globals.customerCompany);
-      print(globals.customerEmail);
-      print(globals.customerIndustry);
-      print(globals.customerPosition);
-      print(globals.representativeUser);
-    }
+
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => MenuPage()),
+      );
+      }
 
 
 
