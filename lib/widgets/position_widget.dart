@@ -1,36 +1,40 @@
-
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:sale_form_demo/services/intro_form_provider.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
-import 'package:sale_form_demo/widgets/custom_divider.dart';
+import 'package:sale_form_demo/data/globals.dart' as globals;
 
-class PositionWidget extends StatelessWidget {
-  final List<DropdownMenuItem<int>> industryList = [
+class PositionWidget extends StatefulWidget {
+
+  @override
+  _PositionWidgetState createState() => _PositionWidgetState();
+}
+
+class _PositionWidgetState extends State<PositionWidget> {
+  int _value;
+  final List<DropdownMenuItem<int>> positionList = [
     DropdownMenuItem(
-      child: new Text('Executive'),
+      child:  Text('Executive'),
       value: 0,
     ),
     DropdownMenuItem(
-      child: new Text('Director'),
+      child:  Text('Director'),
       value: 1,
     ),
     DropdownMenuItem(
-      child: new Text('Manager'),
+      child:  Text('Manager'),
       value: 2,
     ),
   ];
 
   @override
   Widget build(BuildContext context) {
-//    final introForm = Provider.of<IntroFormProvider>(context);
 
-    return Padding(
-      padding: const EdgeInsets.only(left: 30, right: 30, top: 0, bottom: 0),
+
+    return Container(
+      padding:  EdgeInsets.only(left: 30, right: 30, top: 0, bottom: 0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-
           Container(
             padding: EdgeInsets.only(top: 13, bottom: 13, left: 15, right: 15),
             decoration: BoxDecoration(
@@ -40,34 +44,35 @@ class PositionWidget extends StatelessWidget {
             child: DropdownButtonHideUnderline(
               child: DropdownButton(
                   hint: Text(
-                    'POSITION',
+                    'Industry',
                     style: TextStyle(
-                        color: colorGreen,
+                        color: colorGrey20,
                         fontWeight: FontWeight.w600,
                         fontSize: 13),
                   ),
-                  icon: Icon(Icons.keyboard_arrow_down, color: colorGrey,),
+                  icon: Icon(Icons.keyboard_arrow_down, color: colorBlue,),
                   isDense: true,
                   isExpanded: true,
                   style: TextStyle(
                       color: colorGreen,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w600,
                       fontSize: 13),
-                  items: industryList,
-//                  value: introForm.getPosition(),
+                  items: positionList,
+                  value: _value,
                   onChanged: (value) {
-//                    introForm.setPosition(value);
-//                    introForm.setPositionError(false);
+                    globals.customerPosition = value;
+                    setState(() {
+                      _value = value;
+                    });
                   }),
             ),
           ),
           SizedBox(
-            height: 40,
+            height: 5,
           ),
 //          buildErrorMessage(introForm),
-          CustomDivider(),
           SizedBox(
-            height: 40,
+            height: 25,
           ),
         ],
       ),
@@ -75,14 +80,14 @@ class PositionWidget extends StatelessWidget {
   }
 
   buildErrorMessage(IntroFormProvider introForm) {
-    if (introForm.getPositionError()){
+    if (introForm.getIndustryError()){
       return Container(
         padding: EdgeInsets.only(top:5,bottom: 5, left: 5),
         child: Row(
           children: <Widget>[
             SizedBox(width: 10,),
             Text(
-              'Please select position',
+              'Please select industry',
               style:
               TextStyle(color: Colors.redAccent.shade700, fontSize: 12.0),
             ),

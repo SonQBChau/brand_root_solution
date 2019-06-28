@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:sale_form_demo/data/form_texts.dart';
-import 'package:sale_form_demo/services/intro_form_provider.dart';
 import 'package:sale_form_demo/widgets/launch_button_widget.dart';
 import 'package:sale_form_demo/widgets/client_header_widget.dart';
 import 'package:sale_form_demo/widgets/text_widget_info_page.dart';
@@ -9,6 +6,7 @@ import 'package:sale_form_demo/widgets/industry_widget.dart';
 import 'package:sale_form_demo/widgets/position_widget.dart';
 import 'package:sale_form_demo/widgets/representative_header_widget.dart';
 import 'package:sale_form_demo/utils/validator.dart';
+import 'package:sale_form_demo/data/globals.dart' as globals;
 
 //auto validate form
 //https://medium.com/@nitishk72/form-validation-in-flutter-d762fbc9212c
@@ -20,6 +18,15 @@ class CustomerInfoPage extends StatefulWidget {
 
 class _CustomerInfoPageState extends State<CustomerInfoPage> {
   final _formKey = GlobalKey<FormState>();
+
+  void validateForm(){
+    _formKey.currentState.save();
+    print('==============');
+    print(globals.customerName);
+    print(globals.customerCompany);
+    print(globals.customerEmail);
+    print(globals.representativeUser);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,19 +64,19 @@ class _CustomerInfoPageState extends State<CustomerInfoPage> {
     formWidget.add(TextWidgetInfoPage(
       hintTxt: 'Name',
       onValidate: (value) => validateEmpty(value, 'Please enter name'),
-      onSubmit: (value) =>  print(value),
+      onSubmit: (value) =>  globals.customerName = value,
     ));
     formWidget.add(TextWidgetInfoPage(
       hintTxt: 'Company',
       onValidate: (value) => validateEmpty(value, 'Please enter company'),
-      onSubmit: (value) =>  print(value),
+      onSubmit: (value) =>  globals.customerCompany = value,
     ));
     formWidget.add(TextWidgetInfoPage(
       hintTxt: 'Email',
       textCapitalization: TextCapitalization.none,
       textInputType: TextInputType.emailAddress,
       onValidate: validateEmail,
-      onSubmit: (value) =>  print(value),
+      onSubmit: (value) =>  globals.customerEmail = value,
     ));
 
     formWidget.add(IndustryWidget());
@@ -80,10 +87,10 @@ class _CustomerInfoPageState extends State<CustomerInfoPage> {
       hintTxt: 'User',
       textCapitalization: TextCapitalization.none,
       textInputType: TextInputType.emailAddress,
-      onSubmit: (value) =>  print(value),
+      onSubmit: (value) =>  globals.representativeUser = value,
     ));
-    formWidget.add(LaunchButtonWidget());
-//    formWidget.add(AnimatedButton());
+    formWidget.add(SizedBox(height: 10));
+    formWidget.add(LaunchButtonWidget(onSubmit: validateForm));
     formWidget.add(SizedBox(height: 30));
 
     return formWidget;

@@ -32,9 +32,19 @@ dependencies:
   image_gallery_saver: 1.1.0
 
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  flutter_launcher_icons: "^0.7.2"
+
+flutter_icons:
+  ios: true
+  android: true
+  image_path_ios: "icons/icon.png"
+  image_path_android: "icons/icon.png"
+  image_path: "icons/icon.png"
 
 
 # For information on the generic Dart part of this file, see the

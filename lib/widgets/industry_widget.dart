@@ -1,30 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:sale_form_demo/services/intro_form_provider.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
+import 'package:sale_form_demo/data/globals.dart' as globals;
 
-class IndustryWidget extends StatelessWidget {
+class IndustryWidget extends StatefulWidget {
+
+  @override
+  _IndustryWidgetState createState() => _IndustryWidgetState();
+}
+
+class _IndustryWidgetState extends State<IndustryWidget> {
+  int _value;
   final List<DropdownMenuItem<int>> industryList = [
     DropdownMenuItem(
-      child: new Text('Refining'),
+      child:  Text('Refining'),
       value: 0,
     ),
     DropdownMenuItem(
-      child: new Text('Drilling'),
+      child:  Text('Drilling'),
       value: 1,
     ),
     DropdownMenuItem(
-      child: new Text('Pumping'),
+      child:  Text('Pumping'),
       value: 2,
     ),
   ];
 
   @override
   Widget build(BuildContext context) {
-//    final introForm = Provider.of<IntroFormProvider>(context);
+
 
     return Container(
-      padding: const EdgeInsets.only(left: 30, right: 30, top: 0, bottom: 0),
+      padding:  EdgeInsets.only(left: 30, right: 30, top: 0, bottom: 0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -37,24 +44,26 @@ class IndustryWidget extends StatelessWidget {
             child: DropdownButtonHideUnderline(
               child: DropdownButton(
                   hint: Text(
-                    'INDUSTRY',
+                    'Industry',
                     style: TextStyle(
-                        color: colorGreen,
+                        color: colorGrey20,
                         fontWeight: FontWeight.w600,
                         fontSize: 13),
                   ),
-                  icon: Icon(Icons.keyboard_arrow_down, color: colorGrey,),
+                  icon: Icon(Icons.keyboard_arrow_down, color: colorBlue,),
                   isDense: true,
                   isExpanded: true,
                   style: TextStyle(
                       color: colorGreen,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w600,
                       fontSize: 13),
                   items: industryList,
-//                  value: introForm.getIndustry(),
+                  value: _value,
                   onChanged: (value) {
-//                    introForm.setIndustry(value);
-//                    introForm.setIndustryError(false);
+                      globals.customerIndustry = value;
+                      setState(() {
+                        _value = value;
+                      });
                   }),
             ),
           ),
@@ -89,6 +98,4 @@ class IndustryWidget extends StatelessWidget {
     else
       return Container();
   }
-
-
 }

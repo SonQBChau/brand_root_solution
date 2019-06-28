@@ -3,10 +3,14 @@ import 'package:provider/provider.dart';
 import 'package:sale_form_demo/screens/menu_page.dart';
 import 'package:sale_form_demo/services/intro_form_provider.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
+import 'package:sale_form_demo/data/globals.dart' as globals;
 
 // https://medium.com/flutter-community/flutter-bouncing-button-animation-ece660e19c91
 
 class LaunchButtonWidget extends StatefulWidget {
+  final Function onSubmit;
+  LaunchButtonWidget({this.onSubmit});
+
   @override
   _LaunchButtonWidgetState createState() => _LaunchButtonWidgetState();
 }
@@ -35,59 +39,57 @@ class _LaunchButtonWidgetState extends State<LaunchButtonWidget>
     super.dispose();
   }
 
-  void validateForm(IntroFormProvider introForm) {
-    bool isValid = true;
-    introForm.autoValidate = true;
-    //manually check dropdownbutton value
-    if (introForm.getIndustry() == null) {
-      introForm.setIndustryError(true);
-      isValid = false;
-    }
-    if (introForm.getPosition() == null) {
-      introForm.setPositionError(true);
-      isValid = false;
-    }
-
-    if (introForm
-        .getFormKey()
-        .currentState
-        .validate() && isValid) {
-      introForm
-          .getFormKey()
-          .currentState
-          .save();
-
-//            print("Customer Name: " + introForm.getName());
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => MenuPage()),
-      );
-    }
-    else {
-      final snackBar = SnackBar(
-        duration: Duration(milliseconds: 500),
-        content: Text(
-          'Please enter the required field(s)!',
-          style: TextStyle(fontWeight: FontWeight.w700, color: colorGrey20),
-        ),
-      );
-      Scaffold.of(context).showSnackBar(snackBar);
-
-
+  void validateForm() {
+//    bool isValid = true;
+//    introForm.autoValidate = true;
+//    //manually check dropdownbutton value
+//    if (introForm.getIndustry() == null) {
+//      introForm.setIndustryError(true);
+//      isValid = false;
+//    }
+//    if (introForm.getPosition() == null) {
+//      introForm.setPositionError(true);
+//      isValid = false;
+//    }
+//
+//    if (introForm
+//        .getFormKey()
+//        .currentState
+//        .validate() && isValid) {
+//      introForm
+//          .getFormKey()
+//          .currentState
+//          .save();
+//
 //      Navigator.push(
 //        context,
 //        MaterialPageRoute(builder: (context) => MenuPage()),
 //      );
-    }
+//    }
+//    else {
+//      final snackBar = SnackBar(
+//        duration: Duration(milliseconds: 500),
+//        content: Text(
+//          'Please enter the required field(s)!',
+//          style: TextStyle(fontWeight: FontWeight.w700, color: colorGrey20),
+//        ),
+//      );
+//      Scaffold.of(context).showSnackBar(snackBar);
+//    }
+
+//  print('==============');
+//  print(globals.representativeUser);
+
+
   }
 
-  Future handleOnPress(IntroFormProvider introForm) async {
+  Future handleOnPress() async {
     _controller.forward();
     await Future.delayed(Duration(milliseconds: 200));
     _controller.reverse();
     await Future.delayed(Duration(milliseconds: 500));
-    validateForm(introForm);
-
+//    validateForm();
+widget.onSubmit();
 
   }
 
@@ -98,7 +100,7 @@ class _LaunchButtonWidgetState extends State<LaunchButtonWidget>
 
     return GestureDetector(
     onTap: (){
-//      handleOnPress(introForm);
+      handleOnPress();
     },
 
       child: Transform.scale(
