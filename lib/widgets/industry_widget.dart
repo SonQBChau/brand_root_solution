@@ -21,7 +21,7 @@ class IndustryWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final introForm = Provider.of<IntroFormProvider>(context);
+//    final introForm = Provider.of<IntroFormProvider>(context);
 
     return Container(
       padding: const EdgeInsets.only(left: 30, right: 30, top: 0, bottom: 0),
@@ -51,17 +51,17 @@ class IndustryWidget extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                       fontSize: 13),
                   items: industryList,
-                  value: introForm.getIndustry(),
+//                  value: introForm.getIndustry(),
                   onChanged: (value) {
-                    introForm.setIndustry(value);
-                    introForm.setIndustryError(false);
+//                    introForm.setIndustry(value);
+//                    introForm.setIndustryError(false);
                   }),
             ),
           ),
           SizedBox(
             height: 5,
           ),
-          buildErrorMessage(introForm),
+//          buildErrorMessage(introForm),
           SizedBox(
             height: 25,
           ),

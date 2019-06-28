@@ -23,7 +23,7 @@ class PositionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final introForm = Provider.of<IntroFormProvider>(context);
+//    final introForm = Provider.of<IntroFormProvider>(context);
 
     return Padding(
       padding: const EdgeInsets.only(left: 30, right: 30, top: 0, bottom: 0),
@@ -54,17 +54,17 @@ class PositionWidget extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                       fontSize: 13),
                   items: industryList,
-                  value: introForm.getPosition(),
+//                  value: introForm.getPosition(),
                   onChanged: (value) {
-                    introForm.setPosition(value);
-                    introForm.setPositionError(false);
+//                    introForm.setPosition(value);
+//                    introForm.setPositionError(false);
                   }),
             ),
           ),
           SizedBox(
             height: 40,
           ),
-          buildErrorMessage(introForm),
+//          buildErrorMessage(introForm),
           CustomDivider(),
           SizedBox(
             height: 40,

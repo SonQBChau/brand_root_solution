@@ -10,12 +10,15 @@ import 'package:sale_form_demo/widgets/position_widget.dart';
 import 'package:sale_form_demo/widgets/representative_header_widget.dart';
 import 'package:sale_form_demo/utils/validator.dart';
 
+//auto validate form
 //https://medium.com/@nitishk72/form-validation-in-flutter-d762fbc9212c
 
 class CustomerInfoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final introForm = Provider.of<IntroFormProvider>(context);
+//    final introForm = Provider.of<IntroFormProvider>(context);
+    final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+    bool _autoValidate = false;
 
 
     return Scaffold(
@@ -31,36 +34,36 @@ class CustomerInfoPage extends StatelessWidget {
           ),
         ),
         child: Form(
-          key: introForm.getFormKey(),
-          autovalidate: introForm.autoValidate,
+          key: _formKey,
+          autovalidate: _autoValidate,
           child: ListView(
-            children: _buildFormWidgets(introForm),
+            children: _buildFormWidgets(_formKey),
           ),
         ),
       ),
     );
   }
 
-  List<Widget> _buildFormWidgets(IntroFormProvider introForm) {
+  List<Widget> _buildFormWidgets(GlobalKey _formKey) {
     List<Widget> formWidget = new List();
 
     formWidget.add(ClientHeaderWidget());
     formWidget.add(TextWidgetInfoPage(
       hintTxt: 'NAME',
       onValidate: (value) => validateEmpty(value, 'Please enter name'),
-      onSubmit: (value) =>  introForm.setName(value),
+      onSubmit: (value) =>  print(value),
     ));
     formWidget.add(TextWidgetInfoPage(
       hintTxt: 'COMPANY',
       onValidate: (value) => validateEmpty(value, 'Please enter company'),
-      onSubmit: (value) =>  introForm.setCompany(value),
+      onSubmit: (value) =>  print(value),
     ));
     formWidget.add(TextWidgetInfoPage(
       hintTxt: 'EMAIL',
       textCapitalization: TextCapitalization.none,
       textInputType: TextInputType.emailAddress,
       onValidate: validateEmail,
-      onSubmit: (value) =>  introForm.setEmail(value),
+      onSubmit: (value) =>  print(value),
     ));
 
     formWidget.add(IndustryWidget());
@@ -71,7 +74,7 @@ class CustomerInfoPage extends StatelessWidget {
       hintTxt: 'USER',
       textCapitalization: TextCapitalization.none,
       textInputType: TextInputType.emailAddress,
-      onSubmit: (value) =>  introForm.setRepresentativeEmail(value),
+      onSubmit: (value) =>  print(value),
     ));
     formWidget.add(LaunchButtonWidget());
 //    formWidget.add(AnimatedButton());

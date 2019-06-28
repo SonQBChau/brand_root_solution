@@ -1,29 +1,43 @@
 
-
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:sale_form_demo/data/form_images.dart';
-import 'package:sale_form_demo/data/form_texts.dart';
-import 'package:sale_form_demo/utils/app_color.dart';
-import 'package:animator/animator.dart';
+import 'package:sale_form_demo/screens/customer_info_page.dart';
+import 'package:sale_form_demo/utils/custom_page_transition.dart';
 import 'package:sale_form_demo/widgets/company_logo_cluster.dart';
-import 'package:sale_form_demo/widgets/company_logo_widget.dart';
 import 'package:sale_form_demo/widgets/logo_text_animator.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
+
+//http://flutterdevs.com/blog/flutter-splash-screen/
+
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin{
+
+  AnimationController animationController;
+  Animation<double> animation;
+
+  startTime() async {
+    var _duration = new Duration(seconds: 3);
+    return new Timer(_duration, navigationPage);
+  }
+
+  void navigationPage() {
+    Navigator.pushReplacement(context,CustomPageTransition(widget: CustomerInfoPage()));
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    startTime();
+  }
 
 
-
-
-class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-//        constraints: BoxConstraints.expand(
-//          width: MediaQuery.of(context).size.width,
-//          height: MediaQuery.of(context).size.height,
-//        ),
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage("images/Background.png"),

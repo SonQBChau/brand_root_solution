@@ -93,12 +93,12 @@ class _LaunchButtonWidgetState extends State<LaunchButtonWidget>
 
   @override
   Widget build(BuildContext context) {
-    final introForm = Provider.of<IntroFormProvider>(context);
+//    final introForm = Provider.of<IntroFormProvider>(context);
     _scale = 1 - _controller.value;
 
     return GestureDetector(
     onTap: (){
-      handleOnPress(introForm);
+//      handleOnPress(introForm);
     },
 
       child: Transform.scale(
