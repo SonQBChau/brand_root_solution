@@ -4,6 +4,8 @@ import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/data/globals.dart' as globals;
 
 class PositionWidget extends StatefulWidget {
+  bool showError;
+  PositionWidget({this.showError});
 
   @override
   _PositionWidgetState createState() => _PositionWidgetState();
@@ -63,6 +65,7 @@ class _PositionWidgetState extends State<PositionWidget> {
                     globals.customerPosition = value;
                     setState(() {
                       _value = value;
+                      widget.showError = false;
                     });
                   }),
             ),
@@ -70,7 +73,7 @@ class _PositionWidgetState extends State<PositionWidget> {
           SizedBox(
             height: 5,
           ),
-//          buildErrorMessage(introForm),
+          buildErrorMessage(widget.showError),
           SizedBox(
             height: 25,
           ),
@@ -79,15 +82,15 @@ class _PositionWidgetState extends State<PositionWidget> {
     );
   }
 
-  buildErrorMessage(IntroFormProvider introForm) {
-    if (introForm.getIndustryError()){
+  buildErrorMessage(bool showError) {
+    if (showError){
       return Container(
         padding: EdgeInsets.only(top:5,bottom: 5, left: 5),
         child: Row(
           children: <Widget>[
             SizedBox(width: 10,),
             Text(
-              'Please select industry',
+              'Please select position',
               style:
               TextStyle(color: Colors.redAccent.shade700, fontSize: 12.0),
             ),

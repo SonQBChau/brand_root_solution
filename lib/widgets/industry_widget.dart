@@ -4,6 +4,8 @@ import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/data/globals.dart' as globals;
 
 class IndustryWidget extends StatefulWidget {
+  bool showError;
+  IndustryWidget({this.showError});
 
   @override
   _IndustryWidgetState createState() => _IndustryWidgetState();
@@ -63,6 +65,7 @@ class _IndustryWidgetState extends State<IndustryWidget> {
                       globals.customerIndustry = value;
                       setState(() {
                         _value = value;
+                        widget.showError = false;
                       });
                   }),
             ),
@@ -70,7 +73,7 @@ class _IndustryWidgetState extends State<IndustryWidget> {
           SizedBox(
             height: 5,
           ),
-//          buildErrorMessage(introForm),
+          buildErrorMessage(widget.showError),
           SizedBox(
             height: 25,
           ),
@@ -79,8 +82,8 @@ class _IndustryWidgetState extends State<IndustryWidget> {
     );
   }
 
-  buildErrorMessage(IntroFormProvider introForm) {
-    if (introForm.getIndustryError()){
+  buildErrorMessage(bool showError) {
+    if (showError){
       return Container(
         padding: EdgeInsets.only(top:5,bottom: 5, left: 5),
         child: Row(

@@ -18,27 +18,60 @@ class CustomerInfoPage extends StatefulWidget {
 
 class _CustomerInfoPageState extends State<CustomerInfoPage> {
   final _formKey = GlobalKey<FormState>();
+  bool _autoValidate = false;
+  bool showIndustryError = false;
+  bool showPositionError = false;
 
   void validateForm(){
-    _formKey.currentState.save();
-    print('==============');
-    print(globals.customerName);
-    print(globals.customerCompany);
-    print(globals.customerEmail);
-    print(globals.representativeUser);
+    _autoValidate = true;
+    //manually check dropdownbutton value
+    if (globals.customerIndustry == null){
+      setState(() {
+        showIndustryError = true;
+      });
+    }
+    else{
+      setState(() {
+        showIndustryError = false;
+      });
+    }
+    if (globals.customerPosition == null){
+      setState(() {
+        showPositionError = true;
+      });
+    }
+    else{
+      setState(() {
+        showPositionError = false;
+      });
+    }
+
+    //all validate
+    if (_formKey.currentState.validate() && !showPositionError && !showIndustryError ){
+      _formKey.currentState.save();
+      print(globals.customerName);
+      print(globals.customerCompany);
+      print(globals.customerEmail);
+      print(globals.customerIndustry);
+      print(globals.customerPosition);
+      print(globals.representativeUser);
+    }
+
+
+
   }
 
   @override
   Widget build(BuildContext context) {
-    bool _autoValidate = false;
+
 
 
     return Scaffold(
       body: Container(
-        constraints: BoxConstraints.expand(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-        ),
+//        constraints: BoxConstraints.expand(
+//          width: MediaQuery.of(context).size.width,
+//          height: MediaQuery.of(context).size.height,
+//        ),
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage("images/Background.png"),
@@ -79,14 +112,13 @@ class _CustomerInfoPageState extends State<CustomerInfoPage> {
       onSubmit: (value) =>  globals.customerEmail = value,
     ));
 
-    formWidget.add(IndustryWidget());
-    formWidget.add(PositionWidget());
+    formWidget.add(IndustryWidget(showError: showIndustryError));
+    formWidget.add(PositionWidget(showError: showPositionError));
 
     formWidget.add(RepresentativeHeadderWidget());
     formWidget.add(TextWidgetInfoPage(
       hintTxt: 'User',
-      textCapitalization: TextCapitalization.none,
-      textInputType: TextInputType.emailAddress,
+      onValidate: (value) => validateEmpty(value, 'Please enter user'),
       onSubmit: (value) =>  globals.representativeUser = value,
     ));
     formWidget.add(SizedBox(height: 10));
