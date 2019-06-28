@@ -37,6 +37,7 @@ class _LaunchButtonWidgetState extends State<LaunchButtonWidget>
 
   void validateForm(IntroFormProvider introForm) {
     bool isValid = true;
+    introForm.autoValidate = true;
     //manually check dropdownbutton value
     if (introForm.getIndustry() == null) {
       introForm.setIndustryError(true);

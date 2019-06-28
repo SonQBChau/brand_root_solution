@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class IntroFormProvider with ChangeNotifier {
   final _formKey = GlobalKey<FormState>();
+  bool autoValidate = false;
   String _name;
   String _company;
   String _email;

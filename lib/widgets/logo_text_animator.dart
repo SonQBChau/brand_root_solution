@@ -28,7 +28,7 @@ class _LogoTextAnimatorState extends State<LogoTextAnimator> with SingleTickerPr
           });
 
     fadeAnimation = Tween(begin: 0.0, end: 1.0)
-        .animate(CurvedAnimation(parent: animationController, curve: Interval(0.4, 1.0, curve: Curves.fastOutSlowIn)))
+        .animate(CurvedAnimation(parent: animationController, curve: Interval(0.3, 1.0, curve: Curves.fastOutSlowIn)))
       ..addListener(() {
         setState(() {
           // The state that has changed here is the animation object’s value.

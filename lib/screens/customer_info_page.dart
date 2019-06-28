@@ -10,10 +10,13 @@ import 'package:sale_form_demo/widgets/position_widget.dart';
 import 'package:sale_form_demo/widgets/representative_header_widget.dart';
 import 'package:sale_form_demo/utils/validator.dart';
 
+//https://medium.com/@nitishk72/form-validation-in-flutter-d762fbc9212c
+
 class CustomerInfoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final introForm = Provider.of<IntroFormProvider>(context);
+
 
     return Scaffold(
       body: Container(
@@ -29,6 +32,7 @@ class CustomerInfoPage extends StatelessWidget {
         ),
         child: Form(
           key: introForm.getFormKey(),
+          autovalidate: introForm.autoValidate,
           child: ListView(
             children: _buildFormWidgets(introForm),
           ),

@@ -28,20 +28,20 @@ class MyApp extends StatelessWidget {
       ),
 
 //      home: BenchmarkPage(),
-//home: MyHomePage(),
+home: MyHomePage(),
 
 
-      home: ChangeNotifierProvider<IntroFormProvider>(
-        builder: (_) => IntroFormProvider(),
-          child: PageView(
-            scrollDirection: Axis.vertical,
-            children: <Widget>[
-              MyHomePage(),
-              CustomerInfoPage(),
-
-            ],
-          )
-      ),
+//      home: ChangeNotifierProvider<IntroFormProvider>(
+//        builder: (_) => IntroFormProvider(),
+//          child: PageView(
+//            scrollDirection: Axis.vertical,
+//            children: <Widget>[
+//              MyHomePage(),
+//              CustomerInfoPage(),
+//
+//            ],
+//          )
+//      ),
 
 
     );

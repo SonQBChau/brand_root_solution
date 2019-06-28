@@ -1,5 +1,7 @@
 
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/data/form_images.dart';
 import 'package:sale_form_demo/data/form_texts.dart';
@@ -7,6 +9,10 @@ import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:animator/animator.dart';
 import 'package:sale_form_demo/widgets/company_logo_cluster.dart';
 import 'package:sale_form_demo/widgets/logo_text_animator.dart';
+import 'package:states_rebuilder/states_rebuilder.dart';
+
+
+
 
 class MyHomePage extends StatelessWidget {
   @override
@@ -37,7 +43,11 @@ class MyHomePage extends StatelessWidget {
                 ),
               ),
             ),
-            SlideUpAnimator(MediaQuery.of(context).size.height),
+//            SlideUpAnimator(),
+    Injector<AnimatorModel>(
+    models: [() => AnimatorModel()],
+    builder: (_, __) => SlideUpAnimator()
+    ),
           ],
         ),
       ),
@@ -97,9 +107,13 @@ class IntroText extends StatelessWidget {
 }
 
 
+class AnimatorModel extends StatesRebuilder {
+  var isFinished = false;
+}
+
 class SlideUpAnimator extends StatelessWidget {
-    SlideUpAnimator(this.height);
-    final double height;
+
+    final model = Injector.get<AnimatorModel>();
 
   @override
   Widget build(BuildContext context) {
@@ -112,6 +126,12 @@ class SlideUpAnimator extends StatelessWidget {
         },
         cycles: 0,
         duration: Duration(seconds: 1),
+        endAnimationListener: (animBloc) {
+          model.isFinished = !model.isFinished;
+          Timer(Duration(milliseconds: 3000), () {
+            model.rebuildStates();
+          });
+        },
         builderMap: (Map<String, Animation> anim) => FadeTransition(
           opacity: anim["opacity"],
           child: FractionalTranslation(
@@ -123,3 +143,5 @@ class SlideUpAnimator extends StatelessWidget {
     );
   }
 }
+
+
