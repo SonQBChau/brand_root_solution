@@ -69,10 +69,6 @@ class _CustomerInfoPageState extends State<CustomerInfoPage> {
 
     return Scaffold(
       body: Container(
-//        constraints: BoxConstraints.expand(
-//          width: MediaQuery.of(context).size.width,
-//          height: MediaQuery.of(context).size.height,
-//        ),
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage("images/Background.png"),

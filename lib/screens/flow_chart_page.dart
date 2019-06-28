@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
+import 'package:photo_view/photo_view.dart';
+import 'package:sale_form_demo/utils/size_config.dart';
+
 
 class FlowChartPage extends StatelessWidget {
   @override
@@ -13,17 +16,15 @@ class FlowChartPage extends StatelessWidget {
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
-      body: Container(
-        width: double.infinity,
-        padding: EdgeInsets.only( bottom: 20),
-        color: colorBlue,
-        child: Container(
+        body: PhotoView.customChild(
+          childSize: Size(SizeConfig.safeAreaScreenWidth, SizeConfig.safeAreaScreenHeight - 100),
           child: Image.asset(
             "images/FlowChart_2.png",
-          fit: BoxFit.contain,
           ),
-        ),
-      ),
-    );
+          backgroundDecoration: BoxDecoration(
+            color: colorBlue,
+          ),
+          minScale: 1.0,
+        ));
   }
 }

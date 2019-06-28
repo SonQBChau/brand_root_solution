@@ -31,29 +31,12 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes:{
-        '/':(context) => MyHomePage(),
+        '/':(context) => MiStrategyPage(),
         '/customer':(context) => CustomerInfoPage(),
         '/menu':(context) => MenuPage(),
+        '/mi':(context) => MiStrategyPage(),
 
       }
-
-//      home: BenchmarkPage(),
-//home: MyHomePage(),
-
-
-//      home: ChangeNotifierProvider<IntroFormProvider>(
-//        builder: (_) => IntroFormProvider(),
-//          child: PageView(
-//            scrollDirection: Axis.vertical,
-//            children: <Widget>[
-//              MyHomePage(),
-//              CustomerInfoPage(),
-//
-//            ],
-//          )
-//      ),
-
-
     );
   }
 }
