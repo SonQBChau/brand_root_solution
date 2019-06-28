@@ -15,7 +15,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage>{
   startTime() async {
-    return  Timer(Duration(seconds: 3), navigationPage);
+    return  Timer(Duration(milliseconds: 3100), navigationPage);
   }
 
   void navigationPage() {

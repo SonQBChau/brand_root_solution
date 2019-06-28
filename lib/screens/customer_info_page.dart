@@ -55,17 +55,17 @@ class _CustomerInfoPageState extends State<CustomerInfoPage> {
 
     formWidget.add(ClientHeaderWidget());
     formWidget.add(TextWidgetInfoPage(
-      hintTxt: 'NAME',
+      hintTxt: 'Name',
       onValidate: (value) => validateEmpty(value, 'Please enter name'),
       onSubmit: (value) =>  print(value),
     ));
     formWidget.add(TextWidgetInfoPage(
-      hintTxt: 'COMPANY',
+      hintTxt: 'Company',
       onValidate: (value) => validateEmpty(value, 'Please enter company'),
       onSubmit: (value) =>  print(value),
     ));
     formWidget.add(TextWidgetInfoPage(
-      hintTxt: 'EMAIL',
+      hintTxt: 'Email',
       textCapitalization: TextCapitalization.none,
       textInputType: TextInputType.emailAddress,
       onValidate: validateEmail,
@@ -77,7 +77,7 @@ class _CustomerInfoPageState extends State<CustomerInfoPage> {
 
     formWidget.add(RepresentativeHeadderWidget());
     formWidget.add(TextWidgetInfoPage(
-      hintTxt: 'USER',
+      hintTxt: 'User',
       textCapitalization: TextCapitalization.none,
       textInputType: TextInputType.emailAddress,
       onSubmit: (value) =>  print(value),
