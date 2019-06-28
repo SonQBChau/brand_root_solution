@@ -13,11 +13,16 @@ import 'package:sale_form_demo/utils/validator.dart';
 //auto validate form
 //https://medium.com/@nitishk72/form-validation-in-flutter-d762fbc9212c
 
-class CustomerInfoPage extends StatelessWidget {
+class CustomerInfoPage extends StatefulWidget {
+  @override
+  _CustomerInfoPageState createState() => _CustomerInfoPageState();
+}
+
+class _CustomerInfoPageState extends State<CustomerInfoPage> {
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
-//    final introForm = Provider.of<IntroFormProvider>(context);
-    final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
     bool _autoValidate = false;
 
 
@@ -40,6 +45,7 @@ class CustomerInfoPage extends StatelessWidget {
             children: _buildFormWidgets(_formKey),
           ),
         ),
+
       ),
     );
   }
@@ -82,6 +88,4 @@ class CustomerInfoPage extends StatelessWidget {
 
     return formWidget;
   }
-
-
 }

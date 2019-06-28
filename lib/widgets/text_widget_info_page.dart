@@ -36,7 +36,7 @@ class TextWidgetInfoPage extends StatelessWidget {
                 borderRadius: BorderRadius.all(Radius.circular(20.0)),
               ),
               focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: colorBlue),
+                borderSide: BorderSide(color: colorGreen),
                 borderRadius: BorderRadius.all(Radius.circular(20.0)),
               ),
               errorBorder: OutlineInputBorder(
@@ -50,7 +50,7 @@ class TextWidgetInfoPage extends StatelessWidget {
 
               hintText: hintTxt,
               hintStyle: TextStyle(
-                  color: colorGreen,
+                  color: colorGrey20,
                   fontWeight: FontWeight.w600,
                   fontSize: 13),
               fillColor: Colors.white,

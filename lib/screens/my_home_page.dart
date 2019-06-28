@@ -13,14 +13,9 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin{
-
-  AnimationController animationController;
-  Animation<double> animation;
-
+class _MyHomePageState extends State<MyHomePage>{
   startTime() async {
-    var _duration = new Duration(seconds: 3);
-    return new Timer(_duration, navigationPage);
+    return  Timer(Duration(seconds: 3), navigationPage);
   }
 
   void navigationPage() {
