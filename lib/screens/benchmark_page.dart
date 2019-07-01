@@ -53,7 +53,10 @@ class _BenchmarkPageState extends State<BenchmarkPage> {
                   Expanded(
                     child: RaisedButton(//<-- Button Benchmark
                       onPressed: () {
-                        Navigator.of(context).pop();
+//                        Navigator.of(context).push(CupertinoPageRoute(builder: (BuildContext context){
+//                          return BenchmarkPage();
+//                        }));
+                      Navigator.of(context).pop();
                       },
                       shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(30.0)),
                       color: Colors.white,
@@ -81,7 +84,7 @@ class _BenchmarkPageState extends State<BenchmarkPage> {
                       color: colorGreen,
                       padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
                       child: Text(
-                        'SEE RESULTS',
+                        'CALCULATE',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 12,

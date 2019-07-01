@@ -4,6 +4,8 @@ import 'package:sale_form_demo/screens/pinnacle_way_page.dart';
 import 'dart:math' as math;
 import 'dart:io';
 
+import 'package:sale_form_demo/utils/app_color.dart';
+
 //https://medium.com/flutter-community/mastering-hero-animations-in-flutter-bc07e1bea327
 class PinnacleWayWidget extends StatelessWidget {
   @override
@@ -19,9 +21,13 @@ class PinnacleWayWidget extends StatelessWidget {
           ));
         },
         child: Container(
-          width: MediaQuery.of(context).size.width - 20,
-          height: 160,
-          margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          width: MediaQuery.of(context).size.width,
+          margin: EdgeInsets.symmetric( horizontal: 10),
+          padding: EdgeInsets.symmetric(vertical: 10),
+          decoration: BoxDecoration(
+            color: colorBlue40,
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+          ),
           child: Hero(
             tag: "PinnacleWay",
             flightShuttleBuilder: (

@@ -2,11 +2,13 @@ import 'dart:io';
 import 'dart:math';
 import 'dart:ui' as ui;
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sale_form_demo/data/benchmark_model.dart';
+import 'package:sale_form_demo/screens/benchmark_page.dart';
 import 'package:sale_form_demo/screens/menu_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/company_full_logo.dart';
@@ -68,15 +70,15 @@ class ResultPage extends StatelessWidget {
                       Expanded(
                         child: RaisedButton(//<-- Button Benchmark
                           onPressed: () {
-                                Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
-                                return MenuPage();
+                                Navigator.of(context).push(CupertinoPageRoute(builder: (BuildContext context){
+                                return BenchmarkPage();
                               }));
                           },
                           shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(30.0)),
                           color: Colors.white,
                           padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
                           child: Text(
-                            'RETURN TO MENU',
+                            'RE-CALCULATE',
                             style: TextStyle(
                               color: colorBlue,
                               fontSize: 12,

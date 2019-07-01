@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/screens/flow_chart_page.dart';
+import 'package:sale_form_demo/utils/app_color.dart';
 
 class FlowChartWidget extends StatelessWidget {
   @override
@@ -16,9 +17,13 @@ class FlowChartWidget extends StatelessWidget {
           ));
         },
         child: Container(
-          width: MediaQuery.of(context).size.width - 20,
-          height: 160,
-          margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          width: MediaQuery.of(context).size.width ,
+          margin: EdgeInsets.symmetric( horizontal: 10),
+          padding: EdgeInsets.symmetric(vertical: 10),
+          decoration: BoxDecoration(
+            color: colorBlue40,
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+          ),
           child: Hero(
             tag: "FlowChart",
             flightShuttleBuilder: (
