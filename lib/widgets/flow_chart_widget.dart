@@ -24,7 +24,7 @@ class FlowChartWidget extends StatelessWidget {
             color: colorBlue40,
             borderRadius: BorderRadius.all(Radius.circular(20)),
           ),
-          child: Hero(
+          child:  Hero(
             tag: "FlowChart",
             flightShuttleBuilder: (
                 BuildContext flightContext,
@@ -34,10 +34,30 @@ class FlowChartWidget extends StatelessWidget {
                 BuildContext toHeroContext,
                 ) {
               final Hero toHero = toHeroContext.widget;
-              return RotationTransition(
-                turns: animation,
+              return flightDirection == HeroFlightDirection.push
+                  ? RotationTransition(
+                turns: animation.drive(
+                  Tween<double>(begin: 0.0, end: 1.0).chain(
+                    CurveTween(
+                      curve: Interval(0.0, 1.0,
+                          curve: FlipUp()),
+                    ),
+                  ),
+                ),
+                child: toHero.child,
+              )
+                  : RotationTransition(
+                turns: animation.drive(
+                  Tween<double>(begin: 0.0, end: 1.0).chain(
+                    CurveTween(
+                      curve: Interval(0.0, 1.0,
+                          curve: FlipDown()),
+                    ),
+                  ),
+                ),
                 child: toHero.child,
               );
+
             },
             child: Image.asset(
               "images/FlowChart.png",
@@ -47,5 +67,25 @@ class FlowChartWidget extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+
+
+class FlipUp extends Curve {
+  @override
+  double transform(double t) {
+    assert(t >= 0.0 && t <= 1.0);
+    double u = 0.25 - t/4;
+    return u;
+  }
+}
+
+class FlipDown extends Curve {
+  @override
+  double transform(double t) {
+    assert(t >= 0.0 && t <= 1.0);
+    double u = 0 - t/4;
+    return u;
   }
 }
