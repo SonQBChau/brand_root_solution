@@ -49,10 +49,38 @@ class BenchmarkResultPage extends StatelessWidget {
             Center(child: CompanyFullLogo()),
             SizedBox(height: 30),
 
+
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Container(
+                padding: EdgeInsets.only(left: 30, bottom: 10),
+                child: Text('Benchmark Results',
+                style: TextStyle(
+                  color: colorBlue,
+                  fontWeight: FontWeight.w900,
+                  fontSize: 22,
+                ),
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Container(
+                padding: EdgeInsets.only(left: 30, right: 40, bottom: 20),
+                child: Text('Do you know where your greatest opportunities to improve the'
+                    'reliability of your plant are? We start and drive each of our'
+                    'partnerships from a comprehensive assessment to better '
+                    'understand where to focus solutions and resources/ Let us support'
+                    'you in discovering how you can make your facility more reliable and'
+                    'in turn make the world more reliable.'),
+              ),
+            ),
+
             Capturer(
               overRepaintKey: globalKey,
               benchmark: benchmark,
             ),
+
 
             Container(
               padding: EdgeInsets.only(left: 40, right: 40, bottom: 30),
@@ -131,14 +159,21 @@ class Capturer extends StatelessWidget {
                         height: 15,
                       ),
                       Image.asset(
-                        'images/chart_2.png',
+                        'images/Assess.png',
                         fit: BoxFit.cover,
                       ),
                       SizedBox(
                         height: 15,
                       ),
                       Image.asset(
-                        'images/chart_1.png',
+                        'images/Performance.png',
+                        fit: BoxFit.cover,
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Image.asset(
+                        'images/Roadmap.png',
                         fit: BoxFit.cover,
                       )
                     ],

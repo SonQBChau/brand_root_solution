@@ -77,6 +77,9 @@ flutter:
     - images/meter.png
     - images/sample_deliverable.png
     - images/globe.png
+    - images/Assess.png
+    - images/Performance.png
+    - images/Roadmap.png
 
 
   fonts:
