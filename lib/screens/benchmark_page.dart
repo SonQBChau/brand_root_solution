@@ -69,7 +69,6 @@ class _BenchmarkPageState extends State<BenchmarkPage> {
                       ),
                     ),
                   ),
-
               SizedBox(height: 30,),
             ],
           ),
