@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/data/benchmark_model.dart';
+import 'package:sale_form_demo/screens/benchmark_result_page.dart';
 import 'package:sale_form_demo/screens/result_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/utils/validator.dart';
@@ -52,7 +53,7 @@ class _BenchmarkPageState extends State<BenchmarkPage> {
                     child: RaisedButton(//<-- Button Review
                       onPressed: () {
                         Navigator.of(context).push(CupertinoPageRoute(builder: (BuildContext context){
-                          return ResultPage();
+                          return BenchmarkResultPage();
                         }));
                         _formKey.currentState.validate();
                         _formKey.currentState.save();

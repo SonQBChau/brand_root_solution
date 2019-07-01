@@ -3,15 +3,17 @@ import 'package:sale_form_demo/data/question_model.dart';
 import 'package:sale_form_demo/screens/benchmark_page.dart';
 import 'package:sale_form_demo/screens/result_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
+import 'package:sale_form_demo/data/globals.dart' as globals;
+
+QuestionCenter questionCenter = globals.questionCenter;
 
 class ReviewTabViewWidget extends StatelessWidget {
-  List<Question> selectedList;
-  ReviewTabViewWidget({this.selectedList});
+  final List<Question> selectedQuestions = questionCenter.questionBank.where((question)=>question.getValue()).toList();
 
   _buildQuestionCard() {
     List<ReviewCard> cardList = [];
-    for (int i = 0; i < selectedList.length; i++) {
-      cardList.add(ReviewCard(txt: selectedList[i].getLabel()));
+    for (int i = 0; i < selectedQuestions.length; i++) {
+      cardList.add(ReviewCard(txt: selectedQuestions[i].getLabel()));
     }
     return cardList;
   }
@@ -31,7 +33,7 @@ class ReviewTabViewWidget extends StatelessWidget {
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(30.0)),
                 color: Colors.white,
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
                 child: Text(
@@ -85,6 +87,7 @@ class ReviewCard extends StatelessWidget {
       elevation: 5,
       child: Container(
         padding: EdgeInsets.only(top: 20, bottom: 20, left: 30, right: 20),
+        width: double.infinity,
         child: Text(txt, style: TextStyle(color: colorGreen)),
       ),
     );

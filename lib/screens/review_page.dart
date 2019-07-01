@@ -4,10 +4,11 @@ import 'package:sale_form_demo/data/question_model.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/company_full_logo.dart';
 import 'package:sale_form_demo/widgets/review_tab_container_widget.dart';
+import 'package:sale_form_demo/data/globals.dart' as globals;
+
+QuestionCenter questionCenter = globals.questionCenter;
 
 class ReviewPage extends StatelessWidget {
-  final QuestionCenter questionCenter;
-  ReviewPage({this.questionCenter});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,7 @@ class ReviewPage extends StatelessWidget {
         children: <Widget>[
           CompanyFullLogo(),
           SizedBox(height: 30),
-          ReviewTabContainerWidget(selectedList:selectedQuestions),
+          ReviewTabContainerWidget(),
         ],
       ),
     );

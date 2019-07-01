@@ -5,8 +5,9 @@ import 'package:sale_form_demo/screens/benchmark_page.dart';
 import 'package:sale_form_demo/screens/review_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/question_card_widget.dart';
+import 'package:sale_form_demo/data/globals.dart' as globals;
 
-QuestionCenter questionCenter = QuestionCenter();
+QuestionCenter questionCenter = globals.questionCenter;
 
 class BottomSheetList extends StatelessWidget {
   _buildQuestionCard() {
@@ -53,10 +54,10 @@ class BottomSheetList extends StatelessWidget {
               child: RaisedButton(//<-- Button Review
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
-                    return ReviewPage(questionCenter: questionCenter);
+                    return ReviewPage();
                   }));
                 },
-                shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(30.0)),
                 color: colorGreen,
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
                 child: Text(

@@ -4,9 +4,6 @@ import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/review_tab_view_widget.dart';
 
 class ReviewTabContainerWidget extends StatefulWidget {
-  final List<Question> selectedList;
-  ReviewTabContainerWidget({Key key, this.selectedList}) : super(key: key);
-
   @override
   _ReviewTabContainerWidgetState createState() => _ReviewTabContainerWidgetState();
 }
@@ -102,7 +99,7 @@ class _ReviewTabContainerWidgetState extends State<ReviewTabContainerWidget> wit
                   Center(
                     child: Text('Evaluate'),
                   ),
-                  ReviewTabViewWidget(selectedList: widget.selectedList),
+                  ReviewTabViewWidget(),
                   Center(
                     child: Text('Sustain'),
                   ),
