@@ -11,11 +11,15 @@ import 'package:sale_form_demo/screens/menu_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/company_full_logo.dart';
 import 'package:esys_flutter_share/esys_flutter_share.dart';
-//import 'package:screenshot/screenshot.dart';
-//import 'package:image_gallery_saver/image_gallery_saver.dart';
+
+import 'package:sale_form_demo/data/globals.dart' as globals;
+
+//Benchmark benchmark = Benchmark();
+Benchmark benchmark = globals.benchmark;
+
 //https://stackoverflow.com/questions/53646649/how-to-take-screenshot-of-widget-beyond-the-screen-in-flutter
 class ResultPage extends StatelessWidget {
-  final Benchmark benchmark;
+//  final Benchmark benchmark;
 
   GlobalKey<OverRepaintBoundaryState> globalKey = GlobalKey();
 
@@ -23,7 +27,7 @@ class ResultPage extends StatelessWidget {
   ui.Image image;
 
 
-  ResultPage({this.benchmark});
+//  ResultPage({this.benchmark});
 
 
   @override

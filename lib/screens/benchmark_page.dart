@@ -5,8 +5,10 @@ import 'package:sale_form_demo/screens/result_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/utils/validator.dart';
 import 'package:sale_form_demo/widgets/company_full_logo.dart';
+import 'package:sale_form_demo/data/globals.dart' as globals;
 
-Benchmark benchmark = Benchmark();
+//Benchmark benchmark = Benchmark();
+Benchmark benchmark = globals.benchmark;
 
 class BenchmarkPage extends StatefulWidget {
   @override
@@ -70,7 +72,7 @@ class _BenchmarkPageState extends State<BenchmarkPage> {
                     child: RaisedButton(//<-- Button Review
                       onPressed: () {
                         Navigator.of(context).push(CupertinoPageRoute(builder: (BuildContext context){
-                          return ResultPage(benchmark : benchmark);
+                          return ResultPage();
                         }));
                         _formKey.currentState.validate();
                         _formKey.currentState.save();
