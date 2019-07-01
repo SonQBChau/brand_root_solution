@@ -31,6 +31,7 @@ class PinnacleWayPage extends StatelessWidget {
               minScale: 1.0,
             ),
           ),
-        ));
+        )
+    );
   }
 }

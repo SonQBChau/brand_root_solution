@@ -16,12 +16,26 @@ class FlowChartWidget extends StatelessWidget {
           ));
         },
         child: Container(
-          width: MediaQuery.of(context).size.width  - 20,
+          width: MediaQuery.of(context).size.width - 20,
           height: 160,
           margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("images/FlowChart.png"),
+          child: Hero(
+            tag: "FlowChart",
+            flightShuttleBuilder: (
+                BuildContext flightContext,
+                Animation<double> animation,
+                HeroFlightDirection flightDirection,
+                BuildContext fromHeroContext,
+                BuildContext toHeroContext,
+                ) {
+              final Hero toHero = toHeroContext.widget;
+              return RotationTransition(
+                turns: animation,
+                child: toHero.child,
+              );
+            },
+            child: Image.asset(
+              "images/FlowChart.png",
               fit: BoxFit.contain,
             ),
           ),

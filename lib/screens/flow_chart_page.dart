@@ -16,15 +16,22 @@ class FlowChartPage extends StatelessWidget {
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
-        body: PhotoView.customChild(
-          childSize: Size(SizeConfig.safeAreaScreenWidth, SizeConfig.safeAreaScreenHeight - 100),
-          child: Image.asset(
-            "images/FlowChart_2.png",
+        body: Container(
+          color: colorBlue,
+          child: Hero(
+            tag: "FlowChart",
+            child: PhotoView.customChild(
+              childSize: Size(SizeConfig.safeAreaScreenWidth, SizeConfig.safeAreaScreenHeight - 100),
+              child: Image.asset(
+                "images/FlowChart_2.png",
+              ),
+              backgroundDecoration: BoxDecoration(
+                color: colorBlue,
+              ),
+              minScale: 1.0,
+            ),
           ),
-          backgroundDecoration: BoxDecoration(
-            color: colorBlue,
-          ),
-          minScale: 1.0,
-        ));
+        )
+    );
   }
 }
