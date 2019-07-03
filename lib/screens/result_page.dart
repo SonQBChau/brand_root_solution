@@ -15,6 +15,7 @@ import 'package:sale_form_demo/widgets/company_full_logo.dart';
 import 'package:esys_flutter_share/esys_flutter_share.dart';
 
 import 'package:sale_form_demo/data/globals.dart' as globals;
+import 'package:sale_form_demo/widgets/result_row.dart';
 
 //Benchmark benchmark = Benchmark();
 Benchmark benchmark = globals.benchmark;
@@ -65,29 +66,6 @@ class ResultPage extends StatelessWidget {
               padding: EdgeInsets.only(left: 40, right: 40, bottom: 30),
               child: Column(
                 children: <Widget>[
-//                  Row(
-//                    children: <Widget>[
-//                      Expanded(
-//                        child: RaisedButton(//<-- Button Benchmark
-//                          onPressed: () {
-//                                Navigator.of(context).push(CupertinoPageRoute(builder: (BuildContext context){
-//                                return BenchmarkPage();
-//                              }));
-//                          },
-//                          shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(30.0)),
-//                          color: Colors.white,
-//                          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
-//                          child: Text(
-//                            'RE-CALCULATE',
-//                            style: TextStyle(
-//                              color: colorBlue,
-//                              fontSize: 12,
-//                            ),
-//                          ),
-//                        ),
-//                      ),
-//                    ],
-//                  ),
 
                   Row(
                     children: <Widget>[
@@ -151,7 +129,7 @@ class Capturer extends StatelessWidget {
       child: RepaintBoundary(
         child: Column(
           children: <Widget>[
-            Container(
+            Container( //<-- Benchmark Chart
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Card(
                 shape: RoundedRectangleBorder(
@@ -181,7 +159,7 @@ class Capturer extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
+            Container( //<-- Benchmark result
               padding: EdgeInsets.only(left: 20, right: 20, bottom: 30),
               child: Card(
                 shape: RoundedRectangleBorder(
@@ -276,50 +254,50 @@ class Capturer extends StatelessWidget {
   }
 }
 
-class ResultRow extends StatelessWidget {
-  final String title;
-  final String content;
-  ResultRow({this.title, this.content});
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(top: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            title,
-            style: TextStyle(
-              color: colorBlue,
-              fontWeight: FontWeight.w600,
-              fontSize: 16,
-            ),
-          ),
-          SizedBox(height: 5),
-          Text(
-            content,
-            style: TextStyle(
-              color: colorGreen,
-              fontWeight: FontWeight.w600,
-              fontSize: 16,
-            ),
-          ),
-          SizedBox(height: 10),
-          SizedBox(
-            height: 10.0,
-            child: Center(
-              child: Container(
-                margin: EdgeInsetsDirectional.only(start: 1.0, end: 1.0),
-                height: 1.0,
-                color: colorBlue,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
+//class ResultRow extends StatelessWidget {
+//  final String title;
+//  final String content;
+//  ResultRow({this.title, this.content});
+//  @override
+//  Widget build(BuildContext context) {
+//    return Container(
+//      padding: EdgeInsets.only(top: 20),
+//      child: Column(
+//        crossAxisAlignment: CrossAxisAlignment.start,
+//        children: <Widget>[
+//          Text(
+//            title,
+//            style: TextStyle(
+//              color: colorBlue,
+//              fontWeight: FontWeight.w600,
+//              fontSize: 16,
+//            ),
+//          ),
+//          SizedBox(height: 5),
+//          Text(
+//            content,
+//            style: TextStyle(
+//              color: colorGreen,
+//              fontWeight: FontWeight.w600,
+//              fontSize: 16,
+//            ),
+//          ),
+//          SizedBox(height: 10),
+//          SizedBox(
+//            height: 10.0,
+//            child: Center(
+//              child: Container(
+//                margin: EdgeInsetsDirectional.only(start: 1.0, end: 1.0),
+//                height: 1.0,
+//                color: colorBlue,
+//              ),
+//            ),
+//          ),
+//        ],
+//      ),
+//    );
+//  }
+//}
 
 
 

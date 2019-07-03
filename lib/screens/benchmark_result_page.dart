@@ -10,6 +10,7 @@ import 'package:sale_form_demo/screens/benchmark_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/company_full_logo.dart';
 import 'package:esys_flutter_share/esys_flutter_share.dart';
+import 'package:sale_form_demo/widgets/result_row.dart';
 import 'package:sale_form_demo/widgets/review_tab_view_widget.dart';
 import 'package:sale_form_demo/data/globals.dart' as globals;
 
@@ -156,13 +157,13 @@ class Capturer extends StatelessWidget {
                       Container(
                         padding: EdgeInsets.only(left: 5, bottom: 10),
                         child: Text(
-                          'SOLUTION STRATEGY',
+                          'STRATEGY SOLUTION',
                           style: TextStyle(color: colorBlue, fontWeight: FontWeight.w700, fontSize: 16),
                         ),
                       ),
                       ..._buildQuestionCard(), //<-- List of Cards
 
-                      Container(
+                      Container(//<-- One pager
                         padding: EdgeInsets.only(left: 5, top: 20),
                         child: Row(
                           children: <Widget>[
@@ -233,6 +234,185 @@ class Capturer extends StatelessWidget {
                 ),
               ),
             ),
+
+            Container( //<-- Benchmark Chart
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
+                elevation: 5,
+                child: Container(
+                  padding: EdgeInsets.only(top: 20, bottom: 20, left: 30, right: 20),
+                  child: Column(
+                    children: <Widget>[
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Image.asset(
+                        'images/chart_2.png',
+                        fit: BoxFit.cover,
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Image.asset(
+                        'images/chart_1.png',
+                        fit: BoxFit.cover,
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+
+            Container( //<-- Benchmark Results
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
+                elevation: 5,
+                child: Container(
+                  padding: EdgeInsets.only(top: 20, bottom: 20, left: 30, right: 20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Text(
+                        'BENCHMARK RESULTS',
+                        style: TextStyle(
+                          color: colorBlue,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 12,
+                        ),
+                      ),
+                      ResultRow(
+                        title: 'Plant Replacement Value',
+                        content: benchmark.placeReplacementValue,
+                      ),
+                      ResultRow(
+                        title: 'Scope of Maintenance Costs',
+                        content: benchmark.scopeOfAvailability,
+                      ),
+                      ResultRow(
+                        title: 'Annual maintenance Cost',
+                        content: benchmark.annualMaintenanceCost,
+                      ),
+                      ResultRow(
+                        title: 'Available units of Measure',
+                        content: benchmark.availableUnitMeasure,
+                      ),
+                      ResultRow(
+                        title: 'Scope of Availability Value',
+                        content: benchmark.scopeOfAvailability,
+                      ),
+                      ResultRow(
+                        title: 'Annual % Availability for Operational Asset Utilization',
+                        content: benchmark.operationAssetUtilization,
+                      ),
+                      ResultRow(
+                        title: 'Emergency Work Orders',
+                        content: benchmark.emergencyWorkOrder,
+                      ),
+                      ResultRow(
+                        title: 'Emergency Work',
+                        content: benchmark.emergencyWork,
+                      ),
+                      Text(
+                        'Maintenance/Plant Replacement Value | 5%',
+                        style: TextStyle(
+                          color: colorBlue,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 12,
+                        ),
+                      ),
+                      Text(
+                        'Availability | 96%',
+                        style: TextStyle(
+                          color: colorBlue,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 12,
+                        ),
+                      ),
+                      Text(
+                        'Reactivity Level | Low',
+                        style: TextStyle(
+                          color: colorBlue,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 12,
+                        ),
+                      ),
+                      SizedBox(height: 10,),
+
+                    ],
+                  ),
+                ),
+              ),
+            ),
+
+            Container( //<-- One Pager
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
+                elevation: 5,
+                child: Column(
+                  children: <Widget>[
+                    Container(//<-- One pager
+                      padding: EdgeInsets.only(left: 5, top: 20),
+                      child: Row(
+                        children: <Widget>[
+                          Text(
+                            'PinnacleART ',
+                            style: TextStyle(color: colorBlue, fontWeight: FontWeight.w700, fontSize: 18),
+                          ),
+                          Text(
+                            'Solomon RAM 2.0',
+                            style: TextStyle(color: colorGreen, fontWeight: FontWeight.w700, fontSize: 18),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(left: 5, top: 5),
+                      child: Text(
+                        'Sample one-pager',
+                        style: TextStyle(color: colorBlue, fontWeight: FontWeight.w700, fontSize: 12),
+                      ),
+                    ),
+
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Image.asset(
+                      'images/Assess.png',
+                      fit: BoxFit.cover,
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Image.asset(
+                      'images/Performance.png',
+                      fit: BoxFit.cover,
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Image.asset(
+                      'images/Roadmap.png',
+                      fit: BoxFit.cover,
+                    ),
+                  ],
+                )
+              ),
+            ),
+
+
+
           ],
         ),
       ),
