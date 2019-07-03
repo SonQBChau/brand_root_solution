@@ -13,6 +13,8 @@ import 'package:flutter/widgets.dart';
 
 const Duration _kExpand = Duration(milliseconds: 200);
 
+// https://stackoverflow.com/questions/48930372/flutter-collapsing-expansiontile-after-choosing-an-item
+
 /// A single-line [ListTile] with a trailing button that expands or collapses
 /// the tile to reveal or hide the [children].
 ///
@@ -76,10 +78,10 @@ class CustomExpansionTile extends StatefulWidget {
   final bool initiallyExpanded;
 
   @override
-  _CustomExpansionTileState createState() => _CustomExpansionTileState();
+  CustomExpansionTileState createState() => CustomExpansionTileState();
 }
 
-class _CustomExpansionTileState extends State<CustomExpansionTile> with SingleTickerProviderStateMixin {
+class CustomExpansionTileState extends State<CustomExpansionTile> with SingleTickerProviderStateMixin {
   static final Animatable<double> _easeOutTween = CurveTween(curve: Curves.easeOut);
   static final Animatable<double> _easeInTween = CurveTween(curve: Curves.easeIn);
   static final Animatable<double> _halfTween = Tween<double>(begin: 0.0, end: 0.5);
@@ -121,6 +123,10 @@ class _CustomExpansionTileState extends State<CustomExpansionTile> with SingleTi
   void dispose() {
     _controller.dispose();
     super.dispose();
+  }
+
+  void collapse() {
+    _handleTap();
   }
 
   void _handleTap() {

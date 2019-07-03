@@ -4,6 +4,15 @@ import 'package:sale_form_demo/widgets/company_full_logo.dart';
 import 'package:sale_form_demo/widgets/expansion_choice_widget.dart';
 
 class AboutPage extends StatelessWidget {
+  final ScrollController _scrollController = ScrollController();
+
+  void _scrollToBottom(bool isExpanded) {
+    _scrollController.animateTo(isExpanded
+        ? (_scrollController.position.maxScrollExtent + 170) // how much the expanding box
+        : (_scrollController.position.maxScrollExtent - 170) ,
+        duration: Duration(milliseconds: 500), curve: Curves.linear);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,6 +26,7 @@ class AboutPage extends StatelessWidget {
         ),
       ),
       body: ListView(
+        controller: _scrollController,
         children: <Widget>[
           Center(child: CompanyFullLogo()),
           SizedBox(height: 30),
@@ -42,7 +52,7 @@ class AboutPage extends StatelessWidget {
                   'and majors, as well as independents.',
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 20,
                 ),
                 Text(
                   'Search Nearest Location',
@@ -51,39 +61,10 @@ class AboutPage extends StatelessWidget {
               ],
             ),
           ),
-//          Container(
-//            padding: EdgeInsets.only(left: 15, right: 15),
-//            child: Card(
-//              color: colorGrey5,
-//              shape: RoundedRectangleBorder(
-//                borderRadius: BorderRadius.circular(25.0),
-//              ),
-//              elevation: 2,
-//              child: InkWell(
-//                splashColor: Colors.blue.withAlpha(30),
-//                onTap: () {},
-//                child: Container(
-//                  padding: EdgeInsets.only(top: 0, bottom: 0, left: 40, right: 10),
-//                  child: Row(
-//                    children: <Widget>[
-//                      Expanded(
-//                        child: Text('UNITED STATES', style: TextStyle(color: colorGreen)),
-//                      ),
-//                      IconButton(
-//                        onPressed: () {},
-//                        icon: Icon(
-//                          Icons.keyboard_arrow_down,
-//                          color: colorGrey,
-//                        ),
-//                      ),
-//                    ],
-//                  ),
-//                ),
-//              ),
-//            ),
-//          ),
-
-          ExpansionChoiceWidget(),
+          SizedBox(
+            height: 10,
+          ),
+          ExpansionChoiceWidget(scrollToBottom: _scrollToBottom),
           Container(
             color: colorGrey5,
 
