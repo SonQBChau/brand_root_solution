@@ -29,15 +29,15 @@ class BottomSheetList extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            SizedBox(width: 20),
-            Expanded(
+            SizedBox(
+              width: MediaQuery.of(context).size.width - 100,
               child: RaisedButton(//<-- Button Benchmark
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
                     return BenchmarkPage();
                   }));
                 },
-                shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(30.0)),
                 color: Colors.white,
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
                 child: Text(
@@ -49,8 +49,14 @@ class BottomSheetList extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(width: 10),
-            Expanded(
+          ],
+        ),
+        SizedBox(height: 10),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            SizedBox(
+              width: MediaQuery.of(context).size.width - 100,
               child: RaisedButton(//<-- Button Review
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
@@ -69,9 +75,9 @@ class BottomSheetList extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(width: 20),
           ],
         ),
+        SizedBox(width: 20),
         SizedBox(height: 30),
       ],
     );

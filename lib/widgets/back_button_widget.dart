@@ -15,7 +15,7 @@ class BackButtonWidget extends StatelessWidget {
               Navigator.pop(context);
             },
             child: Icon(
-              Icons.arrow_back,
+              Icons.clear,
               color: colorBlue,
               size: 44,
             )),

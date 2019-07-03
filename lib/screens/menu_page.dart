@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:sale_form_demo/screens/about_page.dart';
 import 'package:sale_form_demo/screens/strategies_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
+import 'package:sale_form_demo/utils/custom_page_transition.dart';
 import 'package:sale_form_demo/utils/size_config.dart';
 import 'package:sale_form_demo/widgets/company_full_logo.dart';
 
@@ -64,7 +65,11 @@ class MenuPage extends StatelessWidget {
                   color: Colors.white,
                   textColor: colorBlue,
                   onPressed: () => {
-                        Navigator.push(context, CupertinoPageRoute(builder: (context) => StrategiesPage()),)
+//                        Navigator.push(context, CupertinoPageRoute(builder: (context) => StrategiesPage()),)
+                  Navigator.push(
+                  context,
+                    FadeRoute(page: StrategiesPage()),
+                  )
                       },
                   splashColor: colorGreen,
                   shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(20.0)),
@@ -128,9 +133,9 @@ class MenuPage extends StatelessWidget {
                   child: InkWell(
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
-                      Navigator.of(context).push(CupertinoPageRoute(builder: (BuildContext context){
+                      Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
                         return AboutPage();
-                      }));
+                      },fullscreenDialog: true));
                     },
                     child: Container(
                       padding: EdgeInsets.symmetric( vertical: 10),

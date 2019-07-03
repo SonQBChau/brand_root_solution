@@ -5,11 +5,16 @@ import 'package:sale_form_demo/widgets/company_name_widget.dart';
 class CompanyFullLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return  Stack(
-      children: <Widget>[
-        CompanyLogo(),
-        CompanyName(),
-      ],
+    return  GestureDetector(
+      onTap: () {
+        Navigator.of(context).pushReplacementNamed('/menu');
+      },
+      child: Stack(
+        children: <Widget>[
+          CompanyLogo(),
+          CompanyName(),
+        ],
+      ),
     );
   }
 }

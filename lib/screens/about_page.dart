@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/company_full_logo.dart';
+import 'package:sale_form_demo/widgets/expansion_choice_widget.dart';
 
 class AboutPage extends StatelessWidget {
   @override
@@ -10,12 +11,8 @@ class AboutPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back,
-            size: 40,
-            color: colorBlue,
-          ),
+        leading:  IconButton(
+          icon:  Icon(Icons.clear, color: Colors.black,),
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
@@ -54,37 +51,39 @@ class AboutPage extends StatelessWidget {
               ],
             ),
           ),
-          Container(
-            padding: EdgeInsets.only(left: 15, right: 15),
-            child: Card(
-              color: colorGrey5,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(25.0),
-              ),
-              elevation: 2,
-              child: InkWell(
-                splashColor: Colors.blue.withAlpha(30),
-                onTap: () {},
-                child: Container(
-                  padding: EdgeInsets.only(top: 0, bottom: 0, left: 40, right: 10),
-                  child: Row(
-                    children: <Widget>[
-                      Expanded(
-                        child: Text('UNITED STATES', style: TextStyle(color: colorGreen)),
-                      ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.keyboard_arrow_down,
-                          color: colorGrey,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
+//          Container(
+//            padding: EdgeInsets.only(left: 15, right: 15),
+//            child: Card(
+//              color: colorGrey5,
+//              shape: RoundedRectangleBorder(
+//                borderRadius: BorderRadius.circular(25.0),
+//              ),
+//              elevation: 2,
+//              child: InkWell(
+//                splashColor: Colors.blue.withAlpha(30),
+//                onTap: () {},
+//                child: Container(
+//                  padding: EdgeInsets.only(top: 0, bottom: 0, left: 40, right: 10),
+//                  child: Row(
+//                    children: <Widget>[
+//                      Expanded(
+//                        child: Text('UNITED STATES', style: TextStyle(color: colorGreen)),
+//                      ),
+//                      IconButton(
+//                        onPressed: () {},
+//                        icon: Icon(
+//                          Icons.keyboard_arrow_down,
+//                          color: colorGrey,
+//                        ),
+//                      ),
+//                    ],
+//                  ),
+//                ),
+//              ),
+//            ),
+//          ),
+
+          ExpansionChoiceWidget(),
           Container(
             color: colorGrey5,
 

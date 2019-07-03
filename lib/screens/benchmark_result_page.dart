@@ -217,7 +217,7 @@ class Capturer extends StatelessWidget {
                       Container(
                         padding: EdgeInsets.only(left: 5, top: 5),
                         child: Text(
-                          '${globals.representativeUser}| Solution Engineer | 281.598.1330',
+                          '${globals.representativeUser} | Solution Engineer | 281.598.1330',
                           style: TextStyle(color: colorBlue, fontSize: 14),
                         ),
                       ),

@@ -65,29 +65,29 @@ class ResultPage extends StatelessWidget {
               padding: EdgeInsets.only(left: 40, right: 40, bottom: 30),
               child: Column(
                 children: <Widget>[
-                  Row(
-                    children: <Widget>[
-                      Expanded(
-                        child: RaisedButton(//<-- Button Benchmark
-                          onPressed: () {
-                                Navigator.of(context).push(CupertinoPageRoute(builder: (BuildContext context){
-                                return BenchmarkPage();
-                              }));
-                          },
-                          shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(30.0)),
-                          color: Colors.white,
-                          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
-                          child: Text(
-                            'RE-CALCULATE',
-                            style: TextStyle(
-                              color: colorBlue,
-                              fontSize: 12,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+//                  Row(
+//                    children: <Widget>[
+//                      Expanded(
+//                        child: RaisedButton(//<-- Button Benchmark
+//                          onPressed: () {
+//                                Navigator.of(context).push(CupertinoPageRoute(builder: (BuildContext context){
+//                                return BenchmarkPage();
+//                              }));
+//                          },
+//                          shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(30.0)),
+//                          color: Colors.white,
+//                          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+//                          child: Text(
+//                            'RE-CALCULATE',
+//                            style: TextStyle(
+//                              color: colorBlue,
+//                              fontSize: 12,
+//                            ),
+//                          ),
+//                        ),
+//                      ),
+//                    ],
+//                  ),
 
                   Row(
                     children: <Widget>[

@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sale_form_demo/screens/strategies_page.dart';
 import 'dart:math' as math;
 
 import 'package:sale_form_demo/utils/app_color.dart';
+import 'package:sale_form_demo/utils/custom_page_transition.dart';
 
 class ContentCardWidget extends StatelessWidget {
   final String title;
@@ -23,10 +25,15 @@ class ContentCardWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         if(navigateTo != null) {
+//          Navigator.push(
+//            context,
+//            CupertinoPageRoute(builder: (context) => navigateTo),
+//          );
           Navigator.push(
             context,
-            CupertinoPageRoute(builder: (context) => navigateTo),
+            FadeRoute(page: navigateTo),
           );
+
         }
         else {
           final snackBar = SnackBar(
