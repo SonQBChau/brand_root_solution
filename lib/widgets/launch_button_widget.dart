@@ -65,7 +65,7 @@ class _LaunchButtonWidgetState extends State<LaunchButtonWidget>
 
   Widget get _animatedButtonUI => Container(
     margin: EdgeInsets.symmetric(horizontal: 100),
-    padding: EdgeInsets.symmetric(vertical: 10),
+    padding: EdgeInsets.symmetric(vertical: 15),
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(100),
       boxShadow: [

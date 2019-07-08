@@ -93,19 +93,19 @@ class _CustomerInfoPageState extends State<CustomerInfoPage> {
     formWidget.add(ClientHeaderWidget());
     formWidget.add(TextWidgetInfoPage(
       hintTxt: 'Name',
-      onValidate: (value) => validateEmpty(value, 'Please enter name'),
+//      onValidate: (value) => validateEmpty(value, 'Please enter name'),
       onSubmit: (value) =>  globals.customerName = value,
     ));
     formWidget.add(TextWidgetInfoPage(
       hintTxt: 'Company',
-      onValidate: (value) => validateEmpty(value, 'Please enter company'),
+//      onValidate: (value) => validateEmpty(value, 'Please enter company'),
       onSubmit: (value) =>  globals.customerCompany = value,
     ));
     formWidget.add(TextWidgetInfoPage(
       hintTxt: 'Email',
       textCapitalization: TextCapitalization.none,
       textInputType: TextInputType.emailAddress,
-      onValidate: validateEmail,
+//      onValidate: validateEmail,
       onSubmit: (value) =>  globals.customerEmail = value,
     ));
 
