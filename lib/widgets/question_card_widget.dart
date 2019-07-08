@@ -104,6 +104,7 @@ class _QuestionCardState extends State<QuestionCard> with SingleTickerProviderSt
                               animationController.reverse();
                               widget.question.setValue(!widget.question.getValue());
                             },
+                          behavior: HitTestBehavior.opaque,
                             child: Container(
                               width: 80,
                               height: 80,
@@ -123,6 +124,7 @@ class _QuestionCardState extends State<QuestionCard> with SingleTickerProviderSt
                               animationController.forward();
                               widget.question.setValue(!widget.question.getValue());
                             },
+                          behavior: HitTestBehavior.opaque,
                             child: Container(
                               width: 80,
                               height: 80,
