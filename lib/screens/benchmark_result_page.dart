@@ -141,9 +141,10 @@ class Capturer extends StatelessWidget {
       key: overRepaintKey,
       child: RepaintBoundary(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
               child: Card(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20.0),
@@ -163,72 +164,6 @@ class Capturer extends StatelessWidget {
                       ),
                       ..._buildQuestionCard(), //<-- List of Cards
 
-                      Container(//<-- One pager
-                        padding: EdgeInsets.only(left: 5, top: 20),
-                        child: Row(
-                          children: <Widget>[
-                            Text(
-                              'PinnacleART ',
-                              style: TextStyle(color: colorBlue, fontWeight: FontWeight.w700, fontSize: 18),
-                            ),
-                            Text(
-                              'Solomon RAM 2.0',
-                              style: TextStyle(color: colorGreen, fontWeight: FontWeight.w700, fontSize: 18),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(left: 5, top: 5),
-                        child: Text(
-                          'Sample one-pager',
-                          style: TextStyle(color: colorBlue, fontWeight: FontWeight.w700, fontSize: 12),
-                        ),
-                      ),
-
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Image.asset(
-                        'images/Assess.png',
-                        fit: BoxFit.cover,
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Image.asset(
-                        'images/Performance.png',
-                        fit: BoxFit.cover,
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Image.asset(
-                        'images/Roadmap.png',
-                        fit: BoxFit.cover,
-                      ),
-
-                      Container(
-                        padding: EdgeInsets.only(left: 5, top: 20),
-                        child: Text(
-                          'Contact Info',
-                          style: TextStyle(color: colorBlue, fontWeight: FontWeight.w700, fontSize: 22),
-                        ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(left: 5, top: 5),
-                        child: Text(
-                          '${globals.representativeUser} | Solution Engineer | 281.598.1330',
-                          style: TextStyle(color: colorBlue, fontSize: 14),
-                        ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(left: 5, top: 5),
-                        child: Text(
-                          'solutionengineer@pinnacleart.com',
-                          style: TextStyle(color: colorBlue, fontSize: 14),
-                        ),
-                      ),
                     ],
                   ),
                 ),
@@ -236,7 +171,7 @@ class Capturer extends StatelessWidget {
             ),
 
             Container( //<-- Benchmark Chart
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
               child: Card(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20.0),
@@ -267,7 +202,7 @@ class Capturer extends StatelessWidget {
             ),
 
             Container( //<-- Benchmark Results
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
               child: Card(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20.0),
@@ -354,60 +289,94 @@ class Capturer extends StatelessWidget {
             ),
 
             Container( //<-- One Pager
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
               child: Card(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20.0),
                 ),
                 elevation: 5,
-                child: Column(
-                  children: <Widget>[
-                    Container(//<-- One pager
-                      padding: EdgeInsets.only(left: 5, top: 20),
-                      child: Row(
-                        children: <Widget>[
-                          Text(
-                            'PinnacleART ',
-                            style: TextStyle(color: colorBlue, fontWeight: FontWeight.w700, fontSize: 18),
-                          ),
-                          Text(
-                            'Solomon RAM 2.0',
-                            style: TextStyle(color: colorGreen, fontWeight: FontWeight.w700, fontSize: 18),
-                          ),
-                        ],
+                child: Container(
+                  margin: EdgeInsets.only(left: 30, right: 20, bottom: 30, top: 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Container(//<-- One pager
+                        padding: EdgeInsets.only(left: 5, top: 20),
+                        child: Row(
+                          children: <Widget>[
+                            Text(
+                              'PinnacleART ',
+                              style: TextStyle(color: colorBlue, fontWeight: FontWeight.w700, fontSize: 18),
+                            ),
+                            Text(
+                              'Solomon RAM 2.0',
+                              style: TextStyle(color: colorGreen, fontWeight: FontWeight.w700, fontSize: 18),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(left: 5, top: 5),
-                      child: Text(
-                        'Sample one-pager',
-                        style: TextStyle(color: colorBlue, fontWeight: FontWeight.w700, fontSize: 12),
+                      Container(
+                        padding: EdgeInsets.only(left: 5, top: 5),
+                        child: Text(
+                          'Sample one-pager',
+                          style: TextStyle(color: colorBlue, fontWeight: FontWeight.w700, fontSize: 12),
+                        ),
                       ),
-                    ),
 
-                    SizedBox(
-                      height: 15,
-                    ),
-                    Image.asset(
-                      'images/Assess.png',
-                      fit: BoxFit.cover,
-                    ),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    Image.asset(
-                      'images/Performance.png',
-                      fit: BoxFit.cover,
-                    ),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    Image.asset(
-                      'images/Roadmap.png',
-                      fit: BoxFit.cover,
-                    ),
-                  ],
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Image.asset(
+                        'images/Assess.png',
+                        fit: BoxFit.cover,
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Image.asset(
+                        'images/Performance.png',
+                        fit: BoxFit.cover,
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Image.asset(
+                        'images/Roadmap.png',
+                        fit: BoxFit.cover,
+                      ),
+                    ],
+                  ),
                 )
+              ),
+            ),
+
+            Container(
+              padding: EdgeInsets.only(left: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    padding: EdgeInsets.only(left: 5, top: 20),
+                    child: Text(
+                      'Contact Info',
+                      style: TextStyle(color: colorBlue, fontWeight: FontWeight.w700, fontSize: 22),
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(left: 5, top: 5),
+                    child: Text(
+                      '${globals.representativeUser} | Solution Engineer | 281.598.1330',
+                      style: TextStyle(color: colorBlue, fontSize: 14),
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(left: 5, top: 5),
+                    child: Text(
+                      'solutionengineer@pinnacleart.com',
+                      style: TextStyle(color: colorBlue, fontSize: 14),
+                    ),
+                  ),
+                ],
               ),
             ),
 
