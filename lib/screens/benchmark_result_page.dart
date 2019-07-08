@@ -153,11 +153,12 @@ class Capturer extends StatelessWidget {
                 elevation: 5,
                 child: Container(
                   padding: EdgeInsets.only(top: 20, bottom: 20, left: 30, right: 20),
+                  width: double.infinity,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Container(
-                        padding: EdgeInsets.only(left: 5, bottom: 10),
+                        padding: EdgeInsets.only( bottom: 20),
                         child: Text(
                           'STRATEGY SOLUTION',
                           style: TextStyle(color: colorBlue, fontWeight: FontWeight.w700, fontSize: 16),
@@ -222,7 +223,7 @@ class Capturer extends StatelessWidget {
                         style: TextStyle(
                           color: colorBlue,
                           fontWeight: FontWeight.w600,
-                          fontSize: 12,
+                          fontSize: 16,
                         ),
                       ),
                       ResultRow(

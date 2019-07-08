@@ -181,7 +181,7 @@ class BenchmarkCard extends StatelessWidget {
         ),
         elevation: 5,
         child: Container(
-          padding: EdgeInsets.only(top: 20, bottom: 20, left: 30, right: 20),
+          padding: EdgeInsets.only(top: 30, bottom: 30, left: 30, right: 30),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[

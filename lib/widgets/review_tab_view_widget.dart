@@ -80,16 +80,21 @@ class ReviewCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15.0),
-      ),
-      elevation: 5,
-      child: Container(
-        padding: EdgeInsets.only(top: 20, bottom: 20, left: 30, right: 20),
+//    return Card(
+//      shape: RoundedRectangleBorder(
+//        borderRadius: BorderRadius.circular(15.0),
+//      ),
+//      elevation: 5,
+//      child: Container(
+//        padding: EdgeInsets.only(top: 20, bottom: 20, left: 30, right: 20),
+//        width: double.infinity,
+//        child: Text(txt, style: TextStyle(color: colorGreen)),
+//      ),
+//    );
+    return Container(
+        padding: EdgeInsets.only(bottom: 20),
         width: double.infinity,
         child: Text(txt, style: TextStyle(color: colorGreen)),
-      ),
-    );
+      );
   }
 }
