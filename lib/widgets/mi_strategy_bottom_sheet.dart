@@ -87,20 +87,20 @@ class _MIStrategyBottomSheetState extends State<MIStrategyBottomSheet> with Sing
                 color: Color(0xFFf1f1f1),
                 borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
               ),
-              child: Column(//<-- bottom indicator
+              child: Column(
+                //<-- bottom indicator
                 children: <Widget>[
                   SizedBox(
                     height: 30.0,
                     width: 50,
                     child: Center(
                       child: Container(
-                        decoration:  BoxDecoration(
+                        decoration: BoxDecoration(
                           color: colorBlue,
-                            borderRadius: BorderRadius.circular(5),
+                          borderRadius: BorderRadius.circular(5),
                         ),
                         margin: EdgeInsetsDirectional.only(start: 1.0, end: 1.0),
                         height: 6.0,
-
                       ),
                     ),
                   ),

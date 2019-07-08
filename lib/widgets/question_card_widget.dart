@@ -45,10 +45,8 @@ class _QuestionCardState extends State<QuestionCard> with SingleTickerProviderSt
   @override
   Widget build(BuildContext context) {
     Color textColor = colorBlue;
-    IconData icon = Icons.add;
     if (widget.question.getValue()) {
       textColor = colorGreen;
-      icon = Icons.remove;
     }
     return Card(
       shape: RoundedRectangleBorder(
@@ -78,27 +76,27 @@ class _QuestionCardState extends State<QuestionCard> with SingleTickerProviderSt
           }
         },
         child: Container(
-          padding: EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 10),
+//          padding: EdgeInsets.only(top: 20, bottom: 20, left: 20, right: 20),
           child: Row(
             children: <Widget>[
               Expanded(
-                child: Text(widget.question.getLabel(), style: TextStyle(color: textColor)),
+                child: Container(
+                  padding: EdgeInsets.only(top: 20, bottom: 20, left: 20),
+                    child: Text(widget.question.getLabel(), style: TextStyle(color: textColor))
+                ),
               ),
               Container(
                 height: 30.0,
                 width: 1.0,
                 color: colorGrey20,
-                margin: const EdgeInsets.only(left: 20.0, right: 20.0),
+//                margin: const EdgeInsets.only(left: 20.0, right: 20.0),
               ),
 
               Center(
                   child: Container(
-                width: 30,
-                height: 30,
                 child: Stack(
                   children: <Widget>[
                     Positioned(
-                      bottom: 0,
                       child: Transform.scale(
                         scale: sizeAnimation.value,
                         child: GestureDetector(
@@ -106,15 +104,18 @@ class _QuestionCardState extends State<QuestionCard> with SingleTickerProviderSt
                               animationController.reverse();
                               widget.question.setValue(!widget.question.getValue());
                             },
-                            child: Icon(
-                              Icons.remove,
-                              size: 25,
-                              color: textColor,
+                            child: Container(
+                              width: 80,
+                              height: 80,
+                              child: Icon(
+                                Icons.remove,
+                                size: 25,
+                                color: textColor,
+                              ),
                             )),
                       ),
                     ),
                     Positioned(
-                      bottom: 0,
                       child: Transform.scale(
                         scale: sizeAnimation.value - 1,
                         child: GestureDetector(
@@ -122,10 +123,14 @@ class _QuestionCardState extends State<QuestionCard> with SingleTickerProviderSt
                               animationController.forward();
                               widget.question.setValue(!widget.question.getValue());
                             },
-                            child: Icon(
-                              Icons.add,
-                              size: 25,
-                              color: textColor,
+                            child: Container(
+                              width: 80,
+                              height: 80,
+                              child: Icon(
+                                Icons.add,
+                                size: 25,
+                                color: textColor,
+                              ),
                             )),
                       ),
                     )
