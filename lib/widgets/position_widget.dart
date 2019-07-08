@@ -1,104 +1,95 @@
 import 'package:flutter/material.dart';
-import 'package:sale_form_demo/services/intro_form_provider.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
-import 'package:sale_form_demo/data/globals.dart' as globals;
+import 'package:sale_form_demo/widgets/custom_expension_tile.dart';
 
 class PositionWidget extends StatefulWidget {
-  bool showError;
-  PositionWidget({this.showError});
-
   @override
   _PositionWidgetState createState() => _PositionWidgetState();
 }
 
 class _PositionWidgetState extends State<PositionWidget> {
-  int _value;
-  final List<DropdownMenuItem<int>> positionList = [
-    DropdownMenuItem(
-      child:  Text('Executive'),
-      value: 0,
-    ),
-    DropdownMenuItem(
-      child:  Text('Director'),
-      value: 1,
-    ),
-    DropdownMenuItem(
-      child:  Text('Manager'),
-      value: 2,
-    ),
-  ];
+  final GlobalKey<CustomExpansionTileState> expansionTileKey = new GlobalKey();
+
+  String title = 'Position';
+
+  _handleLocationChange(String value) {
+    setState(() {
+      title = value;
+    });
+    expansionTileKey.currentState.collapse();
+  }
 
   @override
   Widget build(BuildContext context) {
-
-
-    return Container(
-      padding:  EdgeInsets.only(left: 30, right: 30, top: 0, bottom: 0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Container(
-            padding: EdgeInsets.only(top: 13, bottom: 13, left: 15, right: 15),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(23),
+    var titleColor = title == 'Position'? colorGrey20 : colorGreen;
+    return Column(
+      children: <Widget>[
+        Container(
+          padding: EdgeInsets.only(left: 30, right: 30, top: 0, bottom: 0),
+          child: Card(
+            elevation: 0,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(25.0),
             ),
-            child: DropdownButtonHideUnderline(
-              child: DropdownButton(
-                  hint: Text(
-                    'Industry',
-                    style: TextStyle(
-                        color: colorGrey20,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 13),
-                  ),
-                  icon: Icon(Icons.keyboard_arrow_down, color: colorBlue,),
-                  isDense: true,
-                  isExpanded: true,
-                  style: TextStyle(
-                      color: colorGreen,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 13),
-                  items: positionList,
-                  value: _value,
-                  onChanged: (value) {
-                    globals.customerPosition = value;
-                    setState(() {
-                      _value = value;
-                      widget.showError = false;
-                    });
-                  }),
+            child: CustomExpansionTile(
+              key: expansionTileKey,
+              title: Container(
+                padding: EdgeInsets.only(top: 0, bottom: 0, left: 10, right: 10),
+                child: Text(
+                  title,
+                  style: TextStyle(color: titleColor, fontWeight: FontWeight.w600, fontSize: 13),
+                ),
+              ),
+              children: <Widget>[
+
+                IndustryChoice(
+                  title: 'Executive',
+                  onTap: _handleLocationChange,
+                ),
+                IndustryChoice(
+                  title: 'Director',
+                  onTap: _handleLocationChange,
+                ),
+                IndustryChoice(
+                  title: 'Manager',
+                  onTap: _handleLocationChange,
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+
+              ],
             ),
           ),
-          SizedBox(
-            height: 5,
-          ),
-          buildErrorMessage(widget.showError),
-          SizedBox(
-            height: 25,
-          ),
-        ],
-      ),
+        ),
+        SizedBox(
+          height: 30,
+        ),
+      ],
     );
   }
+}
 
-  buildErrorMessage(bool showError) {
-    if (showError){
-      return Container(
-        padding: EdgeInsets.only(top:5,bottom: 5, left: 5),
-        child: Row(
-          children: <Widget>[
-            SizedBox(width: 10,),
-            Text(
-              'Please select position',
-              style:
-              TextStyle(color: Colors.redAccent.shade700, fontSize: 12.0),
-            ),
-          ],
-        ),
-      );
-    }
-    else
-      return Container();
+class IndustryChoice extends StatelessWidget {
+  final String title;
+  final Function onTap;
+  IndustryChoice({this.title, this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        onTap(title);
+      },
+      child: Container(
+        padding: EdgeInsets.symmetric(vertical: 10),
+        child: Text(title,
+            style: TextStyle(
+                color: colorGreen,
+                fontWeight: FontWeight.w600,
+                fontSize: 13
+            )),
+      ),
+    );
   }
 }

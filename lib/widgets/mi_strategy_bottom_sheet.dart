@@ -91,12 +91,16 @@ class _MIStrategyBottomSheetState extends State<MIStrategyBottomSheet> with Sing
                 children: <Widget>[
                   SizedBox(
                     height: 30.0,
-                    width: 100,
+                    width: 50,
                     child: Center(
                       child: Container(
+                        decoration:  BoxDecoration(
+                          color: colorBlue,
+                            borderRadius: BorderRadius.circular(5),
+                        ),
                         margin: EdgeInsetsDirectional.only(start: 1.0, end: 1.0),
-                        height: 3.0,
-                        color: colorBlue,
+                        height: 6.0,
+
                       ),
                     ),
                   ),

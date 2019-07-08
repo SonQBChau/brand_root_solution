@@ -21,35 +21,35 @@ class CustomerInfoPage extends StatefulWidget {
 class _CustomerInfoPageState extends State<CustomerInfoPage> {
   final _formKey = GlobalKey<FormState>();
   bool _autoValidate = false;
-  bool showIndustryError = false;
-  bool showPositionError = false;
+//  bool showIndustryError = false;
+//  bool showPositionError = false;
 
   void validateForm(){
     _autoValidate = true;
     //manually check dropdownbutton value
-    if (globals.customerIndustry == null){
-      setState(() {
-        showIndustryError = true;
-      });
-    }
-    else{
-      setState(() {
-        showIndustryError = false;
-      });
-    }
-    if (globals.customerPosition == null){
-      setState(() {
-        showPositionError = true;
-      });
-    }
-    else{
-      setState(() {
-        showPositionError = false;
-      });
-    }
+//    if (globals.customerIndustry == null){
+//      setState(() {
+//        showIndustryError = true;
+//      });
+//    }
+//    else{
+//      setState(() {
+//        showIndustryError = false;
+//      });
+//    }
+//    if (globals.customerPosition == null){
+//      setState(() {
+//        showPositionError = true;
+//      });
+//    }
+//    else{
+//      setState(() {
+//        showPositionError = false;
+//      });
+//    }
 
     //all validate
-    if (_formKey.currentState.validate() && !showPositionError && !showIndustryError ){
+    if (_formKey.currentState.validate()){
       _formKey.currentState.save();
 
       Navigator.pushReplacement(
@@ -109,13 +109,13 @@ class _CustomerInfoPageState extends State<CustomerInfoPage> {
       onSubmit: (value) =>  globals.customerEmail = value,
     ));
 
-    formWidget.add(IndustryWidget(showError: showIndustryError));
-    formWidget.add(PositionWidget(showError: showPositionError));
+    formWidget.add(IndustryWidget());
+    formWidget.add(PositionWidget());
 
     formWidget.add(RepresentativeHeadderWidget());
     formWidget.add(TextWidgetInfoPage(
       hintTxt: 'User',
-      onValidate: (value) => validateEmpty(value, 'Please enter user'),
+      onValidate: (value) => validateEmpty(value, 'Please enter your user'),
       onSubmit: (value) =>  globals.representativeUser = value,
     ));
     formWidget.add(SizedBox(height: 10));

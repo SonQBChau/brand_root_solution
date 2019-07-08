@@ -25,7 +25,7 @@ class BottomSheetList extends StatelessWidget {
     return ListView(
       children: <Widget>[
         ..._buildQuestionCard(),//<-- List of Cards
-        SizedBox(height: 20),
+        SizedBox(height: 40),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -51,7 +51,7 @@ class BottomSheetList extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: 10),
+        SizedBox(height: 20),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -78,7 +78,7 @@ class BottomSheetList extends StatelessWidget {
           ],
         ),
         SizedBox(width: 20),
-        SizedBox(height: 30),
+        SizedBox(height: 50),
       ],
     );
   }

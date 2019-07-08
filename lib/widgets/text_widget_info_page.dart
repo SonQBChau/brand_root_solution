@@ -30,22 +30,22 @@ class TextWidgetInfoPage extends StatelessWidget {
           TextFormField(
             decoration: InputDecoration(
               contentPadding:
-                  EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+                  EdgeInsets.symmetric(vertical: 20, horizontal: 25),
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide.none,
-                borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                borderRadius: BorderRadius.all(Radius.circular(25.0)),
               ),
               focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: colorGreen),
-                borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                borderRadius: BorderRadius.all(Radius.circular(25.0)),
               ),
               errorBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: colorGrey20),
-                borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                borderRadius: BorderRadius.all(Radius.circular(25.0)),
               ),
               focusedErrorBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.red,),
-                borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                borderRadius: BorderRadius.all(Radius.circular(25.0)),
               ),
 
               hintText: hintTxt,

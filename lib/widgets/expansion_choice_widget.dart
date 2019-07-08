@@ -2,16 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/custom_expension_tile.dart';
 
-// One entry in the multilevel list displayed by this app.
-//class Entry {
-//  Entry(this.title, [this.children = const <Entry>[]]);
-//
-//  final String title;
-//  final List<Entry> children;
-//}
 
-// Displays one Entry. If the entry has children then it's displayed
-// with an ExpansionTile.
 class ExpansionChoiceWidget extends StatefulWidget {
   final Function scrollToBottom;
   ExpansionChoiceWidget({this.scrollToBottom});

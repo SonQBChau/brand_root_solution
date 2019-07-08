@@ -155,8 +155,6 @@ class CustomExpansionTileState extends State<CustomExpansionTile> with SingleTic
     return Container(
 
       child: Column(
-//        mainAxisSize: MainAxisSize.min,
-//      crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           ListTileTheme.merge(
             iconColor: _iconColor.value,
