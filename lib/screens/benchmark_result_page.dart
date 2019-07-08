@@ -28,7 +28,7 @@ class BenchmarkResultPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(benchmark.placeReplacementValue);
+//    print(benchmark.placeReplacementValue);
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -100,12 +100,12 @@ class BenchmarkResultPage extends StatelessWidget {
                       },
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
                       color: colorGreen,
-                      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+                      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
                       child: Text(
                         'EMAIL PDF',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 12,
+                          fontSize: 18,
                         ),
                       ),
                     ),
@@ -113,6 +113,7 @@ class BenchmarkResultPage extends StatelessWidget {
                 ],
               ),
             ),
+            SizedBox(height: 20,),
           ],
         ),
       ),

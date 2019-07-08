@@ -148,54 +148,54 @@ class ImplementPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 40,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Expanded(
-                  child: RaisedButton(//<-- Button Benchmark
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
-                    color: Colors.white,
-                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 0),
-                    child: FittedBox(
-                      fit:BoxFit.fitWidth,
-                      child: Text(
-                        'CONTINUE SEARCH',
-                        style: TextStyle(
-                          color: colorBlue,
-                          fontSize: 12,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(width: 10),
-                Expanded(
-                  child: RaisedButton(//<-- Button Review
-                    onPressed: () {
-                      question.setValue(true);
-                      Navigator.of(context).pop();
-                    },
-                    shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
-                    color: colorGreen,
-                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
-                    child: FittedBox(
-                      fit:BoxFit.fitWidth,
-                      child: Text(
-                        'ADD TO PLAN',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 12,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: 40,),
+//            Row(
+//              mainAxisAlignment: MainAxisAlignment.center,
+//              children: <Widget>[
+//                Expanded(
+//                  child: RaisedButton(//<-- Button Benchmark
+//                    onPressed: () {
+//                      Navigator.of(context).pop();
+//                    },
+//                    shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+//                    color: Colors.white,
+//                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 0),
+//                    child: FittedBox(
+//                      fit:BoxFit.fitWidth,
+//                      child: Text(
+//                        'CONTINUE SEARCH',
+//                        style: TextStyle(
+//                          color: colorBlue,
+//                          fontSize: 12,
+//                        ),
+//                      ),
+//                    ),
+//                  ),
+//                ),
+//                SizedBox(width: 10),
+//                Expanded(
+//                  child: RaisedButton(//<-- Button Review
+//                    onPressed: () {
+//                      question.setValue(true);
+//                      Navigator.of(context).pop();
+//                    },
+//                    shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+//                    color: colorGreen,
+//                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+//                    child: FittedBox(
+//                      fit:BoxFit.fitWidth,
+//                      child: Text(
+//                        'ADD TO PLAN',
+//                        style: TextStyle(
+//                          color: Colors.white,
+//                          fontSize: 18,
+//                        ),
+//                      ),
+//                    ),
+//                  ),
+//                ),
+//              ],
+//            ),
+//            SizedBox(height: 40,),
 
 
           ],

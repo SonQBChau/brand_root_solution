@@ -39,12 +39,12 @@ class BottomSheetList extends StatelessWidget {
                 },
                 shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(30.0)),
                 color: Colors.white,
-                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+                padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
                 child: Text(
                   'BENCHMARK',
                   style: TextStyle(
                     color: colorBlue,
-                    fontSize: 12,
+                    fontSize: 18,
                   ),
                 ),
               ),
@@ -65,12 +65,12 @@ class BottomSheetList extends StatelessWidget {
                 },
                 shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(30.0)),
                 color: colorGreen,
-                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+                padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
                 child: Text(
                   'REVIEW',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 12,
+                    fontSize: 18,
                   ),
                 ),
               ),

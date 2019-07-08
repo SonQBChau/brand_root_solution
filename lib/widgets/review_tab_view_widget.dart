@@ -55,12 +55,12 @@ class ReviewTabViewWidget extends StatelessWidget {
                 },
                 shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
                 color: colorGreen,
-                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+                padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
                 child: Text(
                   'SEE RESULTS',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 12,
+                    fontSize: 18,
                   ),
                 ),
               ),

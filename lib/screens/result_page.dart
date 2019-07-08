@@ -90,12 +90,12 @@ class ResultPage extends StatelessWidget {
                           },
                           shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(30.0)),
                           color: colorGreen,
-                          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+                          padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
                           child: Text(
                             'EMAIL PDF',
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 12,
+                              fontSize: 18,
                             ),
                           ),
                         ),
@@ -105,6 +105,7 @@ class ResultPage extends StatelessWidget {
                 ],
               ),
             ),
+            SizedBox(height: 20,),
 
 
 

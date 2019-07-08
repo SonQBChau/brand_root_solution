@@ -60,12 +60,12 @@ class _BenchmarkPageState extends State<BenchmarkPage> {
                       },
                       shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(30.0)),
                       color: colorGreen,
-                      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+                      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
                       child: Text(
                         'CALCULATE',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 12,
+                          fontSize: 18,
                         ),
                       ),
                     ),

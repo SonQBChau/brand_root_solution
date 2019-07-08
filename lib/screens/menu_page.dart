@@ -138,11 +138,11 @@ class MenuPage extends StatelessWidget {
                       },fullscreenDialog: true));
                     },
                     child: Container(
-                      padding: EdgeInsets.symmetric( vertical: 10),
+                      padding: EdgeInsets.symmetric( vertical: 15),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Text('ABOUT US', style: TextStyle(color: Colors.white)),
+                          Text('ABOUT US', style: TextStyle(color: Colors.white, fontSize: 18)),
                         ],
                       ),
                     ),
