@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/data/question_model.dart';
 import 'package:sale_form_demo/screens/implement_page.dart';
@@ -15,9 +14,33 @@ class QuestionCard extends StatefulWidget {
   _QuestionCardState createState() => _QuestionCardState();
 }
 
-class _QuestionCardState extends State<QuestionCard> {
+class _QuestionCardState extends State<QuestionCard> with SingleTickerProviderStateMixin {
+  AnimationController animationController;
   Animation<double> animation;
-  AnimationController controller;
+  Animation<double> sizeAnimation;
+  int currentState = 0;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    animationController = AnimationController(duration: Duration(milliseconds: 500), vsync: this);
+    animation = Tween<double>(begin: 0, end: 60).animate(animationController)
+      ..addListener(() {
+        setState(() {});
+      });
+    sizeAnimation = Tween<double>(begin: 0, end: 1)
+        .animate(CurvedAnimation(parent: animationController, curve: Curves.fastOutSlowIn))
+          ..addListener(() {
+            setState(() {});
+          });
+  }
+
+  @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,12 +68,12 @@ class _QuestionCardState extends State<QuestionCard> {
 
           if (widget.question.getLabel() != 'Implement Integrity Operating Windows') {
             Scaffold.of(context).showSnackBar(snackBar);
-          }
-          else{
-            Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
-              return ImplementPage(question: widget.question);
-            },
-            fullscreenDialog: true,
+          } else {
+            Navigator.of(context).push(MaterialPageRoute(
+              builder: (BuildContext context) {
+                return ImplementPage(question: widget.question);
+              },
+              fullscreenDialog: true,
             ));
           }
         },
@@ -65,19 +88,50 @@ class _QuestionCardState extends State<QuestionCard> {
                 height: 30.0,
                 width: 1.0,
                 color: colorGrey20,
-                margin: const EdgeInsets.only(left: 10.0, right: 10.0),
+                margin: const EdgeInsets.only(left: 20.0, right: 20.0),
               ),
-              IconButton(
-                onPressed: () {
-                  setState(() {
-                    widget.question.setValue(!widget.question.getValue());
-                  });
-                },
-                icon: Icon(
-                  icon,
-                  color: textColor,
+
+              Center(
+                  child: Container(
+                width: 30,
+                height: 30,
+                child: Stack(
+                  children: <Widget>[
+                    Positioned(
+                      bottom: 0,
+                      child: Transform.scale(
+                        scale: sizeAnimation.value,
+                        child: GestureDetector(
+                            onTap: () {
+                              animationController.reverse();
+                              widget.question.setValue(!widget.question.getValue());
+                            },
+                            child: Icon(
+                              Icons.remove,
+                              size: 25,
+                              color: textColor,
+                            )),
+                      ),
+                    ),
+                    Positioned(
+                      bottom: 0,
+                      child: Transform.scale(
+                        scale: sizeAnimation.value - 1,
+                        child: GestureDetector(
+                            onTap: () {
+                              animationController.forward();
+                              widget.question.setValue(!widget.question.getValue());
+                            },
+                            child: Icon(
+                              Icons.add,
+                              size: 25,
+                              color: textColor,
+                            )),
+                      ),
+                    )
+                  ],
                 ),
-              ),
+              )),
             ],
           ),
         ),
