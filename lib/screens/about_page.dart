@@ -7,10 +7,14 @@ class AboutPage extends StatelessWidget {
   final ScrollController _scrollController = ScrollController();
 
   void _scrollToBottom(bool isExpanded) {
-    _scrollController.animateTo(isExpanded
-        ? (_scrollController.position.maxScrollExtent + 170) // how much the expanding box
-        : (_scrollController.position.maxScrollExtent - 170) ,
-        duration: Duration(milliseconds: 500), curve: Curves.linear);
+    Future.delayed(const Duration(milliseconds: 50), () {
+      _scrollController.animateTo(isExpanded
+          ? (_scrollController.position.maxScrollExtent + 170) // how much the expanding box
+          : (_scrollController.position.maxScrollExtent - 170),
+          duration: Duration(milliseconds: 500), curve: Curves.linear);
+    }
+    );
+
   }
 
   @override
