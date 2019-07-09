@@ -18,7 +18,6 @@ class MenuPage extends StatelessWidget {
       ),
     );
 
-
     return Scaffold(
       body: Builder(builder: (context) {
         SizeConfig().init(context);
@@ -37,17 +36,18 @@ class MenuPage extends StatelessWidget {
           child: Column(
             children: <Widget>[
               SizedBox(height: 50),
-              CompanyFullLogo(),
+              CompanyFullLogo(canPop: false,),
               SizedBox(height: 30),
               Expanded(
                 child: MaterialButton(
+                  elevation: 5,
                   height: 100.0,
                   minWidth: buttonWidth,
                   color: Colors.white,
                   textColor: colorBlue,
                   onPressed: () => {Scaffold.of(context).showSnackBar(snackBar)},
                   splashColor: colorGreen,
-                  shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(20.0)),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                   child: Text(
                     'EVALUATE',
                     style: TextStyle(
@@ -60,19 +60,19 @@ class MenuPage extends StatelessWidget {
               SizedBox(height: 20),
               Expanded(
                 child: MaterialButton(
+                  elevation: 5,
                   height: 100.0,
                   minWidth: buttonWidth,
                   color: Colors.white,
                   textColor: colorBlue,
                   onPressed: () => {
-//                        Navigator.push(context, CupertinoPageRoute(builder: (context) => StrategiesPage()),)
-                  Navigator.push(
-                  context,
-                    FadeRoute(page: StrategiesPage()),
-                  )
-                      },
+                    Navigator.push(
+                      context,
+                      FadeRoute(page: StrategiesPage()),
+                    )
+                  },
                   splashColor: colorGreen,
-                  shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(20.0)),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                   child: Text(
                     'STRATEGIES',
                     style: TextStyle(
@@ -85,13 +85,14 @@ class MenuPage extends StatelessWidget {
               SizedBox(height: 20),
               Expanded(
                 child: MaterialButton(
+                  elevation: 5,
                   height: 100.0,
                   minWidth: buttonWidth,
                   color: Colors.white,
                   textColor: colorBlue,
                   onPressed: () => {Scaffold.of(context).showSnackBar(snackBar)},
                   splashColor: colorGreen,
-                  shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(20.0)),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                   child: Text(
                     'SUSTAIN',
                     style: TextStyle(
@@ -104,13 +105,14 @@ class MenuPage extends StatelessWidget {
               SizedBox(height: 20),
               Expanded(
                 child: MaterialButton(
+                  elevation: 5,
                   height: 100.0,
                   minWidth: buttonWidth,
                   color: Colors.white,
                   textColor: colorBlue,
                   onPressed: () => {Scaffold.of(context).showSnackBar(snackBar)},
                   splashColor: colorGreen,
-                  shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(20.0)),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                   child: Text(
                     'LIFE-CYCLE',
                     style: TextStyle(
@@ -120,10 +122,9 @@ class MenuPage extends StatelessWidget {
                   ),
                 ),
               ),
-
               Container(
                 padding: EdgeInsets.only(top: 20, bottom: 30),
-              width: buttonWidth,
+                width: buttonWidth,
                 child: Card(
                   color: colorBlue,
                   shape: RoundedRectangleBorder(
@@ -133,12 +134,14 @@ class MenuPage extends StatelessWidget {
                   child: InkWell(
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
-                        return AboutPage();
-                      },fullscreenDialog: true));
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext context) {
+                            return AboutPage();
+                          },
+                          fullscreenDialog: true));
                     },
                     child: Container(
-                      padding: EdgeInsets.symmetric( vertical: 15),
+                      padding: EdgeInsets.symmetric(vertical: 15),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
@@ -149,7 +152,6 @@ class MenuPage extends StatelessWidget {
                   ),
                 ),
               ),
-
             ],
           ),
         );
