@@ -39,8 +39,12 @@ class _CustomerInfoPageState extends State<CustomerInfoPage> {
         });
   }
 
-  void validateForm(){
-    _autoValidate = true;
+  void validateForm() {
+    setState(() {
+
+      _autoValidate = true;
+    });
+
     //manually check dropdownbutton value
 //    if (globals.customerIndustry == null){
 //      setState(() {
@@ -64,31 +68,24 @@ class _CustomerInfoPageState extends State<CustomerInfoPage> {
 //    }
 
     //all validate
-    if (_formKey.currentState.validate()){
+    if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
 
       //<-- show loading indicator
       _onLoading();
       //<-- add some delay to mimic calculation
-      Future.delayed(const Duration(milliseconds: 2000), ()
-      {
+      Future.delayed(const Duration(milliseconds: 2000), () {
         Navigator.pop(context); //pop dialog indicator
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => MenuPage()),
         );
       });
-      }
-
-
-
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-
-
-
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -104,7 +101,6 @@ class _CustomerInfoPageState extends State<CustomerInfoPage> {
             children: _buildFormWidgets(_formKey),
           ),
         ),
-
       ),
     );
   }
@@ -116,19 +112,19 @@ class _CustomerInfoPageState extends State<CustomerInfoPage> {
     formWidget.add(TextWidgetInfoPage(
       hintTxt: 'Name',
 //      onValidate: (value) => validateEmpty(value, 'Please enter name'),
-      onSubmit: (value) =>  globals.customerName = value,
+      onSubmit: (value) => globals.customerName = value,
     ));
     formWidget.add(TextWidgetInfoPage(
       hintTxt: 'Company',
 //      onValidate: (value) => validateEmpty(value, 'Please enter company'),
-      onSubmit: (value) =>  globals.customerCompany = value,
+      onSubmit: (value) => globals.customerCompany = value,
     ));
     formWidget.add(TextWidgetInfoPage(
       hintTxt: 'Email',
       textCapitalization: TextCapitalization.none,
       textInputType: TextInputType.emailAddress,
 //      onValidate: validateEmail,
-      onSubmit: (value) =>  globals.customerEmail = value,
+      onSubmit: (value) => globals.customerEmail = value,
     ));
 
     formWidget.add(IndustryWidget());
@@ -138,7 +134,7 @@ class _CustomerInfoPageState extends State<CustomerInfoPage> {
     formWidget.add(TextWidgetInfoPage(
       hintTxt: 'User',
       onValidate: (value) => validateEmpty(value, 'Please enter your user'),
-      onSubmit: (value) =>  globals.representativeUser = value,
+      onSubmit: (value) => globals.representativeUser = value,
     ));
     formWidget.add(SizedBox(height: 10));
     formWidget.add(LaunchButtonWidget(onSubmit: validateForm));
