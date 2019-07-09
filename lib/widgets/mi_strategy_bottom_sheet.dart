@@ -65,7 +65,7 @@ class _MIStrategyBottomSheetState extends State<MIStrategyBottomSheet> with Sing
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    maxHeight = SizeConfig.safeAreaScreenHeight - 80 - 80; //number on MI Strategy Container and appbar
+    maxHeight = SizeConfig.safeAreaScreenHeight - 80 - 80; //height of MI Strategy Container and appbar
 
     return AnimatedBuilder(
       //<--add animated builder
@@ -76,12 +76,7 @@ class _MIStrategyBottomSheetState extends State<MIStrategyBottomSheet> with Sing
           left: 0,
           right: 0,
           bottom: 0,
-          child: GestureDetector(
-            //<-- add a gesture detector
-            onTap: _toggle, //<-- on tap...
-            onVerticalDragUpdate: _handleDragUpdate, //<-- Add verticalDragUpdate callback
-            onVerticalDragEnd: _handleDragEnd, //<-- Add verticalDragEnd callback
-            child: Container(
+          child:  Container(
               padding: const EdgeInsets.symmetric(horizontal: 12),
               decoration: const BoxDecoration(
                 color: Color(0xFFf1f1f1),
@@ -90,17 +85,24 @@ class _MIStrategyBottomSheetState extends State<MIStrategyBottomSheet> with Sing
               child: Column(
                 //<-- bottom indicator
                 children: <Widget>[
-                  SizedBox(
-                    height: 30.0,
-                    width: 50,
-                    child: Center(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: colorBlue,
-                          borderRadius: BorderRadius.circular(5),
+                  GestureDetector(
+                    onTap: _toggle, //<-- on tap...
+                    onVerticalDragUpdate: _handleDragUpdate, //<-- Add verticalDragUpdate callback
+                    onVerticalDragEnd: _handleDragEnd, //<-- Add verticalDragEnd callback
+                    behavior: HitTestBehavior.opaque,
+                    child: Container(
+                      height: 30,
+                      width: double.infinity,
+                      child: Center(
+                        child: Container(
+                          width: 50,
+                          decoration: BoxDecoration(
+                            color: colorBlue,
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          margin: EdgeInsetsDirectional.only(start: 1.0, end: 1.0),
+                          height: 6.0,
                         ),
-                        margin: EdgeInsetsDirectional.only(start: 1.0, end: 1.0),
-                        height: 6.0,
                       ),
                     ),
                   ),
@@ -112,7 +114,7 @@ class _MIStrategyBottomSheetState extends State<MIStrategyBottomSheet> with Sing
                 ],
               ),
             ),
-          ),
+
         );
       },
     );
