@@ -129,9 +129,9 @@ class Capturer extends StatelessWidget {
   _buildQuestionCard() {
     final List<Question> selectedQuestions =
         questionCenter.questionBank.where((question) => question.getValue()).toList();
-    List<ReviewCard> cardList = [];
+    List<BenchmarkReviewCard> cardList = [];
     for (int i = 0; i < selectedQuestions.length; i++) {
-      cardList.add(ReviewCard(txt: selectedQuestions[i].getLabel()));
+      cardList.add(BenchmarkReviewCard(txt: selectedQuestions[i].getLabel()));
     }
     return cardList;
   }
