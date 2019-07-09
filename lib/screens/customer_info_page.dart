@@ -25,7 +25,9 @@ class _CustomerInfoPageState extends State<CustomerInfoPage> {
 //  bool showIndustryError = false;
 //  bool showPositionError = false;
 
+  /// function to show Loading Indicator in popup Dialog to prevent user action
   void _onLoading() {
+
     showDialog(
         context: context,
         barrierDismissible: false,
@@ -39,9 +41,9 @@ class _CustomerInfoPageState extends State<CustomerInfoPage> {
         });
   }
 
+  /// function to validate Form, if true, save the form and navigate to Menu-page
   void validateForm() {
-    setState(() {
-
+    setState(() {//<-- after pressing submit button, turn on auto-validate to clear error onChange
       _autoValidate = true;
     });
 
@@ -67,15 +69,14 @@ class _CustomerInfoPageState extends State<CustomerInfoPage> {
 //      });
 //    }
 
-    //all validate
+
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
 
-      //<-- show loading indicator
-      _onLoading();
+      _onLoading();//<-- show loading indicator
       //<-- add some delay to mimic calculation
       Future.delayed(const Duration(milliseconds: 2000), () {
-        Navigator.pop(context); //pop dialog indicator
+        Navigator.pop(context); //<-- pop dialog indicator
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => MenuPage()),
@@ -105,6 +106,7 @@ class _CustomerInfoPageState extends State<CustomerInfoPage> {
     );
   }
 
+  /// function to build list of input fields inside Form
   List<Widget> _buildFormWidgets(GlobalKey _formKey) {
     List<Widget> formWidget = new List();
 
@@ -133,7 +135,7 @@ class _CustomerInfoPageState extends State<CustomerInfoPage> {
     formWidget.add(RepresentativeHeadderWidget());
     formWidget.add(TextWidgetInfoPage(
       hintTxt: 'User',
-      onValidate: (value) => validateEmpty(value, 'Please enter your user'),
+      onValidate: (value) => validateEmpty(value, 'Please enter your name'),
       onSubmit: (value) => globals.representativeUser = value,
     ));
     formWidget.add(SizedBox(height: 10));
