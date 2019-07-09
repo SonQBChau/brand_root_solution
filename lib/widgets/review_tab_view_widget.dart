@@ -4,11 +4,13 @@ import 'package:sale_form_demo/screens/benchmark_page.dart';
 import 'package:sale_form_demo/screens/result_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/data/globals.dart' as globals;
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 QuestionCenter questionCenter = globals.questionCenter;
 
 class ReviewTabViewWidget extends StatelessWidget {
-  final List<Question> selectedQuestions = questionCenter.questionBank.where((question)=>question.getValue()).toList();
+  final List<Question> selectedQuestions =
+      questionCenter.questionBank.where((question) => question.getValue()).toList();
 
   _buildQuestionCard() {
     List<ReviewCard> cardList = [];
@@ -20,6 +22,20 @@ class ReviewTabViewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void _onLoading() {
+      showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (BuildContext context) {
+            return Dialog(
+                backgroundColor: Colors.transparent,
+                elevation: 0,
+                child: Center(
+                  child: SpinKitWave(color: Colors.white, type: SpinKitWaveType.center),
+                ));
+          });
+    }
+
     return ListView(
       children: <Widget>[
         ..._buildQuestionCard(), //<-- List of Cards
@@ -27,31 +43,20 @@ class ReviewTabViewWidget extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            SizedBox(width: 20),
-//            Expanded(
-//              child: RaisedButton(//<-- Button Benchmark
-//                onPressed: () {
-//                  Navigator.of(context).pop();
-//                },
-//                shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(30.0)),
-//                color: Colors.white,
-//                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
-//                child: Text(
-//                  'RETURN',
-//                  style: TextStyle(
-//                    color: colorBlue,
-//                    fontSize: 12,
-//                  ),
-//                ),
-//              ),
-//            ),
-            SizedBox(width: 10),
+            SizedBox(width: 30),
             Expanded(
-              child: RaisedButton(//<-- Button Review
+              child: RaisedButton(
+                //<-- Button Result
                 onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
-                    return ResultPage();
-                  }));
+                  //<-- show loading indicator
+                  _onLoading();
+                  //<-- add some delay to mimic calculation
+                  Future.delayed(const Duration(milliseconds: 2000), () {
+                    Navigator.pop(context); //pop dialog indicator
+                    Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) {
+                      return ResultPage();
+                    }));
+                  });
                 },
                 shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
                 color: colorGreen,
@@ -92,9 +97,9 @@ class ReviewCard extends StatelessWidget {
 //      ),
 //    );
     return Container(
-        padding: EdgeInsets.only(bottom: 20),
-        width: double.infinity,
-        child: Text(txt, style: TextStyle(color: colorGreen)),
-      );
+      padding: EdgeInsets.only(bottom: 20),
+      width: double.infinity,
+      child: Text(txt, style: TextStyle(color: colorGreen)),
+    );
   }
 }

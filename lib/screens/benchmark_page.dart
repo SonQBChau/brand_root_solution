@@ -63,7 +63,6 @@ class _BenchmarkPageState extends State<BenchmarkPage> {
               SizedBox(
                 width: MediaQuery.of(context).size.width - 100,
                 child: RaisedButton(
-                  //<-- Button Review
                   onPressed: () {
                     //<-- show loading indicator
                     _onLoading();
