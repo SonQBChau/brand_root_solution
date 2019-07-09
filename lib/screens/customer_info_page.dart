@@ -9,6 +9,7 @@ import 'package:sale_form_demo/widgets/position_widget.dart';
 import 'package:sale_form_demo/widgets/representative_header_widget.dart';
 import 'package:sale_form_demo/utils/validator.dart';
 import 'package:sale_form_demo/data/globals.dart' as globals;
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 //auto validate form
 //https://medium.com/@nitishk72/form-validation-in-flutter-d762fbc9212c
@@ -23,6 +24,20 @@ class _CustomerInfoPageState extends State<CustomerInfoPage> {
   bool _autoValidate = false;
 //  bool showIndustryError = false;
 //  bool showPositionError = false;
+
+  void _onLoading() {
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return Dialog(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              child: Center(
+                child: SpinKitThreeBounce(color: Colors.white),
+              ));
+        });
+  }
 
   void validateForm(){
     _autoValidate = true;
@@ -52,10 +67,17 @@ class _CustomerInfoPageState extends State<CustomerInfoPage> {
     if (_formKey.currentState.validate()){
       _formKey.currentState.save();
 
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => MenuPage()),
-      );
+      //<-- show loading indicator
+      _onLoading();
+      //<-- add some delay to mimic calculation
+      Future.delayed(const Duration(milliseconds: 2000), ()
+      {
+        Navigator.pop(context); //pop dialog indicator
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => MenuPage()),
+        );
+      });
       }
 
 
