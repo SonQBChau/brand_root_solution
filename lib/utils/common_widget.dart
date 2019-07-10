@@ -5,7 +5,7 @@ class RoundedCornerContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(5),
+        borderRadius: BorderRadius.circular(20),
       ),
       margin: EdgeInsetsDirectional.only(start: 1.0, end: 1.0),
       height: 6.0,

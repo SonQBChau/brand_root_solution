@@ -117,68 +117,69 @@ List<Widget> _buildFormWidgets() {
         'replacement asset value (RAV), or estimated'
         'replacement value (ERV).',
     benchmarkValue: benchmark.getPlaceReplacementValue(),
+    benchmarkRange: benchmark.getPlaceReplacementRange(),
     onSubmit: (value) => benchmark.setPlaceReplacementValue(value),
   ));
 
-  formWidget.add(BenchmarkCard(
-    title: 'Scope Of Maintenance Costs',
-    content: '',
-    benchmarkValue: benchmark.getScopeMaintenanceCost(),
-    onSubmit: (value) => benchmark.setScopeMaintenanceCost(value),
-  ));
-  formWidget.add(BenchmarkCard(
-    title: 'Annual Maintenance Cost',
-    content: '',
-    benchmarkValue: benchmark.getAnnualMaintenanceCost(),
-    onSubmit: (value) => benchmark.setAnnualMaintenanceCost(value),
-  ));
-  formWidget.add(BenchmarkCard(
-    title: 'Select The Availability Units Of Measure',
-    content: '',
-    benchmarkValue: benchmark.getAvailableUnitMeasure(),
-    onSubmit: (value) => benchmark.setAvailableUnitMeasure(value),
-  ));
-  formWidget.add(BenchmarkCard(
-    title: 'Program Improvement Detailed Creation',
-    content: 'Availability: The percentage of the time that an'
-        'asset is available for operation under normal'
-        'operating conditions. This includes the current'
-        'year non-turnaround downtime, plus annualized'
-        'turnaround down time.'
-        'Mechanical availability only accounts for'
-        'equipment related down time and Operational'
-        'Assets Utilization includes all down time except'
-        'for idle time (no demand).',
-    benchmarkValue: benchmark.getScopeOfAvailability(),
-    onSubmit: (value) => benchmark.setScopeOfAvailability(value),
-  ));
-  formWidget.add(BenchmarkCard(
-    title: 'Annual % Availability For Operational Asset Utilization',
-    content: '',
-    benchmarkValue: benchmark.getOperationAssetUtilization(),
-    onSubmit: (value) => benchmark.setOperationAssetUtilization(value),
-  ));
-  formWidget.add(BenchmarkCard(
-    title: 'Emergency Work Orders',
-    content: 'Availability: The percentage of the time that an'
-        'asset is available for operation under normal'
-        'operating conditions. This includes the current'
-        'year non-turnaround downtime, plus annualized'
-        'turnaround down time.'
-        'Mechanical availability only accounts for'
-        'equipment related down time and Operational'
-        'Assets Utilization includes all down time except'
-        'for idle time (no demand).',
-    benchmarkValue: benchmark.getEmergencyWorkOrder(),
-    onSubmit: (value) => benchmark.setEmergencyWorkOrder(value),
-  ));
-  formWidget.add(
-    BenchmarkCard(
-        title: 'Emergency Work',
-        content: '',
-        benchmarkValue: benchmark.getEmergencyWork(),
-        onSubmit: (value) => benchmark.setEmergencyWork(value)),
-  );
+//  formWidget.add(BenchmarkCard(
+//    title: 'Scope Of Maintenance Costs',
+//    content: '',
+//    benchmarkValue: benchmark.getScopeMaintenanceCost(),
+//    onSubmit: (value) => benchmark.setScopeMaintenanceCost(value),
+//  ));
+//  formWidget.add(BenchmarkCard(
+//    title: 'Annual Maintenance Cost',
+//    content: '',
+//    benchmarkValue: benchmark.getAnnualMaintenanceCost(),
+//    onSubmit: (value) => benchmark.setAnnualMaintenanceCost(value),
+//  ));
+//  formWidget.add(BenchmarkCard(
+//    title: 'Select The Availability Units Of Measure',
+//    content: '',
+//    benchmarkValue: benchmark.getAvailableUnitMeasure(),
+//    onSubmit: (value) => benchmark.setAvailableUnitMeasure(value),
+//  ));
+//  formWidget.add(BenchmarkCard(
+//    title: 'Program Improvement Detailed Creation',
+//    content: 'Availability: The percentage of the time that an'
+//        'asset is available for operation under normal'
+//        'operating conditions. This includes the current'
+//        'year non-turnaround downtime, plus annualized'
+//        'turnaround down time.'
+//        'Mechanical availability only accounts for'
+//        'equipment related down time and Operational'
+//        'Assets Utilization includes all down time except'
+//        'for idle time (no demand).',
+//    benchmarkValue: benchmark.getScopeOfAvailability(),
+//    onSubmit: (value) => benchmark.setScopeOfAvailability(value),
+//  ));
+//  formWidget.add(BenchmarkCard(
+//    title: 'Annual % Availability For Operational Asset Utilization',
+//    content: '',
+//    benchmarkValue: benchmark.getOperationAssetUtilization(),
+//    onSubmit: (value) => benchmark.setOperationAssetUtilization(value),
+//  ));
+//  formWidget.add(BenchmarkCard(
+//    title: 'Emergency Work Orders',
+//    content: 'Availability: The percentage of the time that an'
+//        'asset is available for operation under normal'
+//        'operating conditions. This includes the current'
+//        'year non-turnaround downtime, plus annualized'
+//        'turnaround down time.'
+//        'Mechanical availability only accounts for'
+//        'equipment related down time and Operational'
+//        'Assets Utilization includes all down time except'
+//        'for idle time (no demand).',
+//    benchmarkValue: benchmark.getEmergencyWorkOrder(),
+//    onSubmit: (value) => benchmark.setEmergencyWorkOrder(value),
+//  ));
+//  formWidget.add(
+//    BenchmarkCard(
+//        title: 'Emergency Work',
+//        content: '',
+//        benchmarkValue: benchmark.getEmergencyWork(),
+//        onSubmit: (value) => benchmark.setEmergencyWork(value)),
+//  );
 
   return formWidget;
 }
@@ -187,8 +188,9 @@ class BenchmarkCard extends StatelessWidget {
   final String title;
   final String content;
   final String benchmarkValue;
+  final List<String> benchmarkRange;
   final Function onSubmit;
-  BenchmarkCard({this.title, this.content, this.benchmarkValue, this.onSubmit});
+  BenchmarkCard({this.title, this.content, this.benchmarkValue, this.onSubmit, this.benchmarkRange});
 
   @override
   Widget build(BuildContext context) {
@@ -223,38 +225,43 @@ class BenchmarkCard extends StatelessWidget {
               SizedBox(
                 height: 15,
               ),
-              TextFormField(
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: colorGrey5,
-                  contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide.none,
-                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: colorBlue),
-                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                  ),
-                  errorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: colorGrey20),
-                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                  ),
-                  focusedErrorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.red,
-                    ),
-                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                  ),
-                ),
+//              TextFormField(
+//                decoration: InputDecoration(
+//                  filled: true,
+//                  fillColor: colorGrey5,
+//                  contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+//                  enabledBorder: OutlineInputBorder(
+//                    borderSide: BorderSide.none,
+//                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+//                  ),
+//                  focusedBorder: OutlineInputBorder(
+//                    borderSide: BorderSide(color: colorBlue),
+//                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+//                  ),
+//                  errorBorder: OutlineInputBorder(
+//                    borderSide: BorderSide(color: colorGrey20),
+//                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+//                  ),
+//                  focusedErrorBorder: OutlineInputBorder(
+//                    borderSide: BorderSide(
+//                      color: Colors.red,
+//                    ),
+//                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+//                  ),
+//                ),
+//                initialValue: benchmarkValue,
+//                style: TextStyle(color: colorGreen),
+//                validator: (value) => validateEmpty(value, 'Please enter a value'), // call on form validate
+//                onSaved: (value) {
+//                  onSubmit(value);
+//                }, // call on form save function
+//              ),
+              SizedBox(height: 10,),
+              BenchmarkSlider(
                 initialValue: benchmarkValue,
-                style: TextStyle(color: colorGreen),
-                validator: (value) => validateEmpty(value, 'Please enter a value'), // call on form validate
-                onSaved: (value) {
-                  onSubmit(value);
-                }, // call on form save function
+                onSlide:  onSubmit,
+                benchmarkRange: benchmarkRange,
               ),
-              BenchmarkSlider(),
             ],
           ),
         ),

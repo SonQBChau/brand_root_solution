@@ -4,78 +4,101 @@ import 'package:sale_form_demo/utils/app_color.dart';
 // https://medium.com/@rjstech/building-a-custom-slider-in-flutter-with-gesturedetector-fcdd76224acd
 
 class BenchmarkSlider extends StatefulWidget {
+  final String initialValue;
+  final List<String> benchmarkRange;
+  final Function onSlide;
+  String percentageText;
+  BenchmarkSlider({this.initialValue, this.onSlide, this.benchmarkRange}): percentageText = initialValue;
+
   @override
   _BenchmarkSliderState createState() => _BenchmarkSliderState();
 }
 
 class _BenchmarkSliderState extends State<BenchmarkSlider> {
-  Color postitiveColor = colorGreen;
+  Color postitiveColor = Colors.green[100];
   Color negetiveColor = colorGrey5;
   double percentage = 0.0;
 
   double initial = 0.0;
 
+
+
   @override
   Widget build(BuildContext context) {
-    return   GestureDetector(
+
+    return GestureDetector(
       onPanStart: (DragStartDetails details) {
         initial = details.globalPosition.dx;
       },
       onPanUpdate: (DragUpdateDetails details) {
         double distance = details.globalPosition.dx - initial;
-        double percentageAddition = distance / 200;
-
-        print('distance ' + distance.toString());
+        double percentageAddition = distance / 50;
         setState(() {
-          print('percentage ' +
-              (percentage + percentageAddition)
-                  .clamp(0.0, 100.0)
-                  .toString());
-          percentage =
-              (percentage + percentageAddition).clamp(0.0, 100.0);
+          percentage = (percentage + percentageAddition).clamp(0.0, 100.0);
+          widget.percentageText = widget.benchmarkRange[percentage~/10 ];
+          widget.onSlide(widget.percentageText );
         });
       },
       onPanEnd: (DragEndDetails details) {
         initial = 0.0;
       },
-      child: CustomSlider(
-        percentage: this.percentage,
-        positiveColor: postitiveColor,
-        negetiveColor: negetiveColor,
+      child: Center(
+        child: CustomSlider(
+          percentage: percentage,
+          percentageText: widget.percentageText,
+          positiveColor: postitiveColor,
+          negetiveColor: negetiveColor,
+        ),
       ),
     );
   }
 }
 
-
-
-
-
 class CustomSlider extends StatelessWidget {
-  double totalWidth = 200.0;
+
   double percentage;
+  String percentageText;
   Color positiveColor = colorGreen;
   Color negetiveColor = colorGrey20;
 
-  CustomSlider({this.percentage, this.positiveColor, this.negetiveColor});
+  CustomSlider({this.percentage, this.positiveColor, this.negetiveColor, this.percentageText});
 
   @override
   Widget build(BuildContext context) {
-    print((percentage / 100) * totalWidth);
-    print((1 - percentage / 100) * totalWidth);
-    return Container(
-      width: totalWidth + 4.0,
-      height: 30.0,
-      decoration: BoxDecoration(
-          color: negetiveColor,
-          border: Border.all(color: Colors.black, width: 2.0)),
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
+    double totalWidth = MediaQuery.of(context).size.width - 120;
+
+//    print('=====');
+//  print(percentageText);
+
+
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(20.0),
+      child: Stack(
         children: <Widget>[
           Container(
-            color: positiveColor,
-            width: (percentage / 100) * totalWidth,
+            width: totalWidth,
+            height: 55.0,
+            color: negetiveColor,
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              children: <Widget>[
+                Container(
+                  color: positiveColor,
+                  width: (percentage / 100) * totalWidth,
+                ),
+              ],
+            ),
           ),
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+            child: Text(percentageText,
+              style: TextStyle(
+                fontSize: 18,
+                color: colorGreen,
+                fontWeight: FontWeight.w500
+              ),
+            ),
+          )
         ],
       ),
     );
