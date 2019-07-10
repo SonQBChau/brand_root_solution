@@ -6,6 +6,7 @@ import 'package:sale_form_demo/screens/benchmark_result_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/utils/custom_slider.dart';
 import 'package:sale_form_demo/utils/validator.dart';
+import 'package:sale_form_demo/widgets/benchmark_card.dart';
 import 'package:sale_form_demo/widgets/company_full_logo.dart';
 import 'package:sale_form_demo/data/globals.dart' as globals;
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -103,7 +104,7 @@ class _BenchmarkPageState extends State<BenchmarkPage> {
 List<Widget> _buildFormWidgets() {
   List<Widget> formWidget = List();
 
-  formWidget.add(BenchmarkCard(
+  formWidget.add(BenchmarkCardSlider(
     title: 'Program Improvement\nDetailed Creation',
     content: 'Plant Replacement Value: The value of the plant'
         'facilities for which maintenance costs are'
@@ -121,12 +122,13 @@ List<Widget> _buildFormWidgets() {
     onSubmit: (value) => benchmark.setPlaceReplacementValue(value),
   ));
 
-//  formWidget.add(BenchmarkCard(
-//    title: 'Scope Of Maintenance Costs',
-//    content: '',
-//    benchmarkValue: benchmark.getScopeMaintenanceCost(),
-//    onSubmit: (value) => benchmark.setScopeMaintenanceCost(value),
-//  ));
+  formWidget.add(BenchmarkCardExpand(
+    title: 'Scope Of Maintenance Costs',
+    content: '',
+    benchmarkValue: benchmark.getScopeMaintenanceCost(),
+    onSubmit: (value) => benchmark.setScopeMaintenanceCost(value),
+  ));
+  
 //  formWidget.add(BenchmarkCard(
 //    title: 'Annual Maintenance Cost',
 //    content: '',
@@ -184,88 +186,4 @@ List<Widget> _buildFormWidgets() {
   return formWidget;
 }
 
-class BenchmarkCard extends StatelessWidget {
-  final String title;
-  final String content;
-  final String benchmarkValue;
-  final List<String> benchmarkRange;
-  final Function onSubmit;
-  BenchmarkCard({this.title, this.content, this.benchmarkValue, this.onSubmit, this.benchmarkRange});
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20),
-      child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.0),
-        ),
-        elevation: 5,
-        child: Container(
-          padding: EdgeInsets.only(top: 30, bottom: 30, left: 30, right: 30),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                title,
-                style: TextStyle(
-                  color: colorBlue,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-              Text(
-                content,
-                style: TextStyle(
-                  color: colorBlue,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              SizedBox(
-                height: 15,
-              ),
-//              TextFormField(
-//                decoration: InputDecoration(
-//                  filled: true,
-//                  fillColor: colorGrey5,
-//                  contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-//                  enabledBorder: OutlineInputBorder(
-//                    borderSide: BorderSide.none,
-//                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
-//                  ),
-//                  focusedBorder: OutlineInputBorder(
-//                    borderSide: BorderSide(color: colorBlue),
-//                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
-//                  ),
-//                  errorBorder: OutlineInputBorder(
-//                    borderSide: BorderSide(color: colorGrey20),
-//                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
-//                  ),
-//                  focusedErrorBorder: OutlineInputBorder(
-//                    borderSide: BorderSide(
-//                      color: Colors.red,
-//                    ),
-//                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
-//                  ),
-//                ),
-//                initialValue: benchmarkValue,
-//                style: TextStyle(color: colorGreen),
-//                validator: (value) => validateEmpty(value, 'Please enter a value'), // call on form validate
-//                onSaved: (value) {
-//                  onSubmit(value);
-//                }, // call on form save function
-//              ),
-              SizedBox(height: 10,),
-              BenchmarkSlider(
-                initialValue: benchmarkValue,
-                onSlide:  onSubmit,
-                benchmarkRange: benchmarkRange,
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
