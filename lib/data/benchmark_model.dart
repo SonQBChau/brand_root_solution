@@ -14,10 +14,10 @@ class Benchmark {
   Benchmark({
     this.placeReplacementValue = '\$100K',
     this.scopeMaintenanceCost = 'Routine + Turnaround Maintenance Costs',
-    this.annualMaintenanceCost  = '\$10K',
+    this.annualMaintenanceCost  = '\$100K',
     this.availableUnitMeasure = 'Annual % Avalability',
     this.scopeOfAvailability  = 'Operational Asset Utilization',
-    this.operationAssetUtilization  = '\$10K',
+    this.operationAssetUtilization  = '\$1M',
     this.emergencyWorkOrder  = 'Emergency Work Orders % Total Work Orders',
     this.emergencyWork = '0%',
   });
@@ -26,7 +26,7 @@ class Benchmark {
     return placeReplacementValue;
   }
   List<String> getPlaceReplacementRange(){
-    return ['\$100K','\$200K', '\$500K', '\$1M', '\$10M', '\$100M', '\$500M', '\$1B', '\$10B', '\$50B', '\$100B'];
+    return ['\$0','\$100K','\$200K', '\$500K', '\$1M', '\$10M', '\$100M', '\$500M', '\$1B', '\$10B', '\$100B'];
   }
   void setPlaceReplacementValue(String value){
     placeReplacementValue = value;
@@ -45,7 +45,7 @@ class Benchmark {
     return annualMaintenanceCost;
   }
   List<String> getAnnualMaintenanceRange(){
-    return ['\$10K','\$20K', '\$50K', '\$100K', '\$500K', '\$1M', '\$10M', '\$20M', '\$50M', '\$75M', '\$100M'];
+    return ['\$0','\$10K','\$20K', '\$50K', '\$100K', '\$500K', '\$1M', '\$10M', '\$20M', '\$50M', '\$100M'];
   }
   void setAnnualMaintenanceCost(String value){
     annualMaintenanceCost = value;
@@ -74,7 +74,7 @@ class Benchmark {
     return operationAssetUtilization;
   }
   List<String> getOperationAssetUtilizationRange(){
-    return ['\$10K','\$20K', '\$50K', '\$100K', '\$500K', '\$1M', '\$10M', '\$20M', '\$50M', '\$75M', '\$100M'];
+    return ['\$0','\$10K','\$20K', '\$50K', '\$100K', '\$500K', '\$1M', '\$10M', '\$20M', '\$50M', '\$100M'];
   }
 
   void setOperationAssetUtilization(String value){

@@ -8,7 +8,11 @@ class BenchmarkSlider extends StatefulWidget {
   final List<String> benchmarkRange;
   final Function onSlide;
   String percentageText;
-  BenchmarkSlider({this.initialValue, this.onSlide, this.benchmarkRange}): percentageText = initialValue;
+  double initialPercentage;
+  BenchmarkSlider({this.initialValue, this.onSlide, this.benchmarkRange})
+      : percentageText = initialValue,
+        initialPercentage = benchmarkRange.indexOf(initialValue) * 10.0
+  ;
 
   @override
   _BenchmarkSliderState createState() => _BenchmarkSliderState();
@@ -17,7 +21,7 @@ class BenchmarkSlider extends StatefulWidget {
 class _BenchmarkSliderState extends State<BenchmarkSlider> {
   Color postitiveColor = Colors.green[100];
   Color negetiveColor = colorGrey5;
-  double percentage = 0.0;
+//  double percentage = 0.0;
 
   double initial = 0.0;
 
@@ -34,8 +38,8 @@ class _BenchmarkSliderState extends State<BenchmarkSlider> {
         double distance = details.globalPosition.dx - initial;
         double percentageAddition = distance / 50;
         setState(() {
-          percentage = (percentage + percentageAddition).clamp(0.0, 100.0);
-          widget.percentageText = widget.benchmarkRange[percentage~/10 ];
+          widget.initialPercentage = (widget.initialPercentage + percentageAddition).clamp(0.0, 100.0);
+          widget.percentageText = widget.benchmarkRange[widget.initialPercentage~/10 ];
           widget.onSlide(widget.percentageText );
         });
       },
@@ -44,7 +48,7 @@ class _BenchmarkSliderState extends State<BenchmarkSlider> {
       },
       child: Center(
         child: CustomSlider(
-          percentage: percentage,
+          percentage: widget.initialPercentage,
           percentageText: widget.percentageText,
           positiveColor: postitiveColor,
           negetiveColor: negetiveColor,
