@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/data/benchmark_model.dart';
-import 'package:sale_form_demo/screens/benchmark_result_page.dart';
 import 'package:sale_form_demo/screens/result_page.dart';
+import 'package:sale_form_demo/screens/benchmark_result_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
+import 'package:sale_form_demo/utils/custom_slider.dart';
 import 'package:sale_form_demo/utils/validator.dart';
 import 'package:sale_form_demo/widgets/company_full_logo.dart';
 import 'package:sale_form_demo/data/globals.dart' as globals;
@@ -252,7 +253,8 @@ class BenchmarkCard extends StatelessWidget {
                 onSaved: (value) {
                   onSubmit(value);
                 }, // call on form save function
-              )
+              ),
+              BenchmarkSlider(),
             ],
           ),
         ),

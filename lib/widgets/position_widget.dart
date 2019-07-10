@@ -79,11 +79,12 @@ class IndustryChoice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      behavior: HitTestBehavior.opaque,
       onTap: () {
         onTap(title);
       },
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 10),
+        padding: EdgeInsets.symmetric(vertical: 15),
         child: Text(title,
             style: TextStyle(
                 color: colorGreen,

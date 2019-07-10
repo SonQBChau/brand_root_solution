@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sale_form_demo/data/question_model.dart';
 import 'package:sale_form_demo/screens/benchmark_page.dart';
 import 'package:sale_form_demo/screens/result_page.dart';
+import 'package:sale_form_demo/screens/benchmark_result_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/data/globals.dart' as globals;
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -58,7 +59,7 @@ class ReviewTabViewWidget extends StatelessWidget {
                     }));
                   });
                 },
-                shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(30.0)),
                 color: colorGreen,
                 padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
                 child: Text(

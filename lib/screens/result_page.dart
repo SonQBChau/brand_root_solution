@@ -1,24 +1,20 @@
-import 'dart:io';
-import 'dart:math';
 import 'dart:ui' as ui;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:sale_form_demo/data/benchmark_model.dart';
+import 'package:sale_form_demo/data/question_model.dart';
 import 'package:sale_form_demo/screens/benchmark_page.dart';
-import 'package:sale_form_demo/screens/menu_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/company_full_logo.dart';
 import 'package:esys_flutter_share/esys_flutter_share.dart';
-
-import 'package:sale_form_demo/data/globals.dart' as globals;
 import 'package:sale_form_demo/widgets/result_row.dart';
+import 'package:sale_form_demo/widgets/review_tab_view_widget.dart';
+import 'package:sale_form_demo/data/globals.dart' as globals;
 
-//Benchmark benchmark = Benchmark();
-Benchmark benchmark = globals.benchmark;
+QuestionCenter questionCenter = globals.questionCenter;
 
 //https://stackoverflow.com/questions/53646649/how-to-take-screenshot-of-widget-beyond-the-screen-in-flutter
 class ResultPage extends StatelessWidget {
@@ -26,16 +22,13 @@ class ResultPage extends StatelessWidget {
 
   GlobalKey<OverRepaintBoundaryState> globalKey = GlobalKey();
 
-
   ui.Image image;
-
 
 //  ResultPage({this.benchmark});
 
-
   @override
   Widget build(BuildContext context) {
-    print(benchmark.placeReplacementValue);
+//    print(benchmark.placeReplacementValue);
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -56,59 +49,71 @@ class ResultPage extends StatelessWidget {
           children: <Widget>[
             Center(child: CompanyFullLogo()),
             SizedBox(height: 30),
-
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Container(
+                padding: EdgeInsets.only(left: 30, bottom: 10),
+                child: Text(
+                  'Benchmark Results',
+                  style: TextStyle(
+                    color: colorBlue,
+                    fontWeight: FontWeight.w900,
+                    fontSize: 22,
+                  ),
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Container(
+                padding: EdgeInsets.only(left: 30, right: 40, bottom: 20),
+                child: Text('Do you know where your greatest opportunities to improve the'
+                    'reliability of your plant are? We start and drive each of our'
+                    'partnerships from a comprehensive assessment to better '
+                    'understand where to focus solutions and resources/ Let us support'
+                    'you in discovering how you can make your facility more reliable and'
+                    'in turn make the world more reliable.'),
+              ),
+            ),
             Capturer(
               overRepaintKey: globalKey,
               benchmark: benchmark,
             ),
-
             Container(
-              padding: EdgeInsets.only(left: 40, right: 40, bottom: 30),
+              padding: EdgeInsets.only(left: 40, right: 40, bottom: 30, top: 20),
               child: Column(
                 children: <Widget>[
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width - 100,
+                    child: RaisedButton(
+                      //<-- Button Benchmark
+                      onPressed: () async {
+                        var renderObject = globalKey.currentContext.findRenderObject();
 
-                  Row(
-                    children: <Widget>[
-                      Expanded(
-                        child: RaisedButton(//<-- Button Benchmark
-                          onPressed: () async {
+                        RenderRepaintBoundary boundary = renderObject;
+                        ui.Image captureImage = await boundary.toImage();
 
-                            var renderObject = globalKey.currentContext.findRenderObject();
-
-                            RenderRepaintBoundary boundary = renderObject;
-                            ui.Image captureImage = await boundary.toImage();
-
-                            ByteData byteData =
-                            await captureImage.toByteData(format: ui.ImageByteFormat.png);
-                            var pngBytes = byteData.buffer.asUint8List();
-                            await Share.file('PinnacleArt', 'pinnacleArt.png', pngBytes, 'image/png', text: 'This is your result from PinnacleArt');
-
-                            
-                            
-
-
-                          },
-                          shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(30.0)),
-                          color: colorGreen,
-                          padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
-                          child: Text(
-                            'EMAIL PDF',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                            ),
-                          ),
+                        ByteData byteData = await captureImage.toByteData(format: ui.ImageByteFormat.png);
+                        var pngBytes = byteData.buffer.asUint8List();
+                        await Share.file('PinnacleArt', 'pinnacleArt.png', pngBytes, 'image/png',
+                            text: 'This is your result from PinnacleArt');
+                      },
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
+                      color: colorGreen,
+                      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+                      child: Text(
+                        'EMAIL PDF',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
                         ),
                       ),
-                    ],
+                    ),
                   ),
                 ],
               ),
             ),
             SizedBox(height: 20,),
-
-
-
           ],
         ),
       ),
@@ -118,10 +123,18 @@ class ResultPage extends StatelessWidget {
 
 class Capturer extends StatelessWidget {
   final Benchmark benchmark;
-
   final GlobalKey<OverRepaintBoundaryState> overRepaintKey;
-
   const Capturer({Key key, this.overRepaintKey, this.benchmark}) : super(key: key);
+
+  _buildQuestionCard() {
+    final List<Question> selectedQuestions =
+        questionCenter.questionBank.where((question) => question.getValue()).toList();
+    List<BenchmarkReviewCard> cardList = [];
+    for (int i = 0; i < selectedQuestions.length; i++) {
+      cardList.add(BenchmarkReviewCard(txt: selectedQuestions[i].getLabel()));
+    }
+    return cardList;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -129,9 +142,38 @@ class Capturer extends StatelessWidget {
       key: overRepaintKey,
       child: RepaintBoundary(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
+                elevation: 5,
+                child: Container(
+                  padding: EdgeInsets.only(top: 20, bottom: 20, left: 30, right: 20),
+                  width: double.infinity,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Container(
+                        padding: EdgeInsets.only( bottom: 20),
+                        child: Text(
+                          'STRATEGY SOLUTION',
+                          style: TextStyle(color: colorBlue, fontWeight: FontWeight.w700, fontSize: 16),
+                        ),
+                      ),
+                      ..._buildQuestionCard(), //<-- List of Cards
+
+                    ],
+                  ),
+                ),
+              ),
+            ),
+
             Container( //<-- Benchmark Chart
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
               child: Card(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20.0),
@@ -160,8 +202,9 @@ class Capturer extends StatelessWidget {
                 ),
               ),
             ),
-            Container( //<-- Benchmark result
-              padding: EdgeInsets.only(left: 20, right: 20, bottom: 30),
+
+            Container( //<-- Benchmark Results
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
               child: Card(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20.0),
@@ -180,7 +223,7 @@ class Capturer extends StatelessWidget {
                         style: TextStyle(
                           color: colorBlue,
                           fontWeight: FontWeight.w600,
-                          fontSize: 12,
+                          fontSize: 16,
                         ),
                       ),
                       ResultRow(
@@ -247,6 +290,99 @@ class Capturer extends StatelessWidget {
               ),
             ),
 
+            Container( //<-- One Pager
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
+                elevation: 5,
+                child: Container(
+                  margin: EdgeInsets.only(left: 30, right: 20, bottom: 30, top: 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Container(//<-- One pager
+                        padding: EdgeInsets.only(left: 5, top: 20),
+                        child: Row(
+                          children: <Widget>[
+                            Text(
+                              'PinnacleART ',
+                              style: TextStyle(color: colorBlue, fontWeight: FontWeight.w700, fontSize: 18),
+                            ),
+                            Text(
+                              'Solomon RAM 2.0',
+                              style: TextStyle(color: colorGreen, fontWeight: FontWeight.w700, fontSize: 18),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(left: 5, top: 5),
+                        child: Text(
+                          'Sample one-pager',
+                          style: TextStyle(color: colorBlue, fontWeight: FontWeight.w700, fontSize: 12),
+                        ),
+                      ),
+
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Image.asset(
+                        'images/Assess.png',
+                        fit: BoxFit.cover,
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Image.asset(
+                        'images/Performance.png',
+                        fit: BoxFit.cover,
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Image.asset(
+                        'images/Roadmap.png',
+                        fit: BoxFit.cover,
+                      ),
+                    ],
+                  ),
+                )
+              ),
+            ),
+
+            Container(
+              padding: EdgeInsets.only(left: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    padding: EdgeInsets.only(left: 5, top: 20),
+                    child: Text(
+                      'Contact Info',
+                      style: TextStyle(color: colorBlue, fontWeight: FontWeight.w700, fontSize: 22),
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(left: 5, top: 5),
+                    child: Text(
+                      '${globals.representativeUser} | Solution Engineer | 281.598.1330',
+                      style: TextStyle(color: colorBlue, fontSize: 14),
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(left: 5, top: 5),
+                    child: Text(
+                      'solutionengineer@pinnacleart.com',
+                      style: TextStyle(color: colorBlue, fontSize: 14),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+
 
           ],
         ),
@@ -254,53 +390,6 @@ class Capturer extends StatelessWidget {
     );
   }
 }
-
-//class ResultRow extends StatelessWidget {
-//  final String title;
-//  final String content;
-//  ResultRow({this.title, this.content});
-//  @override
-//  Widget build(BuildContext context) {
-//    return Container(
-//      padding: EdgeInsets.only(top: 20),
-//      child: Column(
-//        crossAxisAlignment: CrossAxisAlignment.start,
-//        children: <Widget>[
-//          Text(
-//            title,
-//            style: TextStyle(
-//              color: colorBlue,
-//              fontWeight: FontWeight.w600,
-//              fontSize: 16,
-//            ),
-//          ),
-//          SizedBox(height: 5),
-//          Text(
-//            content,
-//            style: TextStyle(
-//              color: colorGreen,
-//              fontWeight: FontWeight.w600,
-//              fontSize: 16,
-//            ),
-//          ),
-//          SizedBox(height: 10),
-//          SizedBox(
-//            height: 10.0,
-//            child: Center(
-//              child: Container(
-//                margin: EdgeInsetsDirectional.only(start: 1.0, end: 1.0),
-//                height: 1.0,
-//                color: colorBlue,
-//              ),
-//            ),
-//          ),
-//        ],
-//      ),
-//    );
-//  }
-//}
-
-
 
 class OverRepaintBoundary extends StatefulWidget {
   final Widget child;
