@@ -10,6 +10,9 @@ import 'package:sale_form_demo/widgets/bottom_sheet_list.dart';
 const double minHeight = 80;
 
 class MIStrategyBottomSheet extends StatefulWidget {
+  final double maxBottomSheetHeight;
+  MIStrategyBottomSheet({this.maxBottomSheetHeight});
+
   @override
   _MIStrategyBottomSheetState createState() => _MIStrategyBottomSheetState();
 }
@@ -66,10 +69,8 @@ class _MIStrategyBottomSheetState extends State<MIStrategyBottomSheet> with Sing
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-//    double ratio = SizeConfig.safeAreaScreenHeight / SizeConfig.safeAreaScreenWidth;
-    double ratio = SizeConfig.safeAreaScreenWidth / SizeConfig.safeAreaScreenHeight ;
-    print(ratio);
-    maxHeight = SizeConfig.safeAreaScreenHeight - 80 - 125 * ratio; // 80 appbar + 70 title
+
+    maxHeight = SizeConfig.screenHeight - widget.maxBottomSheetHeight;
 
     return AnimatedBuilder(
       //<--add animated builder
@@ -94,33 +95,38 @@ class _MIStrategyBottomSheetState extends State<MIStrategyBottomSheet> with Sing
                     onVerticalDragUpdate: _handleDragUpdate, //<-- Add verticalDragUpdate callback
                     onVerticalDragEnd: _handleDragEnd, //<-- Add verticalDragEnd callback
                     behavior: HitTestBehavior.opaque,
-                    child: Container(
-                      height: 30,
-                      width: double.infinity,
-                      child: Center(
-                        child: Container(
-                          width: 50,
-                          decoration: BoxDecoration(
-                            color: colorBlue,
-                            borderRadius: BorderRadius.circular(5),
+                    child: Column(
+                      children: <Widget>[
+                        Container(
+                          height: 30,
+                          width: double.infinity,
+                          child: Center(
+                            child: Container(
+                              width: 50,
+                              decoration: BoxDecoration(
+                                color: colorBlue,
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              margin: EdgeInsetsDirectional.only(start: 1.0, end: 1.0),
+                              height: 6.0,
+                            ),
                           ),
-                          margin: EdgeInsetsDirectional.only(start: 1.0, end: 1.0),
-                          height: 6.0,
                         ),
-                      ),
+                        SizedBox(height: 10),
+                        Container(
+                          height: lerp(30, 0), //<-- update height value to scale with controller
+                          child: Text('Explore Mi Strategy Options',
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: colorBlue,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  SizedBox(height: 10),
-                  Container(
-                    height: lerp(30, 0), //<-- update height value to scale with controller
-                    child: Text('Explore Mi Strategy Options',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: colorBlue,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
+
                   Container(
                     height: lerp(0, maxHeight - 50), //<-- update height value to scale with controller
                     child: BottomSheetList(),
