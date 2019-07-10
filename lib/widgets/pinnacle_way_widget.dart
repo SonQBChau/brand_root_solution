@@ -23,7 +23,7 @@ class PinnacleWayWidget extends StatelessWidget {
         child: Container(
           width: MediaQuery.of(context).size.width,
           margin: EdgeInsets.symmetric( horizontal: 10),
-          padding: EdgeInsets.symmetric(vertical: 10),
+          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
           decoration: BoxDecoration(
             color: colorBlue40,
             borderRadius: BorderRadius.all(Radius.circular(20)),

@@ -7,7 +7,7 @@ import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/utils/size_config.dart';
 import 'package:sale_form_demo/widgets/bottom_sheet_list.dart';
 
-const double minHeight = 70;
+const double minHeight = 80;
 
 class MIStrategyBottomSheet extends StatefulWidget {
   @override
@@ -34,6 +34,7 @@ class _MIStrategyBottomSheetState extends State<MIStrategyBottomSheet> with Sing
     _controller.dispose(); //<-- and remember to dispose it!
     super.dispose();
   }
+
 
   double lerp(double min, double max) =>
       lerpDouble(min, max, _controller.value); //<-- lerp any value based on the controller
@@ -65,7 +66,10 @@ class _MIStrategyBottomSheetState extends State<MIStrategyBottomSheet> with Sing
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    maxHeight = SizeConfig.safeAreaScreenHeight - 80 - 80; //height of MI Strategy Container and appbar
+//    double ratio = SizeConfig.safeAreaScreenHeight / SizeConfig.safeAreaScreenWidth;
+    double ratio = SizeConfig.safeAreaScreenWidth / SizeConfig.safeAreaScreenHeight ;
+    print(ratio);
+    maxHeight = SizeConfig.safeAreaScreenHeight - 80 - 125 * ratio; // 80 appbar + 70 title
 
     return AnimatedBuilder(
       //<--add animated builder
@@ -106,7 +110,17 @@ class _MIStrategyBottomSheetState extends State<MIStrategyBottomSheet> with Sing
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 10),
+                  Container(
+                    height: lerp(30, 0), //<-- update height value to scale with controller
+                    child: Text('Explore Mi Strategy Options',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: colorBlue,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
                   Container(
                     height: lerp(0, maxHeight - 50), //<-- update height value to scale with controller
                     child: BottomSheetList(),

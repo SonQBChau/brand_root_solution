@@ -6,7 +6,6 @@ import 'package:sale_form_demo/widgets/back_button_widget.dart';
 import 'package:sale_form_demo/widgets/company_full_logo.dart';
 import 'package:sale_form_demo/widgets/content_card_widget.dart';
 import 'package:sale_form_demo/widgets/dot_indicator_widget.dart';
-import 'package:sale_form_demo/widgets/header_card_widget.dart';
 
 class StrategiesPage extends StatefulWidget {
   const StrategiesPage({
@@ -24,7 +23,6 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     final double screeHeight = SizeConfig.safeAreaScreenHeight;
-    final double screenWidth = SizeConfig.safeAreaScreenWidth;
     final double topHeight = screeHeight / 4 + 5 + 60;
     final double bottomHeight = 80;
 
@@ -40,11 +38,10 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             SizedBox(height: 30),
-//            BackButton(),
-          BackButtonWidget(),
+            BackButtonWidget(),
             Center(child: CompanyFullLogo()),
             Spacer(),
-            Expanded(
+            Expanded(//<-- card area
               flex: 10,
               child: Stack(
                 children: <Widget>[
@@ -94,7 +91,7 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
                       ),
                     ],
                   ),
-                  Align(
+                  Align(//<-- dot position indicator
                     alignment: Alignment.bottomCenter,
                     child: DotIndicatorWidget(
                       dotCount: 5,
