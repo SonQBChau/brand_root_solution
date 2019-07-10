@@ -3,6 +3,7 @@ import 'package:sale_form_demo/utils/app_color.dart';
 
 // https://medium.com/flutter-community/flutter-bouncing-button-animation-ece660e19c91
 
+/// Custom button with bouncing animation
 class LaunchButtonWidget extends StatefulWidget {
   final Function onSubmit;
   LaunchButtonWidget({this.onSubmit});

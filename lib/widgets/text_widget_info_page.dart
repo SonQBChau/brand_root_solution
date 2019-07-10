@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 
+
+/// Custom TextFormField for CustomerInfoPage
 class TextWidgetInfoPage extends StatelessWidget {
   final String hintTxt;
   final TextCapitalization textCapitalization;

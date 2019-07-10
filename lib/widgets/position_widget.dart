@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/custom_expension_tile.dart';
 
+/// Multiple choice selector with expand animation
 class PositionWidget extends StatefulWidget {
   @override
   _PositionWidgetState createState() => _PositionWidgetState();
