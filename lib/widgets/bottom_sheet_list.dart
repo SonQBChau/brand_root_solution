@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:sale_form_demo/data/question_model.dart';
 import 'package:sale_form_demo/screens/benchmark_page.dart';
 import 'package:sale_form_demo/screens/review_page.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
-import 'package:sale_form_demo/utils/common_widget.dart';
 import 'package:sale_form_demo/widgets/question_card_widget.dart';
 import 'package:sale_form_demo/data/globals.dart' as globals;
 
@@ -78,7 +76,6 @@ class BottomSheetList extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(width: 20),
         SizedBox(height: 50),
       ],
     );

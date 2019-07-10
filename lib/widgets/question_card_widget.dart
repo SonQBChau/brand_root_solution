@@ -81,7 +81,7 @@ class _QuestionCardState extends State<QuestionCard> with SingleTickerProviderSt
             children: <Widget>[
               Expanded(
                 child: Container(
-                  padding: EdgeInsets.only(top: 20, bottom: 20, left: 20),
+                  padding: EdgeInsets.only(top: 20, bottom: 20, left: 20, right: 10),
                     child: Text(widget.question.getLabel(), style: TextStyle(color: textColor))
                 ),
               ),
