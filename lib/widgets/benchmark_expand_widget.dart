@@ -3,31 +3,44 @@ import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/widgets/custom_expension_tile.dart';
 
 /// Multiple choice selector with expand animation
-class IndustryWidget extends StatefulWidget {
+class BenchMarkExpandWidget extends StatefulWidget {
+  final List<String> benchmarkList;
+  String initialValue;
+  final Function onSelect;
+
+  BenchMarkExpandWidget({this.benchmarkList, this.initialValue, this.onSelect});
   @override
-  _IndustryWidgetState createState() => _IndustryWidgetState();
+  _BenchMarkExpandWidgetState createState() => _BenchMarkExpandWidgetState();
 }
 
-class _IndustryWidgetState extends State<IndustryWidget> {
+class _BenchMarkExpandWidgetState extends State<BenchMarkExpandWidget> {
   final GlobalKey<CustomExpansionTileState> expansionTileKey = new GlobalKey();
 
-  String title = 'Industry';
+//  String title = 'Routine + Turnaround Maintenance Costs';
 
   _handleLocationChange(String value) {
     setState(() {
-      title = value;
+      widget.initialValue = value;
+      widget.onSelect(value);
     });
     expansionTileKey.currentState.collapse();
   }
 
+  _buildChoice(List<String> benchmarkList) {
+    List<BenchmarkChoice> choices= [];
+    for (int i = 0; i < benchmarkList.length; i++) {
+      choices.add(BenchmarkChoice(title: benchmarkList[i], onTap: _handleLocationChange,));
+    }
+    return choices;
+  }
+
   @override
   Widget build(BuildContext context) {
-    var titleColor = title == 'Industry'? colorGrey20 : colorGreen;
     return Column(
       children: <Widget>[
         Container(
-          padding: EdgeInsets.only(left: 30, right: 30, top: 0, bottom: 0),
           child: Card(
+            color: colorGrey5,
             elevation: 0,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(25.0),
@@ -37,24 +50,12 @@ class _IndustryWidgetState extends State<IndustryWidget> {
               title: Container(
                 padding: EdgeInsets.only(top: 0, bottom: 0, left: 10, right: 10),
                 child: Text(
-                  title,
-                  style: TextStyle(color: titleColor, fontWeight: FontWeight.w600, fontSize: 13),
+                  widget.initialValue,
+                  style: TextStyle(color: colorGreen, fontWeight: FontWeight.w600, fontSize: 16),
                 ),
               ),
               children: <Widget>[
-
-                IndustryChoice(
-                  title: 'Refining',
-                  onTap: _handleLocationChange,
-                ),
-                IndustryChoice(
-                  title: 'Drilling',
-                  onTap: _handleLocationChange,
-                ),
-                IndustryChoice(
-                  title: 'Pumping',
-                  onTap: _handleLocationChange,
-                ),
+                ..._buildChoice(widget.benchmarkList),
                 SizedBox(
                   height: 10,
                 ),
@@ -69,12 +70,14 @@ class _IndustryWidgetState extends State<IndustryWidget> {
       ],
     );
   }
+
+
 }
 
-class IndustryChoice extends StatelessWidget {
+class BenchmarkChoice extends StatelessWidget {
   final String title;
   final Function onTap;
-  IndustryChoice({this.title, this.onTap});
+  BenchmarkChoice({this.title, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -87,12 +90,11 @@ class IndustryChoice extends StatelessWidget {
         padding: EdgeInsets.symmetric(vertical: 15),
         child: Text(title,
             style: TextStyle(
-              color: colorGreen,
-              fontWeight: FontWeight.w600,
-                fontSize: 13
+                color: colorGreen,
+                fontWeight: FontWeight.w600,
+                fontSize: 16
             )),
       ),
     );
   }
 }
-

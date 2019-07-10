@@ -31,6 +31,9 @@ class Benchmark {
   String getScopeMaintenanceCost(){
     return scopeMaintenanceCost;
   }
+  List<String>  getScopeMaintenanceList(){
+    return ['Routine + Turnaround Maintenance Costs','Others'];
+  }
   void setScopeMaintenanceCost(String value){
     scopeMaintenanceCost = value;
   }

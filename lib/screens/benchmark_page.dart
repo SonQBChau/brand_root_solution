@@ -126,6 +126,7 @@ List<Widget> _buildFormWidgets() {
     title: 'Scope Of Maintenance Costs',
     content: '',
     benchmarkValue: benchmark.getScopeMaintenanceCost(),
+    benchmarkList: benchmark.getScopeMaintenanceList(),
     onSubmit: (value) => benchmark.setScopeMaintenanceCost(value),
   ));
   

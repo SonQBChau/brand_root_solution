@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/utils/custom_slider.dart';
+import 'package:sale_form_demo/widgets/benchmark_expand_widget.dart';
 
 class BenchmarkCardSlider extends StatelessWidget {
   final String title;
@@ -64,8 +65,9 @@ class BenchmarkCardExpand extends StatelessWidget {
   final String title;
   final String content;
   final String benchmarkValue;
+  final List<String> benchmarkList;
   final Function onSubmit;
-  BenchmarkCardExpand({this.title, this.content, this.benchmarkValue, this.onSubmit});
+  BenchmarkCardExpand({this.title, this.content, this.benchmarkValue, this.onSubmit, this.benchmarkList});
 
   @override
   Widget build(BuildContext context) {
@@ -101,7 +103,11 @@ class BenchmarkCardExpand extends StatelessWidget {
                 height: 15,
               ),
               SizedBox(height: 10,),
-
+              BenchMarkExpandWidget(
+                initialValue: benchmarkValue,
+                benchmarkList: benchmarkList,
+                onSelect:  onSubmit,
+              ),
             ],
           ),
         ),
