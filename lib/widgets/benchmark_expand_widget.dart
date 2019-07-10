@@ -16,8 +16,6 @@ class BenchMarkExpandWidget extends StatefulWidget {
 class _BenchMarkExpandWidgetState extends State<BenchMarkExpandWidget> {
   final GlobalKey<CustomExpansionTileState> expansionTileKey = new GlobalKey();
 
-//  String title = 'Routine + Turnaround Maintenance Costs';
-
   _handleLocationChange(String value) {
     setState(() {
       widget.initialValue = value;
