@@ -25,7 +25,7 @@ class AboutPage extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
         leading:  IconButton(
-          icon:  Icon(Icons.clear, color: Colors.black,),
+          icon:  Icon(Icons.clear, color: colorBlue, size: 40,),
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
