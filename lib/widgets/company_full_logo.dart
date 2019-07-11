@@ -9,7 +9,7 @@ class CompanyFullLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  GestureDetector(
-      onTap: () {
+      onLongPress: () {
         if (canPop){
           Navigator.of(context).pushReplacementNamed('/menu');
         }

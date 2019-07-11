@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sale_form_demo/screens/mi_strategy_page.dart';
 import 'package:sale_form_demo/screens/strategies_page.dart';
 import 'dart:math' as math;
 
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/utils/custom_page_transition.dart';
+import 'package:sale_form_demo/utils/size_config.dart';
 
 
 class ContentCardWidget extends StatelessWidget {
@@ -14,14 +16,95 @@ class ContentCardWidget extends StatelessWidget {
   final Color colorTitle;
   final double top;
   final double bottom;
-  final GlobalKey key;
+  GlobalKey _fabKey = GlobalKey();
+  final duration = const Duration(milliseconds: 300);
+
 
   ContentCardWidget(
-      {this.key, @required this.title, this.navigateTo, this.colorBackground, this.colorTitle, this.top, this.bottom})
+      {@required this.title, this.navigateTo, this.colorBackground, this.colorTitle, this.top, this.bottom})
       : assert(title != null),
         assert(colorBackground != null),
         assert(colorTitle != null);
 
+  _onFabTap(BuildContext context) {
+
+    // Hide the FAB on transition start
+//    setState(() => _fabVisible = false);
+
+
+
+
+    final RenderBox fabRenderBox = _fabKey.currentContext.findRenderObject();
+    final fabSize = fabRenderBox.size;
+    final fabOffset = fabRenderBox.localToGlobal(Offset.zero);
+
+    Navigator.of(context).push(PageRouteBuilder(
+      transitionDuration: duration,
+      pageBuilder: (BuildContext context, Animation<double> animation,
+          Animation<double> secondaryAnimation) =>
+          MiStrategyPage(),
+      transitionsBuilder: (BuildContext context, Animation<double> animation,
+          Animation<double> secondaryAnimation, Widget child) =>
+          _buildTransition(child, animation, fabSize, fabOffset),
+    ));
+  }
+
+  Widget _buildTransition(
+      Widget page,
+      Animation<double> animation,
+      Size fabSize,
+      Offset fabOffset,
+      ) {
+    if (animation.value == 1) return page;
+
+    final borderTween = BorderRadiusTween(
+      begin: BorderRadius.circular(20),
+      end: BorderRadius.circular(0.0),
+    );
+    final sizeTween = SizeTween(
+      begin: fabSize,
+      end: SizeConfig.screenSize,
+    );
+    final offsetTween = Tween<Offset>(
+      begin: fabOffset,
+      end: Offset.zero,
+    );
+
+    final easeInAnimation = CurvedAnimation(
+      parent: animation,
+      curve: Curves.easeIn,
+    );
+    final easeAnimation = CurvedAnimation(
+      parent: animation,
+      curve: Curves.easeOut,
+    );
+
+    final radius = borderTween.evaluate(easeInAnimation);
+    final offset = offsetTween.evaluate(animation);
+    final size = sizeTween.evaluate(easeInAnimation);
+
+    final transitionFab = Opacity(
+      opacity: 1 - easeAnimation.value,
+      child: Container(),
+    );
+
+    Widget positionedClippedChild(Widget child) => Positioned(
+        width: size.width,
+        height: size.height,
+        left: offset.dx,
+        top: offset.dy,
+        child: ClipRRect(
+          borderRadius: radius,
+          child: child,
+        ));
+
+    return Stack(
+      children: [
+        positionedClippedChild(page),
+        positionedClippedChild(transitionFab),
+      ],
+    );
+  }
 
 
 
@@ -30,10 +113,11 @@ class ContentCardWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         if(navigateTo != null) {
-          Navigator.push(
-            context,
-            FadeRoute(page: navigateTo),
-          );
+//          Navigator.push(
+//            context,
+//            FadeRoute(page: navigateTo),
+//          );
+          _onFabTap(context);
 
         }
         else {
@@ -47,6 +131,7 @@ class ContentCardWidget extends StatelessWidget {
         }
       },
       child: Container(
+        key: _fabKey,
         padding: EdgeInsets.symmetric(vertical: 40, horizontal: 30),
         margin: EdgeInsets.only(top: 10, bottom: bottom, left: 20, right: 20),
         decoration:  BoxDecoration(

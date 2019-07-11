@@ -19,92 +19,6 @@ class StrategiesPage extends StatefulWidget {
 class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProviderStateMixin {
   int _activePosition = 0;
 
-  GlobalKey _fabKey = GlobalKey();
-  bool _fabVisible = true;
-  final duration = const Duration(milliseconds: 300);
-
-  _onFabTap(BuildContext context) {
-
-    // Hide the FAB on transition start
-//    setState(() => _fabVisible = false);
-
-
-    final RenderBox fabRenderBox = _fabKey.currentContext.findRenderObject();
-    final fabSize = fabRenderBox.size;
-    final fabOffset = fabRenderBox.localToGlobal(Offset.zero);
-
-    Navigator.of(context).push(PageRouteBuilder(
-      transitionDuration: duration,
-      pageBuilder: (BuildContext context, Animation<double> animation,
-          Animation<double> secondaryAnimation) =>
-          MiStrategyPage(),
-      transitionsBuilder: (BuildContext context, Animation<double> animation,
-          Animation<double> secondaryAnimation, Widget child) =>
-          _buildTransition(child, animation, fabSize, fabOffset),
-    ));
-  }
-
-
-
-
-  Widget _buildTransition(
-      Widget page,
-      Animation<double> animation,
-      Size fabSize,
-      Offset fabOffset,
-      ) {
-    if (animation.value == 1) return page;
-
-    final borderTween = BorderRadiusTween(
-        begin: BorderRadius.circular(20),
-      end: BorderRadius.circular(0.0),
-    );
-    final sizeTween = SizeTween(
-      begin: fabSize,
-      end: MediaQuery.of(context).size,
-    );
-    final offsetTween = Tween<Offset>(
-      begin: fabOffset,
-      end: Offset.zero,
-    );
-
-    final easeInAnimation = CurvedAnimation(
-      parent: animation,
-      curve: Curves.easeIn,
-    );
-    final easeAnimation = CurvedAnimation(
-      parent: animation,
-      curve: Curves.easeOut,
-    );
-
-    final radius = borderTween.evaluate(easeInAnimation);
-    final offset = offsetTween.evaluate(animation);
-    final size = sizeTween.evaluate(easeInAnimation);
-
-    final transitionFab = Opacity(
-      opacity: 1 - easeAnimation.value,
-      child: Container(),
-    );
-
-    Widget positionedClippedChild(Widget child) => Positioned(
-        width: size.width,
-        height: size.height,
-        left: offset.dx,
-        top: offset.dy,
-        child: ClipRRect(
-          borderRadius: radius,
-          child: child,
-        ));
-
-    return Stack(
-      children: [
-        positionedClippedChild(page),
-        positionedClippedChild(transitionFab),
-      ],
-    );
-  }
-
-
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -140,7 +54,6 @@ class _StrategiesPageState extends State<StrategiesPage> with SingleTickerProvid
                     },
                     children: <Widget>[
                       ContentCardWidget(
-                        key: _fabKey,
                         top: topHeight,
                         bottom: bottomHeight,
                         title: 'MI STRATEGY MANAGEMENT',
