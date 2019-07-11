@@ -34,7 +34,14 @@ class AboutPage extends StatelessWidget {
         children: <Widget>[
           Center(child: CompanyFullLogo()),
           SizedBox(height: 30),
-          Image.asset('images/earthTest_webp.webp', fit: BoxFit.cover),
+
+          Stack(
+            children: <Widget>[
+              Image.asset('images/earth.gif', fit: BoxFit.cover),
+              Image.asset('images/shadow.png', fit: BoxFit.cover),
+            ],
+          ),
+
           Container(
             padding: EdgeInsets.only(left: 30, top: 20, right: 30),
             child: Column(

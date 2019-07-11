@@ -6,6 +6,7 @@ import 'dart:math' as math;
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/utils/custom_page_transition.dart';
 
+
 class ContentCardWidget extends StatelessWidget {
   final String title;
   final Widget navigateTo;
@@ -13,22 +14,22 @@ class ContentCardWidget extends StatelessWidget {
   final Color colorTitle;
   final double top;
   final double bottom;
+  final GlobalKey key;
 
   ContentCardWidget(
-      {@required this.title, this.navigateTo, this.colorBackground, this.colorTitle, this.top, this.bottom})
+      {this.key, @required this.title, this.navigateTo, this.colorBackground, this.colorTitle, this.top, this.bottom})
       : assert(title != null),
         assert(colorBackground != null),
         assert(colorTitle != null);
+
+
+
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         if(navigateTo != null) {
-//          Navigator.push(
-//            context,
-//            CupertinoPageRoute(builder: (context) => navigateTo),
-//          );
           Navigator.push(
             context,
             FadeRoute(page: navigateTo),
