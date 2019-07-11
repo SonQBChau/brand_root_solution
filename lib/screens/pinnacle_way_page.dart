@@ -6,7 +6,6 @@ import 'package:sale_form_demo/utils/size_config.dart';
 class PinnacleWayPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init;
     return Scaffold(
         appBar: AppBar(
           backgroundColor: colorBlue,

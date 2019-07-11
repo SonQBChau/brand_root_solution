@@ -3,7 +3,6 @@ import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:sale_form_demo/utils/size_config.dart';
 
-
 class FlowChartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

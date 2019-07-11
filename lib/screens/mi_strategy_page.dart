@@ -6,8 +6,7 @@ import 'package:sale_form_demo/widgets/pinnacle_way_widget.dart';
 
 // get widget size and position
 // https://medium.com/@diegoveloper/flutter-widget-size-and-position-b0a9ffed9407
-// bottom sheet
-// https://marcinszalek.pl/flutter/tickets-advanced-transitions/
+
 
 class MiStrategyPage extends StatefulWidget {
   //creating Key for red panel
@@ -28,7 +27,7 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
     _getPositions();
   }
 
-  _getPositions() {
+  _getPositions() {//<-- need to find position of container to figure max height for bottom sheet
     final RenderBox renderBoxRed = _keyContainer.currentContext.findRenderObject();
     final positionRed = renderBoxRed.localToGlobal(Offset.zero);
     print("POSITION of Red: $positionRed ");

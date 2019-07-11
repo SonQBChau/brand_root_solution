@@ -7,6 +7,9 @@ import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/utils/size_config.dart';
 import 'package:sale_form_demo/widgets/bottom_sheet_list.dart';
 
+// bottom sheet
+// https://marcinszalek.pl/flutter/tickets-advanced-transitions/
+
 const double minHeight = 80;
 
 class MIStrategyBottomSheet extends StatefulWidget {

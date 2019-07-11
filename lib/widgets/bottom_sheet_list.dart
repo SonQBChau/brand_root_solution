@@ -11,7 +11,7 @@ QuestionCenter questionCenter = globals.questionCenter;
 class BottomSheetList extends StatelessWidget {
   _buildQuestionCard() {
     List<QuestionCard> cardList = [];
-    for (int i = 0; i < 8; i++) {
+    for (int i = 0; i < 8; i++) { //<-- only need 8 items for demo
       cardList.add(QuestionCard(question: questionCenter.questionBank[i]));
     }
     return cardList;
