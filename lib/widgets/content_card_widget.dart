@@ -8,6 +8,8 @@ import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/utils/custom_page_transition.dart';
 import 'package:sale_form_demo/utils/size_config.dart';
 
+//card animation
+//https://medium.com/flutter-community/flutter-fab-navigation-animation-to-next-screen-f63acf3de6b7
 
 class ContentCardWidget extends StatelessWidget {
   final String title;
@@ -17,7 +19,7 @@ class ContentCardWidget extends StatelessWidget {
   final double top;
   final double bottom;
   GlobalKey _fabKey = GlobalKey();
-  final duration = const Duration(milliseconds: 300);
+  final duration = const Duration(milliseconds: 500);
 
 
   ContentCardWidget(
@@ -26,16 +28,9 @@ class ContentCardWidget extends StatelessWidget {
         assert(colorBackground != null),
         assert(colorTitle != null);
 
-  _onFabTap(BuildContext context) {
-
-    // Hide the FAB on transition start
-//    setState(() => _fabVisible = false);
-
-
-
-
+  _onCardTap(BuildContext context) {
     final RenderBox fabRenderBox = _fabKey.currentContext.findRenderObject();
-    final fabSize = fabRenderBox.size;
+    final fabSize = fabRenderBox.size ;
     final fabOffset = fabRenderBox.localToGlobal(Offset.zero);
 
     Navigator.of(context).push(PageRouteBuilder(
@@ -76,23 +71,26 @@ class ContentCardWidget extends StatelessWidget {
     );
     final easeAnimation = CurvedAnimation(
       parent: animation,
-      curve: Curves.easeOut,
+      curve: Curves.easeInExpo,
     );
 
     final radius = borderTween.evaluate(easeInAnimation);
     final offset = offsetTween.evaluate(animation);
+
     final size = sizeTween.evaluate(easeInAnimation);
 
     final transitionFab = Opacity(
       opacity: 1 - easeAnimation.value,
-      child: Container(),
+      child: Container(
+        color: colorBlue,
+      ),
     );
 
     Widget positionedClippedChild(Widget child) => Positioned(
-        width: size.width,
-        height: size.height,
-        left: offset.dx,
-        top: offset.dy,
+        width: size.width ,
+        height: size.height ,
+        left: offset.dx  ,
+        top: offset.dy ,
         child: ClipRRect(
           borderRadius: radius,
           child: child,
@@ -100,6 +98,7 @@ class ContentCardWidget extends StatelessWidget {
 
     return Stack(
       children: [
+
         positionedClippedChild(page),
         positionedClippedChild(transitionFab),
       ],
@@ -113,12 +112,7 @@ class ContentCardWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         if(navigateTo != null) {
-//          Navigator.push(
-//            context,
-//            FadeRoute(page: navigateTo),
-//          );
-          _onFabTap(context);
-
+          _onCardTap(context);
         }
         else {
           final snackBar = SnackBar(

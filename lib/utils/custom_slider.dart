@@ -46,12 +46,15 @@ class _BenchmarkSliderState extends State<BenchmarkSlider> {
       onPanEnd: (DragEndDetails details) {
         initial = 0.0;
       },
-      child: Center(
-        child: CustomSlider(
-          percentage: widget.initialPercentage,
-          percentageText: widget.percentageText,
-          positiveColor: postitiveColor,
-          negetiveColor: negetiveColor,
+      child: Tooltip(
+        message: "Slide to adjust value",
+        child: Center(
+          child: CustomSlider(
+            percentage: widget.initialPercentage,
+            percentageText: widget.percentageText,
+            positiveColor: postitiveColor,
+            negetiveColor: negetiveColor,
+          ),
         ),
       ),
     );
