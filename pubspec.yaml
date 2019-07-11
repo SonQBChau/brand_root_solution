@@ -80,6 +80,8 @@ flutter:
     - images/Assess.png
     - images/Performance.png
     - images/Roadmap.png
+    - images/earthTest--2.gif
+    - images/earthTest_webp.webp
 
 
   fonts:

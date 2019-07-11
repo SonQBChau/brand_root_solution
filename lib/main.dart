@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:sale_form_demo/screens/about_page.dart';
 import 'package:sale_form_demo/screens/result_page.dart';
 import 'package:sale_form_demo/screens/benchmark_result_page.dart';
@@ -16,7 +17,10 @@ import 'package:sale_form_demo/services/intro_form_provider.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 
 Future main() async {
-  runApp(MyApp());
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) {
+    runApp( MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {
