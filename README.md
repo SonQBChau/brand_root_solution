@@ -16,4 +16,4 @@ Product -> Archive -> Distribute app -> Next....
 
 Build release Android:
 
-flutter build appbundle --release
+flutter build apk --release
