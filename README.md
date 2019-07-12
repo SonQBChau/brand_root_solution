@@ -13,3 +13,7 @@ Check Display Name, Bundle ID, Version, Build
 Automatically manage signing
 
 Product -> Archive -> Distribute app -> Next....
+
+Build release Android:
+
+flutter build appbundle --release
