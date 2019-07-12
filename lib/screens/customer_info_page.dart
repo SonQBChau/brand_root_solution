@@ -75,7 +75,7 @@ class _CustomerInfoPageState extends State<CustomerInfoPage> {
 
       _onLoading();//<-- show loading indicator
       //<-- add some delay to mimic calculation
-      Future.delayed(const Duration(milliseconds: 2000), () {
+      Future.delayed(const Duration(milliseconds: 1000), () {
         Navigator.pop(context); //<-- pop dialog indicator
         Navigator.pushReplacement(
           context,
