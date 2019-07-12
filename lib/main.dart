@@ -15,6 +15,7 @@ import 'package:sale_form_demo/screens/review_page.dart';
 import 'package:sale_form_demo/screens/strategies_page.dart';
 import 'package:sale_form_demo/services/intro_form_provider.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
+import 'package:sale_form_demo/utils/size_config.dart';
 
 Future main() async {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
@@ -25,6 +26,7 @@ Future main() async {
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -36,7 +38,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes:{
-        '/':(context) => MyHomePage(),
+        '/':(context) => StrategiesPage(),
         '/customer':(context) => CustomerInfoPage(),
         '/menu':(context) => MenuPage(),
         '/mi':(context) => MiStrategyPage(),
