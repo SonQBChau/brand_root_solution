@@ -28,11 +28,10 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
   }
 
   _getPositions() {//<-- need to find position of container to figure max height for bottom sheet
-    final RenderBox renderBoxRed = _keyContainer.currentContext.findRenderObject();
-    final positionRed = renderBoxRed.localToGlobal(Offset.zero);
-    print("POSITION of Red: $positionRed ");
+    final RenderBox renderBoxKeyContainer = _keyContainer.currentContext.findRenderObject();
+    final positionKeyContainer = renderBoxKeyContainer.localToGlobal(Offset.zero);
     setState(() {
-      maxBottomSheetHeight = positionRed.dy;
+      maxBottomSheetHeight = positionKeyContainer.dy;
     });
   }
 
@@ -91,7 +90,7 @@ class _MiStrategyPageState extends State<MiStrategyPage> {
                   height: 10,
                 ),
                 FlowChartWidget(),
-                SizedBox(height: 90), // minHeight of MIStrategyBottomSheet + 10
+                SizedBox(height: 110), // minHeight of MIStrategyBottomSheet + 10
               ],
             ),
             MIStrategyBottomSheet(maxBottomSheetHeight: maxBottomSheetHeight),

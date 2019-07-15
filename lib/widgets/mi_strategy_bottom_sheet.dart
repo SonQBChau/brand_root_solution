@@ -10,7 +10,7 @@ import 'package:sale_form_demo/widgets/bottom_sheet_list.dart';
 // bottom sheet
 // https://marcinszalek.pl/flutter/tickets-advanced-transitions/
 
-const double minHeight = 80;
+const double minHeight = 100;
 
 class MIStrategyBottomSheet extends StatefulWidget {
   final double maxBottomSheetHeight;
@@ -71,9 +71,10 @@ class _MIStrategyBottomSheetState extends State<MIStrategyBottomSheet> with Sing
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
+//    SizeConfig().init(context);
 
     maxHeight = SizeConfig.screenHeight - widget.maxBottomSheetHeight;
+//    print(widget.maxBottomSheetHeight);
 
     return AnimatedBuilder(
       //<--add animated builder
