@@ -24,6 +24,7 @@ class _PositionWidgetState extends State<PositionWidget> {
   Widget build(BuildContext context) {
     var titleColor = title == 'Position'? colorGrey20 : colorGreen;
     return Column(
+      key: Key('position'),
       children: <Widget>[
         Container(
           padding: EdgeInsets.only(left: 30, right: 30, top: 0, bottom: 0),

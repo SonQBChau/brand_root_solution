@@ -24,6 +24,7 @@ class _IndustryWidgetState extends State<IndustryWidget> {
   Widget build(BuildContext context) {
     var titleColor = title == 'Industry'? colorGrey20 : colorGreen;
     return Column(
+      key: Key('industry'),
       children: <Widget>[
         Container(
           padding: EdgeInsets.only(left: 30, right: 30, top: 0, bottom: 0),

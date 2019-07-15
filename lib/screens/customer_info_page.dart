@@ -108,7 +108,7 @@ class _CustomerInfoPageState extends State<CustomerInfoPage> {
 
   /// function to build list of input fields inside Form
   List<Widget> _buildFormWidgets(GlobalKey _formKey) {
-    List<Widget> formWidget = new List();
+    List<Widget> formWidget =  List();
 
     formWidget.add(ClientHeaderWidget());
     formWidget.add(TextWidgetInfoPage(
@@ -134,12 +134,13 @@ class _CustomerInfoPageState extends State<CustomerInfoPage> {
 
     formWidget.add(RepresentativeHeadderWidget());
     formWidget.add(TextWidgetInfoPage(
+      key: Key('user'),
       hintTxt: 'User',
-      onValidate: (value) => validateEmpty(value, 'Please enter your name'),
+      onValidate: (value) => validateEmpty(value, 'Please enter your user'),
       onSubmit: (value) => globals.representativeUser = value,
     ));
     formWidget.add(SizedBox(height: 10));
-    formWidget.add(LaunchButtonWidget(onSubmit: validateForm));
+    formWidget.add(LaunchButtonWidget(   key: Key('launch'),onSubmit: validateForm));
     formWidget.add(SizedBox(height: 30));
 
     return formWidget;

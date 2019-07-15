@@ -6,14 +6,14 @@ import 'package:sale_form_demo/utils/app_color.dart';
 /// Custom button with bouncing animation
 class LaunchButtonWidget extends StatefulWidget {
   final Function onSubmit;
-  LaunchButtonWidget({this.onSubmit});
+  final Key key;
+  LaunchButtonWidget({this.onSubmit, this.key});
 
   @override
   _LaunchButtonWidgetState createState() => _LaunchButtonWidgetState();
 }
 
-class _LaunchButtonWidgetState extends State<LaunchButtonWidget>
-    with SingleTickerProviderStateMixin {
+class _LaunchButtonWidgetState extends State<LaunchButtonWidget> with SingleTickerProviderStateMixin {
   double _scale;
   AnimationController _controller;
 
@@ -26,8 +26,8 @@ class _LaunchButtonWidgetState extends State<LaunchButtonWidget>
       lowerBound: 0.0,
       upperBound: 0.1,
     )..addListener(() {
-      setState(() {});
-    });
+        setState(() {});
+      });
   }
 
   @override
@@ -36,7 +36,6 @@ class _LaunchButtonWidgetState extends State<LaunchButtonWidget>
     super.dispose();
   }
 
-
   Future handleOnPress() async {
     _controller.forward();
     await Future.delayed(Duration(milliseconds: 200));
@@ -44,19 +43,16 @@ class _LaunchButtonWidgetState extends State<LaunchButtonWidget>
     await Future.delayed(Duration(milliseconds: 500));
     // call customer info page validateForm function
     widget.onSubmit();
-
   }
 
   @override
   Widget build(BuildContext context) {
-
     _scale = 1 - _controller.value;
 
     return GestureDetector(
-    onTap: (){
-      handleOnPress();
-    },
-
+      onTap: () {
+        handleOnPress();
+      },
       child: Transform.scale(
         scale: _scale,
         child: _animatedButtonUI,
@@ -65,27 +61,27 @@ class _LaunchButtonWidgetState extends State<LaunchButtonWidget>
   }
 
   Widget get _animatedButtonUI => Container(
-    margin: EdgeInsets.symmetric(horizontal: 100),
-    padding: EdgeInsets.symmetric(vertical: 15),
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(100),
-      boxShadow: [
-        BoxShadow(
-          color: Color(0x80000000),
-          blurRadius: 3.0,
-          offset: Offset(0.0, 3.0),
+        margin: EdgeInsets.symmetric(horizontal: 100),
+        padding: EdgeInsets.symmetric(vertical: 15),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(100),
+          boxShadow: [
+            BoxShadow(
+              color: Color(0x80000000),
+              blurRadius: 3.0,
+              offset: Offset(0.0, 3.0),
+            ),
+          ],
+          color: colorBlue,
         ),
-      ],
-      color: colorBlue,
-    ),
-    child: Center(
-      child: Text(
-        'LAUNCH',
-        style: TextStyle(
-          fontSize: 18,
-          color: Colors.white,
+        child: Center(
+          child: Text(
+            'LAUNCH',
+            style: TextStyle(
+              fontSize: 18,
+              color: Colors.white,
+            ),
+          ),
         ),
-      ),
-    ),
-  );
+      );
 }

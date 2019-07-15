@@ -9,8 +9,10 @@ class TextWidgetInfoPage extends StatelessWidget {
   final TextInputType textInputType;
   final Function onValidate;
   final Function onSubmit;
+  final Key key;
 
   TextWidgetInfoPage({
+    this.key,
     @required  this.hintTxt,
     this.textCapitalization = TextCapitalization.words,
     this.textInputType = TextInputType.text,
