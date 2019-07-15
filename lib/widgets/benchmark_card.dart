@@ -35,6 +35,7 @@ class BenchmarkCardSlider extends StatelessWidget {
                   fontWeight: FontWeight.w700,
                 ),
               ),
+              SizedBox(height: 10,),
               Text(
                 content,
                 style: TextStyle(
@@ -91,6 +92,7 @@ class BenchmarkCardExpand extends StatelessWidget {
                   fontWeight: FontWeight.w700,
                 ),
               ),
+              SizedBox(height: 10,),
               Text(
                 content,
                 style: TextStyle(

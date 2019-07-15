@@ -79,7 +79,7 @@ class CustomSlider extends StatelessWidget {
 
 
     return ClipRRect(
-      borderRadius: BorderRadius.circular(20.0),
+      borderRadius: BorderRadius.circular(25.0),
       child: Stack(
         children: <Widget>[
           Container(
