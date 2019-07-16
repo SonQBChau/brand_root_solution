@@ -27,10 +27,11 @@ dependencies:
   charts_flutter: 0.6.0
   animator: 0.1.4
   path_provider: ^1.1.0
-  esys_flutter_share: 1.0.2
-  screenshot: 0.1.1
-  photo_view: 0.4.0
-  flutter_spinkit: ^3.1.0
+  esys_flutter_share: 1.0.2 # use for sharing
+  screenshot: 0.1.1 # use to take screenshot
+  photo_view: 0.4.0 # use for photo zoom
+  flutter_spinkit: ^3.1.0 # use for loading animation
+  flutter_xlider: ^2.4.5 # user for slider
 
 
 dev_dependencies:

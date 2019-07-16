@@ -59,6 +59,7 @@ class _ReviewTabContainerWidgetState extends State<ReviewTabContainerWidget> wit
                   Tab(
                       child: Text(
                     'EVALUATE',
+                    textScaleFactor: 1.0,
                     style: TextStyle(
                       color: colorBlue,
                       fontSize: 14,
@@ -67,6 +68,7 @@ class _ReviewTabContainerWidgetState extends State<ReviewTabContainerWidget> wit
                   Tab(
                       child: Text(
                     'STRATEGIES',
+                    textScaleFactor: 1.0,
                     style: TextStyle(
                       color: colorBlue,
                       fontSize: 14,
@@ -75,6 +77,7 @@ class _ReviewTabContainerWidgetState extends State<ReviewTabContainerWidget> wit
                   Tab(
                       child: Text(
                     'SUSTAIN',
+                    textScaleFactor: 1.0,
                     style: TextStyle(
                       color: colorBlue,
                       fontSize: 14,
@@ -83,6 +86,7 @@ class _ReviewTabContainerWidgetState extends State<ReviewTabContainerWidget> wit
                   Tab(
                       child: Text(
                     'LIFE-CYCLE',
+                    textScaleFactor: 1.0,
                     style: TextStyle(
                       color: colorBlue,
                       fontSize: 14,
@@ -109,9 +113,6 @@ class _ReviewTabContainerWidgetState extends State<ReviewTabContainerWidget> wit
                 ],
               ),
             ),
-
-
-
           ],
         ),
       ),
