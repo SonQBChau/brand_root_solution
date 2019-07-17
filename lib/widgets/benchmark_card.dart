@@ -5,6 +5,7 @@ import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/utils/custom_slider.dart';
 import 'package:sale_form_demo/widgets/benchmark_expand_widget.dart';
 
+
 class BenchmarkCardSlider extends StatelessWidget {
   final String title;
   final String content;
@@ -53,6 +54,9 @@ class BenchmarkCardSlider extends StatelessWidget {
                 onSlide:  onSubmit,
                 benchmarkRange: benchmarkRange,
               ),
+
+              IndicatorSlider(),
+
             ],
           ),
         ),

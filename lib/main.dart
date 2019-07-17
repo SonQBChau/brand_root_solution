@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes:{
-        '/':(context) => BenchmarkPage(),
+        '/':(context) => MyHomePage(),
         '/customer':(context) => CustomerInfoPage(),
         '/menu':(context) => MenuPage(),
         '/mi':(context) => MiStrategyPage(),

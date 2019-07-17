@@ -31,7 +31,7 @@ dependencies:
   screenshot: 0.1.1 # use to take screenshot
   photo_view: 0.4.0 # use for photo zoom
   flutter_spinkit: ^3.1.0 # use for loading animation
-  flutter_xlider: ^2.4.5 # user for slider
+  lottie_flutter: ^0.2.0
 
 
 dev_dependencies:
@@ -83,6 +83,8 @@ flutter:
     - images/Roadmap.png
     - images/earth.gif
     - images/shadow.png
+    - animation/graph.json
+    - animation/
 
 
   fonts:

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
+import 'package:sale_form_demo/widgets/flutter_slider.dart';
 
 // https://medium.com/@rjstech/building-a-custom-slider-in-flutter-with-gesturedetector-fcdd76224acd
 
@@ -49,7 +50,7 @@ class _BenchmarkSliderState extends State<BenchmarkSlider> {
       child: Tooltip(
         message: "Slide to adjust value",
         child: Center(
-          child: CustomSlider(
+          child: TextSlider(
             percentage: widget.initialPercentage,
             percentageText: widget.percentageText,
             positiveColor: postitiveColor,
@@ -61,14 +62,14 @@ class _BenchmarkSliderState extends State<BenchmarkSlider> {
   }
 }
 
-class CustomSlider extends StatelessWidget {
+class TextSlider extends StatelessWidget {
 
   double percentage;
   String percentageText;
   Color positiveColor = colorGreen;
   Color negetiveColor = colorGrey20;
 
-  CustomSlider({this.percentage, this.positiveColor, this.negetiveColor, this.percentageText});
+  TextSlider({this.percentage, this.positiveColor, this.negetiveColor, this.percentageText});
 
   @override
   Widget build(BuildContext context) {
@@ -109,5 +110,53 @@ class CustomSlider extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+
+class IndicatorSlider extends StatefulWidget {
+  @override
+  _IndicatorSliderState createState() => _IndicatorSliderState();
+}
+
+class _IndicatorSliderState extends State<IndicatorSlider> {
+  double _lowerValue = 50;
+  double _upperValue = 180;
+
+  @override
+  Widget build(BuildContext context) {
+    return FlutterSlider(
+      values: [300],
+      max: 500,
+      min: 0,
+      onDragging: (handlerIndex, lowerValue, upperValue) {
+        _lowerValue = lowerValue;
+        _upperValue = upperValue;
+        setState(() {});
+      },
+      tooltip: FlutterSliderTooltip(
+          alwaysShowTooltip: true,
+          textStyle: TextStyle(fontSize: 12, color: Colors.red),
+          boxStyle: FlutterSliderTooltipBox(
+              decoration: BoxDecoration(
+                  color: Colors.transparent,
+
+
+              )
+          )
+      ),
+      handler: FlutterSliderHandler(
+        decoration: BoxDecoration(),
+        child: Material(
+          type: MaterialType.canvas,
+          color: Colors.white,
+//          elevation: 3,
+          child: Container(
+//              padding: EdgeInsets.all(5),
+              child: Icon(Icons.album, size: 25, color: colorGreen,)),
+        ),
+      ),
+    )
+    ;
   }
 }
