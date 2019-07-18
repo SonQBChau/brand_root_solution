@@ -136,8 +136,8 @@ class _FixedValueSliderState extends State<FixedValueSlider> {
         alwaysShowTooltip: true,
           boxStyle: FlutterSliderTooltipBox(
               decoration: BoxDecoration(
-    color: colorGreen.withOpacity(0.8),
-    borderRadius: BorderRadius.circular(10),
+              color: colorGreen,
+              borderRadius: BorderRadius.circular(10),
               ),
           ),
 
