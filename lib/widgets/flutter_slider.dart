@@ -1198,29 +1198,19 @@ class _FlutterSliderState extends State<FlutterSlider>
         child: Center(
           child: Container(
             alignment: Alignment.center,
-            child: Stack(
-              children: <Widget>[
-                Icon(
-                  Icons.location_on,
-                  color: colorGreen,
-                  size: 60.0,
-                ),
-                Container(
-                    padding: EdgeInsets.all(8),
-                    decoration: _tooltipData.boxStyle.decoration,
-                    foregroundDecoration: _tooltipData.boxStyle.foregroundDecoration,
-                    transform: _tooltipData.boxStyle.transform,
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        prefix,
-                        Text(numberFormat, style: _tooltipData.textStyle),
-                        suffix,
-                      ],
-                    )),
-
-              ],
-            ),
+            child: Container(
+                padding: EdgeInsets.all(8),
+                decoration: _tooltipData.boxStyle.decoration,
+                foregroundDecoration: _tooltipData.boxStyle.foregroundDecoration,
+                transform: _tooltipData.boxStyle.transform,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    prefix,
+                    Text(numberFormat, style: _tooltipData.textStyle),
+                    suffix,
+                  ],
+                )),
           ),
         ));
 

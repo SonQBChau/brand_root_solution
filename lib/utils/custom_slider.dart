@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
-import 'package:sale_form_demo/widgets/flutter_slider.dart';
+//import 'package:sale_form_demo/widgets/flutter_slider.dart';
+import 'package:flutter_xlider/flutter_xlider.dart';
 
 // https://medium.com/@rjstech/building-a-custom-slider-in-flutter-with-gesturedetector-fcdd76224acd
 
@@ -12,8 +13,7 @@ class BenchmarkSlider extends StatefulWidget {
   double initialPercentage;
   BenchmarkSlider({this.initialValue, this.onSlide, this.benchmarkRange})
       : percentageText = initialValue,
-        initialPercentage = benchmarkRange.indexOf(initialValue) * 10.0
-  ;
+        initialPercentage = benchmarkRange.indexOf(initialValue) * 10.0;
 
   @override
   _BenchmarkSliderState createState() => _BenchmarkSliderState();
@@ -26,11 +26,8 @@ class _BenchmarkSliderState extends State<BenchmarkSlider> {
 
   double initial = 0.0;
 
-
-
   @override
   Widget build(BuildContext context) {
-
     return GestureDetector(
       onPanStart: (DragStartDetails details) {
         initial = details.globalPosition.dx;
@@ -40,8 +37,8 @@ class _BenchmarkSliderState extends State<BenchmarkSlider> {
         double percentageAddition = distance / 50;
         setState(() {
           widget.initialPercentage = (widget.initialPercentage + percentageAddition).clamp(0.0, 100.0);
-          widget.percentageText = widget.benchmarkRange[widget.initialPercentage~/10 ];
-          widget.onSlide(widget.percentageText );
+          widget.percentageText = widget.benchmarkRange[widget.initialPercentage ~/ 10];
+          widget.onSlide(widget.percentageText);
         });
       },
       onPanEnd: (DragEndDetails details) {
@@ -63,7 +60,6 @@ class _BenchmarkSliderState extends State<BenchmarkSlider> {
 }
 
 class TextSlider extends StatelessWidget {
-
   double percentage;
   String percentageText;
   Color positiveColor = colorGreen;
@@ -77,7 +73,6 @@ class TextSlider extends StatelessWidget {
 
 //    print('=====');
 //  print(percentageText);
-
 
     return ClipRRect(
       borderRadius: BorderRadius.circular(25.0),
@@ -99,12 +94,9 @@ class TextSlider extends StatelessWidget {
           ),
           Container(
             padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-            child: Text(percentageText,
-              style: TextStyle(
-                fontSize: 18,
-                color: colorGreen,
-                fontWeight: FontWeight.w500
-              ),
+            child: Text(
+              percentageText,
+              style: TextStyle(fontSize: 18, color: colorGreen, fontWeight: FontWeight.w500),
             ),
           )
         ],
@@ -113,50 +105,81 @@ class TextSlider extends StatelessWidget {
   }
 }
 
-
-class IndicatorSlider extends StatefulWidget {
+class FixedValueSlider extends StatefulWidget {
+  final List<FlutterSliderFixedValue> benchmarkSliderRange;
+  FixedValueSlider({this.benchmarkSliderRange});
   @override
-  _IndicatorSliderState createState() => _IndicatorSliderState();
+  _FixedValueSliderState createState() => _FixedValueSliderState();
 }
 
-class _IndicatorSliderState extends State<IndicatorSlider> {
-  double _lowerValue = 50;
-  double _upperValue = 180;
+class _FixedValueSliderState extends State<FixedValueSlider> {
+  dynamic _lowerValue = 10;
+  dynamic _upperValue = 100;
 
   @override
   Widget build(BuildContext context) {
     return FlutterSlider(
-      values: [300],
-      max: 500,
-      min: 0,
+      handlerWidth: 30,
+      handlerHeight: 35,
+
+//      jump: true,
+      values: [20],
+      fixedValues: widget.benchmarkSliderRange,
+
       onDragging: (handlerIndex, lowerValue, upperValue) {
         _lowerValue = lowerValue;
         _upperValue = upperValue;
         setState(() {});
       },
       tooltip: FlutterSliderTooltip(
-          alwaysShowTooltip: true,
-          textStyle: TextStyle(fontSize: 12, color: Colors.red),
+//          disabled: true,
+        alwaysShowTooltip: true,
           boxStyle: FlutterSliderTooltipBox(
               decoration: BoxDecoration(
-                  color: Colors.transparent,
-
-
+                border: null,
               )
-          )
+          ),
+        textStyle: TextStyle(color: colorGreen, fontWeight: FontWeight.w500, fontSize: 16)
+      ),
+//      handlerAnimation: FlutterSliderHandlerAnimation(scale: 1),
+      trackBar: FlutterSliderTrackBar(
+        activeTrackBarHeight: 10,
+        inactiveTrackBarHeight: 10,
+        inactiveTrackBar: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: Colors.black12,
+        ),
+        activeTrackBar: BoxDecoration(borderRadius: BorderRadius.circular(4), color: colorGreen),
       ),
       handler: FlutterSliderHandler(
         decoration: BoxDecoration(),
-        child: Material(
-          type: MaterialType.canvas,
-          color: Colors.white,
-//          elevation: 3,
-          child: Container(
-//              padding: EdgeInsets.all(5),
-              child: Icon(Icons.album, size: 25, color: colorGreen,)),
+        child: Stack(
+          children: <Widget>[
+            Align(
+              alignment: Alignment.center,
+              child: Container(
+                width: 25,
+                height: 25,
+                decoration: BoxDecoration(
+                  color: colorGreen,
+                  shape: BoxShape.circle,
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.center,
+              child: Container(
+                width: 8,
+                height: 8,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  shape: BoxShape.circle,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
-    )
-    ;
+    );
   }
 }

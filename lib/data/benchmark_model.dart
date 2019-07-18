@@ -1,6 +1,8 @@
 
 
 
+import 'package:flutter_xlider/flutter_xlider.dart';
+
 class Benchmark {
   String placeReplacementValue ;
   String scopeMaintenanceCost ;
@@ -101,5 +103,35 @@ class Benchmark {
     emergencyWork = value;
   }
 
+  List<FlutterSliderFixedValue> getSliderRange(){
+
+    List<FlutterSliderFixedValue> res = [];
+    for(int i = 0; i <= 100; i++){
+      FlutterSliderFixedValue tick;
+      if (i < 20){
+        tick = FlutterSliderFixedValue(percent: i, value: '\$100K');
+      }
+      else if (i < 40) {
+        tick = FlutterSliderFixedValue(percent: i, value: '\$500K');
+      }
+      else if (i < 60) {
+        tick = FlutterSliderFixedValue(percent: i, value: '\$1M');
+      }
+      else if (i < 80) {
+        tick = FlutterSliderFixedValue(percent: i, value: '\$500M');
+      }
+      else if (i < 100) {
+        tick = FlutterSliderFixedValue(percent: i, value: '\$10B');
+      }
+      else if (i == 100) {
+        tick = FlutterSliderFixedValue(percent: i, value: '\$100B');
+      }
+      res.add(tick);
+    }
+
+    return res;
+  }
+
 
 }
+

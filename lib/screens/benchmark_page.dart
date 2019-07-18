@@ -120,6 +120,7 @@ List<Widget> _buildFormWidgets() {
         'replacement value (ERV).',
     benchmarkValue: benchmark.getPlaceReplacementValue(),
     benchmarkRange: benchmark.getPlaceReplacementRange(),
+    benchmarkSliderRange: benchmark.getSliderRange(),
     onSubmit: (value) => benchmark.setPlaceReplacementValue(value),
   ));
 
@@ -136,6 +137,7 @@ List<Widget> _buildFormWidgets() {
     content: '',
     benchmarkValue: benchmark.getAnnualMaintenanceCost(),
     benchmarkRange: benchmark.getAnnualMaintenanceRange(),
+    benchmarkSliderRange: benchmark.getSliderRange(),
     onSubmit: (value) => benchmark.setAnnualMaintenanceCost(value),
   ));
 
@@ -169,6 +171,7 @@ List<Widget> _buildFormWidgets() {
     content: '',
     benchmarkValue: benchmark.getOperationAssetUtilization(),
     benchmarkRange: benchmark.getOperationAssetUtilizationRange(),
+    benchmarkSliderRange: benchmark.getSliderRange(),
     onSubmit: (value) => benchmark.setOperationAssetUtilization(value),
   ));
 
@@ -194,6 +197,7 @@ List<Widget> _buildFormWidgets() {
         content: '',
         benchmarkValue: benchmark.getEmergencyWork(),
         benchmarkRange: benchmark.getEmergencyWorkRange(),
+        benchmarkSliderRange: benchmark.getSliderRange(),
         onSubmit: (value) => benchmark.setEmergencyWork(value)),
   );
 
