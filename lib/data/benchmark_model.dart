@@ -3,6 +3,9 @@
 
 import 'package:flutter_xlider/flutter_xlider.dart';
 
+List<String> plantReplacementRange = ['\$100K','\$200K', '\$500K', '\$1M', '\$10M', '\$100M','\$200M', '\$500M', '\$1B', '\$10B', '\$100B'];
+
+
 class Benchmark {
   String placeReplacementValue ;
   String scopeMaintenanceCost ;
@@ -14,22 +17,22 @@ class Benchmark {
   String emergencyWork ;
 
   Benchmark({
-    this.placeReplacementValue = '\$100K',
-    this.scopeMaintenanceCost = 'Routine + Turnaround Maintenance Costs',
-    this.annualMaintenanceCost  = '\$100K',
-    this.availableUnitMeasure = 'Annual % Avalability',
-    this.scopeOfAvailability  = 'Operational Asset Utilization',
-    this.operationAssetUtilization  = '\$1M',
-    this.emergencyWorkOrder  = 'Emergency Work Orders % Total Work Orders',
-    this.emergencyWork = '0%',
+    this.placeReplacementValue,
+    this.scopeMaintenanceCost ,
+    this.annualMaintenanceCost ,
+    this.availableUnitMeasure ,
+    this.scopeOfAvailability ,
+    this.operationAssetUtilization ,
+    this.emergencyWorkOrder ,
+    this.emergencyWork,
   });
 
-  String getPlaceReplacementValue(){
+  String getPlantReplacementValue(){
     return placeReplacementValue;
   }
-  List<String> getPlaceReplacementRange(){
-    return ['\$0','\$100K','\$200K', '\$500K', '\$1M', '\$10M', '\$100M', '\$500M', '\$1B', '\$10B', '\$100B'];
-  }
+//  List<String> getPlantReplacementRange(){
+//    return ['\$100K','\$200K', '\$500K', '\$1M', '\$10M', '\$100M','\$200M', '\$500M', '\$1B', '\$10B', '\$100B'];
+//  }
   void setPlaceReplacementValue(String value){
     placeReplacementValue = value;
   }
@@ -103,27 +106,42 @@ class Benchmark {
     emergencyWork = value;
   }
 
-  List<FlutterSliderFixedValue> getSliderRange(){
+  List<FlutterSliderFixedValue> getPlantSliderRange(){
 
     List<FlutterSliderFixedValue> res = [];
     for(int i = 0; i <= 100; i++){
       FlutterSliderFixedValue tick;
-      if (i < 20){
+      if (i < 10){
         tick = FlutterSliderFixedValue(percent: i, value: '\$100K');
       }
-      else if (i < 40) {
+      else if (i < 20) {
+        tick = FlutterSliderFixedValue(percent: i, value: '\$200K');
+      }
+      else if (i < 30) {
         tick = FlutterSliderFixedValue(percent: i, value: '\$500K');
       }
-      else if (i < 60) {
+      else if (i < 40) {
         tick = FlutterSliderFixedValue(percent: i, value: '\$1M');
+      }
+      else if (i < 50) {
+        tick = FlutterSliderFixedValue(percent: i, value: '\$10M');
+      }
+      else if (i < 60) {
+        tick = FlutterSliderFixedValue(percent: i, value: '\$100M');
+      }
+      else if (i < 70) {
+        tick = FlutterSliderFixedValue(percent: i, value: '\$200M');
       }
       else if (i < 80) {
         tick = FlutterSliderFixedValue(percent: i, value: '\$500M');
       }
-      else if (i < 100) {
+      else if (i < 90) {
+        tick = FlutterSliderFixedValue(percent: i, value: '\$1B');
+      }
+      else if (i < 98) {
         tick = FlutterSliderFixedValue(percent: i, value: '\$10B');
       }
-      else if (i == 100) {
+      else if (i >= 98) {
         tick = FlutterSliderFixedValue(percent: i, value: '\$100B');
       }
       res.add(tick);

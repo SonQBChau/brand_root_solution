@@ -1,20 +1,17 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_xlider/flutter_xlider.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/utils/custom_slider.dart';
 import 'package:sale_form_demo/widgets/benchmark_expand_widget.dart';
 
-
 class BenchmarkCardSlider extends StatelessWidget {
   final String title;
   final String content;
-  final String benchmarkValue;
-  final List<String> benchmarkRange;
+  final int benchmarkValue;
   final List<FlutterSliderFixedValue> benchmarkSliderRange;
   final Function onSubmit;
-  BenchmarkCardSlider({this.title, this.content, this.benchmarkValue, this.onSubmit, this.benchmarkRange, this.benchmarkSliderRange});
+  BenchmarkCardSlider(
+      {this.title, this.content, this.benchmarkValue, this.onSubmit, this.benchmarkSliderRange});
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +35,9 @@ class BenchmarkCardSlider extends StatelessWidget {
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               Text(
                 content,
                 style: TextStyle(
@@ -50,18 +49,14 @@ class BenchmarkCardSlider extends StatelessWidget {
               SizedBox(
                 height: 15,
               ),
-              SizedBox(height: 10,),
-//              BenchmarkSlider(
-//                initialValue: benchmarkValue,
-//                onSlide:  onSubmit,
-//                benchmarkRange: benchmarkRange,
-//              ),
+              SizedBox(
+                height: 10,
+              ),
 
-              FixedValueSlider(benchmarkSliderRange: benchmarkSliderRange),
-
-//              SizedBox(
-//                height: 15,
-//              ),
+              FixedValueSlider(
+                  initialValue: benchmarkValue,
+                  onSlide: onSubmit,
+                  benchmarkSliderRange: benchmarkSliderRange),
 
             ],
           ),
@@ -70,7 +65,6 @@ class BenchmarkCardSlider extends StatelessWidget {
     );
   }
 }
-
 
 class BenchmarkCardExpand extends StatelessWidget {
   final String title;
@@ -102,7 +96,9 @@ class BenchmarkCardExpand extends StatelessWidget {
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               Text(
                 content,
                 style: TextStyle(
@@ -114,11 +110,13 @@ class BenchmarkCardExpand extends StatelessWidget {
               SizedBox(
                 height: 15,
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               BenchMarkExpandWidget(
                 initialValue: benchmarkValue,
                 benchmarkList: benchmarkList,
-                onSelect:  onSubmit,
+                onSelect: onSubmit,
               ),
             ],
           ),
