@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
-//import 'package:sale_form_demo/widgets/flutter_slider.dart';
 import 'package:flutter_xlider/flutter_xlider.dart';
 
+//slider for the whole bar
 // https://medium.com/@rjstech/building-a-custom-slider-in-flutter-with-gesturedetector-fcdd76224acd
 
 
