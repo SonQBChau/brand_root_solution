@@ -109,9 +109,8 @@ List<Widget> _buildFormWidgets() {
     title: 'Program Improvement\nDetailed Creation',
     content: 'Plant Replacement Value: The value of the plant'
         'facilities for which maintenance costs are'
-        'reported. Its includes capitalized additions,'
-        'leased assets, capitalized additions, leased'
-        'assets, capitalized engineering costs, and'
+        'reported. Its includes capitalized additions, '
+        'leased assets, capitalized engineering costs, and'
         'inflation to traditional construction costs. It does'
         'not include removed or demolished assets, land'
         'value, spare parts and capitalized interest. It is'
