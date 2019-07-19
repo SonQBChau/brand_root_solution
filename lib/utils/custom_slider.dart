@@ -17,7 +17,7 @@ class FixedValueSlider extends StatefulWidget {
 }
 
 class _FixedValueSliderState extends State<FixedValueSlider> {
-  dynamic _lowerValue = 10;
+  dynamic _lowerValue = 0;
   dynamic _upperValue = 100;
 
   @override

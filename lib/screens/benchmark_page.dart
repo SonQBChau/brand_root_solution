@@ -118,87 +118,84 @@ List<Widget> _buildFormWidgets() {
         'known as asset replacement value (ARV,'
         'replacement asset value (RAV), or estimated'
         'replacement value (ERV).',
-    benchmarkValue: benchmark.getPlantSliderRange()[20].percent,
     benchmarkSliderRange: benchmark.getPlantSliderRange(),
-    onSubmit: (value) => benchmark.setPlaceReplacementValue(value),
+    benchmarkValue: benchmark.getPlantSliderRange()[20].percent, // pick a random number from a list of 100
+    onSubmit: (value) => benchmark.setPlantReplacementValue(value),
   ));
 
-//  formWidget.add(BenchmarkCardExpand(
-//    title: 'Scope Of Maintenance Costs',
-//    content: '',
-//    benchmarkValue: benchmark.getScopeMaintenanceCost(),
-//    benchmarkList: benchmark.getScopeMaintenanceList(),
-//    onSubmit: (value) => benchmark.setScopeMaintenanceCost(value),
-//  ));
-//
-//  formWidget.add(BenchmarkCardSlider(
-//    title: 'Annual Maintenance Cost',
-//    content: '',
-//    benchmarkValue: benchmark.getAnnualMaintenanceCost(),
-//    benchmarkRange: benchmark.getAnnualMaintenanceRange(),
-//    benchmarkSliderRange: benchmark.getPlantSliderRange(),
-//    onSubmit: (value) => benchmark.setAnnualMaintenanceCost(value),
-//  ));
-//
-//  formWidget.add(BenchmarkCardExpand(
-//    title: 'Select The Availability Units Of Measure',
-//    content: '',
-//    benchmarkValue: benchmark.getAvailableUnitMeasure(),
-//    benchmarkList: benchmark.getAvailableUnitMeasureList(),
-//    onSubmit: (value) => benchmark.setAvailableUnitMeasure(value),
-//  ));
-//
-//  formWidget.add(BenchmarkCardExpand(
-//    title: 'Program Improvement Detailed Creation',
-//    content: 'Availability: The percentage of the time that an'
-//        'asset is available for operation under normal'
-//        'operating conditions. This includes the current'
-//        'year non-turnaround downtime, plus annualized'
-//        'turnaround down time.'
-//        'Mechanical availability only accounts for'
-//        'equipment related down time and Operational'
-//        'Assets Utilization includes all down time except'
-//        'for idle time (no demand).',
-//    benchmarkValue: benchmark.getScopeOfAvailability(),
-//    benchmarkList: benchmark.getScopeOfAvailabilityList(),
-//    onSubmit: (value) => benchmark.setScopeOfAvailability(value),
-//  ));
-//
-//
-//  formWidget.add(BenchmarkCardSlider(
-//    title: 'Annual % Availability For Operational Asset Utilization',
-//    content: '',
-//    benchmarkValue: benchmark.getOperationAssetUtilization(),
-//    benchmarkRange: benchmark.getOperationAssetUtilizationRange(),
-//    benchmarkSliderRange: benchmark.getPlantSliderRange(),
-//    onSubmit: (value) => benchmark.setOperationAssetUtilization(value),
-//  ));
-//
-//  formWidget.add(BenchmarkCardExpand(
-//    title: 'Emergency Work Orders',
-//    content: 'Availability: The percentage of the time that an'
-//        'asset is available for operation under normal'
-//        'operating conditions. This includes the current'
-//        'year non-turnaround downtime, plus annualized'
-//        'turnaround down time.'
-//        'Mechanical availability only accounts for'
-//        'equipment related down time and Operational'
-//        'Assets Utilization includes all down time except'
-//        'for idle time (no demand).',
-//    benchmarkValue: benchmark.getEmergencyWorkOrder(),
-//    benchmarkList: benchmark.getEmergencyWorkOrderList(),
-//    onSubmit: (value) => benchmark.setEmergencyWorkOrder(value),
-//  ));
-//
-//  formWidget.add(
-//    BenchmarkCardSlider(
-//        title: 'Emergency Work',
-//        content: '',
-//        benchmarkValue: benchmark.getEmergencyWork(),
-//        benchmarkRange: benchmark.getEmergencyWorkRange(),
-//        benchmarkSliderRange: benchmark.getPlantSliderRange(),
-//        onSubmit: (value) => benchmark.setEmergencyWork(value)),
-//  );
+  formWidget.add(BenchmarkCardExpand(
+    title: 'Scope Of Maintenance Costs',
+    content: '',
+    benchmarkList: benchmark.getScopeMaintenanceList(),
+    benchmarkValue: benchmark.getScopeMaintenanceList()[0],
+    onSubmit: (value) => benchmark.setScopeMaintenanceCost(value),
+  ));
+
+  formWidget.add(BenchmarkCardSlider(
+    title: 'Annual Maintenance Cost',
+    content: '',
+    benchmarkSliderRange: benchmark.getAnnualMaintenanceRange(),
+    benchmarkValue: benchmark.getAnnualMaintenanceRange()[50].percent, // pick a random number from a list of 100
+    onSubmit: (value) => benchmark.setAnnualMaintenanceCost(value),
+  ));
+
+  formWidget.add(BenchmarkCardExpand(
+    title: 'Select The Availability Units Of Measure',
+    content: '',
+    benchmarkList: benchmark.getAvailableUnitMeasureList(),
+    benchmarkValue: benchmark.getAvailableUnitMeasureList()[0],
+    onSubmit: (value) => benchmark.setAvailableUnitMeasure(value),
+  ));
+
+  formWidget.add(BenchmarkCardExpand(
+    title: 'Program Improvement Detailed Creation',
+    content: 'Availability: The percentage of the time that an'
+        'asset is available for operation under normal'
+        'operating conditions. This includes the current'
+        'year non-turnaround downtime, plus annualized'
+        'turnaround down time.'
+        'Mechanical availability only accounts for'
+        'equipment related down time and Operational'
+        'Assets Utilization includes all down time except'
+        'for idle time (no demand).',
+    benchmarkList: benchmark.getScopeOfAvailabilityList(),
+    benchmarkValue: benchmark.getScopeOfAvailabilityList()[0],
+    onSubmit: (value) => benchmark.setScopeOfAvailability(value),
+  ));
+
+
+  formWidget.add(BenchmarkCardSlider(
+    title: 'Annual % Availability For Operational Asset Utilization',
+    content: '',
+    benchmarkSliderRange: benchmark.getOperationAssetUtilizationRange(),
+    benchmarkValue: benchmark.getOperationAssetUtilizationRange()[30].percent,
+    onSubmit: (value) => benchmark.setOperationAssetUtilization(value),
+  ));
+
+  formWidget.add(BenchmarkCardExpand(
+    title: 'Emergency Work Orders',
+    content: 'Availability: The percentage of the time that an'
+        'asset is available for operation under normal'
+        'operating conditions. This includes the current'
+        'year non-turnaround downtime, plus annualized'
+        'turnaround down time.'
+        'Mechanical availability only accounts for'
+        'equipment related down time and Operational'
+        'Assets Utilization includes all down time except'
+        'for idle time (no demand).',
+    benchmarkList: benchmark.getEmergencyWorkOrderList(),
+    benchmarkValue: benchmark.getEmergencyWorkOrderList()[0],
+    onSubmit: (value) => benchmark.setEmergencyWorkOrder(value),
+  ));
+
+  formWidget.add(
+    BenchmarkCardSlider(
+        title: 'Emergency Work',
+        content: '',
+        benchmarkSliderRange: benchmark.getEmergencyWorkRange(),
+        benchmarkValue: benchmark.getEmergencyWorkRange()[60].percent,
+        onSubmit: (value) => benchmark.setEmergencyWork(value)),
+  );
 
   return formWidget;
 }
