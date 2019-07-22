@@ -12,7 +12,8 @@ Check Display Name, Bundle ID, Version, Build...correct
 
 Automatically manage signing
 
-Product -> Archive -> Distribute app -> Next....
+Product -> Archive -> Distribute app -> Ad Hoc -> Next....Export
+
 
 Build release Android:
 
