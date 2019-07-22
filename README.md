@@ -8,7 +8,7 @@ Open xcode
 
 Select Runner 
 
-Check Display Name, Bundle ID, Version, Build
+Check Display Name, Bundle ID, Version, Build...correct
 
 Automatically manage signing
 
