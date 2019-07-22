@@ -118,7 +118,7 @@ List<Widget> _buildFormWidgets() {
         'replacement asset value (RAV), or estimated'
         'replacement value (ERV).',
     benchmarkSliderRange: benchmark.getPlantSliderRange(),
-    benchmarkValue: benchmark.getPlantSliderRange()[20].percent, // pick a random number from a list of 100
+    benchmarkValue: benchmark.convertPlantValueToDouble(benchmark.getPlantReplacementValue()),
     onSubmit: (value) => benchmark.setPlantReplacementValue(value),
   ));
 
@@ -126,7 +126,7 @@ List<Widget> _buildFormWidgets() {
     title: 'Scope Of Maintenance Costs',
     content: '',
     benchmarkList: benchmark.getScopeMaintenanceList(),
-    benchmarkValue: benchmark.getScopeMaintenanceList()[0],
+    benchmarkValue: benchmark.getScopeMaintenanceCost(),
     onSubmit: (value) => benchmark.setScopeMaintenanceCost(value),
   ));
 
@@ -134,7 +134,7 @@ List<Widget> _buildFormWidgets() {
     title: 'Annual Maintenance Cost',
     content: '',
     benchmarkSliderRange: benchmark.getAnnualMaintenanceRange(),
-    benchmarkValue: benchmark.getAnnualMaintenanceRange()[50].percent, // pick a random number from a list of 100
+    benchmarkValue: benchmark.convertMaintenanceValueToDouble(benchmark.getAnnualMaintenanceCost()),
     onSubmit: (value) => benchmark.setAnnualMaintenanceCost(value),
   ));
 
@@ -142,7 +142,7 @@ List<Widget> _buildFormWidgets() {
     title: 'Select The Availability Units Of Measure',
     content: '',
     benchmarkList: benchmark.getAvailableUnitMeasureList(),
-    benchmarkValue: benchmark.getAvailableUnitMeasureList()[0],
+    benchmarkValue: benchmark.getAvailableUnitMeasure(),
     onSubmit: (value) => benchmark.setAvailableUnitMeasure(value),
   ));
 
@@ -158,7 +158,7 @@ List<Widget> _buildFormWidgets() {
         'Assets Utilization includes all down time except'
         'for idle time (no demand).',
     benchmarkList: benchmark.getScopeOfAvailabilityList(),
-    benchmarkValue: benchmark.getScopeOfAvailabilityList()[0],
+    benchmarkValue: benchmark.getScopeOfAvailability(),
     onSubmit: (value) => benchmark.setScopeOfAvailability(value),
   ));
 
@@ -167,7 +167,7 @@ List<Widget> _buildFormWidgets() {
     title: 'Annual % Availability For Operational Asset Utilization',
     content: '',
     benchmarkSliderRange: benchmark.getOperationAssetUtilizationRange(),
-    benchmarkValue: benchmark.getOperationAssetUtilizationRange()[30].percent,
+    benchmarkValue: benchmark.convertUtilizationValueToDouble(benchmark.getOperationAssetUtilization()),
     onSubmit: (value) => benchmark.setOperationAssetUtilization(value),
   ));
 
@@ -183,7 +183,7 @@ List<Widget> _buildFormWidgets() {
         'Assets Utilization includes all down time except'
         'for idle time (no demand).',
     benchmarkList: benchmark.getEmergencyWorkOrderList(),
-    benchmarkValue: benchmark.getEmergencyWorkOrderList()[0],
+    benchmarkValue: benchmark.getEmergencyWorkOrder(),
     onSubmit: (value) => benchmark.setEmergencyWorkOrder(value),
   ));
 
@@ -192,7 +192,7 @@ List<Widget> _buildFormWidgets() {
         title: 'Emergency Work',
         content: '',
         benchmarkSliderRange: benchmark.getEmergencyWorkRange(),
-        benchmarkValue: benchmark.getEmergencyWorkRange()[60].percent,
+        benchmarkValue: benchmark.convertEmergencyValueToDouble(benchmark.getEmergencyWork()),
         onSubmit: (value) => benchmark.setEmergencyWork(value)),
   );
 

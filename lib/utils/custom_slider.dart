@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:flutter_xlider/flutter_xlider.dart';
+import 'package:sale_form_demo/data/globals.dart' as globals;
 
 //slider for the whole bar
 // https://medium.com/@rjstech/building-a-custom-slider-in-flutter-with-gesturedetector-fcdd76224acd
@@ -8,7 +9,7 @@ import 'package:flutter_xlider/flutter_xlider.dart';
 
 class FixedValueSlider extends StatefulWidget {
   final List<FlutterSliderFixedValue> benchmarkSliderRange;
-  final int initialValue;
+  final double initialValue;
   final Function onSlide;
   FixedValueSlider({this.benchmarkSliderRange, this.initialValue, this.onSlide});
 
@@ -17,22 +18,18 @@ class FixedValueSlider extends StatefulWidget {
 }
 
 class _FixedValueSliderState extends State<FixedValueSlider> {
-  dynamic _lowerValue = 0;
-  dynamic _upperValue = 100;
 
   @override
   Widget build(BuildContext context) {
     return FlutterSlider(
       handlerWidth: 30,
       handlerHeight: 35,
-      values: [widget.initialValue.toDouble()],
+      values: [widget.initialValue],
       fixedValues: widget.benchmarkSliderRange,
 
       onDragging: (handlerIndex, lowerValue, upperValue) {
-        _lowerValue = lowerValue;
-        _upperValue = upperValue;
         setState(() {
-          widget.onSlide(_lowerValue);
+          widget.onSlide(lowerValue);
         });
       },
       tooltip: FlutterSliderTooltip(

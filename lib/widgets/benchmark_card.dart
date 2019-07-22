@@ -7,7 +7,7 @@ import 'package:sale_form_demo/widgets/benchmark_expand_widget.dart';
 class BenchmarkCardSlider extends StatelessWidget {
   final String title;
   final String content;
-  final int benchmarkValue;
+  final double benchmarkValue;
   final List<FlutterSliderFixedValue> benchmarkSliderRange;
   final Function onSubmit;
   BenchmarkCardSlider(
