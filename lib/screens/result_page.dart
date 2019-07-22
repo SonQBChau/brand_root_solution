@@ -229,35 +229,35 @@ class Capturer extends StatelessWidget {
                       ),
                       ResultRow(
                         title: 'Plant Replacement Value',
-                        content: benchmark.placeReplacementValue,
+                        content: benchmark.getPlantReplacementValue(),
                       ),
                       ResultRow(
                         title: 'Scope of Maintenance Costs',
-                        content: benchmark.scopeOfAvailability,
+                        content: benchmark.getScopeMaintenanceCost(),
                       ),
                       ResultRow(
                         title: 'Annual maintenance Cost',
-                        content: benchmark.annualMaintenanceCost,
+                        content: benchmark.getAnnualMaintenanceCost(),
                       ),
                       ResultRow(
                         title: 'Available units of Measure',
-                        content: benchmark.availableUnitMeasure,
+                        content: benchmark.getAvailableUnitMeasure(),
                       ),
                       ResultRow(
                         title: 'Scope of Availability Value',
-                        content: benchmark.scopeOfAvailability,
+                        content: benchmark.getScopeOfAvailability(),
                       ),
                       ResultRow(
                         title: 'Annual % Availability for Operational Asset Utilization',
-                        content: benchmark.operationAssetUtilization,
+                        content: benchmark.getOperationAssetUtilization(),
                       ),
                       ResultRow(
                         title: 'Emergency Work Orders',
-                        content: benchmark.emergencyWorkOrder,
+                        content: benchmark.getEmergencyWorkOrder(),
                       ),
                       ResultRow(
                         title: 'Emergency Work',
-                        content: benchmark.emergencyWork,
+                        content: benchmark.getEmergencyWork(),
                       ),
                       Text(
                         'Maintenance/Plant Replacement Value | 5%',
