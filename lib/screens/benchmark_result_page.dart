@@ -71,45 +71,45 @@ class BenchmarkResultPage extends StatelessWidget {
 
 
 
-//                  Row(
-//                    children: <Widget>[
-//                      Expanded(
-//                        child: RaisedButton(//<-- Button Benchmark
-//                          onPressed: () async {
-//
-//                            var renderObject = globalKey.currentContext.findRenderObject();
-//
-//                            RenderRepaintBoundary boundary = renderObject;
-//                            ui.Image captureImage = await boundary.toImage();
-//
-//                            ByteData byteData =
-//                            await captureImage.toByteData(format: ui.ImageByteFormat.png);
-//                            var pngBytes = byteData.buffer.asUint8List();
-//                            await Share.file('PinnacleArt', 'pinnacleArt.png', pngBytes, 'image/png', text: 'This is your result from PinnacleArt');
-//
-//
-//
-//
-//
-//                          },
-//                          shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(30.0)),
-//                          color: colorGreen,
-//                          padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
-//                          child: Text(
-//                            'EMAIL PDF',
-//                            style: TextStyle(
-//                              color: Colors.white,
-//                              fontSize: 18,
-//                            ),
-//                          ),
-//                        ),
-//                      ),
-//                    ],
-//                  ),
+                  Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: RaisedButton(//<-- Button Benchmark
+                          onPressed: () async {
+
+                            var renderObject = globalKey.currentContext.findRenderObject();
+
+                            RenderRepaintBoundary boundary = renderObject;
+                            ui.Image captureImage = await boundary.toImage();
+
+                            ByteData byteData =
+                            await captureImage.toByteData(format: ui.ImageByteFormat.png);
+                            var pngBytes = byteData.buffer.asUint8List();
+                            await Share.file('PinnacleArt', 'pinnacleArt.png', pngBytes, 'image/png', text: 'This is your result from PinnacleArt');
+
+
+
+
+
+                          },
+                          shape:  RoundedRectangleBorder(borderRadius:  BorderRadius.circular(30.0)),
+                          color: colorGreen,
+                          padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+                          child: Text(
+                            'EMAIL PDF',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
-//            SizedBox(height: 10,),
+            SizedBox(height: 10,),
 
 
 
@@ -159,88 +159,93 @@ class Capturer extends StatelessWidget {
             ),
           ),
         ),
-        Container( //<-- Benchmark result
-          padding: EdgeInsets.only(left: 20, right: 20, bottom: 30),
-          child: Card(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
-            ),
-            elevation: 5,
-            child: Container(
-              padding: EdgeInsets.only(top: 20, bottom: 20, left: 30, right: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Text(
-                    'BENCHMARK RESULTS',
-                    style: TextStyle(
-                      color: colorBlue,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 12,
-                    ),
-                  ),
-                  ResultRow(
-                    title: 'Plant Replacement Value',
-                    content: benchmark.placeReplacementValue,
-                  ),
-                  ResultRow(
-                    title: 'Scope of Maintenance Costs',
-                    content: benchmark.scopeOfAvailability,
-                  ),
-                  ResultRow(
-                    title: 'Annual maintenance Cost',
-                    content: benchmark.annualMaintenanceCost,
-                  ),
-                  ResultRow(
-                    title: 'Available units of Measure',
-                    content: benchmark.availableUnitMeasure,
-                  ),
-                  ResultRow(
-                    title: 'Scope of Availability Value',
-                    content: benchmark.scopeOfAvailability,
-                  ),
-                  ResultRow(
-                    title: 'Annual % Availability for Operational Asset Utilization',
-                    content: benchmark.operationAssetUtilization,
-                  ),
-                  ResultRow(
-                    title: 'Emergency Work Orders',
-                    content: benchmark.emergencyWorkOrder,
-                  ),
-                  ResultRow(
-                    title: 'Emergency Work',
-                    content: benchmark.emergencyWork,
-                  ),
-                  Text(
-                    'Maintenance/Plant Replacement Value | 5%',
-                    style: TextStyle(
-                      color: colorBlue,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 12,
-                    ),
-                  ),
-                  Text(
-                    'Availability | 96%',
-                    style: TextStyle(
-                      color: colorBlue,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 12,
-                    ),
-                  ),
-                  Text(
-                    'Reactivity Level | Low',
-                    style: TextStyle(
-                      color: colorBlue,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 12,
-                    ),
-                  ),
-                  SizedBox(height: 10,),
+        OverRepaintBoundary(
+          key: overRepaintKey,
+          child: RepaintBoundary(
+            child: Container( //<-- Benchmark result
+              padding: EdgeInsets.only(left: 20, right: 20, bottom: 30),
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
+                elevation: 5,
+                child: Container(
+                  padding: EdgeInsets.only(top: 20, bottom: 20, left: 30, right: 20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Text(
+                        'BENCHMARK RESULTS',
+                        style: TextStyle(
+                          color: colorBlue,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 12,
+                        ),
+                      ),
+                      ResultRow(
+                        title: 'Plant Replacement Value',
+                        content: benchmark.getPlantReplacementValue(),
+                      ),
+                      ResultRow(
+                        title: 'Scope of Maintenance Costs',
+                        content: benchmark.getScopeMaintenanceCost(),
+                      ),
+                      ResultRow(
+                        title: 'Annual maintenance Cost',
+                        content: benchmark.getAnnualMaintenanceCost(),
+                      ),
+                      ResultRow(
+                        title: 'Available units of Measure',
+                        content: benchmark.getAvailableUnitMeasure(),
+                      ),
+                      ResultRow(
+                        title: 'Scope of Availability Value',
+                        content: benchmark.getScopeOfAvailability(),
+                      ),
+                      ResultRow(
+                        title: 'Annual % Availability for Operational Asset Utilization',
+                        content: benchmark.getOperationAssetUtilization(),
+                      ),
+                      ResultRow(
+                        title: 'Emergency Work Orders',
+                        content: benchmark.getEmergencyWorkOrder(),
+                      ),
+                      ResultRow(
+                        title: 'Emergency Work',
+                        content: benchmark.getEmergencyWork(),
+                      ),
+                      Text(
+                        'Maintenance/Plant Replacement Value | 5%',
+                        style: TextStyle(
+                          color: colorBlue,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 12,
+                        ),
+                      ),
+                      Text(
+                        'Availability | 96%',
+                        style: TextStyle(
+                          color: colorBlue,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 12,
+                        ),
+                      ),
+                      Text(
+                        'Reactivity Level | Low',
+                        style: TextStyle(
+                          color: colorBlue,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 12,
+                        ),
+                      ),
+                      SizedBox(height: 10,),
 
-                ],
+                    ],
+                  ),
+                ),
               ),
             ),
           ),
@@ -251,51 +256,6 @@ class Capturer extends StatelessWidget {
     );
   }
 }
-
-//class ResultRow extends StatelessWidget {
-//  final String title;
-//  final String content;
-//  ResultRow({this.title, this.content});
-//  @override
-//  Widget build(BuildContext context) {
-//    return Container(
-//      padding: EdgeInsets.only(top: 20),
-//      child: Column(
-//        crossAxisAlignment: CrossAxisAlignment.start,
-//        children: <Widget>[
-//          Text(
-//            title,
-//            style: TextStyle(
-//              color: colorBlue,
-//              fontWeight: FontWeight.w600,
-//              fontSize: 16,
-//            ),
-//          ),
-//          SizedBox(height: 5),
-//          Text(
-//            content,
-//            style: TextStyle(
-//              color: colorGreen,
-//              fontWeight: FontWeight.w600,
-//              fontSize: 16,
-//            ),
-//          ),
-//          SizedBox(height: 10),
-//          SizedBox(
-//            height: 10.0,
-//            child: Center(
-//              child: Container(
-//                margin: EdgeInsetsDirectional.only(start: 1.0, end: 1.0),
-//                height: 1.0,
-//                color: colorBlue,
-//              ),
-//            ),
-//          ),
-//        ],
-//      ),
-//    );
-//  }
-//}
 
 
 
