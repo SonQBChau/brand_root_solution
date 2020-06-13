@@ -375,7 +375,7 @@ class Capturer extends StatelessWidget {
                   Container(
                     padding: EdgeInsets.only(left: 5, top: 5),
                     child: Text(
-                      'solutionengineer@pinnacleart.com',
+                      'solutionengineer@brandroot.com',
                       style: TextStyle(color: colorBlue, fontSize: 14),
                     ),
                   ),
