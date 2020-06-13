@@ -12,13 +12,13 @@ class CompanyName extends StatelessWidget {
       child: Row(
         children: <Widget>[
           Text(
-            'PINNACLE',
+            'BRAND',
             textScaleFactor: 1.0,
             style: TextStyle(color: colorBlue, fontSize: 32, fontWeight: FontWeight.w700),
           ),
           SizedBox(width: 2,),
           Text(
-            'ART',
+            'ROOT',
             textScaleFactor: 1.0,
             style: TextStyle(color: colorGreen, fontSize: 32, fontWeight: FontWeight.w700),
           ),

@@ -58,7 +58,7 @@ class AboutPage extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  'PinnacleART’s vision is to make the world reliable. We do this by'
+                  'BrandROOT’s vision is to make the world reliable. We do this by'
                   'designing, implementing, and maintaining comprehensive asset'
                   'reliability and integrity programs for process facilities in the oil and'
                   'gas, chemical, mining, pharmaceutical, wastewater, and electric'

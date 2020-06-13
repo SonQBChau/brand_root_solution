@@ -96,8 +96,8 @@ class ResultPage extends StatelessWidget {
 
                         ByteData byteData = await captureImage.toByteData(format: ui.ImageByteFormat.png);
                         var pngBytes = byteData.buffer.asUint8List();
-                        await Share.file('PinnacleArt', 'pinnacleArt.png', pngBytes, 'image/png',
-                            text: 'This is your result from PinnacleArt');
+                        await Share.file('BrandROOT', 'pinnacleArt.png', pngBytes, 'image/png',
+                            text: 'This is your result from BrandROOT');
                       },
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
                       color: colorGreen,
@@ -308,7 +308,7 @@ class Capturer extends StatelessWidget {
                         child: Row(
                           children: <Widget>[
                             Text(
-                              'PinnacleART ',
+                              'BrandROOT ',
                               style: TextStyle(color: colorBlue, fontWeight: FontWeight.w700, fontSize: 18),
                             ),
                             Text(

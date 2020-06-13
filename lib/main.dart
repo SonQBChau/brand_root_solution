@@ -18,10 +18,11 @@ import 'package:sale_form_demo/utils/app_color.dart';
 import 'package:sale_form_demo/utils/size_config.dart';
 
 Future main() async {
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
-      .then((_) {
-    runApp( MyApp());
-  });
+  // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+  //     .then((_) {
+  //   runApp( MyApp());
+  // });
+  runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'PinnacleArt',
+      title: 'BrandROOT',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,

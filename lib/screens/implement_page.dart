@@ -54,11 +54,11 @@ class ImplementPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20,),
-            Text('PinnacleART’s Integrity Operating Windows (IOWs) solution provides valuable operating guidance to your'
+            Text('BrandROOT’s Integrity Operating Windows (IOWs) solution provides valuable operating guidance to your'
                 ' facility. By Identifying potential damage mechanisms and identifying critical integrity process '
-                'variables across a unit. PinnacleART determines acceptable upper and lower operating thresholds.'
+                'variables across a unit. BrandROOT determines acceptable upper and lower operating thresholds.'
                 ' These operating parameters are prioritized by critically level (information, standard or critical). '
-                'Pinnacle ART provides action recommendations with associated response times, ensuring that proper '
+                'BrandROOT provides action recommendations with associated response times, ensuring that proper '
                 'communication channels exist should those IOWs be',
             style: TextStyle(color: colorBlue, fontWeight: FontWeight.w600),
             ),
