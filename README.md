@@ -1,4 +1,4 @@
-#### Generic Sale Form Tool App features:
+#### Brand Root Solution features:
 
 * Routing
 * Transition animations
